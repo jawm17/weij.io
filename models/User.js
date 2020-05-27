@@ -11,7 +11,31 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    todos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }]
+    address: {
+        type: String,
+        required: true
+    },
+    key: {
+        type: String,
+        required: true
+    },
+    profileImgSrc: {
+        type: String,
+        default: "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"
+    },
+    color: {
+        type: String,
+        required: false
+    },
+    balance: {
+        type: Number,
+        default: 0
+    },
+    subscriptionFee: {
+        type: Number,
+        default: 0
+    },
+    posts : [{type : mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 
 UserSchema.pre("save", function (next) {

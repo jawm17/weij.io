@@ -5,7 +5,9 @@ const passport = require('passport');
 const passportConfig = require('../passport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/User');
-const Todo = require('../models/Todo');
+const Post = require('../models/Post');
+var Web3 = require('web3');
+var web3 = new Web3(Web3.givenProvider);
 
 
 const signToken = userID => {
@@ -15,18 +17,25 @@ const signToken = userID => {
     }, "crackPotHippie", { expiresIn: "1h" });
 }
 
+// All routes in this file are prefixed with /user/ --------------------------------------------------------------------
+
+// register new user
 userRouter.post('/register', (req, res) => {
-    const { username, password, role } = req.body;
+    const { username, password } = req.body;
+    const message = { msgBody: "Error has occured", msgError: true };
+
     User.findOne({ username }, (err, user) => {
         if (err)
-            res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+            res.status(500).json({ message });
         if (user)
             res.status(400).json({ message: { msgBody: "Username is already taken", msgError: true } });
         else {
-            const newUser = new User({ username, password, role });
+            const account = web3.eth.accounts.create();
+            const {address, privateKey} = account;
+            const newUser = new User({ username, password, address, privateKey });
             newUser.save(err => {
                 if (err)
-                    res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+                    res.status(500).json({ message });
                 else
                     res.status(201).json({ message: { msgBody: "Account successfully created", msgError: false } });
             });
@@ -34,6 +43,7 @@ userRouter.post('/register', (req, res) => {
     });
 });
 
+// post login credentials
 userRouter.post('/login', passport.authenticate('local', { session: false }), (req, res) => {
     if (req.isAuthenticated()) {
         const { _id, username, role } = req.user;
@@ -43,38 +53,53 @@ userRouter.post('/login', passport.authenticate('local', { session: false }), (r
     }
 });
 
+//logout
 userRouter.get('/logout', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.clearCookie("access_token");
     res.json({ user: { username: "" }, success: true });
 });
 
-userRouter.post('/todo', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const todo = new Todo(req.body);
-    todo.save(err => {
+//gets user info for home page
+userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findById({ _id: req.user._id }).exec((err, document) => {
         if (err) {
-            res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+            res.status(500).json({ message });
         }
         else {
-            req.user.todos.push(todo);
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, authenticated: true });
+        }
+    });
+});
+
+//create a post
+userRouter.post('/post-photo', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const post = new Post(req.body);
+    post.save(err => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            req.user.posts.push(post);
             req.user.save(err => {
                 if (err) {
-                    res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+                    res.status(500).json({ message });
                 }
                 else {
-                    res.status(200).json({ message: { msgBody: "Successfully created todo", msgError: false } })
+                    res.status(200).json({ message: { msgBody: "Successfully created photo-post", msgError: false } })
                 }
             });
         }
     });
 });
 
-userRouter.get('/todos', passport.authenticate('jwt', { session: false }), (req, res) => {
-    User.findById({ _id: req.user._id }).populate("todos").exec((err, document) => {
+// get all posts form user
+userRouter.get('/posts', passport.authenticate('jwt', { session: false }), (req, res) => {
+    User.findById({ _id: req.user._id }).populate("posts").exec((err, document) => {
         if (err) {
-            res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+            res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ todos: document.todos, authenticated: true });
+            res.status(200).json({ posts: document.posts, authenticated: true });
         }
     });
 });
