@@ -3,9 +3,9 @@ import { AuthContext } from '../context/AuthContext';
 import AuthService from '../services/AuthService';
 import UserService from '../services/UserService';
 import PostModal from '../components/PostModal';
-import './profilePageStyle.css'
+import './userProfilePageStyle.css'
 
-function Profile() {
+function UserProfile() {
     // Setting our component's initial state
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
@@ -97,4 +97,4 @@ function Profile() {
 }
 
 
-export default Profile;
+export default UserProfile;

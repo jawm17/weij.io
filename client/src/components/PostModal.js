@@ -17,6 +17,7 @@ export default function PostModal() {
 
     const closeModal = () => {
         setVisible(false);
+        emptyFields();
     }
 
     const onChange = (e) => {
@@ -46,6 +47,10 @@ export default function PostModal() {
         else {
             setMessage("This is not a valid photo");
         }
+    }
+
+    const emptyFields = () => {
+
     }
 
     const onError = () => {

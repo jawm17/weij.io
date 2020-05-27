@@ -25,7 +25,8 @@
   }
 
   .feedPage{
-    margin-left: 8%;
+    display: flex;
+    justify-content: center;
   }
   
   /* colors */

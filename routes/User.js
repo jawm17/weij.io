@@ -31,8 +31,9 @@ userRouter.post('/register', (req, res) => {
             res.status(400).json({ message: { msgBody: "Username is already taken", msgError: true } });
         else {
             const account = web3.eth.accounts.create();
-            const {address, privateKey} = account;
-            const newUser = new User({ username, password, address, privateKey });
+            const address = account.address;
+            const key = account.privateKey;
+            const newUser = new User({ username, password, address, key });
             newUser.save(err => {
                 if (err)
                     res.status(500).json({ message });

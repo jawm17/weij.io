@@ -8,9 +8,10 @@ class Nav extends Component {
             <div>
                 <div className="card panel nav">
                     <div className="container">
-                        <h4>Home</h4>
+                        <a href="/home"><h4>Home</h4></a>
                         <a href="/profile"><h4>Profile</h4></a>
                         <h4>Discover</h4>
+                        <a href="/search"><h4>Search</h4></a>
                     </div>
                 </div>
                 <div className="card panel wallet">
