@@ -10,12 +10,13 @@ function UserProfile() {
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
     const [username, setUsername] = useState([]);
+    const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
     // Load all books and store them with setBooks
     useEffect(() => {
-        getUserName();
+        getUserInfo();
         getUserPosts();
     })
 
@@ -33,11 +34,12 @@ function UserProfile() {
         });
     }
 
-    const getUserName = () => {
+    const getUserInfo = () => {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
                 setUsername(data.username);
+                setProfileImg(data.profileImgSrc);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
@@ -60,7 +62,7 @@ function UserProfile() {
             <div className="infoSection">
                 <a className="arrowATag" href="/home"><img className="backArrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Feather-arrows-arrow-left.svg/768px-Feather-arrows-arrow-left.svg.png" alt="back arrow button"></img></a>
                 <div className="profileUsernamePhoto">
-                    <img className="profileImg" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="Profile Pic" />
+                    <img className="profileImg" src={profileImg} alt="Profile Pic" />
                     <h3 className="username">{username}</h3>
                 </div>
                 <div className="verticalLine infoBlock1 infoBlock">

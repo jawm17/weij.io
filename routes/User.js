@@ -67,7 +67,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, authenticated: true });
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, authenticated: true });
         }
     });
 });
