@@ -1,15 +1,31 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Modal from 'react-awesome-modal';
-import PostPhotoService from '../services/PostPhotoService';
+import UpdateUserService from '../services/UpdateUserService';
+import UserService from "../services/UserService";
 import { AuthContext } from '../context/AuthContext';
-import './PostModalStyle.css'
+import './SettingsModalStyle.css'
+import { get } from 'mongoose';
 
-export default function PostModal() {
-    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
+export default function SettingsModal(props) {
     const [visible, setVisible] = useState(false);
+    const [bio, setBio] = useState("");
+    const [color, setColor] = useState("");
     const authContext = useContext(AuthContext);
     const [error, setError] = useState(true);
     const [message, setMessage] = useState(null);
+    const [selected, setSelected] = useState(false);
+    const [violetSelected, setVioletSelected] = useState(false);
+    const [indigoSelected, setIndigoSelected] = useState(false);
+    const [blueSelected, setBlueSelected] = useState(false);
+    const [greenSelected, setGreenSelected] = useState(false);
+    const [yellowSelected, setYellowSelected] = useState(false);
+    const [orangeSelected, setOrangeSelected] = useState(false);
+    const [redSelected, setRedSelected] = useState(false);
+    const [pinkSelected, setPinkSelected] = useState(false);
+
+    useEffect(() => {
+        getUserInfo();
+    }, []);
 
     const openModal = () => {
         setVisible(true);
@@ -17,76 +33,153 @@ export default function PostModal() {
 
     const closeModal = () => {
         setVisible(false);
-        emptyFields();
+    }
+
+    const getUserInfo = () => {
+        UserService.getUserInfo().then(data => {
+            const { message } = data;
+            if (!message) {
+                setBio(data.bio);
+                switch (data.color) {
+                    case "color-violet":
+                        setVioletSelected(true);
+                        break;
+                    case "color-indigo":
+                        setIndigoSelected(true);
+                        break;
+                    case "color-blue":
+                        setBlueSelected(true);
+                        break;
+                    case "color-green":
+                        setGreenSelected(true);
+                        break;
+                    case "color-yellow":
+                        setYellowSelected(true);
+                        break;
+                    case "color-orange":
+                        setOrangeSelected(true);
+                        break;
+                    case "color-red":
+                        setRedSelected(true);
+                        break;
+                    case "color-pink":
+                        setPinkSelected(true);
+                        break;
+                }
+                setColor(data.color);
+            }
+        });
     }
 
     const onChange = (e) => {
-        if (e.target.name === "imgSrc" && !e.target.value) {
-            setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
-        }
-        else {
-            setNewPost({ [e.target.name]: e.target.value });
-            setError(false);
-            setMessage("");
-        }
+        // if (e.target.name === "imgSrc" && !e.target.value) {
+        //     setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
+        // }
+        // else {
+        //     setNewPost({ [e.target.name]: e.target.value });
+        //     setError(false);
+        //     setMessage("");
+        // }
+        setBio(e.target.value);
     }
 
-    const postPhoto = (e) => {
-        e.preventDefault();
-        if(!error){
-            PostPhotoService.postPhoto(newPost).then(data => {
-                const { message } = data;
-                if (message.msgBody === "Unauthorized") {
-                    authContext.setUser({ username: "" });
-                    authContext.setIsAuthenticated(false);
-                } else {
-                    closeModal();
-                }
-            });
-        }
-        else {
-            setMessage("This is not a valid photo");
-        }
+    const saveSettings = (e) => {
+        UpdateUserService.updateBio(bio).then(data => {
+            const { message } = data;
+            if (message.msgBody === "Unauthorized") {
+                authContext.setUser({ username: "" });
+                authContext.setIsAuthenticated(false);
+            }
+        });
+        UpdateUserService.updateColor(color).then(data => {
+            const { message } = data;
+            if (message.msgBody === "Unauthorized") {
+                authContext.setUser({ username: "" });
+                authContext.setIsAuthenticated(false);
+            }
+        });
+        // UpdateUserService.updateProfileImg(img).then(data => {
+        //     const { message } = data;
+        //     if (message.msgBody === "Unauthorized") {
+        //         authContext.setUser({ username: "" });
+        //         authContext.setIsAuthenticated(false);
+        //     }
+        // });
+        props.refresh();
+        closeModal();
     }
 
-    const emptyFields = () => {
-
-    }
-
-    const onError = () => {
-        setError(true);
-        setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
+    const changeColor = (e) => {
+        setVioletSelected(false);
+        setIndigoSelected(false);
+        setBlueSelected(false);
+        setGreenSelected(false);
+        setYellowSelected(false);
+        setOrangeSelected(false);
+        setRedSelected(false);
+        setPinkSelected(false);
+        switch (e.target.name) {
+            case "color-violet":
+                setVioletSelected(true);
+                break;
+            case "color-indigo":
+                setIndigoSelected(true);
+                break;
+            case "color-blue":
+                setBlueSelected(true);
+                break;
+            case "color-green":
+                setGreenSelected(true);
+                break;
+            case "color-yellow":
+                setYellowSelected(true);
+                break;
+            case "color-orange":
+                setOrangeSelected(true);
+                break;
+            case "color-red":
+                setRedSelected(true);
+                break;
+            case "color-pink":
+                setPinkSelected(true);
+                break;
+        }
+        setColor(e.target.name);
     }
 
     return (
         <section>
-            <input type="button" value="+" onClick={() => openModal()} />
+            <button onClick={() => openModal()}> Settings </button>
             <Modal
                 visible={visible}
                 width="900"
                 height="300"
                 effect="fadeInDown"
             >
-                <div>
-                    <h1>Post an Image</h1>
-                    <form onSubmit={postPhoto}>
-                        <input
-                            className="imgUrlInput"
-                            name="imgSrc"
-                            id="imgSrc"
-                            placeholder="Image URL"
+                <div className="settingsArea">
+                    <h1>Settings</h1>
+                    <form onSubmit={saveSettings}>
+                        <h3 className="bioLabel">Bio</h3>
+                        <textarea
+                            name="message"
+                            rows="5" cols="60"
                             onChange={onChange}
+                            value={bio}
                         />
-                        <button
-                            type="submit"
-                            className="submitBtn"
-                        >
-                            Post Photo
-                            </button>
                     </form>
+                    <h3 className="colorLabel">Color</h3>
+                    <div className="colorRow">
+                        <button className={`color-violet colorBtn ${violetSelected ? "selected" : " "}`} name="color-violet" onClick={changeColor}></button>
+                        <button className={`color-indigo colorBtn ${indigoSelected ? "selected" : " "}`} name="color-indigo" onClick={changeColor}></button>
+                        <button className={`color-blue colorBtn ${blueSelected ? "selected" : " "}`} name="color-blue" onClick={changeColor}></button>
+                        <button className={`color-green colorBtn ${greenSelected ? "selected" : " "}`} name="color-green" onClick={changeColor}></button>
+                        <button className={`color-yellow colorBtn ${yellowSelected ? "selected" : " "}`} name="color-yellow" onClick={changeColor}></button>
+                        <button className={`color-orange colorBtn ${orangeSelected ? "selected" : " "}`} name="color-orange" onClick={changeColor}></button>
+                        <button className={`color-red colorBtn ${redSelected ? "selected" : " "}`} name="color-red" onClick={changeColor}></button>
+                        <button className={`color-pink colorBtn ${pinkSelected ? "selected" : " "}`} name="color-pink" onClick={changeColor}></button>
+                    </div>
                     {message ? <div className="alert"> {message} </div> : null}
-                    <button onClick={() => closeModal()}>Close</button>
-                    <img className="sampleImg" src={newPost.imgSrc} onError={() => onError()} alt="sample post"></img>
+                    <button onClick={() => saveSettings()}>Save Settings</button>
                 </div>
             </Modal>
         </section>

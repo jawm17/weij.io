@@ -68,7 +68,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, authenticated: true, followers: document.followers, following: document.following });
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, authenticated: true });
         }
     });
 });
@@ -220,7 +220,7 @@ userRouter.get('/:user', (req, res) => {
             res.status(500).json({ message });
         }
         else if (document) {
-            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers });
+            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers, color: document.color, bio: document.bio, profileImgSrc: document.profileImgSrc });
         }
         else {
             res.status(200).json({ error: "no users found" });
@@ -228,6 +228,47 @@ userRouter.get('/:user', (req, res) => {
     });
 });
 
+// update user color
+userRouter.post('/update-color', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const color = req.body.color;
+    User.findOneAndUpdate({ _id: req.user._id }, { color: color }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully updated user color", msgError: false } });
+        }
+    });
+});
+
+// update user bio
+userRouter.post('/update-bio', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const bio = req.body.bio;
+    User.findOneAndUpdate({ _id: req.user._id }, { bio: bio }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully updated user bio", msgError: false } });
+        }
+    });
+});
+
+// update user profileimg
+userRouter.post('/update-profileImg', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const profileImg = req.body.profileImg;
+    User.findOneAndUpdate({ _id: req.user._id }, { profileImgSrc: profileImg }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully updated user image", msgError: false } });
+        }
+    });
+});
 
 
 module.exports = userRouter;

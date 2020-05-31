@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
     },
     color: {
         type: String,
-        required: false
+        default: "color-blue"
     },
     balance: {
         type: Number,

@@ -27,7 +27,7 @@ export default function PostModal(props) {
             setNewPost({"imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"});
         }
         else {
-            setNewPost({ [e.target.name]: e.target.value, "user": props.username, "userImg": props.userImg });
+            setNewPost({ [e.target.name]: e.target.value, "user": props.username, "userImg": props.userImg, "color": props.color });
             setError(false);
             setMessage("");
         }
@@ -62,7 +62,7 @@ export default function PostModal(props) {
 
     return (
         <section>
-            <input type="button" value="+" onClick={() => openModal()} />
+            <button onClick={() => openModal()}> Post Photo </button>
             <Modal
                 visible={visible}
                 width="900"

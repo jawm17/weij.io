@@ -29,6 +29,7 @@ export default function MediaPanel() {
                     imgUrl={post.imgSrc}
                     userImg={post.userImg}
                     username={post.user}
+                    color={post.color}
                 />
             ))}
             {/* <LoadingAnimation /> */}

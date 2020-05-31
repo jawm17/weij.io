@@ -5,6 +5,7 @@ import "./ProfilePageStyle.css";
 export default function ProfilePage(props) {
     const [username, setUsername] = useState("");
     const [profileImg, setProfileImg] = useState("");
+    const [bio, setBio] = useState("");
     const [posts, setPosts] = useState([]);
     const [following, setFollowing] = useState(false);
 
@@ -12,7 +13,7 @@ export default function ProfilePage(props) {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
-                if(data.username === name){
+                if (data.username === name) {
                     window.location.href = ('/profile');
                 }
             }
@@ -30,19 +31,21 @@ export default function ProfilePage(props) {
             setUsername(data.username);
             setProfileImg(data.profileImg);
             setPosts(data.posts);
+            setBio(data.bio);
+            document.body.className=(data.color);
         });
         UserService.getUserInfo().then(data2 => {
             data2.following.map(user => {
-                if(user === username){
+                if (user === username) {
                     setFollowing(true);
                 }
             })
-            
+
         });
     }
 
     function followUser() {
-        if(!following){
+        if (!following) {
             UserService.followUser(username).then(data => {
                 setFollowing(true);
             });
@@ -50,7 +53,7 @@ export default function ProfilePage(props) {
     }
 
     function unFollowUser() {
-        if(following){
+        if (following) {
             UserService.unfollowUser(username).then(data => {
                 setFollowing(false);
             });
@@ -68,27 +71,27 @@ export default function ProfilePage(props) {
                 <div className="verticalLine infoBlock1 infoBlock">
                     <div className="card2">
                         <div className="container2">
-                        {posts.length} posts
+                            {posts.length} posts
                         </div>
                     </div>
                 </div>
                 <div className="verticalLine infoBlock2 infoBlock">
-                <div className="card2">
+                    <div className="card2">
                         <div className="container2">
-                        200 subscribers
+                            200 subscribers
                         </div>
                     </div>
                 </div>
                 <div className="verticalLine infoBlock3 infoBlock">
-                <div className="card2">
+                    <div className="card2">
                         <div className="container2">
-                        $400 monthly subscription
+                            $400 monthly subscription
                         </div>
                     </div>
                 </div>
                 <div className="bioSection">
-                    <p className="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu convallis dui, et ultricies ex. Pellentesque consequat orci tortor, at sollicitudin eros consequat sed.</p>
-                    {following ? <button onClick={() => unFollowUser()}>Unfollow</button>: <button onClick={() => followUser()}>Follow</button>}
+                    {bio ? <p className="bio">{bio}</p> : null}
+                    {following ? <button onClick={() => unFollowUser()}>Unfollow</button> : <button onClick={() => followUser()}>Follow</button>}
                 </div>
             </div>
 

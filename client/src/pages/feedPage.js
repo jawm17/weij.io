@@ -8,12 +8,14 @@ import './feedPageStyle.css'
 function Feed() {
     const [onSearch, setOnSearch] = useState(false);
 
+    document.body.className=("color-blue");
     function revealSearch() {
         setOnSearch(true);
     }
 
     function revealHome() {
         setOnSearch(false);
+        console.log("rr")
     }
 
     return (
@@ -23,9 +25,9 @@ function Feed() {
                     <div>
                         <div className="card panel nav">
                             <div className="container">
-                                <button onClick={() => revealHome()} className="btn"><h2>Home</h2></button>
-                                <a href="/profile" ><h4>Profile</h4></a>
-                                <button onClick={() => revealSearch()} className="btn"><h2>Search</h2></button>
+                                <a onClick={() => revealHome()} className="btn"><h3>Home</h3></a>
+                                <a href="/profile" className="btn"><h3>Profile</h3></a>
+                                <a onClick={() => revealSearch()} className="btn"><h3>Search</h3></a>
                             </div>
                         </div>
                         <div className="card panel wallet">

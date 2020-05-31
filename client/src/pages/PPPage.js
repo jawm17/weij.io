@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import AuthService from '../services/AuthService';
 import UserService from '../services/UserService';
 import PostModal from '../components/PostModal';
+import SettingsModal from "../components/SettingsModal";
 import './PPPageStyle.css'
 
 function PPPage() {
@@ -10,7 +11,9 @@ function PPPage() {
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
     const [profileImg, setProfileImg] = useState("");
+    const [bio, setBio] = useState("");
     const [username, setUsername] = useState([]);
+    const [color, setColor] = useState(" ");
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
@@ -18,7 +21,7 @@ function PPPage() {
     useEffect(() => {
         getUserInfo();
         getUserPosts();
-    },[]);
+    }, []);
 
     const getUserPosts = () => {
         UserService.getUserPosts().then(data => {
@@ -41,6 +44,9 @@ function PPPage() {
             if (!message) {
                 setUsername(data.username);
                 setProfileImg(data.profileImgSrc);
+                setBio(data.bio);
+                document.body.className=(data.color);
+                setColor(data.color);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
@@ -76,13 +82,17 @@ function PPPage() {
                     $5 monthly subscription
                 </div>
                 <div className="bioSection">
-                    <p className="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu convallis dui, et ultricies ex. Pellentesque consequat orci tortor, at sollicitudin eros consequat sed.</p>
+                    {bio ? <p className="bio">{bio}</p> : null}
                     <button onClick={onClickLogoutHandler}>Logout</button>
-                    <button>Settings</button>
-                    <PostModal 
-                    userImg={profileImg}
-                    username={username}
-                    refresh={getUserPosts}/>
+                    <SettingsModal
+                        userImg={profileImg}
+                        username={username}
+                        refresh={getUserInfo} />
+                    <PostModal
+                        userImg={profileImg}
+                        username={username}
+                        refresh={getUserPosts} 
+                        color={color}/>
                 </div>
             </div>
 

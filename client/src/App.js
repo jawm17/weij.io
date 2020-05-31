@@ -6,7 +6,6 @@ import PPPage from "./pages/PPPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Register from './components/Register';
 import Wallet from "./pages/walletPage";
-import Search from "./pages/searchPage";
 import NoMatch from "./pages/noMatchPage";
 import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
@@ -22,7 +21,6 @@ function App() {
       <PrivateRoute path="/user" component={ProfilePage}/>
       <PrivateRoute exact path={["/", "/home"]} component={Feed} />
       <PrivateRoute exact path={["/wallet"]} component={Wallet} />
-      <PrivateRoute exact path={["/search"]} component={Search} />
       <Route>
             <NoMatch />
       </Route>
