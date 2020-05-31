@@ -1,25 +1,38 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import MediaCard from "./MediaCard";
 import LoadingAnimation from "./LoadingAnimation";
-import posts from "../../posts.json";
+import UserService from '../../services/UserService';
 
-class MediaPanel extends Component {
+export default function MediaPanel() {
+    const [posts, setPosts] = useState([]);
 
-    render() {
-        return (
-            <div>
-                {posts.map(post => (
-                    <MediaCard
-                        key={post.id}
-                        imgUrl={post.imageUrl}
-                        color={post.userColor}
-                    />
-                ))}
+    useEffect(() => {
+        getFeed();
+    }, []);
 
-                <LoadingAnimation />
-            </div>
-        )
+    function getFeed() {
+
+        UserService.getFeed().then(data => {
+            data.sort(function (a, b) {
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            });
+            console.log(data);
+            setPosts(data);
+        });
     }
+
+    return (
+        <div>
+            {posts.map(post => (
+                <MediaCard
+                    key={post._id}
+                    imgUrl={post.imgSrc}
+                    userImg={post.userImg}
+                    username={post.user}
+                />
+            ))}
+            {/* <LoadingAnimation /> */}
+        </div>
+    );
 }
 
-export default MediaPanel;

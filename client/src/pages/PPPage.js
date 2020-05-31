@@ -3,14 +3,14 @@ import { AuthContext } from '../context/AuthContext';
 import AuthService from '../services/AuthService';
 import UserService from '../services/UserService';
 import PostModal from '../components/PostModal';
-import './userProfilePageStyle.css'
+import './PPPageStyle.css'
 
-function UserProfile() {
+function PPPage() {
     // Setting our component's initial state
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
+    const [profileImg, setProfileImg] = useState("");
     const [username, setUsername] = useState([]);
-    const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
@@ -18,10 +18,11 @@ function UserProfile() {
     useEffect(() => {
         getUserInfo();
         getUserPosts();
-    })
+    },[]);
 
     const getUserPosts = () => {
         UserService.getUserPosts().then(data => {
+            console.log(data.posts);
             const { message } = data;
             if (!message) {
                 setPosts(data.posts)
@@ -78,7 +79,10 @@ function UserProfile() {
                     <p className="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu convallis dui, et ultricies ex. Pellentesque consequat orci tortor, at sollicitudin eros consequat sed.</p>
                     <button onClick={onClickLogoutHandler}>Logout</button>
                     <button>Settings</button>
-                    <PostModal />
+                    <PostModal 
+                    userImg={profileImg}
+                    username={username}
+                    refresh={getUserPosts}/>
                 </div>
             </div>
 
@@ -99,4 +103,4 @@ function UserProfile() {
 }
 
 
-export default UserProfile;
+export default PPPage;

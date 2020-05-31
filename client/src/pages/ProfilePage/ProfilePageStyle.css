@@ -1,0 +1,16 @@
+.card2 {
+    /* Add shadows to create the "card" effect */
+    width: 200px;
+    height: 90px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container2 {
+    padding: 2px 16px;
+  }

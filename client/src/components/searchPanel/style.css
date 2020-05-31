@@ -1,0 +1,32 @@
+.searchBar {
+    padding-top: 25px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.resultBody{
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.resultProfilePic {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.usernameBtn {
+    color: white;
+    font-family: sans-serif;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.usernameBtn:hover {
+    cursor: pointer;
+}

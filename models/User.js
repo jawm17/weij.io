@@ -35,6 +35,18 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    following: {
+        type: Array,
+        required: false
+    },
+    followers: {
+        type: Array,
+        required: false
+    },
+    bio: {
+        type: String,
+        default: ""
+    },
     posts : [{type : mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 

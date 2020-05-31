@@ -16,6 +16,18 @@ const PostSchema = new mongoose.Schema({
     deleted: {
         type: Boolean,
         default: false
+    }, 
+    user: {
+        type: String,
+        required: true
+    },
+    userImg: {
+        type: String,
+        required: true
+    },
+    tips: {
+        type: Number,
+        default: 0
     }
 });
 

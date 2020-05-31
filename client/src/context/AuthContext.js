@@ -19,7 +19,7 @@ export default ({ children }) => {
 
     return (
         <div>
-            {!isLoaded ? <h1></h1> :
+            {!isLoaded ? <h1> </h1> :
                 <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated }}>
                     {children}
                 </AuthContext.Provider>}

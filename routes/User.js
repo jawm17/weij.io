@@ -62,12 +62,29 @@ userRouter.get('/logout', passport.authenticate('jwt', { session: false }), (req
 
 //gets user info for home page
 userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
     User.findById({ _id: req.user._id }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, authenticated: true });
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, authenticated: true, followers: document.followers, following: document.following });
+        }
+    });
+});
+
+//gets users containing search query in their username
+userRouter.post('/query/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.find({ "username": { '$regex': req.body.query } }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            res.status(200).json({ document });
+        }
+        else {
+            res.status(200).json({ error: "no users found" });
         }
     });
 });
@@ -75,6 +92,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
 //create a post
 userRouter.post('/post-photo', passport.authenticate('jwt', { session: false }), (req, res) => {
     const post = new Post(req.body);
+    const message = { msgBody: "Error has occured", msgError: true };
     post.save(err => {
         if (err) {
             res.status(500).json({ message });
@@ -93,8 +111,70 @@ userRouter.post('/post-photo', passport.authenticate('jwt', { session: false }),
     });
 });
 
-// get all posts form user
+//follow user
+userRouter.post('/follow', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findOne({ _id: req.user._id, following: req.body.username }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            res.status(200).json({ message: { msgBody: "already following", msgError: false } })
+        }
+        else if (!document) {
+            User.findOneAndUpdate({ _id: req.user._id }, { $push: { following: req.body.username } }).exec((err, document) => {
+                if (err) {
+                    res.status(500).json({ message });
+                }
+                else {
+                    User.findOneAndUpdate({ username: req.body.username }, { $push: { followers: req.user.username } }).exec((err, document) => {
+                        if (err) {
+                            res.status(500).json({ message });
+                        }
+                        else {
+                            res.status(200).json({ message: { msgBody: "Successfully followed user", msgError: false } })
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+//unfollow user
+userRouter.post('/unfollow', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findOne({ _id: req.user._id, following: req.body.username }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            User.findOneAndUpdate({ _id: req.user._id }, { $pull: { following: req.body.username } }).exec((err, document) => {
+                if (err) {
+                    res.status(500).json({ message });
+                }
+                else {
+                    User.findOneAndUpdate({ username: req.body.username }, { $pull: { followers: req.user.username } }).exec((err, document) => {
+                        if (err) {
+                            res.status(500).json({ message });
+                        }
+                        else {
+                            res.status(200).json({ message: { msgBody: "Successfully unfollowed user", msgError: false } })
+                        }
+                    });
+                }
+            });
+        }
+        else if (!document) {
+            res.status(200).json({ message: { msgBody: "not following", msgError: false } });
+        }
+    });
+});
+
+
+//get all posts form user
 userRouter.get('/posts', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
     User.findById({ _id: req.user._id }).populate("posts").exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
@@ -105,9 +185,47 @@ userRouter.get('/posts', passport.authenticate('jwt', { session: false }), (req,
     });
 });
 
+//gets images for feed
+userRouter.get('/feed', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findOne({ _id: req.user._id }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            document.following.push(document.username);
+            Post.find({ "user": { $in: document.following } }).exec((err, document2) => {
+                if (err) {
+                    res.status(500).json({ message });
+                }
+                else {
+                    res.status(200).json(document2);
+                }
+            });
+        }
+    });
+});
+
+//check if authenticated
 userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
     const { username } = req.user;
     res.status(200).json({ isAuthenticated: true, user: { username } });
+});
+
+//get user info for user /user
+userRouter.get('/:user', (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findOne({ "username": req.params.user }).populate("posts").exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers });
+        }
+        else {
+            res.status(200).json({ error: "no users found" });
+        }
+    });
 });
 
 

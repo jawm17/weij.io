@@ -4,8 +4,9 @@ import PostPhotoService from '../services/PostPhotoService';
 import { AuthContext } from '../context/AuthContext';
 import './PostModalStyle.css'
 
-export default function PostModal() {
-    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
+export default function PostModal(props) {
+    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"});
+
     const [visible, setVisible] = useState(false);
     const authContext = useContext(AuthContext);
     const [error, setError] = useState(true);
@@ -17,15 +18,16 @@ export default function PostModal() {
 
     const closeModal = () => {
         setVisible(false);
+        props.refresh();
         emptyFields();
     }
 
     const onChange = (e) => {
         if (e.target.name === "imgSrc" && !e.target.value) {
-            setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
+            setNewPost({"imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"});
         }
         else {
-            setNewPost({ [e.target.name]: e.target.value });
+            setNewPost({ [e.target.name]: e.target.value, "user": props.username, "userImg": props.userImg });
             setError(false);
             setMessage("");
         }
@@ -33,7 +35,7 @@ export default function PostModal() {
 
     const postPhoto = (e) => {
         e.preventDefault();
-        if(!error){
+        if (!error) {
             PostPhotoService.postPhoto(newPost).then(data => {
                 const { message } = data;
                 if (message.msgBody === "Unauthorized") {

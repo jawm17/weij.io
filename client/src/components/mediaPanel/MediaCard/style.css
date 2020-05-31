@@ -11,7 +11,31 @@
     padding: 2px 16px;
   }
 
+  .userInfoMedia{
+    display: flex;
+    align-items: center;
+  }
+  
+  .profileImgSmall {
+    margin-right: 10px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: black;
+    border-width: 2px;
+    border-style: dashed;
+  }
+
   .feedImg {
       width: 100%;
       height: 265px;
   }
+  
+.userLink {
+  text-decoration: none;
+}
+
+.userLink:visited {
+  color: #000;
+}
