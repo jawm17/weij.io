@@ -31,11 +31,34 @@
       width: 100%;
       height: 265px;
   }
-  
+
 .userLink {
   text-decoration: none;
 }
 
 .userLink:visited {
   color: #000;
+}
+
+.extraBlock {
+  height: 200px;
+}
+
+.tipButton {
+  margin-left: 240px;
+  background-color: white;
+  border: none;
+  color: blue;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.tipButton:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

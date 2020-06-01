@@ -40,3 +40,25 @@
     border-style: solid;
 }
 
+.settingsImgArea {
+    float: right;
+}
+
+.profileImgPreview {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    border: solid;
+    margin-right: 60px;
+    margin-top: 20px;
+
+}
+
+.settingsAreaLeft {
+    float: left;
+}
+
+.settingsImgUrlInput {
+    width: 200px;
+    padding-right: 20px;
+}

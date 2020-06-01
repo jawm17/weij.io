@@ -220,7 +220,7 @@ userRouter.get('/:user', (req, res) => {
             res.status(500).json({ message });
         }
         else if (document) {
-            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers, color: document.color, bio: document.bio, profileImgSrc: document.profileImgSrc });
+            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers, color: document.color, bio: document.bio, profileImgSrc: document.profileImgSrc, address: document.address });
         }
         else {
             res.status(200).json({ error: "no users found" });

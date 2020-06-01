@@ -9,21 +9,9 @@ export default function ProfilePage(props) {
     const [posts, setPosts] = useState([]);
     const [following, setFollowing] = useState(false);
 
-    function checkUser(name) {
-        UserService.getUserInfo().then(data => {
-            const { message } = data;
-            if (!message) {
-                if (data.username === name) {
-                    window.location.href = ('/profile');
-                }
-            }
-        });
-    }
-
     useEffect(() => {
         // setUser(props.match.params.user);
         getUserInfo(props.match.params.user);
-        checkUser(props.match.params.user);
     }, []);
 
     function getUserInfo(username) {

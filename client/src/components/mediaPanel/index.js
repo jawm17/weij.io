@@ -32,6 +32,7 @@ export default function MediaPanel() {
                     color={post.color}
                 />
             ))}
+            <div className="extraBlock"></div>
             {/* <LoadingAnimation /> */}
         </div>
     );

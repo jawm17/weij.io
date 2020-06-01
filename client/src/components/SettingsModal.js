@@ -13,7 +13,10 @@ export default function SettingsModal(props) {
     const authContext = useContext(AuthContext);
     const [error, setError] = useState(true);
     const [message, setMessage] = useState(null);
+    const [profileImg, setProfileImg] = useState();
     const [selected, setSelected] = useState(false);
+
+    // color stuff (should be more semantic xD)
     const [violetSelected, setVioletSelected] = useState(false);
     const [indigoSelected, setIndigoSelected] = useState(false);
     const [blueSelected, setBlueSelected] = useState(false);
@@ -67,19 +70,28 @@ export default function SettingsModal(props) {
                         break;
                 }
                 setColor(data.color);
+                setProfileImg(data.profileImgSrc);
             }
         });
     }
 
-    const onChange = (e) => {
-        // if (e.target.name === "imgSrc" && !e.target.value) {
-        //     setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
-        // }
-        // else {
-        //     setNewPost({ [e.target.name]: e.target.value });
-        //     setError(false);
-        //     setMessage("");
-        // }
+    const onError = () => {
+        setError(true);
+        setProfileImg("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    }
+
+    const onChangeImg = (e) => {
+        if (e.target.name === "imgSrc" && !e.target.value) {
+            setProfileImg("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+        }
+        else {
+            setProfileImg(e.target.value);
+            setError(false);
+            setMessage("");
+        }
+    }
+
+    const onChangeBio = (e) => {
         setBio(e.target.value);
     }
 
@@ -98,13 +110,15 @@ export default function SettingsModal(props) {
                 authContext.setIsAuthenticated(false);
             }
         });
-        // UpdateUserService.updateProfileImg(img).then(data => {
-        //     const { message } = data;
-        //     if (message.msgBody === "Unauthorized") {
-        //         authContext.setUser({ username: "" });
-        //         authContext.setIsAuthenticated(false);
-        //     }
-        // });
+        if (!error) {
+            UpdateUserService.updateProfileImg(profileImg).then(data => {
+                const { message } = data;
+                if (message.msgBody === "Unauthorized") {
+                    authContext.setUser({ username: "" });
+                    authContext.setIsAuthenticated(false);
+                }
+            });
+        }
         props.refresh();
         closeModal();
     }
@@ -157,29 +171,44 @@ export default function SettingsModal(props) {
                 effect="fadeInDown"
             >
                 <div className="settingsArea">
-                    <h1>Settings</h1>
-                    <form onSubmit={saveSettings}>
-                        <h3 className="bioLabel">Bio</h3>
-                        <textarea
-                            name="message"
-                            rows="5" cols="60"
-                            onChange={onChange}
-                            value={bio}
-                        />
-                    </form>
-                    <h3 className="colorLabel">Color</h3>
-                    <div className="colorRow">
-                        <button className={`color-violet colorBtn ${violetSelected ? "selected" : " "}`} name="color-violet" onClick={changeColor}></button>
-                        <button className={`color-indigo colorBtn ${indigoSelected ? "selected" : " "}`} name="color-indigo" onClick={changeColor}></button>
-                        <button className={`color-blue colorBtn ${blueSelected ? "selected" : " "}`} name="color-blue" onClick={changeColor}></button>
-                        <button className={`color-green colorBtn ${greenSelected ? "selected" : " "}`} name="color-green" onClick={changeColor}></button>
-                        <button className={`color-yellow colorBtn ${yellowSelected ? "selected" : " "}`} name="color-yellow" onClick={changeColor}></button>
-                        <button className={`color-orange colorBtn ${orangeSelected ? "selected" : " "}`} name="color-orange" onClick={changeColor}></button>
-                        <button className={`color-red colorBtn ${redSelected ? "selected" : " "}`} name="color-red" onClick={changeColor}></button>
-                        <button className={`color-pink colorBtn ${pinkSelected ? "selected" : " "}`} name="color-pink" onClick={changeColor}></button>
+                    <div className="settingsAreaLeft">
+                        <h1>Settings</h1>
+                        <form onSubmit={saveSettings}>
+                            <h3 className="bioLabel">Bio</h3>
+                            <textarea
+                                name="message"
+                                rows="5" cols="60"
+                                onChange={onChangeBio}
+                                value={bio}
+                            />
+                        </form>
+                        <h3 className="colorLabel">Color</h3>
+                        <div className="colorRow">
+                            <button className={`color-violet colorBtn ${violetSelected ? "selected" : " "}`} name="color-violet" onClick={changeColor}></button>
+                            <button className={`color-indigo colorBtn ${indigoSelected ? "selected" : " "}`} name="color-indigo" onClick={changeColor}></button>
+                            <button className={`color-blue colorBtn ${blueSelected ? "selected" : " "}`} name="color-blue" onClick={changeColor}></button>
+                            <button className={`color-green colorBtn ${greenSelected ? "selected" : " "}`} name="color-green" onClick={changeColor}></button>
+                            <button className={`color-yellow colorBtn ${yellowSelected ? "selected" : " "}`} name="color-yellow" onClick={changeColor}></button>
+                            <button className={`color-orange colorBtn ${orangeSelected ? "selected" : " "}`} name="color-orange" onClick={changeColor}></button>
+                            <button className={`color-red colorBtn ${redSelected ? "selected" : " "}`} name="color-red" onClick={changeColor}></button>
+                            <button className={`color-pink colorBtn ${pinkSelected ? "selected" : " "}`} name="color-pink" onClick={changeColor}></button>
+                        </div>
                     </div>
-                    {message ? <div className="alert"> {message} </div> : null}
-                    <button onClick={() => saveSettings()}>Save Settings</button>
+                    <div className="settingsImgArea">
+                        <img className="profileImgPreview" src={profileImg} onError={() => onError()} alt="Profile Pic Preview"></img>
+                        <br></br>
+                        <input
+                            className="settingsImgUrlInput"
+                            name="imgSrc"
+                            id="imgSrc"
+                            placeholder="Image URL"
+                            onChange={onChangeImg}
+                        />
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button onClick={() => saveSettings()}>Save Settings</button>
+                    </div>
                 </div>
             </Modal>
         </section>

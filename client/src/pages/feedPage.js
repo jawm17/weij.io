@@ -1,14 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
-import ReactDOM from "react-dom";
-import Button from '@material-ui/core/Button';
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
-import './feedPageStyle.css'
+import UserService from '../services/UserService';
+import './feedPageStyle.css';
+var Web3 = require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/ee2cbc278b5442dfbd27dedb4806c237"));
 
 function Feed() {
     const [onSearch, setOnSearch] = useState(false);
+    const [balance, setBalance] = useState();
 
     document.body.className=("color-blue");
+
+    useEffect(() => {
+        getBalance();
+    }, [])
+
     function revealSearch() {
         setOnSearch(true);
     }
@@ -16,6 +23,19 @@ function Feed() {
     function revealHome() {
         setOnSearch(false);
         console.log("rr")
+    }
+
+    function getBalance() {
+        UserService.getUserInfo().then(data => {
+            const { message } = data;
+            if (!message) {
+                web3.eth.getBalance(data.address)
+                .then((res) => {
+                    setBalance(res / 1000000000000000000);
+                })
+                .catch(err => console.log(err));
+            }
+        });
     }
 
     return (
@@ -34,7 +54,7 @@ function Feed() {
                             <a href="/wallet" className="walletBtn">
                                 <div className="container">
                                     <img className="ethlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8-CIGjYQCnoGOF87dKB8owCEpnkUiiWEy27e6lcA8abx1v-rG&usqp=CAU" alt="Ethereum Logo"></img>
-                                    <h3 className="walletText">13.00562 ETH</h3>
+                                    <h3 className="walletText">{balance} ETH</h3>
                                 </div>
                             </a>
                         </div>
