@@ -13,6 +13,9 @@
     "install": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build"
   },
+  "engines": {
+    "node": "10.16.0"
+},
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,10 +24,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "if-env": "^1.0.4",
     "bcrypt": "^4.0.1",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.15",
     "passport": "^0.4.1",
