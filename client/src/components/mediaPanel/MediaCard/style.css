@@ -15,17 +15,6 @@
     display: flex;
     align-items: center;
   }
-  
-  .profileImgSmall {
-    margin-right: 10px;
-    float: left;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: black;
-    border-width: 2px;
-    border-style: dashed;
-  }
 
   .feedImg {
       width: 100%;

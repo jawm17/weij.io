@@ -220,7 +220,7 @@ userRouter.get('/:user', (req, res) => {
             res.status(500).json({ message });
         }
         else if (document) {
-            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers, color: document.color, bio: document.bio, profileImgSrc: document.profileImgSrc, address: document.address });
+            res.status(200).json({ profileImg: document.profileImgSrc, username: document.username, posts: document.posts, followers: document.followers, following: document.following, color: document.color, bio: document.bio, profileImgSrc: document.profileImgSrc, address: document.address });
         }
         else {
             res.status(200).json({ error: "no users found" });
@@ -266,6 +266,22 @@ userRouter.post('/update-profileImg', passport.authenticate('jwt', { session: fa
         }
         else {
             res.status(200).json({ message: { msgBody: "Successfully updated user image", msgError: false } });
+        }
+    });
+});
+
+// find username associated with address
+userRouter.post('/user-address', (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findOne({ "address": req.body.address }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else if (document) {
+            res.status(200).json({ username: document.username });
+        }
+        else {
+            res.status(200).json({ error: "no users found" });
         }
     });
 });

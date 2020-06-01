@@ -12,6 +12,7 @@ export default function TipModal(props) {
     const [visible, setVisible] = useState(props.visible);
     const [price, setPrice] = useState();
     const [notification, setNotification] = useState("");
+    const [notificationError, setNotificationError] = useState();
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
@@ -46,6 +47,7 @@ export default function TipModal(props) {
                                 }
                             })
                             setNotification("Succesfully sent Ether");
+                            setNotificationError(false);
                             timerID = setTimeout(() => {
                                 setNotification("");
                                 closeModal();
@@ -53,8 +55,10 @@ export default function TipModal(props) {
 
                         } else {
                             setNotification("Insufficent Funds");
+                            setNotificationError(true);
                             timerID = setTimeout(() => {
                                 setNotification("");
+                                setNotificationError(false);
                             }, 1500)
                         }
                     })
@@ -107,7 +111,7 @@ export default function TipModal(props) {
                         </Button>
                         <div className="estimateTip">about 5.00 USD</div>
                     </div>
-                    {notification ? <div>{notification}</div> : null}
+                    {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
                 </div>
             </Modal>
         </section>

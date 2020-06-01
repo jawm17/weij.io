@@ -7,12 +7,14 @@ export default function ProfilePage(props) {
     const [profileImg, setProfileImg] = useState("");
     const [bio, setBio] = useState("");
     const [posts, setPosts] = useState([]);
+    const [numFollowing, setNumFollowing] = useState();
+    const [numFollowers, setNumFollowers] = useState();
     const [following, setFollowing] = useState(false);
 
     useEffect(() => {
         // setUser(props.match.params.user);
         getUserInfo(props.match.params.user);
-    }, []);
+    }, [following]);
 
     function getUserInfo(username) {
         UserService.getOtherUserInfo(username).then(data => {
@@ -21,6 +23,8 @@ export default function ProfilePage(props) {
             setPosts(data.posts);
             setBio(data.bio);
             document.body.className=(data.color);
+            setNumFollowers(data.followers.length);
+            setNumFollowing(data.following.length);
         });
         UserService.getUserInfo().then(data2 => {
             data2.following.map(user => {
@@ -66,14 +70,14 @@ export default function ProfilePage(props) {
                 <div className="verticalLine infoBlock2 infoBlock">
                     <div className="card2">
                         <div className="container2">
-                            200 subscribers
+                            {numFollowers} Followers
                         </div>
                     </div>
                 </div>
                 <div className="verticalLine infoBlock3 infoBlock">
                     <div className="card2">
                         <div className="container2">
-                            $400 monthly subscription
+                            Following {numFollowing}
                         </div>
                     </div>
                 </div>

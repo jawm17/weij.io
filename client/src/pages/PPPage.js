@@ -14,6 +14,8 @@ function PPPage() {
     const [bio, setBio] = useState("");
     const [username, setUsername] = useState([]);
     const [color, setColor] = useState(" ");
+    const [numFollowers, setNumFollowers] = useState();
+    const [numFollowing, setNumFollowing] = useState();
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
@@ -47,6 +49,8 @@ function PPPage() {
                 setBio(data.bio);
                 document.body.className=(data.color);
                 setColor(data.color);
+                setNumFollowers(data.followers.length);
+                setNumFollowing(data.following.length);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
@@ -76,10 +80,10 @@ function PPPage() {
                     {numPosts} posts
                 </div>
                 <div className="verticalLine infoBlock2 infoBlock">
-                    200 subscribers
+                    {numFollowers} followers
                 </div>
                 <div className="verticalLine infoBlock3 infoBlock">
-                    $5 monthly subscription
+                    following {numFollowing} 
                 </div>
                 <div className="bioSection">
                     {bio ? <p className="bio">{bio}</p> : null}

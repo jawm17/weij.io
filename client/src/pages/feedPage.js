@@ -22,7 +22,6 @@ function Feed() {
 
     function revealHome() {
         setOnSearch(false);
-        console.log("rr")
     }
 
     function getBalance() {

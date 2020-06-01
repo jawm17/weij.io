@@ -3,7 +3,9 @@
 }
 
 .tipTitle {
+    margin-top: 25px;
     margin-bottom: 25px;
+    margin-left: 15px;
 }
 
 .tipButtons {
@@ -14,4 +16,16 @@
     float: right;
     margin-top: 9px;
     margin-right: 120px;
+}
+
+.successMsg {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: green;
+}
+
+.errorMsg {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: red;
 }
