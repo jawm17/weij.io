@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const router = require("./routes/index");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cookieParser = require("cookie-parser");
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-app.use(routes);
+app.use(router);
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb+srv://MyMoAdmin:koikoi5@mymodata-4ywri.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
