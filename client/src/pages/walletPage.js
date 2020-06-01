@@ -26,7 +26,7 @@ function Wallet() {
         QRCode.toDataURL('0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B', function (err, url) {
             console.log(url)
         })
-    }, [])
+    })
 
     function getTransactions(address) {
         TransactionService.getTransactions(address).then(data => {
