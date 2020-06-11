@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
-import { AuthContext } from '../context/AuthContext';
-import UserService from '../services/UserService';
-import TransactionService from '../services/TransactionService';
+import React, { useEffect, useState } from "react";
 import "./transactionDetailStyle.css";
 
 export default function TransactionDetail(props) {
     const [recieved, setRecieved] = useState();
-    console.log(props);
 
     useEffect(() => {
         if (props.address.toUpperCase() === props.to.toUpperCase()) {
@@ -14,10 +10,7 @@ export default function TransactionDetail(props) {
         } else {
             setRecieved(false);
         }
-        // TransactionService.getUserFromAdress(props.address).then(data => {
-        //     console.log(data);
-        // })
-    }, [])
+    }, []);
 
     return (
         <div>
@@ -29,7 +22,7 @@ export default function TransactionDetail(props) {
                 <div className="detail">
                     Sent {props.amount} ETH to {props.to}
                 </div>}
-                <hr></hr>
+            <hr></hr>
         </div>
     );
 }

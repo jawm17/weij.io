@@ -8,14 +8,10 @@ import './PPPageStyle.css'
 
 function PPPage() {
     // Setting our component's initial state
+    const [userObject, setUserObject] = useState({ username: "", profileImg: "" });
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
-    const [profileImg, setProfileImg] = useState("");
-    const [bio, setBio] = useState("");
-    const [username, setUsername] = useState([]);
-    const [color, setColor] = useState(" ");
-    const [numFollowers, setNumFollowers] = useState();
-    const [numFollowing, setNumFollowing] = useState();
+    const [save, setSave] = useState(false);
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
@@ -23,15 +19,23 @@ function PPPage() {
     useEffect(() => {
         getUserInfo();
         getUserPosts();
-    }, []);
+    }, [save]);
 
-    const getUserPosts = () => {
-        UserService.getUserPosts().then(data => {
-            console.log(data.posts);
+    const getUserInfo = () => {
+        UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
-                setPosts(data.posts)
-                setNumPosts(data.posts.length);
+                // Set userObject's values
+                setUserObject({
+                    ...userObject,
+                    profileImg: data.profileImgSrc,
+                    username: data.username,
+                    bio: data.bio,
+                    color: data.color,
+                    numFollowers: data.followers.length,
+                    numFollowing: data.following.length,
+                });
+                document.body.className = (data.color);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
@@ -40,17 +44,13 @@ function PPPage() {
         });
     }
 
-    const getUserInfo = () => {
-        UserService.getUserInfo().then(data => {
+    const getUserPosts = () => {
+        UserService.getUserPosts().then(data => {
+            console.log(data.posts);
             const { message } = data;
             if (!message) {
-                setUsername(data.username);
-                setProfileImg(data.profileImgSrc);
-                setBio(data.bio);
-                document.body.className=(data.color);
-                setColor(data.color);
-                setNumFollowers(data.followers.length);
-                setNumFollowing(data.following.length);
+                setPosts(data.posts)
+                setNumPosts(data.posts.length);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
@@ -73,30 +73,30 @@ function PPPage() {
             <div className="infoSection">
                 <a className="arrowATag" href="/home"><img className="backArrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Feather-arrows-arrow-left.svg/768px-Feather-arrows-arrow-left.svg.png" alt="back arrow button"></img></a>
                 <div className="profileUsernamePhoto">
-                    <img className="profileImg" src={profileImg} alt="Profile Pic" />
-                    <h3 className="username">{username}</h3>
+                    <img className="profileImg" src={userObject.profileImg} alt="Profile Pic" />
+                    <h3 className="username">{userObject.username}</h3>
                 </div>
                 <div className="verticalLine infoBlock1 infoBlock">
                     {numPosts} posts
                 </div>
                 <div className="verticalLine infoBlock2 infoBlock">
-                    {numFollowers} followers
+                    {userObject.numFollowers} followers
                 </div>
                 <div className="verticalLine infoBlock3 infoBlock">
-                    following {numFollowing} 
+                    following {userObject.numFollowing}
                 </div>
                 <div className="bioSection">
-                    {bio ? <p className="bio">{bio}</p> : null}
+                    <p className="bio">{userObject.bio}</p>
                     <button onClick={onClickLogoutHandler}>Logout</button>
                     <SettingsModal
-                        userImg={profileImg}
-                        username={username}
-                        refresh={getUserInfo} />
+                        userImg={userObject.profileImg}
+                        username={userObject.username}
+                        refresh={() => (setSave(!save))} />
                     <PostModal
-                        userImg={profileImg}
-                        username={username}
-                        refresh={getUserPosts} 
-                        color={color}/>
+                        userImg={userObject.profileImg}
+                        username={userObject.username}
+                        refresh={() => (setSave(!save))}
+                        color={userObject.color} />
                 </div>
             </div>
 

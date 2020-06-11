@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import UserService from "../../../services/UserService";
+import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import "./style.css";
 
 function MediaCard(props) {
-    const [username, setUsername] = useState("");
+    const [hexColor, setHexColor] = useState();
     const [color, setColor] = useState();
+    const [userImg, setUserImg] = useState("");
+    const authContext = useContext(AuthContext);
 
     var style = {
         profileImgSmall: {
@@ -13,59 +16,60 @@ function MediaCard(props) {
             float: "left",
             width: 40,
             height: 40,
-            borderRadius : "50%",
+            borderRadius: "50%",
             borderWidth: "2px",
             borderStyle: "solid",
-            borderColor: color
-          }
+            borderColor: hexColor
+        }
     };
 
     useEffect(() => {
-        getUserInfo();
-        switch (props.color) {
-            case "color-violet":
-                setColor("#7A4EAB");
-                break;
-            case "color-indigo":
-                setColor("#4332CF");
-                break;
-            case "color-blue":
-                setColor("#2F8FED");
-                break;
-            case "color-green":
-                setColor("#4DCF42");
-                break;
-            case "color-yellow":
-                setColor("#FAEB33");
-                break;
-            case "color-orange":
-                setColor("#F19031");
-                break;
-            case "color-red":
-                setColor("#F2293A");
-                break;
-            case "color-pink":
-                setColor("#FF1493");
-                break;
-        }
+        getDisplayUserInfo();
     }, []);
 
-    const getUserInfo = () => {
-        UserService.getUserInfo().then(data => {
+    const getDisplayUserInfo = () => {
+        UserService.getOtherUserInfo(props.username).then(data => {
             const { message } = data;
             if (!message) {
-                setUsername(data.username);
+                setUserImg(data.profileImgSrc);
+                setColor(data.color);
+                switch (data.color) {
+                    case "color-violet":
+                        setHexColor("#7A4EAB");
+                        break;
+                    case "color-indigo":
+                        setHexColor("#4332CF");
+                        break;
+                    case "color-blue":
+                        setHexColor("#2F8FED");
+                        break;
+                    case "color-green":
+                        setHexColor("#4DCF42");
+                        break;
+                    case "color-yellow":
+                        setHexColor("#FAEB33");
+                        break;
+                    case "color-orange":
+                        setHexColor("#F19031");
+                        break;
+                    case "color-red":
+                        setHexColor("#F2293A");
+                        break;
+                    case "color-pink":
+                        setHexColor("#FF1493");
+                        break;
+                }
             }
         });
     }
 
     return (
-        <div className="card panel" data-color={props.color}>
-            <img className="feedImg" src={props.imgUrl} alt="Avatar"/>
+        <div className="card panel" data-color={color}>
+            <img className="feedImg" src={props.imgUrl} alt="Avatar" />
             <div className="container userInfoMedia">
-                <img className="profileImgSmall" style={style.profileImgSmall} src={props.userImg} alt="Avatar"></img>
-                <a className="userLink" href={username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
-                {username === props.username ? null : <TipModal username={props.username}/>}
+                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                {authContext.user.username === props.username ? null : <TipModal username={props.username} />}
             </div>
         </div>
     );

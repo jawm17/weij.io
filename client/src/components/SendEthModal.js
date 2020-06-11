@@ -115,7 +115,6 @@ export default function TipModal(props) {
                             name="amount"
                             placeholder="amount"
                             onChange={onAmountChange}
-                            value={amount}
                         />
                         <br></br>
                         <br></br>

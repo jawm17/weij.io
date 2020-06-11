@@ -1,20 +1,18 @@
 .walletMainOuter {
     display: flex;
     justify-content: center;
-    margin-right: 220px;
-    margin-left: 220px;
 }
 
 .walletMain {
     display: block;
-    margin-right: 220px;
-    margin-left: 220px;
+    width: 70%;
+    max-width: 800px;
 }
 
 .walletInfoCard {
     /* Add shadows to create the "card" effect */
-    width: 800px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    word-wrap: break-word;
     border-radius: 5px;
     background-color: white;
     margin-top: 25px;
@@ -27,7 +25,6 @@
 
   .walletTxCard {
     /* Add shadows to create the "card" effect */
-    width: 800px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
     background-color: white;

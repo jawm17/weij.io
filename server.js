@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/index");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3500;
 const cookieParser = require("cookie-parser");
 
 // Define middleware here
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(router);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb+srv://koikoi5:koikoi5@mymodata-4ywri.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect("mongodb://localhost/MyMoLocalDB", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 // Start the API server
 app.listen(PORT, function () {

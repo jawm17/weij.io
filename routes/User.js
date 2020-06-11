@@ -14,7 +14,7 @@ const signToken = userID => {
     return JWT.sign({
         iss: "crackPotHippie",
         sub: userID
-    }, "crackPotHippie", { expiresIn: "1h" });
+    }, "crackPotHippie", { expiresIn: "2h" });
 }
 
 // All routes in this file are prefixed with /user/ --------------------------------------------------------------------
