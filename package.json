@@ -13,6 +13,12 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+<<<<<<< HEAD
+=======
+  "engines": {
+    "node": "10.16.0"
+  },
+>>>>>>> 4928f55879eb7da8bc0435dda878d0f0be3bd790
   "author": "",
   "license": "ISC",
   "devDependencies": {
