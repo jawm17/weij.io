@@ -68,7 +68,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, authenticated: true });
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, balance: document.balance, authenticated: true });
         }
     });
 });

