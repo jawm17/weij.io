@@ -29,14 +29,7 @@ function Feed() {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
-
-                TxHistoryService.getTransactions(data.address).then(data => {
-                    UserService.updateNumTx(data.result.length).then(data => {
-                        console.log(data);
-                    })
-                    console.log(data.result.length);
-                })
-
+                
                 // set display balance to balance in db
                 setBalance(data.balance / 1000000000000000000);
 
@@ -47,19 +40,26 @@ function Feed() {
                             .then((gasPrice) => {
                                 // address contains eth
                                 if (amnt > gasPrice * 23000) {
+                                    // send balance to central wallet
                                     web3.eth.accounts.signTransaction({
                                         to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
                                         value: parseInt(amnt - gasPrice * 23000),
                                         gas: 21000
                                     }, data.key)
                                         .then((signedTransactionData) => {
-                                            web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => console.log("Transaction receipt: ", receipt))
+                                            web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => {
+                                                console.log("Transaction receipt: ", receipt);
+                                                // set new db balance
+                                                UserService.updateBalance(amnt);
+                                                // set display balance to balance in db
+                                                setBalance(data.balance / 1000000000000000000);
+                                            })
                                                 .catch(err => console.error(err));
                                         });
                                 }
                                 // eth address empty
                                 else {
-                                    console.log("empty");
+                                    console.log("Real address is empty");
                                 }
                             });
                     })

@@ -85,10 +85,10 @@ export default {
                     return { message: { msgBody: "Unauthorized", msgError: true } };
             });
     },
-    updateNumTx: (newNum) => {
-        return fetch('/user/update-numTx', {
+    updateBalance: (funds) => {
+        return fetch('/user/update-balance', {
             method: "post",
-            body: JSON.stringify({ "newNum": newNum }),
+            body: JSON.stringify({ "funds": funds }),
             headers: {
                 'Content-Type': 'application/json'
             }
