@@ -68,7 +68,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, balance: document.balance, authenticated: true });
+            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, balance: document.balance, numTx: document.numTx, authenticated: true });
         }
     });
 });
@@ -275,6 +275,20 @@ userRouter.post('/update-balance', passport.authenticate('jwt', { session: false
     const message = { msgBody: "Error has occured", msgError: true };
     const funds = req.body.funds;
     User.findOneAndUpdate({ _id: req.user._id }, { $inc: { balance: funds } }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully updated balance", msgError: false } });
+        }
+    });
+});
+
+// update user balance
+userRouter.post('/update-numTx', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const numTx = req.body.numTx;
+    User.findOneAndUpdate({ _id: req.user._id }, { numTx: numTx } ).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }

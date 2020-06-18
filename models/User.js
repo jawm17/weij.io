@@ -47,6 +47,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    numTx: {
+        type: Number,
+        default: 0
+    },
     sentTx: {
         type: Array,
         default: []

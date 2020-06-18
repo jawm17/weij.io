@@ -37,19 +37,34 @@ function Feed() {
 
     function initWalletData() {
         UserService.getUserInfo().then(data => {
-            const { message } = data;
+            const { message, numTx, address } = data;
             if (!message) {
-                // set display balance to balance in db
-                setBalance(data.balance / 1000000000000000000);
-
+                getBalance();
                 // checks real wallet ballance to see if forwarding is needed
-                web3.eth.getBalance(data.address)
+                web3.eth.getBalance(address)
                     .then((amnt) => {
                         web3.eth.getGasPrice()
                             .then((gasPrice) => {
-                                // address contains eth
+                                // address contains enough eth
                                 if (amnt > gasPrice * 23000) {
-                                    // send balance to central wallet
+                                    // update db balance based on tx history
+                                    TxHistoryService.getTransactions(address).then(txData => {
+                                        if (numTx < txData.result.length) {
+                                            var newFunds = 0;
+                                            for (var i = 0; i < txData.result.length - numTx; i++) {
+                                                if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
+                                                    newFunds += txData.result[i].value;
+                                                    console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
+                                                }
+                                            }
+                                            UserService.updateBalance(newFunds);
+                                            UserService.updateNumTx(txData.result.length);
+                                            getBalance();
+                                        } else {
+                                            console.log("no tx update");
+                                        }
+                                    })
+                                    // send balance to central wallet 
                                     web3.eth.accounts.signTransaction({
                                         to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
                                         value: parseInt(amnt - gasPrice * 23000),
@@ -58,10 +73,6 @@ function Feed() {
                                         .then((signedTransactionData) => {
                                             web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => {
                                                 console.log("Transaction receipt: ", receipt);
-                                                // set new db balance
-                                                UserService.updateBalance(amnt);
-                                                // set display balance to balance in db
-                                                setBalance(data.balance / 1000000000000000000);
                                             })
                                                 .catch(err => console.error(err));
                                         });
