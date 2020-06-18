@@ -47,6 +47,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    sentTx: {
+        type: Array,
+        default: []
+    },
+    recievedTx: {
+        type: Array,
+        default: []
+    },
     posts : [{type : mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 

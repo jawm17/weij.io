@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import "./TipModalStyle.css";
 import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
+import TransactionService from '../services/TransactionService';
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/ee2cbc278b5442dfbd27dedb4806c237"));
 
@@ -27,42 +28,30 @@ export default function TipModal(props) {
 
     const sendTip = (value) => {
         UserService.getUserInfo().then(data => {
-            const { message } = data;
+            const { message, balance } = data;
             if (!message) {
-                web3.eth.getBalance(data.address)
-                    .then((res) => {
-                        if (value < (res / 1000000000000000000)) {
-                            UserService.getOtherUserInfo(props.username).then(data2 => {
-                                const { message } = data;
-                                if (!message) {
-                                    web3.eth.accounts.signTransaction({
-                                        to: data2.address,
-                                        value: parseInt(value * 1000000000000000000),
-                                        gas: 2000000
-                                    }, data.key)
-                                        .then((signedTransactionData) => {
-                                            web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => console.log("Transaction receipt: ", receipt))
-                                                .catch(err => console.error(err));
-                                        });
-                                }
-                            })
-                            setNotification("Succesfully sent Ether");
-                            setNotificationError(false);
-                            timerID = setTimeout(() => {
-                                setNotification("");
-                                closeModal();
-                            }, 1500)
-
+                if (value < (balance / 1000000000000000000)) {
+                    TransactionService.tipTx(value, props.username, data.username).then(data, err => {
+                        if(err){
+                            console.log(err);
                         } else {
-                            setNotification("Insufficent Funds");
-                            setNotificationError(true);
-                            timerID = setTimeout(() => {
-                                setNotification("");
-                                setNotificationError(false);
-                            }, 1500)
+                            console.log(data);
                         }
                     })
-                    .catch(err => console.log(err));
+                    setNotification("Succesfully sent Ether");
+                    setNotificationError(false);
+                    timerID = setTimeout(() => {
+                        setNotification("");
+                        closeModal();
+                    }, 1500)
+                } else {
+                    setNotification("Insufficent Funds");
+                    setNotificationError(true);
+                    timerID = setTimeout(() => {
+                        setNotification("");
+                        setNotificationError(false);
+                    }, 1500)
+                }
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });

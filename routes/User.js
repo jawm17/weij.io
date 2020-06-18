@@ -274,12 +274,37 @@ userRouter.post('/update-profileImg', passport.authenticate('jwt', { session: fa
 userRouter.post('/update-balance', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     const funds = req.body.funds;
-    User.findOneAndUpdate({ _id: req.user._id }, {$inc: {balance: funds}}).exec((err, document) => {
+    User.findOneAndUpdate({ _id: req.user._id }, { $inc: { balance: funds } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
             res.status(200).json({ message: { msgBody: "Successfully updated balance", msgError: false } });
+        }
+    });
+});
+
+// new tipping transaction
+userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const funds = req.body.funds;
+    const to = req.body.to;
+    const from = req.body.from;
+    const date = req.body.date;
+    User.findOneAndUpdate({ _id: req.user._id }, { $inc: { balance: -funds }, $push: { sentTx: { "to": to, "amount": funds, "date": date } } }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "date": date } } }).exec((err, document) => {
+                if (err) {
+                    res.status(500).json({ message });
+                }
+                else {
+                    res.status(200).json({ message: { msgBody: "Successfully tipped ETH", msgError: false } });
+                }
+            });
+            res.status(200).json({ message: { msgBody: "Successfully tipped ETH", msgError: false } });
         }
     });
 });
