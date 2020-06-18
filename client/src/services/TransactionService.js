@@ -2,7 +2,7 @@ export default {
     tipTx: (funds, to, from) => {
         return fetch('/user/tipTx', {
             method: "post",
-            body: JSON.stringify({ "funds": funds, "to": to, "from": from }),
+            body: JSON.stringify({ "funds": funds, "to": to, "from": from, "date": Date.now()}),
             headers: {
                 'Content-Type': 'application/json'
             }

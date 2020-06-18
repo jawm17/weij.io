@@ -3,8 +3,9 @@ import MediaCard from "./MediaCard";
 import LoadingAnimation from "./LoadingAnimation";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
+import { PromiseProvider } from "mongoose";
 
-export default function MediaPanel() {
+export default function MediaPanel(props) {
     const [posts, setPosts] = useState([]);
     const authContext = useContext(AuthContext);
 
@@ -33,6 +34,7 @@ export default function MediaPanel() {
             {posts.map(post => {
                 if (!post.deleted) {
                     return <MediaCard
+                        getBalance={props.getBalance}
                         key={post._id}
                         imgUrl={post.imgSrc}
                         username={post.user}

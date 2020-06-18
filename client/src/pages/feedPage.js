@@ -14,7 +14,7 @@ function Feed() {
     document.body.className = ("color-blue");
 
     useEffect(() => {
-        getBalance();
+        initWalletData();
     }, []);
 
     function revealSearch() {
@@ -29,7 +29,16 @@ function Feed() {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
-                
+                // set display balance to balance in db
+                setBalance(data.balance / 1000000000000000000);
+            }
+        })
+    }
+
+    function initWalletData() {
+        UserService.getUserInfo().then(data => {
+            const { message } = data;
+            if (!message) {
                 // set display balance to balance in db
                 setBalance(data.balance / 1000000000000000000);
 
@@ -93,7 +102,7 @@ function Feed() {
 
 
                 <div className="mediaPanel">
-                    {onSearch ? <SearchPanel /> : <MediaPanel />}
+                    {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}
                 </div>
             </div>
         </div>

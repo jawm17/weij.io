@@ -31,19 +31,15 @@ export default function TipModal(props) {
             const { message, balance } = data;
             if (!message) {
                 if (value < (balance / 1000000000000000000)) {
-                    TransactionService.tipTx(value, props.username, data.username).then(data, err => {
-                        if(err){
-                            console.log(err);
-                        } else {
-                            console.log(data);
-                        }
+                    TransactionService.tipTx((value * 1000000000000000000), props.username, data.username).then(data => {
+                        props.getBalance();
+                        setNotification("Succesfully sent Ether");
+                        setNotificationError(false);
+                        timerID = setTimeout(() => {
+                            setNotification("");
+                            closeModal();
+                        }, 1500)
                     })
-                    setNotification("Succesfully sent Ether");
-                    setNotificationError(false);
-                    timerID = setTimeout(() => {
-                        setNotification("");
-                        closeModal();
-                    }, 1500)
                 } else {
                     setNotification("Insufficent Funds");
                     setNotificationError(true);

@@ -291,12 +291,12 @@ userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req
     const to = req.body.to;
     const from = req.body.from;
     const date = req.body.date;
-    User.findOneAndUpdate({ _id: req.user._id }, { $inc: { balance: -funds }, $push: { sentTx: { "to": to, "amount": funds, "date": date } } }).exec((err, document) => {
+    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "time": date } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
-            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "date": date } } }).exec((err, document) => {
+            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "time": date } } }).exec((err, document) => {
                 if (err) {
                     res.status(500).json({ message });
                 }
@@ -304,7 +304,6 @@ userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req
                     res.status(200).json({ message: { msgBody: "Successfully tipped ETH", msgError: false } });
                 }
             });
-            res.status(200).json({ message: { msgBody: "Successfully tipped ETH", msgError: false } });
         }
     });
 });
