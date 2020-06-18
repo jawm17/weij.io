@@ -270,6 +270,20 @@ userRouter.post('/update-profileImg', passport.authenticate('jwt', { session: fa
     });
 });
 
+// update numTx
+userRouter.post('/update-numTx', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    const newNum = req.body.newNum;
+    User.findOneAndUpdate({ _id: req.user._id }, { numTx: newNum }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully updated numTx", msgError: false } });
+        }
+    });
+});
+
 // find username associated with address
 userRouter.post('/user-address', (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };

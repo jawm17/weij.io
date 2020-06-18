@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
+import TxHistoryService from '../services/TxHistoryService';
 import UserService from '../services/UserService';
 import './feedPageStyle.css';
 var Web3 = require('web3');
@@ -28,6 +29,13 @@ function Feed() {
         UserService.getUserInfo().then(data => {
             const { message } = data;
             if (!message) {
+
+                TxHistoryService.getTransactions(data.address).then(data => {
+                    UserService.updateNumTx(data.result.length).then(data => {
+                        console.log(data);
+                    })
+                    console.log(data.result.length);
+                })
 
                 // set display balance to balance in db
                 setBalance(data.balance / 1000000000000000000);

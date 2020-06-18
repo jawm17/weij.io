@@ -31,6 +31,10 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    numTx: {
+        type: Number,
+        default: 0
+    },
     subscriptionFee: {
         type: Number,
         default: 0

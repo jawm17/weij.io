@@ -84,5 +84,20 @@ export default {
                 else
                     return { message: { msgBody: "Unauthorized", msgError: true } };
             });
+    },
+    updateNumTx: (newNum) => {
+        return fetch('/user/update-numTx', {
+            method: "post",
+            body: JSON.stringify({ "newNum": newNum }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.status !== 401) {
+                return response.json().then(data => data);
+            }
+            else
+                return { message: { msgBody: "Unauthorized" }, msgError: true };
+        });
     }
 }
