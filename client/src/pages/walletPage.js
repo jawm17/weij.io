@@ -34,11 +34,11 @@ function Wallet() {
 
     function getWalletInfo() {
         UserService.getUserInfo().then(data => {
-            const { message } = data;
+            const { message, balance } = data;
             if (!message) {
                 setAddress(data.address);
-                getBalance(data.address);
                 getTransactions(data.address);
+                setBalance(balance / 1000000000000000000);
             }
             else if (message.msgBody === "Unauthorized") {
 
@@ -47,16 +47,6 @@ function Wallet() {
                 authContext.setIsAuthenticated(false);
             }
         });
-    }
-
-    function getBalance(addressParam) {
-        if (addressParam) {
-            web3.eth.getBalance(addressParam)
-                .then((res) => {
-                    setBalance(res / 1000000000000000000)
-                })
-                .catch(err => console.log(err));
-        }
     }
 
     return (
@@ -72,15 +62,17 @@ function Wallet() {
                         </div>
                     </div>
                     <div className="walletTxCard panel">
-                        {txs.map(tx => (
-                            <TransactionDetail
-                                amount={parseFloat((tx.value / 1000000000000000000).toFixed(6))}
-                                address={address}
-                                from={tx.from}
-                                to={tx.to}
-                                key={tx.cumulativeGasUsed + Math.random() * 10000}
-                            />
-                        ))}
+                        {txs.map(tx => {
+                            if (tx.to !== "0x1c3bc05c4cd2902ffbf20e3b87a2cc9d793fc42b") {
+                                return <TransactionDetail
+                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6))}
+                                    address={address}
+                                    from={tx.from}
+                                    to={tx.to}
+                                    key={tx.cumulativeGasUsed + Math.random() * 10000}
+                                />
+                            }
+                        })}
                     </div>
                 </div>
             </div>
