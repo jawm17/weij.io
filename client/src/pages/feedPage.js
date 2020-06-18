@@ -74,7 +74,7 @@ function Feed() {
                                             web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => {
                                                 console.log("Transaction receipt: ", receipt);
                                             })
-                                                .catch(err => console.error(err));
+                                                .catch(err => console.log("Could not send tx"));
                                         });
                                 }
                                 // eth address empty
