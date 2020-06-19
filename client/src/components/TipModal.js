@@ -30,8 +30,8 @@ export default function TipModal(props) {
         UserService.getUserInfo().then(data => {
             const { message, balance } = data;
             if (!message) {
-                if (value < (balance / 1000000000000000000)) {
-                    TransactionService.tipTx((value * 1000000000000000000), props.username, data.username).then(data => {
+                if (value < balance) {
+                    TransactionService.tipTx((value), props.username, data.username).then(data => {
                         props.getBalance();
                         setNotification("Succesfully sent Ether");
                         setNotificationError(false);
