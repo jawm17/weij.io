@@ -38,7 +38,7 @@ function Wallet() {
             if (!message) {
                 setAddress(data.address);
                 getTransactions(data.address);
-                setBalance(balance / 1000000000000000000);
+                setBalance(balance);
             }
             else if (message.msgBody === "Unauthorized") {
 
