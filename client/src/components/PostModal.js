@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import './PostModalStyle.css'
 
 export default function PostModal(props) {
-    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"});
+    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
 
     const [visible, setVisible] = useState(false);
     const authContext = useContext(AuthContext);
@@ -24,7 +24,7 @@ export default function PostModal(props) {
 
     const onChange = (e) => {
         if (e.target.name === "imgSrc" && !e.target.value) {
-            setNewPost({"imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png"});
+            setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
         }
         else {
             setNewPost({ [e.target.name]: e.target.value, "user": props.username, "userImg": props.userImg, "color": props.color });
@@ -65,30 +65,35 @@ export default function PostModal(props) {
             <button onClick={() => openModal()}> Post Photo </button>
             <Modal
                 visible={visible}
-                width="900"
-                height="300"
+                width="520"
+                height="70%"
                 effect="fadeInDown"
             >
-                <div>
-                    <h1>Post an Image</h1>
-                    <form onSubmit={postPhoto}>
-                        <input
-                            className="imgUrlInput"
-                            name="imgSrc"
-                            id="imgSrc"
-                            placeholder="Image URL"
-                            onChange={onChange}
-                        />
-                        <button
-                            type="submit"
-                            className="submitBtn"
-                        >
-                            Post Photo
+                <div className="postModal">
+                    <div className="inputArea">
+                        <h1>Post an Image</h1>
+                        <form onSubmit={postPhoto}>
+                            <h4 className="urlTitle">Image URL: </h4>
+                            <input
+                                className="imgUrlInput"
+                                name="imgSrc"
+                                id="imgSrc"
+                                onChange={onChange}
+                            />
+                            <button
+                                type="submit"
+                                className="submitBtn"
+                            >
+                                Post Photo
                             </button>
-                    </form>
-                    {message ? <div className="alert"> {message} </div> : null}
+                        </form>
+                        {message ? <div className="alert"> {message} </div> : null}
+                    </div>
                     <button onClick={() => closeModal()}>Close</button>
-                    <img className="sampleImg" src={newPost.imgSrc} onError={() => onError()} alt="sample post"></img>
+                    <br></br>
+                    <div className="imgArea">
+                        <img className="sampleImg" style={{borderColor: "#2F8FED"}} src={newPost.imgSrc} onError={() => onError()} alt="sample post"></img>
+                    </div>
                 </div>
             </Modal>
         </section>

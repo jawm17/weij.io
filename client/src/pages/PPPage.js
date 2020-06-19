@@ -8,7 +8,7 @@ import './PPPageStyle.css'
 
 function PPPage() {
     // Setting our component's initial state
-    const [userObject, setUserObject] = useState({ username: "", profileImg: "" });
+    const [userObject, setUserObject] = useState({ username: "", profileImg: "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
     const [posts, setPosts] = useState([]);
     const [numPosts, setNumPosts] = useState(0);
     const [save, setSave] = useState(false);
