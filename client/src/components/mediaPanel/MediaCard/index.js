@@ -73,7 +73,7 @@ function MediaCard(props) {
             <div className="container userInfoMedia">
                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                 <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
-                {authContext.user.username === props.username && paywall ? null : <TipModal username={props.username}  getBalance={props.getBalance}/>}
+                {authContext.user.username === props.username ? null : <TipModal username={props.username}  getBalance={props.getBalance}/>}
             </div>
         </div>
     );
