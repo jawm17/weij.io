@@ -2,27 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./transactionDetailStyle.css";
 
 export default function TransactionDetail(props) {
-    const [recieved, setRecieved] = useState();
+    const [txText, setTxText] = useState("");
 
     useEffect(() => {
-        if (props.address.toUpperCase() === props.to.toUpperCase()) {
-            setRecieved(true);
+        // transaction is a db tx
+        if (props.type) {
+            if (props.from) {
+                setTxText(`Recieved a ${props.amount} ${props.type} from ${props.from}`);
+            } else {
+                setTxText(`Sent a ${props.amount} ${props.type} to ${props.to}`);
+            }
         } else {
-            setRecieved(false);
+            if (props.address.toUpperCase() === props.to.toUpperCase()) {
+                setTxText(`Recieved ${props.amount} ETH from ${props.from}`);
+            }
         }
     }, []);
 
     return (
         <div>
-            {recieved ?
-                <div className="detail">
-                    Recieved {props.amount} ETH from {props.from}
+            {txText ?
+                <div>
+                    <div className="detail">
+                        {txText}
+                    </div> <hr></hr>
                 </div>
-                :
-                <div className="detail">
-                    Sent {props.amount} ETH to {props.to}
-                </div>}
-            <hr></hr>
+                : null}
         </div>
     );
 }

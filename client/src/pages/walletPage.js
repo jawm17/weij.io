@@ -26,21 +26,17 @@ function Wallet() {
         })
     }, [])
 
-    function getTransactions(address) {
-        TxHistoryService.getTransactions(address).then(data => {
-            setTxs(data.result.reverse());
-        })
-    }
-
     function getWalletInfo() {
         UserService.getUserInfo().then(data => {
             const { message, balance } = data;
             if (!message) {
                 setAddress(data.address);
-                getTransactions(data.address);
                 setBalance(balance.toFixed(7));
-                console.log(data.recievedTx.concat(data.sentTx));
-            
+                TxHistoryService.getTransactions(data.address).then(data2 => {
+                    console.log(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0,9)) - (b.timeStamp.toString().substring(0,9))).reverse())
+                    setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0,9)) - (b.timeStamp.toString().substring(0,9))).reverse());
+                })
+                
             }
             else if (message.msgBody === "Unauthorized") {
 
@@ -65,15 +61,14 @@ function Wallet() {
                     </div>
                     <div className="walletTxCard panel">
                         {txs.map(tx => {
-                            if (tx.to !== "0x1c3bc05c4cd2902ffbf20e3b87a2cc9d793fc42b") {
                                 return <TransactionDetail
-                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6))}
+                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
                                     address={address}
                                     from={tx.from}
+                                    type={tx.type}
                                     to={tx.to}
-                                    key={tx.cumulativeGasUsed + Math.random() * 10000}
+                                    key={Math.random() * 10000}
                                 />
-                            }
                         })}
                     </div>
                 </div>

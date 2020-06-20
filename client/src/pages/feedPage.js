@@ -40,27 +40,25 @@ function Feed() {
         UserService.getUserInfo().then(data => {
             const { message, numTx, address } = data;
             if (!message) {
-                // checks real wallet ballance to see if forwarding is needed
+                // update db balance based on tx history
+                TxHistoryService.getTransactions(address).then(txData => {
+                    if (numTx < txData.result.length) {
+                        UserService.updateNumTx(txData.result.length);
+                        for (var i = txData.result.length - 1; i >= numTx; i--) {
+                            if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
+                                console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
+                                UserService.updateBalance(txData.result[i].value / 1000000000000000000);
+                            }
+                        }
+                    }
+                })
+                 // checks real wallet ballance to see if forwarding is needed
                 web3.eth.getBalance(address)
                     .then((amnt) => {
                         web3.eth.getGasPrice()
                             .then((gasPrice) => {
                                 // address contains enough eth
                                 if (amnt > gasPrice * 23000) {
-                                    // update db balance based on tx history
-                                    TxHistoryService.getTransactions(address).then(txData => {
-                                        let funds = 0;
-                                        if (numTx < txData.result.length) {
-                                            UserService.updateNumTx(txData.result.length);
-                                            for (var i = txData.result.length - 1; i >= numTx; i--) {
-                                                if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
-                                                    funds += txData.result[i].value / 1000000000000000000;
-                                                    console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
-                                                }
-                                                UserService.updateBalance(funds);
-                                            }
-                                        }
-                                    })
                                     // send balance to central wallet 
                                     web3.eth.accounts.signTransaction({
                                         to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",

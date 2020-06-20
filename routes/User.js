@@ -318,13 +318,12 @@ userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req
     const funds = req.body.funds;
     const to = req.body.to;
     const from = req.body.from;
-    const date = req.body.date;
-    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "time": date, "type": "tip" } } }).exec((err, document) => {
+    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "type": "tip", "timeStamp": Date.now() } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
-            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "time": date, "type": "tip" } } }).exec((err, document) => {
+            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "type": "tip", "timeStamp": Date.now() } } }).exec((err, document) => {
                 if (err) {
                     res.status(500).json({ message });
                 }
