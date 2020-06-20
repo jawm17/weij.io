@@ -9,7 +9,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v
 
 function Feed() {
     const [onSearch, setOnSearch] = useState(false);
-    const [balance, setBalance] = useState();
+    const [balance, setBalance] = useState(0);
 
     document.body.className = ("color-blue");
 
@@ -31,7 +31,7 @@ function Feed() {
             const { message } = data;
             if (!message) {
                 // set display balance to balance in db
-                setBalance(data.balance);
+                setBalance(data.balance.toFixed(7));
             }
         })
     }
@@ -97,7 +97,7 @@ function Feed() {
                             <a href="/wallet" className="walletBtn">
                                 <div className="container">
                                     <img className="ethlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8-CIGjYQCnoGOF87dKB8owCEpnkUiiWEy27e6lcA8abx1v-rG&usqp=CAU" alt="Ethereum Logo"></img>
-                                    <h3 className="walletText">{balance} ETH</h3>
+                                    <h3 className="walletText">{parseFloat(balance)} ETH</h3>
                                 </div>
                             </a>
                         </div>

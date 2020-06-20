@@ -68,7 +68,21 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
             res.status(500).json({ message });
         }
         else {
-            res.status(200).json({ username: document.username, address: document.address, key: document.key, profileImgSrc: document.profileImgSrc, color: document.color, bio: document.bio, followers: document.followers, following: document.following, balance: document.balance, numTx: document.numTx, authenticated: true });
+            res.status(200).json({
+                username: document.username,
+                address: document.address,
+                key: document.key,
+                profileImgSrc: document.profileImgSrc,
+                color: document.color,
+                bio: document.bio,
+                followers: document.followers,
+                following: document.following,
+                balance: document.balance,
+                numTx: document.numTx,
+                sentTx: document.sentTx, 
+                recievedTx: document.recievedTx,
+                authenticated: true
+            });
         }
     });
 });
@@ -288,7 +302,7 @@ userRouter.post('/update-balance', passport.authenticate('jwt', { session: false
 userRouter.post('/update-numTx', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     const numTx = req.body.numTx;
-    User.findOneAndUpdate({ _id: req.user._id }, { numTx: numTx } ).exec((err, document) => {
+    User.findOneAndUpdate({ _id: req.user._id }, { numTx: numTx }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
@@ -305,12 +319,12 @@ userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req
     const to = req.body.to;
     const from = req.body.from;
     const date = req.body.date;
-    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "time": date, "type" : "tip" } } }).exec((err, document) => {
+    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "time": date, "type": "tip" } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
-            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "time": date, "type" : "tip" } } }).exec((err, document) => {
+            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "time": date, "type": "tip" } } }).exec((err, document) => {
                 if (err) {
                     res.status(500).json({ message });
                 }

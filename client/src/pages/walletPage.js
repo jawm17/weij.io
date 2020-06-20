@@ -38,7 +38,9 @@ function Wallet() {
             if (!message) {
                 setAddress(data.address);
                 getTransactions(data.address);
-                setBalance(balance);
+                setBalance(balance.toFixed(7));
+                console.log(data.recievedTx.concat(data.sentTx));
+            
             }
             else if (message.msgBody === "Unauthorized") {
 
@@ -57,7 +59,7 @@ function Wallet() {
                     <div className="walletInfoCard panel">
                         <div className="substance">
                             <h2>Address: {address}</h2>
-                            <h3>Balance: {balance} ETH</h3>
+                            <h3>Balance: {parseFloat(balance)} ETH</h3>
                             <SendEthModal />
                         </div>
                     </div>
