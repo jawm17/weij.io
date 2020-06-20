@@ -7,7 +7,8 @@ import "./style.css";
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
     const [color, setColor] = useState();
-    const [userImg, setUserImg] = useState("");
+    const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    const [paywall, setPaywall] = useState(true);
     const authContext = useContext(AuthContext);
 
     var style = {
@@ -25,6 +26,9 @@ function MediaCard(props) {
 
     useEffect(() => {
         getDisplayUserInfo();
+        if(!props.price || authContext.user.username === props.username){
+            setPaywall(false);
+        }
     }, []);
 
     const getDisplayUserInfo = () => {
@@ -65,11 +69,11 @@ function MediaCard(props) {
 
     return (
         <div className="card panel" data-color={color}>
-            <img className="feedImg" src={props.imgUrl} alt="Avatar" />
+            {paywall ? <img className="feedImg" src={"https://i.pinimg.com/originals/5d/d2/8f/5dd28f9ef2f1e04fe1074df72ae68f4e.jpg"} alt="paywall"/> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
             <div className="container userInfoMedia">
                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                 <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
-                {authContext.user.username === props.username ? null : <TipModal username={props.username}  getBalance={props.getBalance}/>}
+                {authContext.user.username === props.username && paywall ? null : <TipModal username={props.username}  getBalance={props.getBalance}/>}
             </div>
         </div>
     );

@@ -5,8 +5,8 @@ import { AuthContext } from '../context/AuthContext';
 import './PostModalStyle.css'
 
 export default function PostModal(props) {
-    const [newPost, setNewPost] = useState({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
-
+    const [newPostSrc, setNewPostSrc] = useState("");
+    const [newPostPrice, setNewPostPrice] = useState("");
     const [visible, setVisible] = useState(false);
     const authContext = useContext(AuthContext);
     const [error, setError] = useState(true);
@@ -23,20 +23,20 @@ export default function PostModal(props) {
     }
 
     const onChange = (e) => {
-        if (e.target.name === "imgSrc" && !e.target.value) {
-            setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
-        }
-        else {
-            setNewPost({ [e.target.name]: e.target.value, "user": props.username, "userImg": props.userImg, "color": props.color });
+        if (e.target.name === "imgSrc") {
+            setNewPostSrc(e.target.value);
             setError(false);
             setMessage("");
+        } else if (e.target.name === "price" && !isNaN(e.target.value)){
+            console.log(e.target.value)
+            setNewPostPrice(e.target.value)
         }
     }
 
     const postPhoto = (e) => {
         e.preventDefault();
         if (!error) {
-            PostPhotoService.postPhoto(newPost).then(data => {
+            PostPhotoService.postPhoto({ "imgSrc": newPostSrc, "user": props.username, "userImg": props.userImg, "color": props.color, "price": newPostPrice}).then(data => {
                 const { message } = data;
                 if (message.msgBody === "Unauthorized") {
                     authContext.setUser({ username: "" });
@@ -52,12 +52,12 @@ export default function PostModal(props) {
     }
 
     const emptyFields = () => {
-
+        setNewPostSrc("");
+        setNewPostPrice("");
     }
 
     const onError = () => {
         setError(true);
-        setNewPost({ "imgSrc": "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
     }
 
     return (
@@ -66,33 +66,42 @@ export default function PostModal(props) {
             <Modal
                 visible={visible}
                 width="520"
-                height="70%"
+                height="500"
                 effect="fadeInDown"
             >
                 <div className="postModal">
                     <div className="inputArea">
                         <h1>Post an Image</h1>
-                        <form onSubmit={postPhoto}>
-                            <h4 className="urlTitle">Image URL: </h4>
+                            <h4 className="label">Image URL: </h4>
                             <input
                                 className="imgUrlInput"
                                 name="imgSrc"
                                 id="imgSrc"
                                 onChange={onChange}
+                                value={newPostSrc}
                             />
-                            <button
+                            <br></br>
+                            <h4 className="label">Price (optional): </h4>
+                            <input
+                                className="priceInput"
+                                name="price"
+                                id="price"
+                                onChange={onChange}
+                                value={newPostPrice}
+                            />
+                            <br></br>
+                            <button onClick={postPhoto}
                                 type="submit"
                                 className="submitBtn"
                             >
                                 Post Photo
                             </button>
-                        </form>
+                            <button onClick={() => closeModal()}>Cancel</button>
                         {message ? <div className="alert"> {message} </div> : null}
                     </div>
-                    <button onClick={() => closeModal()}>Close</button>
                     <br></br>
                     <div className="imgArea">
-                        <img className="sampleImg" style={{borderColor: "#2F8FED"}} src={newPost.imgSrc} onError={() => onError()} alt="sample post"></img>
+                        <img className="sampleImg" style={{borderColor: "#2F8FED"}} src={error ? "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" : newPostSrc} onError={() => onError()} alt="sample post"></img>
                     </div>
                 </div>
             </Modal>

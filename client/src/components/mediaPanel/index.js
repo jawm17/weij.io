@@ -37,6 +37,7 @@ export default function MediaPanel(props) {
                         getBalance={props.getBalance}
                         key={post._id}
                         imgUrl={post.imgSrc}
+                        price={post.price}
                         username={post.user}
                     />
                 }

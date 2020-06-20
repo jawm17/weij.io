@@ -2,10 +2,15 @@
    
 }
 
-.urlTitle{
+.label{
     display: inline-block;
     margin: 0;
     margin-right: 7px;
+    margin-bottom: 20px;
+}
+
+.priceTitle{
+    display: inline-block;
 }
 
 .imgUrlInput{
@@ -13,9 +18,13 @@
     display: inline-block;
 }
 
+.priceInput{
+    width: 200px;
+    display: inline-block;
+}
+
 .inputArea{
     margin-left: 20px;
-    
 }
 
 .imgArea{
