@@ -27,10 +27,22 @@ function MediaCard(props) {
 
     useEffect(() => {
         getDisplayUserInfo();
-        if(!props.price || authContext.user.username === props.username){
-            setPaywall(false);
-        }
+        checkPaywall();
     }, []);
+
+    const checkPaywall = () => {
+        if(!props.price){
+            setPaywall(false);
+        } else if (authContext.user.username === props.username){
+            setPaywall(false);
+        } else {
+            UserService.getUserInfo().then(data => {
+                if(props.privileged.includes(data.id)){
+                    setPaywall(false);
+                }
+            })
+        }
+    }
 
     const getDisplayUserInfo = () => {
         UserService.getOtherUserInfo(props.username).then(data => {
@@ -70,7 +82,7 @@ function MediaCard(props) {
 
     return (
         <div className="card panel" data-color={color}>
-            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
+            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
             <div className="container userInfoMedia">
                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                 <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>

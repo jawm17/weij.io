@@ -14,10 +14,10 @@ export default {
                 return { message: { msgBody: "Unauthorized" }, msgError: true };
         });
     },
-    unlockTx: (funds, to, from) => {
+    unlockTx: (funds, to, from, photoId, userId) => {
         return fetch('/user/sendTransaction', {
             method: "post",
-            body: JSON.stringify({ "funds": funds, "to": to, "from": from, "type": "unlock"}),
+            body: JSON.stringify({ "funds": funds, "to": to, "from": from, "type": "unlock", "photoId": photoId, "userId": userId}),
             headers: {
                 'Content-Type': 'application/json'
             }

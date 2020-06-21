@@ -69,6 +69,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
         }
         else {
             res.status(200).json({
+                id: document._id,
                 username: document.username,
                 address: document.address,
                 key: document.key,
@@ -319,6 +320,8 @@ userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: fals
     const to = req.body.to;
     const from = req.body.from;
     const type = req.body.type;
+    const photoId = req.body.photoId;
+    const userId = req.body.userId;
     User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "type": type, "timeStamp": Date.now() } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
@@ -329,24 +332,20 @@ userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: fals
                     res.status(500).json({ message });
                 }
                 else {
-                    res.status(200).json({ message: { msgBody: "Successfully sent ETH", msgError: false } });
+                    if(type === "unlock"){
+                        Post.findOneAndUpdate({ "_id": photoId }, { $push: { privileged: userId } }).exec((err, document) => {
+                            if (err) {
+                                res.status(500).json({ message });
+                            }
+                            else {
+                                res.status(200).json({ message: { msgBody: "Successfully unlocked Photo", msgError: false } });
+                            }
+                        });
+                    } else {
+                        res.status(200).json({ message: { msgBody: "Successfully sent ETH", msgError: false } });
+                    }
                 }
             });
-        }
-    });
-});
-
-// add user to privileged user list
-userRouter.post('/addPrivileged', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const message = { msgBody: "Error has occured", msgError: true };
-    const id = req.body.id;
-    const userId = req.body.userId;
-    Post.findOneAndUpdate({ "_id": id }, { $push: { privileged: userId } }).exec((err, document) => {
-        if (err) {
-            res.status(500).json({ message });
-        }
-        else {
-            res.status(200).json({ message: { msgBody: "Successfully unlocked Photo", msgError: false } });
         }
     });
 });

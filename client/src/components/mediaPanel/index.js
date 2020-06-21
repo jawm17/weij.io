@@ -34,11 +34,12 @@ export default function MediaPanel(props) {
             {posts.map(post => {
                 if (!post.deleted) {
                     return <MediaCard
-                        getBalance={props.getBalance}
+                        getBalance={() => props.getBalance}
                         key={post._id}
                         id={post._id}
                         imgUrl={post.imgSrc}
                         price={post.price}
+                        privileged={post.privileged}
                         username={post.user}
                     />
                 }

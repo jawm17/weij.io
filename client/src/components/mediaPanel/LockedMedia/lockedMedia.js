@@ -1,11 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
+import TransactionService from '../../../services/TransactionService';
+import UserService from '../../../services/UserService';
 import "./lockedMediaStyle.css";
 
 export default function LockedMedia(props) {
-    function unlockPhoto(){
-        props.updatePaywall();
+    const authContext = useContext(AuthContext);
 
+    function unlockPhoto(){
+        UserService.getUserInfo().then(data => { 
+            if(data.balance >= props.price) {
+                TransactionService.unlockTx(props.price, props.username, authContext.user.username, props.id, data.id).then(data2 => {
+                    console.log(data2);
+                    props.updatePaywall();
+                })
+            } else {
+                //insufficient funds
+            }
+        })
     }
 
     return (
