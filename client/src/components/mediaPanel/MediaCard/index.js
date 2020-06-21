@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from "../../../services/UserService";
+import LockedMedia from"../LockedMedia/lockedMedia";
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import "./style.css";
@@ -69,7 +70,7 @@ function MediaCard(props) {
 
     return (
         <div className="card panel" data-color={color}>
-            {paywall ? <img className="feedImg" src={"https://i.pinimg.com/originals/5d/d2/8f/5dd28f9ef2f1e04fe1074df72ae68f4e.jpg"} alt="paywall"/> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
+            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
             <div className="container userInfoMedia">
                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                 <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>

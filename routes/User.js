@@ -79,7 +79,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
                 following: document.following,
                 balance: document.balance,
                 numTx: document.numTx,
-                sentTx: document.sentTx, 
+                sentTx: document.sentTx,
                 recievedTx: document.recievedTx,
                 authenticated: true
             });
@@ -312,44 +312,43 @@ userRouter.post('/update-numTx', passport.authenticate('jwt', { session: false }
     });
 });
 
-// new tipping transaction
-userRouter.post('/tipTx', passport.authenticate('jwt', { session: false }), (req, res) => {
+// send any type transaction
+userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     const funds = req.body.funds;
     const to = req.body.to;
     const from = req.body.from;
-    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "type": "tip", "timeStamp": Date.now() } } }).exec((err, document) => {
+    const type = req.body.type;
+    User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "type": type, "timeStamp": Date.now() } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
         else {
-            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "type": "tip", "timeStamp": Date.now() } } }).exec((err, document) => {
+            User.findOneAndUpdate({ "username": to }, { $inc: { balance: funds }, $push: { recievedTx: { "from": from, "amount": funds, "type": type, "timeStamp": Date.now() } } }).exec((err, document) => {
                 if (err) {
                     res.status(500).json({ message });
                 }
                 else {
-                    res.status(200).json({ message: { msgBody: "Successfully tipped ETH", msgError: false } });
+                    res.status(200).json({ message: { msgBody: "Successfully sent ETH", msgError: false } });
                 }
             });
         }
     });
 });
 
-// find username associated with address
-userRouter.post('/user-address', (req, res) => {
+// add user to privileged user list
+userRouter.post('/addPrivileged', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
-    User.findOne({ "address": req.body.address }).exec((err, document) => {
+    const id = req.body.id;
+    const userId = req.body.userId;
+    Post.findOneAndUpdate({ "_id": id }, { $push: { privileged: userId } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
-        else if (document) {
-            res.status(200).json({ username: document.username });
-        }
         else {
-            res.status(200).json({ error: "no users found" });
+            res.status(200).json({ message: { msgBody: "Successfully unlocked Photo", msgError: false } });
         }
     });
 });
-
 
 module.exports = userRouter;

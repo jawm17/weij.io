@@ -21,6 +21,10 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    privileged: {
+        type: Array,
+        default: []
+    },
     tips: {
         type: Number,
         default: 0

@@ -36,6 +36,7 @@ export default function MediaPanel(props) {
                     return <MediaCard
                         getBalance={props.getBalance}
                         key={post._id}
+                        id={post._id}
                         imgUrl={post.imgSrc}
                         price={post.price}
                         username={post.user}
