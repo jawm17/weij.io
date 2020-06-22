@@ -7,6 +7,17 @@ import "./lockedMediaStyle.css";
 export default function LockedMedia(props) {
     const authContext = useContext(AuthContext);
 
+    useEffect(() => {
+        console.log();
+    }, []);
+
+    var style = {
+        lockedImg: {
+            height: props.height,
+            maxHeight:"600px"
+        }
+    };
+
     function unlockPhoto(){
         UserService.getUserInfo().then(data => { 
             if(data.balance >= props.price) {
@@ -22,7 +33,7 @@ export default function LockedMedia(props) {
     }
 
     return (
-        <div className="lockedMediaBody">
+        <div className="lockedMediaBody" style={style.lockedImg}>
             <div className="infoArea">
             <p className="infoText">This image costs {props.price} ETH to unlock.</p>
             <button className="button3" onClick={() => unlockPhoto()}>Unlock</button>

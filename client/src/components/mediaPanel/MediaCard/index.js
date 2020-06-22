@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from "../../../services/UserService";
-import LockedMedia from"../LockedMedia/lockedMedia";
+import LockedMedia from "../LockedMedia/lockedMedia";
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import "./style.css";
@@ -10,6 +10,7 @@ function MediaCard(props) {
     const [color, setColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
+    const [height, setHeight] = useState("j");
     const authContext = useContext(AuthContext);
 
     var style = {
@@ -28,16 +29,25 @@ function MediaCard(props) {
     useEffect(() => {
         getDisplayUserInfo();
         checkPaywall();
+        getDimensions();
     }, []);
 
+    const getDimensions = () => {
+        var img = new Image();
+        img.onload = function () {
+            setHeight((this.height/this.width)* 540);
+        }
+        img.src = props.imgUrl;
+    }
+
     const checkPaywall = () => {
-        if(!props.price){
+        if (!props.price) {
             setPaywall(false);
-        } else if (authContext.user.username === props.username){
+        } else if (authContext.user.username === props.username) {
             setPaywall(false);
         } else {
             UserService.getUserInfo().then(data => {
-                if(props.privileged.includes(data.id)){
+                if (props.privileged.includes(data.id)) {
                     setPaywall(false);
                 }
             })
@@ -82,11 +92,11 @@ function MediaCard(props) {
 
     return (
         <div className="card panel" data-color={color}>
-            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post"/> }
+            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
             <div className="container userInfoMedia">
                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                 <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
-                {authContext.user.username === props.username ? null : <TipModal username={props.username}  getBalance={props.getBalance}/>}
+                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
             </div>
         </div>
     );

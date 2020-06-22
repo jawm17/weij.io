@@ -20,12 +20,13 @@
 
   .mediaPanel {
     display: inline-block;
-    width: 440px;
+    width: 540px;
   }
 
   .feedPage{
     display: flex;
     justify-content: center;
+    margin-right: 0;
   }
 
   .nav {
