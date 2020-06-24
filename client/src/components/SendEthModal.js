@@ -3,7 +3,6 @@ import Modal from 'react-awesome-modal';
 import { AuthContext } from '../context/AuthContext';
 import Button from '@material-ui/core/Button';
 import "./TipModalStyle.css";
-import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
 import "./SendEthModalStyle.css";
 var Web3 = require('web3');
@@ -11,7 +10,6 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v
 
 export default function TipModal(props) {
     const [visible, setVisible] = useState(props.visible);
-    const [price, setPrice] = useState();
     const [notification, setNotification] = useState("");
     const [notificationError, setNotificationError] = useState();
     const [amount, setAmount] = useState();

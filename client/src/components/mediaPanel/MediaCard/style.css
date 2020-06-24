@@ -19,7 +19,7 @@
 
   .feedImg {
       width: 100%;
-      max-height: 600px;
+      max-height: 640px;
   }
 
 .userLink {
@@ -35,14 +35,13 @@
 }
 
 .tipButton {
-  margin-left: 364px;
+  float: right;
   background-color: white;
   border: none;
   color: blue;
   padding: 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   border-radius: 50%;
   outline: none;

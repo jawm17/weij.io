@@ -77,7 +77,10 @@ export default function TipModal(props) {
                 onClickAway={() => closeModal()}
             >
                 <div className="tipArea">
-                    <h1 className="tipTitle">Tip {props.username}</h1>
+                    <div className="top">
+                        <h1 className="tipTitle">Tip {props.username}</h1>
+                        <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
+                    </div>
                     <div className="tipButtons">
                         <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
                             {(0.5 / price).toFixed(5)} ETH

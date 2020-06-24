@@ -6,6 +6,8 @@
     margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 15px;
+    width: 250px;
+    display: inline-block;
 }
 
 .tipButtons {
@@ -28,4 +30,11 @@
     margin-top: 20px;
     margin-left: 10px;
     color: red;
+}
+
+.x {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 60px;
 }
