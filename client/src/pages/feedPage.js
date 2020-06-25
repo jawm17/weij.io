@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
 import TxHistoryService from '../services/TxHistoryService';
@@ -48,6 +48,7 @@ function Feed() {
                             if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
                                 console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
                                 UserService.updateBalance(txData.result[i].value / 1000000000000000000);
+                                getBalance();
                             }
                         }
                     }

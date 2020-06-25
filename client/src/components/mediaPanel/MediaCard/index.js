@@ -35,7 +35,7 @@ function MediaCard(props) {
     const getDimensions = () => {
         var img = new Image();
         img.onload = function () {
-            setHeight((this.height/this.width)* 540);
+            setHeight((this.height / this.width) * 540);
         }
         img.src = props.imgUrl;
     }
@@ -93,10 +93,14 @@ function MediaCard(props) {
     return (
         <div className="card panel" data-color={color}>
             {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
-            <div className="container userInfoMedia">
-                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
-                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+            <div className="container">
+                <div className="outerUserInfoMedia">
+                <div className="userInfoMedia">
+                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                    <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                </div>
+                </div>
+                
             </div>
         </div>
     );

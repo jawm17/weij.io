@@ -38,3 +38,7 @@
     height: 25px;
     margin-left: 60px;
 }
+
+.x:hover {
+    cursor: pointer;
+}

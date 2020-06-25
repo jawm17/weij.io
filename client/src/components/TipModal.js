@@ -57,17 +57,12 @@ export default function TipModal(props) {
     }
 
     const getPrice = () => {
-        PriceService.getEthPrice().then(data => {
-            const { message } = data;
-            if (!message) {
-                console.log(data);
-                setPrice(data.rate);
-            }
-        });
+        //Set current eth price with api or manually
+        setPrice(230.17);
     }
 
     return (
-        <section>
+        <section className="tipModalButton">
             <button className="tipButton" onClick={() => openModal()}>Tip</button>
             <Modal
                 visible={visible}

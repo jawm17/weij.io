@@ -1,53 +1,64 @@
 .card {
-    /* Add shadows to create the "card" effect */
+  /* Add shadows to create the "card" effect */
+  width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 25px;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.userInfoMedia{
+  display: flex;
+  align-items: center;
+}
+
+.outerUserInfoMedia {
+  display: inline-block;
+  margin-left: 4px;
+  width: 300px;
+  padding: 0;
+}
+
+.feedImg {
     width: 100%;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background-color: white;
-    margin-top: 25px;
-  }
-
-  .container {
-    padding: 2px 16px;
-  }
-
-  .userInfoMedia{
-    display: flex;
-    align-items: center;
-    margin-left: 4px;
-  }
-
-  .feedImg {
-      width: 100%;
-      max-height: 640px;
-  }
+    max-height: 640px;
+}
 
 .userLink {
-  text-decoration: none;
+text-decoration: none;
 }
 
 .userLink:visited {
-  color: #000;
+color: #000;
 }
 
 .extraBlock {
-  height: 200px;
+height: 200px;
+}
+
+.tipModalButton {
+display: inline-block;
 }
 
 .tipButton {
-  float: right;
-  background-color: white;
-  border: none;
-  color: blue;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  border-radius: 50%;
-  outline: none;
+float: right;
+background-color: white;
+border: none;
+color: blue;
+margin-left: 142px;
+padding: 20px;
+text-align: center;
+text-decoration: none;
+font-size: 16px;
+border-radius: 50%;
+outline: none;
 }
 
 .tipButton:hover {
-  cursor: pointer;
-  text-decoration: underline;
+cursor: pointer;
+text-decoration: underline;
 }
