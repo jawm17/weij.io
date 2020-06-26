@@ -23,6 +23,10 @@ function MediaCard(props) {
             borderWidth: "2px",
             borderStyle: "solid",
             borderColor: hexColor
+        },
+        imageArea: {
+            height: height,
+            maxHeight:"600px"
         }
     };
 
@@ -92,15 +96,17 @@ function MediaCard(props) {
 
     return (
         <div className="card panel" data-color={color}>
-            {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
+            <div className="imageArea" style={style.imageArea}>
+                {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
+            </div>
             <div className="container">
                 <div className="outerUserInfoMedia">
-                <div className="userInfoMedia">
-                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                    <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                    <div className="userInfoMedia">
+                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                        <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                    </div>
                 </div>
-                </div>
-                
+
             </div>
         </div>
     );
