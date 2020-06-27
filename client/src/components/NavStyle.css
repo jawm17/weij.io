@@ -1,0 +1,27 @@
+.navBar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 47px;
+    position: fixed;
+    top: 0;
+    /* background-color: red; */
+    /* opacity: 100%; */
+}
+
+.navArea {
+    width: 880px
+}
+
+.logoNav {
+    float: left;
+    margin-left: 5px;
+    padding-top: 5px;
+    font-size: 40px;
+    color: lightblue;
+    font-family: 'Righteous', cursive;
+}
+
+.mainNavRight {
+    float: right;
+}

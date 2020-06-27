@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
+import Nav from "../components/Nav";
 import TxHistoryService from '../services/TxHistoryService';
 import UserService from '../services/UserService';
 import './feedPageStyle.css';
@@ -53,7 +54,7 @@ function Feed() {
                         }
                     }
                 })
-                 // checks real wallet ballance to see if forwarding is needed
+                // checks real wallet ballance to see if forwarding is needed
                 web3.eth.getBalance(address)
                     .then((amnt) => {
                         web3.eth.getGasPrice()
@@ -81,31 +82,36 @@ function Feed() {
     }
 
     return (
-        <div className="feedPage">
-            <div className="feedDiv">
-                <div className="leftPanel">
-                    <div>
-                        <div className="card panel nav">
-                            <div className="container">
-                                <a onClick={() => revealHome()} className="btn"><h3>Home</h3></a>
-                                <a href="/profile" className="btn"><h3>Profile</h3></a>
-                                <a onClick={() => revealSearch()} className="btn"><h3>Search</h3></a>
+        <div>
+            <div className="NavBarTop">
+                <Nav />
+            </div>
+            <div className="feedPage">
+                <div className="feedDiv">
+                    <div className="leftPanel">
+                        <div>
+                            <div className="card panel nav">
+                                <div className="container">
+                                    <a onClick={() => revealHome()} className="btn"><h3>Home</h3></a>
+                                    <a href="/profile" className="btn"><h3>Profile</h3></a>
+                                    <a onClick={() => revealSearch()} className="btn"><h3>Search</h3></a>
+                                </div>
+                            </div>
+                            <div className="card panel wallet">
+                                <a href="/wallet" className="walletBtn">
+                                    <div className="container">
+                                        <img className="ethlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8-CIGjYQCnoGOF87dKB8owCEpnkUiiWEy27e6lcA8abx1v-rG&usqp=CAU" alt="Ethereum Logo"></img>
+                                        <h3 className="walletText">{parseFloat(balance)} ETH</h3>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div className="card panel wallet">
-                            <a href="/wallet" className="walletBtn">
-                                <div className="container">
-                                    <img className="ethlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8-CIGjYQCnoGOF87dKB8owCEpnkUiiWEy27e6lcA8abx1v-rG&usqp=CAU" alt="Ethereum Logo"></img>
-                                    <h3 className="walletText">{parseFloat(balance)} ETH</h3>
-                                </div>
-                            </a>
-                        </div>
                     </div>
-                </div>
 
 
-                <div className="mediaPanel">
-                    {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}
+                    <div className="mediaPanel">
+                        {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}
+                    </div>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ function MediaCard(props) {
     const [color, setColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
-    const [height, setHeight] = useState("j");
+    const [height, setHeight] = useState(280);
     const authContext = useContext(AuthContext);
 
     var style = {
