@@ -86,7 +86,7 @@ function Feed() {
             <div className="background"></div>
             
             <div className="feedPage">
-            <Nav />
+            <Nav page={"home"}/>
                 <div className="feedDiv">
                     {/* <div className="leftPanel">
                         <div>
@@ -106,8 +106,8 @@ function Feed() {
                                 </a>
                             </div>
                         </div>
-                    </div>
- */}
+                    </div> */}
+
 
                     <div className="mediaPanel">
                         {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}

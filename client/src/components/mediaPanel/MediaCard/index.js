@@ -87,24 +87,70 @@ function MediaCard(props) {
         });
     }
 
-    return (
-        <div className="card panel" data-color={color}>
-            <div className="imageArea" style={style.imageArea}>
-                {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
-            </div>
-            <div className="containerInfo">
-                <div className="userInfoMedia">
-                    <div className="innerUserInfoMedia">
-                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                    <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+    if(paywall) {
+        //paywall
+        return (
+            <div className="card panel" data-color={color}>
+                <div className="imageArea" style={style.imageArea}>
+                    <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia>
+                </div>
+                <div className="containerInfo">
+                    <div className="userInfoMedia">
+                        <div className="innerUserInfoMedia">
+                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                        <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                        </div>
+                    </div>
+                    <div className="containerTipArea">
+                        {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                     </div>
                 </div>
-                <div className="containerTipArea">
-                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        //no paywall
+        if(props.type === "video"){
+            // video post
+            return (
+                <div className="card panel" data-color={color}>
+                    <div className="imageArea" style={style.imageArea}>
+                        <img className="feedImg" src={props.imgUrl} alt="post"/>
+                    </div>
+                    <div className="containerInfo">
+                        <div className="userInfoMedia">
+                            <div className="innerUserInfoMedia">
+                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                            <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                            </div>
+                        </div>
+                        <div className="containerTipArea">
+                            {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                        </div>
+                    </div>
+                </div>
+            );
+        } else {
+            //photo post
+            return (
+                <div className="card panel" data-color={color}>
+                    <div className="imageArea" style={style.imageArea}>
+                        <img className="feedImg" src={props.imgUrl} alt="post"/>
+                    </div>
+                    <div className="containerInfo">
+                        <div className="userInfoMedia">
+                            <div className="innerUserInfoMedia">
+                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                            <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                            </div>
+                        </div>
+                        <div className="containerTipArea">
+                            {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    }
 }
 
 export default MediaCard;

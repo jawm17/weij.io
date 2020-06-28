@@ -1,11 +1,7 @@
 .searchBar {
-    padding-top: 25px;
+    padding-top: 80px;
     text-align: center;
     margin-bottom: 8px;
-}
-
-#searchInput {
-    width: 100%;
 }
 
 .resultBody{

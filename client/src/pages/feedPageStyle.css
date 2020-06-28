@@ -4,6 +4,7 @@
     color: #000;
     transition: background-color 1s ease;
     font-family: sans-serif;
+    background-color: hotpink;
   }
 
   .leftPanel {
@@ -14,7 +15,6 @@
     position: sticky;
     top: 55px;
     width: 300px;
-    margin-right: 40px;
     /* Fixed Sidebar (stay in place on scroll) */
   }
 
@@ -42,7 +42,7 @@
   }
 
   .nav {
-    width: 300px;
+    width: 250px;
     height: 150px;
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,7 @@
 
 .wallet {
   height: 80px;
-  width: 300px;
+  width: 250px;
 }
 
 .ethlogo {
