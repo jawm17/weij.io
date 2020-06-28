@@ -4,6 +4,7 @@ import UserService from '../services/UserService';
 import TxHistoryService from '../services/TxHistoryService';
 import TransactionDetail from "../components/transactionDetail";
 import SendEthModal from "../components/SendEthModal";
+import Nav from "../components/Nav";
 import Button from '@material-ui/core/Button';
 import "./walletPageStyle.css";
 const QRCode = require('qrcode');
@@ -49,7 +50,7 @@ function Wallet() {
 
     return (
         <div>
-            <a className="arrowATag" href="/home"><img className="backArrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Feather-arrows-arrow-left.svg/768px-Feather-arrows-arrow-left.svg.png" alt="back arrow button"></img></a>
+            <Nav page={"wallet"}/>
             <div className="walletMainOuter">
                 <div className="walletMain">
                     <div className="walletInfoCard panel">

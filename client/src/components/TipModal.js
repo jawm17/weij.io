@@ -63,6 +63,7 @@ export default function TipModal(props) {
 
     return (
         <section className="tipModalButton">
+            {/* <img className="tipIconButton" src="https://image.flaticon.com/icons/svg/3069/3069445.svg" alt="ethereum icon"></img> */}
             <button className="tipButton" onClick={() => openModal()}>Tip</button>
             <Modal
                 visible={visible}

@@ -15,18 +15,11 @@ function MediaCard(props) {
 
     var style = {
         profileImgSmall: {
-            marginRight: 10,
-            float: "left",
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            borderWidth: "2px",
-            borderStyle: "solid",
             borderColor: hexColor
         },
         imageArea: {
             height: height,
-            maxHeight:"600px"
+            maxHeight: "600px"
         }
     };
 
@@ -99,14 +92,16 @@ function MediaCard(props) {
             <div className="imageArea" style={style.imageArea}>
                 {paywall ? <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia> : <img className="feedImg" src={props.imgUrl} alt="post" />}
             </div>
-            <div className="container">
-                <div className="outerUserInfoMedia">
-                    <div className="userInfoMedia">
-                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                        <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+            <div className="containerInfo">
+                <div className="userInfoMedia">
+                    <div className="innerUserInfoMedia">
+                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                    <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
                     </div>
                 </div>
-
+                <div className="containerTipArea">
+                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                </div>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ function Feed() {
     const [onSearch, setOnSearch] = useState(false);
     const [balance, setBalance] = useState(0);
 
-    document.body.className = ("color-blue");
+
 
     useEffect(() => {
         initWalletData();
@@ -83,12 +83,12 @@ function Feed() {
 
     return (
         <div>
-            <div className="NavBarTop">
-                <Nav />
-            </div>
+            <div className="background"></div>
+            
             <div className="feedPage">
+            <Nav />
                 <div className="feedDiv">
-                    <div className="leftPanel">
+                    {/* <div className="leftPanel">
                         <div>
                             <div className="card panel nav">
                                 <div className="container">
@@ -107,7 +107,7 @@ function Feed() {
                             </div>
                         </div>
                     </div>
-
+ */}
 
                     <div className="mediaPanel">
                         {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}

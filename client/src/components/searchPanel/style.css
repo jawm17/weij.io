@@ -4,6 +4,10 @@
     margin-bottom: 8px;
 }
 
+#searchInput {
+    width: 100%;
+}
+
 .resultBody{
     color: white;
     font-family: sans-serif;

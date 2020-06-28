@@ -1,12 +1,14 @@
 .walletMainOuter {
     display: flex;
     justify-content: center;
+    background: linear-gradient(90deg,  rgba(22,73,222,1) -600px, rgba(0,212,255,1) 100%);
+    height: 100vh;
 }
 
 .walletMain {
     display: block;
-    width: 70%;
-    max-width: 800px;
+    max-width: 540px;
+    margin-top: 50px;
 }
 
 .walletInfoCard {

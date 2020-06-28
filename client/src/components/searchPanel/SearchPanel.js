@@ -71,7 +71,7 @@ export default function CustomizedInputBase() {
     return (
         <div>
             <div className="searchBar">
-                <Paper component="form" className={classes.root} onSubmit={onSubmit}>
+                <Paper component="form" className={classes.root} onSubmit={onSubmit} id="searchInput">
                     <InputBase
                         className={classes.input}
                         placeholder="Search for users"
