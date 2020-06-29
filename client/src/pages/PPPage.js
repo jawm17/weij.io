@@ -35,7 +35,6 @@ function PPPage() {
                     numFollowers: data.followers.length,
                     numFollowing: data.following.length,
                 });
-                document.body.className = (data.color);
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });

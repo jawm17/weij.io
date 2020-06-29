@@ -18,8 +18,6 @@ function Wallet() {
     const [address, setAddress] = useState();
     const authContext = useContext(AuthContext);
 
-    document.body.className = ("color-blue");
-
     useEffect(() => {
         getWalletInfo();
         QRCode.toDataURL('0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B', function (err, url) {

@@ -2,7 +2,7 @@
   /* Add shadows to create the "card" effect */
   width: 100%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: white;
   margin-top: 25px;
 }
@@ -38,8 +38,8 @@
   margin-left: 10px;
 }
 
-.userLink:visited {
-  color: #000;
+.userLink:hover {
+  cursor: pointer;
 }
 
 .profileImgSmall {

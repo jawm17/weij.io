@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserService from '../../services/UserService';
 import "./ProfilePageStyle.css";
+import Background from "../../components/Background";
+import Background2 from "../../components/Background2";
+import Nav from "../../components/Nav";
 
 export default function ProfilePage(props) {
     const [username, setUsername] = useState("");
@@ -22,7 +25,6 @@ export default function ProfilePage(props) {
             setProfileImg(data.profileImg);
             setPosts(data.posts);
             setBio(data.bio);
-            document.body.className=(data.color);
             setNumFollowers(data.followers.length);
             setNumFollowing(data.following.length);
         });
@@ -53,51 +55,38 @@ export default function ProfilePage(props) {
     }
 
     return (
-        <div className="profilePage">
-            <div className="infoSection">
-                <a className="arrowATag" href="/home"><img className="backArrow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Feather-arrows-arrow-left.svg/768px-Feather-arrows-arrow-left.svg.png" alt="back arrow button"></img></a>
-                <div className="profileUsernamePhoto">
-                    <img className="profileImg" src={profileImg} alt="Profile Pic" />
-                    <h3 className="username">{username}</h3>
-                </div>
-                <div className="verticalLine infoBlock1 infoBlock">
-                    <div className="card2">
-                        <div className="container2">
-                            {posts.length} posts
+        <div>
+            <Nav color={"purple"} />
+            <Background color={"purple"} />
+            <div className="profilePageContainer">
+                <div className="profilePage">
+                    <div className="userDiv">
+                        <img className="profileImg" src={profileImg} alt="Profile Pic" />
+                        <div className="userInfo">
+                            <h3 className="username">{username}</h3>
+                            <div className="bottomInfo">
+                                <h3 className="numPosts">{posts.length} posts</h3>
+                                <h3 className="numFollowers">{numFollowers} Followers</h3>
+                                {bio ? <p className="bio">{bio}</p> : null}
+                                {/* {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>} */}
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
-                <div className="verticalLine infoBlock2 infoBlock">
-                    <div className="card2">
-                        <div className="container2">
-                            {numFollowers} Followers
-                        </div>
-                    </div>
-                </div>
-                <div className="verticalLine infoBlock3 infoBlock">
-                    <div className="card2">
-                        <div className="container2">
-                            Following {numFollowing}
-                        </div>
-                    </div>
-                </div>
-                <div className="bioSection">
-                    {bio ? <p className="bio">{bio}</p> : null}
-                    {following ? <button onClick={() => unFollowUser()}>Unfollow</button> : <button onClick={() => followUser()}>Follow</button>}
-                </div>
-            </div>
 
 
-            <div className="outerPostSection">
-                <div className="postSection">
-                    {posts.map(post => (
-                        <img className="post"
-                            key={post._id}
-                            src={post.imgSrc}
-                            alt={"user post"}
-                        />
-                    ))}
-                </div>
+                {/* <div className="outerPostSection">
+                    <div className="postSection">
+                        {posts.map(post => (
+                            <img className="post"
+                                key={post._id}
+                                src={post.imgSrc}
+                                alt={"user post"}
+                            />
+                        ))}
+                    </div>
+                </div> */}
             </div>
         </div>
     );

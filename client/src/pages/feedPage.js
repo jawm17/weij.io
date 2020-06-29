@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
 import Nav from "../components/Nav";
+import Background from "../components/Background";
 import TxHistoryService from '../services/TxHistoryService';
 import UserService from '../services/UserService';
 import './feedPageStyle.css';
@@ -11,8 +12,6 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v
 function Feed() {
     const [onSearch, setOnSearch] = useState(false);
     const [balance, setBalance] = useState(0);
-
-
 
     useEffect(() => {
         initWalletData();
@@ -83,7 +82,7 @@ function Feed() {
 
     return (
         <div>
-            <div className="background"></div>
+            <Background/>
             
             <div className="feedPage">
             <Nav page={"home"}/>

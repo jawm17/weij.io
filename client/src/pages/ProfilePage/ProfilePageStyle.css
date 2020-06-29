@@ -1,16 +1,49 @@
-.card2 {
-    /* Add shadows to create the "card" effect */
-    width: 200px;
-    height: 90px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background-color: white;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.profilePageContainer {
+  display: flex;
+  justify-content: center;
+}
 
-  .container2 {
-    padding: 2px 16px;
-  }
+.profilePage {
+  width: 540px;
+  margin-top: 90px;
+  color: white;
+}
+
+.profileImg {
+  float: left;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.userInfo {
+  margin-left: 180px;
+  padding-top: 0px;
+}
+
+.username {
+  font-size: 40px;
+  margin: 0;
+  display: inline-block;
+}
+
+.followToggle {
+  margin-left: 10px;
+}
+
+.bottomInfo {
+
+}
+
+.numPosts {
+  display: inline-block;
+}
+
+.numFollowers {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.bio {
+  margin: 0;
+}

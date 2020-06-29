@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from "../../../services/UserService";
 import LockedMedia from "../LockedMedia/lockedMedia";
+import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import "./style.css";
+import zIndex from '@material-ui/core/styles/zIndex';
 
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
@@ -19,7 +21,8 @@ function MediaCard(props) {
         },
         imageArea: {
             height: height,
-            maxHeight: "600px"
+            maxHeight: "600px",
+            width: 540
         }
     };
 
@@ -87,7 +90,7 @@ function MediaCard(props) {
         });
     }
 
-    if(paywall) {
+    if (paywall) {
         //paywall
         return (
             <div className="card panel" data-color={color}>
@@ -97,8 +100,8 @@ function MediaCard(props) {
                 <div className="containerInfo">
                     <div className="userInfoMedia">
                         <div className="innerUserInfoMedia">
-                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                        <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                            <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
                         </div>
                     </div>
                     <div className="containerTipArea">
@@ -109,18 +112,35 @@ function MediaCard(props) {
         );
     } else {
         //no paywall
-        if(props.type === "video"){
+        if (props.type === "video") {
             // video post
             return (
                 <div className="card panel" data-color={color}>
-                    <div className="imageArea" style={style.imageArea}>
-                        <img className="feedImg" src={props.imgUrl} alt="post"/>
+                    <div >
+                        <video style={style.imageArea}
+                            id="my-player"
+                            class="video-js vjs-theme-city"
+                            controls
+                            preload="auto"
+                            poster="//vjs.zencdn.net/v/oceans.png"
+                            data-setup='{}'>
+                            <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+                            <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+                            <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source>
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a
+                                web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank">
+                                    supports HTML5 video
+                            </a>
+                            </p>
+                        </video>
                     </div>
                     <div className="containerInfo">
                         <div className="userInfoMedia">
                             <div className="innerUserInfoMedia">
-                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                            <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
                             </div>
                         </div>
                         <div className="containerTipArea">
@@ -134,13 +154,13 @@ function MediaCard(props) {
             return (
                 <div className="card panel" data-color={color}>
                     <div className="imageArea" style={style.imageArea}>
-                        <img className="feedImg" src={props.imgUrl} alt="post"/>
+                        <img className="feedImg" src={props.imgUrl} alt="post" />
                     </div>
                     <div className="containerInfo">
                         <div className="userInfoMedia">
                             <div className="innerUserInfoMedia">
-                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                            <a className="userLink" href={authContext.user.username === props.username ? '/profile' : '/user/' + props.username}><h4>{props.username}</h4></a>
+                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
                             </div>
                         </div>
                         <div className="containerTipArea">
@@ -150,6 +170,7 @@ function MediaCard(props) {
                 </div>
             );
         }
+
     }
 }
 
