@@ -56,8 +56,8 @@ export default function ProfilePage(props) {
 
     return (
         <div>
-            <Nav color={"purple"} />
-            <Background color={"purple"} />
+            <Nav color={"green"} />
+            <Background color={"green"} />
             <div className="profilePageContainer">
                 <div className="profilePage">
                     <div className="userDiv">
@@ -70,23 +70,20 @@ export default function ProfilePage(props) {
                                 {bio ? <p className="bio">{bio}</p> : null}
                                 {/* {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>} */}
                             </div>
-                            
+
                         </div>
                     </div>
+                    <div className="breakHorizontal"></div>
+
+                            {posts.map(post => (
+                                <img className="post"
+                                    key={post._id}
+                                    src={post.imgSrc}
+                                    alt={"user post"}
+                                />
+                            ))}
+                      
                 </div>
-
-
-                {/* <div className="outerPostSection">
-                    <div className="postSection">
-                        {posts.map(post => (
-                            <img className="post"
-                                key={post._id}
-                                src={post.imgSrc}
-                                alt={"user post"}
-                            />
-                        ))}
-                    </div>
-                </div> */}
             </div>
         </div>
     );

@@ -34,9 +34,13 @@ export default function Navbar(props) {
                 setStartColor("rgba(156,26,190,1)");
                 setEndColor("rgba(49,187,242,1)");
                 break;
-            case "search":
-                setStartColor();
-                setEndColor();
+            case "orange":
+                setStartColor("rgba(234,78,87,1)");
+                setEndColor("rgba(252,198,92,1)");
+                break;
+            case "green":
+                setStartColor("rgba(83,213,60,1)");
+                setEndColor("rgba(41,195,242,1)");
                 break;
         }
         document.addEventListener("scroll", () => {

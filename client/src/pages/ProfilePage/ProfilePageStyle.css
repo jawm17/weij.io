@@ -9,6 +9,11 @@
   color: white;
 }
 
+.userDiv {
+  height: 150px;
+  
+}
+
 .profileImg {
   float: left;
   border-radius: 50%;
@@ -47,3 +52,24 @@
 .bio {
   margin: 0;
 }
+
+.breakHorizontal {
+  width: 400px;
+  border: solid;
+  border-width: thin;
+}
+
+.postSection{
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.post{
+  width: 540px;
+} 
+
+.post:hover{
+  cursor: pointer;
+} 
