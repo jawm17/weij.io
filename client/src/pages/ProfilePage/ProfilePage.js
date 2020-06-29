@@ -56,8 +56,8 @@ export default function ProfilePage(props) {
 
     return (
         <div>
-            <Nav color={"green"} />
-            <Background color={"green"} />
+            <Nav color={"purple"} page={"search"}/>
+            <Background color={"purple"} />
             <div className="profilePageContainer">
                 <div className="profilePage">
                     <div className="userDiv">
@@ -68,7 +68,7 @@ export default function ProfilePage(props) {
                                 <h3 className="numPosts">{posts.length} posts</h3>
                                 <h3 className="numFollowers">{numFollowers} Followers</h3>
                                 {bio ? <p className="bio">{bio}</p> : null}
-                                {/* {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>} */}
+                                {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>}
                             </div>
 
                         </div>

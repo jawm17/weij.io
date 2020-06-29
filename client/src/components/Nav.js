@@ -57,7 +57,7 @@ export default function Navbar(props) {
                     <img className="homeIcon" src={homeImg} alt="home icon" onClick={() => history.push('/home')}></img>
                     <img className="searchIcon" src={searchImg} alt="search icon" onClick={() => history.push('/search')}></img>
                     <img className="walletIcon" src={walletImg} alt="wallet icon" onClick={() => history.push('/wallet')}></img>
-                    <img className="profilePicNav" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile avatar" onClick={() => history.push('/profile')}></img>
+                    <img className="profilePicNav" src="https://cdn.dribbble.com/users/612987/screenshots/5002917/shark.jpg" alt="profile avatar" onClick={() => history.push('/profile')}></img>
                 </div>
             </div>
         </div>

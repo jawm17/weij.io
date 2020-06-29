@@ -11,7 +11,7 @@
 
 .userDiv {
   height: 150px;
-  
+  margin-bottom: 40px;
 }
 
 .profileImg {
@@ -51,12 +51,6 @@
 
 .bio {
   margin: 0;
-}
-
-.breakHorizontal {
-  width: 400px;
-  border: solid;
-  border-width: thin;
 }
 
 .postSection{
