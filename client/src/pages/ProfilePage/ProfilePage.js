@@ -4,6 +4,7 @@ import "./ProfilePageStyle.css";
 import Background from "../../components/Background";
 import Background2 from "../../components/Background2";
 import Nav from "../../components/Nav";
+import Header from "../../components/Header";
 
 export default function ProfilePage(props) {
     const [username, setUsername] = useState("");
@@ -56,6 +57,7 @@ export default function ProfilePage(props) {
 
     return (
         <div>
+            <Header color={"purple"}/>
             <Nav color={"purple"} page={"search"}/>
             <Background color={"purple"} />
             <div className="profilePageContainer">

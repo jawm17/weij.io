@@ -83,11 +83,11 @@ function Feed() {
 
     return (
         <div>
-            <Background/>
-            
+            <Background />
+            <Header />
+            <Nav page={"home"} />
             <div className="feedPage">
-            <Header/>
-            <Nav page={"home"}/>
+
                 <div className="feedDiv">
                     {/* <div className="leftPanel">
                         <div>

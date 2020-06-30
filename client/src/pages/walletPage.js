@@ -5,7 +5,7 @@ import TxHistoryService from '../services/TxHistoryService';
 import TransactionDetail from "../components/transactionDetail";
 import SendEthModal from "../components/SendEthModal";
 import Nav from "../components/Nav";
-import Button from '@material-ui/core/Button';
+import Header from "../components/Header";
 import "./walletPageStyle.css";
 const QRCode = require('qrcode');
 var Web3 = require('web3');
@@ -32,10 +32,10 @@ function Wallet() {
                 setAddress(data.address);
                 setBalance(balance.toFixed(7));
                 TxHistoryService.getTransactions(data.address).then(data2 => {
-                    console.log(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0,9)) - (b.timeStamp.toString().substring(0,9))).reverse())
-                    setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0,9)) - (b.timeStamp.toString().substring(0,9))).reverse());
+                    console.log(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse())
+                    setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse());
                 })
-                
+
             }
             else if (message.msgBody === "Unauthorized") {
 
@@ -48,7 +48,8 @@ function Wallet() {
 
     return (
         <div>
-            <Nav page={"wallet"}/>
+            <Header />
+            <Nav page={"wallet"} />
             <div className="walletMainOuter">
                 <div className="walletMain">
                     <div className="walletInfoCard panel">
@@ -60,14 +61,14 @@ function Wallet() {
                     </div>
                     <div className="walletTxCard panel">
                         {txs.map(tx => {
-                                return <TransactionDetail
-                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
-                                    address={address}
-                                    from={tx.from}
-                                    type={tx.type}
-                                    to={tx.to}
-                                    key={Math.random() * 10000}
-                                />
+                            return <TransactionDetail
+                                amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
+                                address={address}
+                                from={tx.from}
+                                type={tx.type}
+                                to={tx.to}
+                                key={Math.random() * 10000}
+                            />
                         })}
                     </div>
                 </div>
