@@ -43,16 +43,15 @@ export default function Navbar(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        document.addEventListener("scroll", () => {
-            const name = window.scrollY < 7 ? "navBar" : "shadowedNavBar";
-            setClassName(name);
-        });
+        // document.addEventListener("scroll", () => {
+        //     const name = window.scrollY < 7 ? "navBar" : "shadowedNavBar";
+        //     setClassName(name);
+        // });
     }, []);
 
     return (
         <div className={className} style={style.nav}>
             <div className="navArea">
-
                 <div className="mainNavRight">
                     <img className="homeIcon" src={homeImg} alt="home icon" onClick={() => history.push('/home')}></img>
                     <img className="searchIcon" src={searchImg} alt="search icon" onClick={() => history.push('/search')}></img>

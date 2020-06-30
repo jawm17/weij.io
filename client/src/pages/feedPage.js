@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MediaPanel from "../components/mediaPanel";
 import SearchPanel from "../components/searchPanel/SearchPanel";
 import Nav from "../components/Nav";
+import Header from "../components/Header";
 import Background from "../components/Background";
 import TxHistoryService from '../services/TxHistoryService';
 import UserService from '../services/UserService';
@@ -85,6 +86,7 @@ function Feed() {
             <Background/>
             
             <div className="feedPage">
+            <Header/>
             <Nav page={"home"}/>
                 <div className="feedDiv">
                     {/* <div className="leftPanel">
