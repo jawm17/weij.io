@@ -32,7 +32,7 @@ export default function TransactionDetail(props) {
                 <div>
                     <div className="detail">
                         {txText}
-                    </div> <hr></hr>
+                    </div>
                 </div>
                 : null}
         </div>

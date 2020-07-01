@@ -37,7 +37,7 @@ export default function Header(props) {
     return (
         <div className={className} style={style.nav}>
             <div className="headerArea">
-               <h3>MYMO</h3>
+               <h3 className="logo">MYMO</h3>
             </div>
         </div>
     )

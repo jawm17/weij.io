@@ -16,12 +16,13 @@ function Wallet() {
     const [balance, setBalance] = useState(null);
     const [txs, setTxs] = useState([]);
     const [address, setAddress] = useState();
+    const [qrCode, setQrCode] = useState(null);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
         getWalletInfo();
         QRCode.toDataURL('0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B', function (err, url) {
-            console.log(url)
+            setQrCode(url);
         })
     }, [])
 
@@ -50,26 +51,30 @@ function Wallet() {
         <div>
             <Header />
             <Nav page={"wallet"} />
-            <div className="walletMainOuter">
+            <div className="walletPage">
                 <div className="walletMain">
-                    <div className="walletInfoCard panel">
+                    <div className="walletInfoCard">
                         <div className="substance">
-                            <h2>Address: {address}</h2>
-                            <h3>Balance: {parseFloat(balance)} ETH</h3>
+                            <img className="qrCode" src={qrCode} alt="qr code"></img>
+                            <div className="addressBalance"> 
+                            <h2 >Address: {address}</h2>
+                            <h3 className="balance">Balance: {parseFloat(balance)} ETH</h3>
+                            </div>
+                            
                             <SendEthModal />
+                            <div className="walletTxCard panel">
+                                {txs.map(tx => {
+                                    return <TransactionDetail
+                                        amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
+                                        address={address}
+                                        from={tx.from}
+                                        type={tx.type}
+                                        to={tx.to}
+                                        key={Math.random() * 10000}
+                                    />
+                                })}
+                            </div>
                         </div>
-                    </div>
-                    <div className="walletTxCard panel">
-                        {txs.map(tx => {
-                            return <TransactionDetail
-                                amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
-                                address={address}
-                                from={tx.from}
-                                type={tx.type}
-                                to={tx.to}
-                                key={Math.random() * 10000}
-                            />
-                        })}
                     </div>
                 </div>
             </div>

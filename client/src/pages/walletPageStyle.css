@@ -1,4 +1,4 @@
-.walletMainOuter {
+.walletPage {
     display: flex;
     justify-content: center;
     background: linear-gradient(90deg,  rgba(22,73,222,1) -600px, rgba(0,212,255,1) 100%);
@@ -6,31 +6,49 @@
 }
 
 .walletMain {
-    display: block;
-    max-width: 540px;
     margin-top: 50px;
+    width: 540px;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+.qrCode {
+    display: inline-block;
+    padding-left: 15px;
+    padding-top: 15px;
+    width: 140px;
+    height: 140px;
+}
+
+.addressBalance {
+    width: 350px;
+    padding-top: 30px;
+    padding-right: 30px;
+    float: right;
+    word-break: break-all;
+}
+
+.balance {
+    padding-top: 20px;
+}
+
+.walletTxCard {
+    overflow-y: scroll;
+    height: 380px;
 }
 
 .walletInfoCard {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    word-wrap: break-word;
     border-radius: 5px;
-    background-color: white;
+    background: white;
     margin-top: 25px;
-    height: 130px;
-  }
-
-  .substance {
-      margin-left: 10px;
-  }
-
-  .walletTxCard {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background-color: white;
-    margin-top: 25px;
-    overflow-y: scroll;
-    height: 400px;
+    width: 540;
+    height: 80%;
   }
