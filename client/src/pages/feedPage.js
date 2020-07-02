@@ -12,30 +12,10 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v
 
 function Feed() {
     const [onSearch, setOnSearch] = useState(false);
-    const [balance, setBalance] = useState(0);
 
     useEffect(() => {
         initWalletData();
-        getBalance();
     }, []);
-
-    function revealSearch() {
-        setOnSearch(true);
-    }
-
-    function revealHome() {
-        setOnSearch(false);
-    }
-
-    function getBalance() {
-        UserService.getUserInfo().then(data => {
-            const { message } = data;
-            if (!message) {
-                // set display balance to balance in db
-                setBalance(data.balance.toFixed(7));
-            }
-        })
-    }
 
     function initWalletData() {
         UserService.getUserInfo().then(data => {
@@ -49,7 +29,6 @@ function Feed() {
                             if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
                                 console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
                                 UserService.updateBalance(txData.result[i].value / 1000000000000000000);
-                                getBalance();
                             }
                         }
                     }
@@ -87,31 +66,9 @@ function Feed() {
             <Header />
             <Nav page={"home"} />
             <div className="feedPage">
-
                 <div className="feedDiv">
-                    {/* <div className="leftPanel">
-                        <div>
-                            <div className="card panel nav">
-                                <div className="container">
-                                    <a onClick={() => revealHome()} className="btn"><h3>Home</h3></a>
-                                    <a href="/profile" className="btn"><h3>Profile</h3></a>
-                                    <a onClick={() => revealSearch()} className="btn"><h3>Search</h3></a>
-                                </div>
-                            </div>
-                            <div className="card panel wallet">
-                                <a href="/wallet" className="walletBtn">
-                                    <div className="container">
-                                        <img className="ethlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8-CIGjYQCnoGOF87dKB8owCEpnkUiiWEy27e6lcA8abx1v-rG&usqp=CAU" alt="Ethereum Logo"></img>
-                                        <h3 className="walletText">{parseFloat(balance)} ETH</h3>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div> */}
-
-
                     <div className="mediaPanel">
-                        {onSearch ? <SearchPanel /> : <MediaPanel getBalance={() => getBalance()} />}
+                        <MediaPanel />
                     </div>
                 </div>
             </div>

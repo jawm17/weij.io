@@ -4,7 +4,6 @@ import UpdateUserService from '../services/UpdateUserService';
 import UserService from "../services/UserService";
 import { AuthContext } from '../context/AuthContext';
 import './SettingsModalStyle.css'
-import { get } from 'mongoose';
 
 export default function SettingsModal(props) {
     const [visible, setVisible] = useState(false);

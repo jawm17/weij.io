@@ -71,6 +71,7 @@ export default function ProfilePage(props) {
                                 <h3 className="numFollowers">{numFollowers} Followers</h3>
                                 {bio ? <p className="bio">{bio}</p> : null}
                                 {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>}
+                                <button className="followToggle">^</button>
                             </div>
 
                         </div>

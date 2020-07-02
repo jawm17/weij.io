@@ -9,8 +9,9 @@
     float: left;
     display: flex;
     justify-content: center;
-    position: -webkit-sticky;
-    position: sticky;
+
+    position: fixed;
+    left: 150px;
     top: 55px;
     width: 300px;
     /* Fixed Sidebar (stay in place on scroll) */

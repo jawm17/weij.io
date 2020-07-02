@@ -24,7 +24,6 @@ export default function LockedMedia(props) {
                 TransactionService.unlockTx(props.price, props.username, authContext.user.username, props.id, data.id).then(data2 => {
                     console.log(data2);
                     props.updatePaywall();
-                    props.getBalance();
                 })
             } else {
                 //insufficient funds

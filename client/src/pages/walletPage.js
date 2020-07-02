@@ -16,7 +16,7 @@ function Wallet() {
     const [balance, setBalance] = useState(null);
     const [txs, setTxs] = useState([]);
     const [address, setAddress] = useState("");
-    const [qrCode, setQrCode] = useState(null);
+    const [qrCode, setQrCode] = useState("");
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -34,9 +34,8 @@ function Wallet() {
                 setAddress(data.address);
                 setBalance(balance.toFixed(7));
                 TxHistoryService.getTransactions(data.address).then(data2 => {
-                    console.log(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse())
                     setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse());
-                })
+                });
 
             }
             else if (message.msgBody === "Unauthorized") {
@@ -58,15 +57,14 @@ function Wallet() {
                         <div className="substance">
                             <img className="qrCode" src={qrCode} alt="qr code"></img>
                             <div className="addressBalance"> 
-                            
-                            <h2>Address: {address.toString().substring(0,15) + "..."}</h2>
+                            <h2>Ethereum Wallet</h2>
+                            {/* <h2>Address: {address.toString().substring(0,15) + "..."}</h2> */}
                            
                             <h3 className="balance">Balance: </h3>
                             <h2>{parseFloat(balance)} ETH</h2>
                             </div>
                             
-                            <SendEthModal />
-                            <hr></hr>
+                            {/* <SendEthModal /> */}
                             <div className="walletTxCard">
                                 {txs.map(tx => {
                                     return <TransactionDetail

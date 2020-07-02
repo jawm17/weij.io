@@ -6,8 +6,6 @@ import "./TipModalStyle.css";
 import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
 import TransactionService from '../services/TransactionService';
-var Web3 = require('web3');
-var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/ee2cbc278b5442dfbd27dedb4806c237"));
 
 export default function TipModal(props) {
     const [visible, setVisible] = useState(props.visible);
@@ -32,7 +30,6 @@ export default function TipModal(props) {
             if (!message) {
                 if (value < balance) {
                     TransactionService.tipTx((value), props.username, data.username).then(data => {
-                        props.getBalance();
                         setNotification("Succesfully sent Ether");
                         setNotificationError(false);
                         timerID = setTimeout(() => {
@@ -64,7 +61,6 @@ export default function TipModal(props) {
     return (
         <section className="tipModalButton">
             <img className="tipIconButton" src="https://image.flaticon.com/icons/svg/3037/3037255.svg" alt="ethereum icon" onClick={() => openModal()}></img>
-            {/* <button className="tipButton" onClick={() => openModal()}>Tip</button> */}
             <Modal
                 visible={visible}
                 width="400"

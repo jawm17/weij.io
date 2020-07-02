@@ -22,18 +22,19 @@
 }
 
 .userInfo {
-  margin-left: 180px;
-  padding-top: 0px;
+  margin-left: 178px;
+  padding-top: 13px;
 }
 
 .username {
-  font-size: 40px;
+  font-size: 30px;
   margin: 0;
   display: inline-block;
 }
 
 .followToggle {
   margin-left: 10px;
+  float: right;
 }
 
 .bottomInfo {
@@ -42,6 +43,7 @@
 
 .numPosts {
   display: inline-block;
+  margin-top: 7px;
 }
 
 .numFollowers {
@@ -51,6 +53,7 @@
 
 .bio {
   margin: 0;
+  padding-top: 12px;
 }
 
 .postSection{
