@@ -15,21 +15,22 @@ function Wallet() {
     // Setting our component's initial state
     const [balance, setBalance] = useState(null);
     const [txs, setTxs] = useState([]);
-    const [address, setAddress] = useState();
+    const [address, setAddress] = useState("");
     const [qrCode, setQrCode] = useState(null);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
         getWalletInfo();
-        QRCode.toDataURL('0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B', function (err, url) {
-            setQrCode(url);
-        })
     }, [])
 
     function getWalletInfo() {
         UserService.getUserInfo().then(data => {
             const { message, balance } = data;
             if (!message) {
+                // generate qr code based on address
+                QRCode.toDataURL(data.address, function (err, url) {
+                    setQrCode(url);
+                })
                 setAddress(data.address);
                 setBalance(balance.toFixed(7));
                 TxHistoryService.getTransactions(data.address).then(data2 => {
@@ -57,12 +58,16 @@ function Wallet() {
                         <div className="substance">
                             <img className="qrCode" src={qrCode} alt="qr code"></img>
                             <div className="addressBalance"> 
-                            <h2 >Address: {address}</h2>
-                            <h3 className="balance">Balance: {parseFloat(balance)} ETH</h3>
+                            
+                            <h2>Address: {address.toString().substring(0,15) + "..."}</h2>
+                           
+                            <h3 className="balance">Balance: </h3>
+                            <h2>{parseFloat(balance)} ETH</h2>
                             </div>
                             
                             <SendEthModal />
-                            <div className="walletTxCard panel">
+                            <hr></hr>
+                            <div className="walletTxCard">
                                 {txs.map(tx => {
                                     return <TransactionDetail
                                         amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
