@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400
+        width: 400,
+        boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)"
     },
     input: {
         marginLeft: theme.spacing(1),
@@ -69,7 +70,7 @@ export default function CustomizedInputBase() {
 
 
     return (
-        <div>
+        <div className="searchPage">
             <div className="searchBar">
                 <Paper component="form" className={classes.root} onSubmit={onSubmit} id="searchInput">
                     <InputBase
@@ -83,13 +84,15 @@ export default function CustomizedInputBase() {
                     </IconButton>
                 </Paper>
             </div>
-            {results.map(result => (
+            <div className="resultArea">
+                {results.map(result => (
                     <ResultCard
                         key={result._id}
                         imgUrl={result.profileImgSrc}
                         username={result.username}
                     />
-                ))}
+                    ))}
+            </div>
         </div>
     );
 }

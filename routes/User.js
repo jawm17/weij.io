@@ -90,7 +90,7 @@ userRouter.get('/info', passport.authenticate('jwt', { session: false }), (req, 
 //gets users containing search query in their username
 userRouter.post('/query/users', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
-    User.find({ "username": { '$regex': req.body.query } }).exec((err, document) => {
+    User.find({ "username": new RegExp(`${req.body.query}`, 'i') } ).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
