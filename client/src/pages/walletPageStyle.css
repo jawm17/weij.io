@@ -10,6 +10,14 @@
     width: 540px;
 }
 
+.walletInfo {
+    /* background: linear-gradient(163deg, rgba(109,76,255,1) 0%, rgba(27,208,255,1) 100%); */
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 18px;
+    height: 200px;
+}
+
 h2 {
     margin: 0;
 }
@@ -22,8 +30,8 @@ h3 {
     display: inline-block;
     padding-left: 15px;
     padding-top: 15px;
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
 }
 
 .addressBalance {
@@ -48,12 +56,10 @@ h3 {
     margin-left: 20px;
 }
 
-.walletInfoCard {
+.walletCard {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background: white;
+  
     margin-top: 25px;
     width: 540;
-    height: 80%;
+    height: 600px;
   }

@@ -4,6 +4,7 @@ import Feed from "./pages/feedPage";
 import SignIn from "./components/SignIn";
 import PPPage from "./pages/PPPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
 import Wallet from "./pages/walletPage";
 import SearchPage from "./pages/searchPage";
@@ -24,6 +25,7 @@ function App() {
         <PrivateRoute path="/user" component={ProfilePage} />
         <PrivateRoute exact path={["/", "/home"]} component={Feed} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
+        <Route path="/17830921898230" component={TreasureHunt} />
         <Route>
           <NoMatch />
         </Route>

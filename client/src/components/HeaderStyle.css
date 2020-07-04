@@ -30,4 +30,9 @@
 .logo {
     margin-top: 20px;
     color: white;
+
+}
+
+.logo:hover {
+    cursor: default;
 }

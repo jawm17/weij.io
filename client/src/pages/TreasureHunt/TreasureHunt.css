@@ -1,0 +1,21 @@
+.foreGround {
+    height: 100vh;
+    width: 100vw;
+    background: transparent;
+    color: #000;
+}
+
+.treasureHuntLogo {
+    font-family: 'Sonsie One', cursive;
+    z-index: 5;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.manipulated {
+
+    height: 90vh;
+    width: 100vw;
+    background: linear-gradient(163deg, rgba(255,1,89,1) 0%, rgba(157,68,180,1) 100%);
+}

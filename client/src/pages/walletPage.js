@@ -53,30 +53,30 @@ function Wallet() {
             <Nav page={"wallet"} />
             <div className="walletPage">
                 <div className="walletMain">
-                    <div className="walletInfoCard">
-                        <div className="substance">
-                            <img className="qrCode" src={qrCode} alt="qr code"></img>
-                            <div className="addressBalance"> 
-                            <h2>Ethereum Wallet</h2>
-                            {/* <h2>Address: {address.toString().substring(0,15) + "..."}</h2> */}
-                           
-                            <h3 className="balance">Balance: </h3>
-                            <h2>{parseFloat(balance)} ETH</h2>
+                    <div className="walletCard">
+                        <div className="walletInfo">
+                            <img className="qrCode" src={"https://image.flaticon.com/icons/png/512/1289/1289889.png"} alt="qr code"></img>
+                            <div className="addressBalance">
+                                {/* <img className="ethlogo" src="" alt="Ethereum Logo"></img> */}
+                                <h2>Ethereum Wallet</h2>
+                                {/* <h2>Address: {address.toString().substring(0,15) + "..."}</h2> */}
+
+                                <h3 className="balance">Balance: </h3>
+                                <h2>{parseFloat(balance)} ETH</h2>
                             </div>
-                            
                             {/* <SendEthModal /> */}
                             <div className="walletTxCard">
-                                {txs.map(tx => {
-                                    return <TransactionDetail
-                                        amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
-                                        address={address}
-                                        from={tx.from}
-                                        type={tx.type}
-                                        to={tx.to}
-                                        key={Math.random() * 10000}
-                                    />
-                                })}
-                            </div>
+                            {txs.map(tx => {
+                                return <TransactionDetail
+                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
+                                    address={address}
+                                    from={tx.from}
+                                    type={tx.type}
+                                    to={tx.to}
+                                    key={Math.random() * 10000}
+                                />
+                            })}
+                        </div>
                         </div>
                     </div>
                 </div>
