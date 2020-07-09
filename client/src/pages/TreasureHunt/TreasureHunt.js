@@ -24,13 +24,19 @@ export default function TreasureHunt() {
     }, []);
 
     function mouseMove(e) {
+        console.log("x = " + e.clientX + " y = " + e.clientY);
         setMousePosition({ x: e.clientX, y: e.clientY });
+        if (e.clientX > 390 && e.clientX <= 400) {
+            if (e.clientY > 40 && e.clientY <= 50) {
+                window.alert("You found 12 eth!");
+            }
+        }
     }
 
     return (
         <div>
             <div className="white">
-                <h2 className="treasureHuntLogo" style={style.treasureHuntLogo}>MYMO</h2>
+                <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>MYMO</h1>
             </div>
         </div>
     )
