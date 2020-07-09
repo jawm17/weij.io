@@ -1,47 +1,47 @@
 /* Setting fade transition and default settings */
-  body {  
-    margin: 0;
-    transition: background-color 1s ease;
-    font-family: sans-serif;
-  }
+body {  
+  margin: 0;
+  transition: background-color 1s ease;
+  font-family: sans-serif;
+}
 
-  .leftPanel {
-    float: left;
-    display: flex;
-    justify-content: center;
+.leftPanel {
+  float: left;
+  display: flex;
+  justify-content: center;
 
-    position: fixed;
-    left: 150px;
-    top: 55px;
-    width: 300px;
-    /* Fixed Sidebar (stay in place on scroll) */
-  }
+  position: fixed;
+  left: 150px;
+  top: 55px;
+  width: 300px;
+  /* Fixed Sidebar (stay in place on scroll) */
+}
 
+.mediaPanel {
+  display: inline-block;
+  width: 100%;
+  margin-top: 55px;
+}
+
+@media only screen and (max-width: 600px) {
   .mediaPanel {
-    display: inline-block;
-    width: 100%;
-    margin-top: 55px;
+    margin-top: 35px;
   }
+}
 
-  @media only screen and (max-width: 600px) {
-    .mediaPanel {
-      margin-top: 35px;
-    }
-  }
+.feedPage{
+  display: flex;
+  justify-content: center;
+  margin-right: 0;
+  height: 100%;
+  min-height: 100vh;
+}
 
-  .feedPage{
-    display: flex;
-    justify-content: center;
-    margin-right: 0;
-    height: 100%;
-    min-height: 100vh;
-  }
-
-  .nav {
-    width: 250px;
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
+.nav {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .wallet {
@@ -81,40 +81,40 @@
   color: #000;
 }
   
-  /* colors */
-  .color-violet {
-    background-color: #7A4EAB;
-    border: #7A4EAB;
-  }
-  .color-indigo {
-    background-color: #4332CF;
-    border: #4332CF;
-  }
-  .color-blue {
-    background: linear-gradient(-40deg,#4378bf ,#3689ce ,#428fd0 ,#8fb3da);
-    border: #2F8FED;
-  }
-  .color-green {
-    background-color: #4DCF42;
-    border: #4DCF42;
-  }
-  .color-yellow {
-    background-color: #FAEB33;
-    border: #FAEB33;
-  }
-  .color-orange {
-    background-color: #F19031;
-    border: #F19031;
-  }
-  .color-red {
-    background-color: #F2293A;
-    border: #F2293A;
-  }
-  .color-black {
-    background-color: #000;
-    border: #000;
-  }
-  .color-pink {
-    background-color: #FF1493;
-    border: #FF1493;
-  }
+/* colors */
+.color-violet {
+  background-color: #7A4EAB;
+  border: #7A4EAB;
+}
+.color-indigo {
+  background-color: #4332CF;
+  border: #4332CF;
+}
+.color-blue {
+  background: linear-gradient(-40deg,#4378bf ,#3689ce ,#428fd0 ,#8fb3da);
+  border: #2F8FED;
+}
+.color-green {
+  background-color: #4DCF42;
+  border: #4DCF42;
+}
+.color-yellow {
+  background-color: #FAEB33;
+  border: #FAEB33;
+}
+.color-orange {
+  background-color: #F19031;
+  border: #F19031;
+}
+.color-red {
+  background-color: #F2293A;
+  border: #F2293A;
+}
+.color-black {
+  background-color: #000;
+  border: #000;
+}
+.color-pink {
+  background-color: #FF1493;
+  border: #FF1493;
+}

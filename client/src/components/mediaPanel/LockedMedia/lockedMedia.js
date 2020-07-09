@@ -11,7 +11,7 @@ export default function LockedMedia(props) {
         console.log();
     }, []);
 
-    var style = {
+    const style = {
         lockedImg: {
             height: props.height,
             maxHeight:"600px",
