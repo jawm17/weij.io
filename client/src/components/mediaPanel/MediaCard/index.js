@@ -12,7 +12,7 @@ function MediaCard(props) {
     const [color, setColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
-    const [height, setHeight] = useState(280);
+    const [height, setHeight] = useState();
     const authContext = useContext(AuthContext);
 
     var style = {
@@ -20,9 +20,9 @@ function MediaCard(props) {
             borderColor: hexColor
         },
         imageArea: {
-            height: height,
             maxHeight: "600px",
-            width: 540
+            width: "97vw",
+            maxWidth: 540
         }
     };
 
@@ -35,7 +35,7 @@ function MediaCard(props) {
     const getDimensions = () => {
         var img = new Image();
         img.onload = function () {
-            setHeight((this.height / this.width) * 540);
+            setHeight((this.height / this.width) * (window.innerWidth * .95));
         }
         img.src = props.imgUrl;
     }

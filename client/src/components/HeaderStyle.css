@@ -4,6 +4,7 @@
     width: 100%;
     height: 70px;
     position: fixed;
+    border-bottom: 1px transparent solid ;
     top: 0;
     transition: all 0.3s ease-in-out;
     z-index: 300;
@@ -18,6 +19,7 @@
     width: 100%;
     height: 70px;
     position: fixed;
+    border-bottom: 1px transparent solid ;
     top: 0;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: all 0.3s ease-in-out;
@@ -28,11 +30,46 @@
 }
 
 .logo {
-    margin-top: 20px;
+    margin-top: 22px;
     color: white;
-
 }
 
 .logo:hover {
     cursor: default;
 }
+
+@media only screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        border-bottom: 1px transparent  ;
+        top: 0;
+        transition: all 0.3s ease-in-out;
+        z-index: 300;
+        font-family: 'Sonsie One', cursive;
+        /* background-color: red; */
+        /* opacity: 100%; */
+    }
+    .shadowedHeader {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        border-bottom: 1px transparent  ;
+        top: 0;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        transition: all 0.3s ease-in-out;
+        z-index: 300;
+        font-family: 'Sonsie One', cursive;
+        /* background-color: red; */
+        /* opacity: 100%; */
+    }
+    .logo {
+        margin-top: 12px;
+        color: white;
+    }
+  }

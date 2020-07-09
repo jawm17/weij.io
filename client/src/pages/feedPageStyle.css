@@ -23,6 +23,12 @@
     margin-top: 55px;
   }
 
+  @media only screen and (max-width: 600px) {
+    .mediaPanel {
+      margin-top: 35px;
+    }
+  }
+
   .feedPage{
     display: flex;
     justify-content: center;

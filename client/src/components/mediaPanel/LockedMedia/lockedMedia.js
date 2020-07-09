@@ -15,7 +15,7 @@ export default function LockedMedia(props) {
         lockedImg: {
             height: props.height,
             maxHeight:"600px",
-            maxWidth: "90vw"
+            maxWidth: "95vw"
         }
     };
 
