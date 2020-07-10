@@ -7,14 +7,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import ResultCard from "./ResultCard";
-import "./style.css";
+import "./SearchStyle.css";
 
+// used to modify material ui search bar
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400,
+        maxWidth: 400,
+        width: "90vw",
         boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)"
     },
     input: {
@@ -61,7 +63,6 @@ export default function CustomizedInputBase() {
         setQuery({ "query": e.target.value });
     }
 
-
     return (
         <div className="searchPage">
             <div className="searchBar">
@@ -84,7 +85,7 @@ export default function CustomizedInputBase() {
                         imgUrl={result.profileImgSrc}
                         username={result.username}
                     />
-                    ))}
+                ))}
             </div>
         </div>
     );

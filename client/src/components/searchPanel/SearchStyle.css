@@ -11,8 +11,6 @@
     align-items: center;
     height: 60px;
     margin-top: 10px;
-    margin-left: 20px;
-    border-style: solid;
 }
 
 .resultArea {
@@ -28,15 +26,13 @@
     border-radius: 50%;
 }
 
-.usernameBtn {
+.usernameResult {
     color: white;
     font-family: sans-serif;
-    background:none;
-    border:none;
     margin:0;
     padding:0;
 }
 
-.usernameBtn:hover {
+.resultBody:hover {
     cursor: pointer;
 }

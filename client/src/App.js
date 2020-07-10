@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Feed from "./pages/FeedPage/FeedPage";
 import SignIn from "./components/SignIn";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";

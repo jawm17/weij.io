@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import history from '../../history';
 import UserService from "../../services/UserService";
-import "./style.css";
+import "./SearchStyle.css";
 
 function ResultCard(props) {
     const [username, setUsername] = useState("");
@@ -21,9 +21,9 @@ function ResultCard(props) {
 
     return (
         <div>
-            <div className="resultBody">
+            <div className="resultBody" onClick={() => (username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}>
                 <img className="resultProfilePic" src={props.imgUrl} alt="Avatar" />
-                <button onClick={() => (username === props.username ? history.push('/profile') : history.push('/user/' + props.username))} className="usernameBtn"><h2>{props.username}</h2></button>
+                <h2 className="usernameResult" >{props.username}</h2>
             </div>
         </div>
     );
