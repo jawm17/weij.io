@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import { AuthContext } from '../context/AuthContext';
-import AuthService from '../services/AuthService';
-import UserService from '../services/UserService';
-import PostModal from '../components/PostModal';
-import SettingsModal from "../components/SettingsModal";
-import './PPPageStyle.css'
+import { AuthContext } from '../../context/AuthContext';
+import AuthService from '../../services/AuthService';
+import UserService from '../../services/UserService';
+import PostModal from '../../components/PostModal';
+import SettingsModal from "../../components/SettingsModal";
+import './UserProfilePageStyle.css'
 
-function PPPage() {
+export default function UserProfilePage() {
     // Setting our component's initial state
     const [userObject, setUserObject] = useState({ username: "", profileImg: "https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" });
     const [posts, setPosts] = useState([]);
@@ -114,6 +114,3 @@ function PPPage() {
         </div>
     );
 }
-
-
-export default PPPage;

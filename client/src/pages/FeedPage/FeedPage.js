@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import MediaPanel from "../components/mediaPanel";
-import SearchPanel from "../components/searchPanel/SearchPanel";
-import Nav from "../components/Nav";
-import Header from "../components/Header";
-import Background from "../components/Background";
-import TxHistoryService from '../services/TxHistoryService';
-import UserService from '../services/UserService';
-import './feedPageStyle.css';
+import MediaPanel from "../../components/mediaPanel";
+import SearchPanel from "../../components/searchPanel/SearchPanel";
+import Nav from "../../components/Nav";
+import Header from "../../components/Header";
+import Background from "../../components/Background";
+import TxHistoryService from '../../services/TxHistoryService';
+import UserService from '../../services/UserService';
+import './FeedPageStyle.css';
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/ee2cbc278b5442dfbd27dedb4806c237"));
 
