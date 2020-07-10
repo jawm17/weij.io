@@ -28,20 +28,17 @@ export default function Header(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        document.addEventListener("scroll", () => {
-            const name = window.scrollY < 7 ? "header" : "shadowedHeader";
-            setClassName(name);
-        });
-        return () => document.removeEventListener("scroll", () => {
-            const name = window.scrollY < 7 ? "header" : "shadowedHeader";
-            setClassName(name);
-        });
+        // document.addEventListener("scroll", () => {
+        //     const name = window.scrollY < 7 ? "header" : "shadowedHeader";
+        //     setClassName(name);
+        // });
     }, []);
 
     return (
         <div className={className} style={style.nav}>
             <div className="headerArea">
                 <h3 className="logo">MYMO</h3>
+                <img className="sendIcon" src="https://image.flaticon.com/icons/svg/2983/2983788.svg" alt="Send icon"></img>
             </div>
         </div>
     )
