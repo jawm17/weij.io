@@ -32,12 +32,16 @@ export default function Header(props) {
             const name = window.scrollY < 7 ? "header" : "shadowedHeader";
             setClassName(name);
         });
+        return () => document.removeEventListener("scroll", () => {
+            const name = window.scrollY < 7 ? "header" : "shadowedHeader";
+            setClassName(name);
+        });
     }, []);
 
     return (
         <div className={className} style={style.nav}>
             <div className="headerArea">
-               <h3 className="logo">MYMO</h3>
+                <h3 className="logo">MYMO</h3>
             </div>
         </div>
     )
