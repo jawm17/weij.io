@@ -54,9 +54,8 @@ function Wallet() {
             <div className="walletPage">
                 <div className="walletMain">
                     <div className="walletCard">
-                        <img className="qrCode" src={qrCode} alt="qr code"></img>
-                        <div className="addressBalance">
-                            {/* <img className="ethlogo" src="" alt="Ethereum Logo"></img> */}
+                        <div className="addressInfo">
+                            <img className="qrCode" src={qrCode} alt="qr code"></img>
                             <h2>Ethereum Wallet</h2>
                             {/* <h2>Address: {address.toString().substring(0,15) + "..."}</h2> */}
 

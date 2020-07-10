@@ -28,11 +28,10 @@ h3 {
     padding-top: 15px;
     width: 120px;
     height: 120px;
-    float: left;
+    display: inline-block;
 }
 
-.addressBalance {
-    display: inline-block;
+.addressInfo {
     word-break: break-all;
 }
 
