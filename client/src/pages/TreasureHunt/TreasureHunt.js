@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import "./TreasureHunt.css";
 
 export default function TreasureHunt() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
@@ -24,7 +23,7 @@ export default function TreasureHunt() {
     }, []);
 
     function mouseMove(e) {
-        console.log("x = " + e.clientX + " y = " + e.clientY);
+        // console.log("x = " + e.clientX + " y = " + e.clientY);
         setMousePosition({ x: e.clientX, y: e.clientY });
         if (e.clientX > 390 && e.clientX <= 400) {
             if (e.clientY > 40 && e.clientY <= 50) {
@@ -35,9 +34,7 @@ export default function TreasureHunt() {
 
     return (
         <div>
-            <div className="white">
-                <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>MYMO</h1>
-            </div>
+            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>MYMO</h1>
         </div>
     )
 }   
