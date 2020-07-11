@@ -161,7 +161,7 @@ function MediaCard(props) {
             //photo post
             if (imageView) {
                 return (
-                    <FeedImageView toggleImageView={() => toggleImageView()}/>
+                    <FeedImageView toggleImageView={() => toggleImageView()} />
                 );
             } else {
                 return (
@@ -176,6 +176,7 @@ function MediaCard(props) {
                                     <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
                                 </div>
                             </div>
+                            <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon"></img>
                             <div className="containerTipArea">
                                 {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                             </div>
