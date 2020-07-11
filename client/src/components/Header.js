@@ -37,10 +37,10 @@ export default function Header(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        // document.addEventListener("scroll", () => {
-        //     const name = window.scrollY < 7 ? "header" : "shadowedHeader";
-        //     setClassName(name);
-        // });
+        document.addEventListener("scroll", () => {
+            const name = window.scrollY < 7 ? "header" : "shadowedHeader";
+            setClassName(name);
+        });
     }, []);
 
     function changeLogoImage() {

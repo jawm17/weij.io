@@ -4,6 +4,7 @@ import LockedMedia from "../LockedMedia/lockedMedia";
 import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
+import FeedImageView from "../../FeedImageView";
 import "./style.css";
 import zIndex from '@material-ui/core/styles/zIndex';
 
@@ -13,7 +14,10 @@ function MediaCard(props) {
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
     const [height, setHeight] = useState();
+    const [imageView, setImageView] = useState(false);
     const authContext = useContext(AuthContext);
+
+    document.body.style.overflow = "scroll"
 
     var style = {
         profileImgSmall: {
@@ -90,6 +94,10 @@ function MediaCard(props) {
         });
     }
 
+    const toggleImageView = () => {
+        setImageView(!imageView);
+    }
+
     if (paywall) {
         //paywall
         return (
@@ -105,7 +113,7 @@ function MediaCard(props) {
                         </div>
                     </div>
                     <div className="containerTipArea">
-                        {authContext.user.username === props.username ? null : <TipModal username={props.username}/>}
+                        {authContext.user.username === props.username ? null : <TipModal username={props.username} />}
                     </div>
                 </div>
             </div>
@@ -151,24 +159,30 @@ function MediaCard(props) {
             );
         } else {
             //photo post
-            return (
-                <div className="card panel" data-color={color}>
-                    <div className="imageArea" style={style.imageArea}>
-                        <img className="feedImg" src={props.imgUrl} alt="post" />
-                    </div>
-                    <div className="containerInfo">
-                        <div className="userInfoMedia">
-                            <div className="innerUserInfoMedia">
-                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+            if (imageView) {
+                return (
+                    <FeedImageView toggleImageView={() => toggleImageView()}/>
+                );
+            } else {
+                return (
+                    <div className="card panel" data-color={color}>
+                        <div className="imageArea" style={style.imageArea}>
+                            <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
+                        </div>
+                        <div className="containerInfo">
+                            <div className="userInfoMedia">
+                                <div className="innerUserInfoMedia">
+                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                    <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                                </div>
+                            </div>
+                            <div className="containerTipArea">
+                                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                             </div>
                         </div>
-                        <div className="containerTipArea">
-                            {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                        </div>
                     </div>
-                </div>
-            );
+                );
+            }
         }
 
     }
