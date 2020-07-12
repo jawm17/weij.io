@@ -5,9 +5,9 @@ export default function FeedImageView(props) {
 
     document.body.style.overflow = "hidden"
     
-    useEffect(() => {
-        console.log(props.position);
-    })
+    // useEffect(() => {
+        
+    // })
 
     return (
         <div className="FeedImageView" onClick={() => props.toggleImageView()}>
