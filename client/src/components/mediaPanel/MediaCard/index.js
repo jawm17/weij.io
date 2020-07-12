@@ -161,7 +161,7 @@ function MediaCard(props) {
             //photo post
             if (imageView) {
                 return (
-                    <FeedImageView toggleImageView={() => toggleImageView()} />
+                    <FeedImageView toggleImageView={() => toggleImageView()} imgUrl={props.imgUrl}/>
                 );
             } else {
                 return (
