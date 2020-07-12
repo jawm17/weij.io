@@ -5,6 +5,7 @@ import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import FeedImageView from "../../FeedImageView";
+import Comments from "../../Comments";
 import "./style.css";
 import zIndex from '@material-ui/core/styles/zIndex';
 
@@ -181,6 +182,7 @@ function MediaCard(props) {
                                 {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                             </div>
                         </div>
+
                     </div>
                 );
             }
