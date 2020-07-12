@@ -7,12 +7,9 @@ import TipModal from "../../TipModal";
 import FeedImageView from "../../FeedImageView";
 import Comments from "../../Comments";
 import "./style.css";
-import zIndex from '@material-ui/core/styles/zIndex';
-import { set } from 'mongoose';
 
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
-    const [color, setColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
     const [height, setHeight] = useState();
@@ -22,7 +19,7 @@ function MediaCard(props) {
 
     document.body.style.overflow = "scroll"
 
-    var style = {
+    const style = {
         profileImgSmall: {
             borderColor: hexColor
         },
@@ -73,33 +70,7 @@ function MediaCard(props) {
             const { message } = data;
             if (!message) {
                 setUserImg(data.profileImgSrc);
-                setColor(data.color);
-                switch (data.color) {
-                    case "color-violet":
-                        setHexColor("#7A4EAB");
-                        break;
-                    case "color-indigo":
-                        setHexColor("#4332CF");
-                        break;
-                    case "color-blue":
-                        setHexColor("#2F8FED");
-                        break;
-                    case "color-green":
-                        setHexColor("#4DCF42");
-                        break;
-                    case "color-yellow":
-                        setHexColor("#FAEB33");
-                        break;
-                    case "color-orange":
-                        setHexColor("#F19031");
-                        break;
-                    case "color-red":
-                        setHexColor("#F2293A");
-                        break;
-                    case "color-pink":
-                        setHexColor("#FF1493");
-                        break;
-                }
+                setHexColor(data.color)
             }
         });
     }
@@ -119,7 +90,7 @@ function MediaCard(props) {
     if (paywall) {
         //paywall
         return (
-            <div className="card panel" data-color={color}>
+            <div className="card panel">
                 <div className="imageArea" style={style.imageArea}>
                     <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia>
                 </div>
@@ -141,7 +112,7 @@ function MediaCard(props) {
         if (props.type === "video") {
             // video post
             return (
-                <div className="card panel" data-color={color}>
+                <div className="card panel">
                     <div >
                         <video style={style.imageArea}
                             id="my-player"
@@ -184,7 +155,7 @@ function MediaCard(props) {
             } else {
                 return (
                     <div>
-                        <div className="card panel" data-color={color}>
+                        <div className="card panel">
                             <div className="imageArea" style={style.imageArea}>
                                 <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
                             </div>
