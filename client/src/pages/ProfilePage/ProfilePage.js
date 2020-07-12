@@ -60,6 +60,7 @@ export default function ProfilePage(props) {
             <Header color={"purple"}/>
             <Nav color={"purple"} page={"search"}/>
             <Background color={"purple"} />
+
             <div className="profilePageContainer">
                 <div className="profilePage">
                     <div className="userDiv">
@@ -76,8 +77,7 @@ export default function ProfilePage(props) {
 
                         </div>
                     </div>
-                    <div className="breakHorizontal"></div>
-
+                        <div className="userPosts">
                             {posts.map(post => (
                                 <img className="post"
                                     key={post._id}
@@ -85,7 +85,7 @@ export default function ProfilePage(props) {
                                     alt={"user post"}
                                 />
                             ))}
-                      
+                      </div>
                 </div>
             </div>
         </div>

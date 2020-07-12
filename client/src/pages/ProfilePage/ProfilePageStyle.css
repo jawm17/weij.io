@@ -1,10 +1,10 @@
 .profilePageContainer {
   display: flex;
   justify-content: center;
+  width: 100vw;
 }
 
 .profilePage {
-  width: 540px;
   margin-top: 90px;
   color: white;
 }
@@ -22,7 +22,6 @@
 }
 
 .userInfo {
-  margin-left: 178px;
   padding-top: 13px;
 }
 
@@ -56,17 +55,33 @@
   padding-top: 12px;
 }
 
-.postSection{
+.postSection {
     display: grid;
     margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
 
+.userPosts {
+  margin-bottom: 80px;
+}
+
 .post{
-  width: 540px;
+  max-width: 540px;
+  width: 97vw;
+  display: block;
 } 
 
 .post:hover{
   cursor: pointer;
 } 
+
+@media only screen and (max-width: 600px) {
+  .profileImg {
+    float: left;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+  }
+
+}
