@@ -11,7 +11,7 @@ export default function TreasureHunt() {
             fontFamily: "'Sonsie One', cursive",
             position: "absolute",
             bottom: 30,
-            left: 30,
+            left: 50,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text"
         }
