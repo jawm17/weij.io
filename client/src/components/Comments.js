@@ -9,7 +9,7 @@ export default function Comments() {
         width: "95vw",
         maxWidth: 540,
         height: 40,
-        
+        display: "block"
     }
 
     return (

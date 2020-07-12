@@ -26,7 +26,7 @@ export default function Navbar(props) {
                 setSearchImg("https://image.flaticon.com/icons/svg/2948/2948244.svg");
                 break;
             case "home":
-                setHomeImg("https://image.flaticon.com/icons/svg/860/860756.svg");
+                setHomeImg("https://mymo-secure-content.s3.us-east-2.amazonaws.com/ICON3.png");
                 break;
         }
         switch (props.color) {

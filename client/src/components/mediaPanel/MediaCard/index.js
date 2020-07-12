@@ -14,6 +14,7 @@ function MediaCard(props) {
     const [paywall, setPaywall] = useState(true);
     const [height, setHeight] = useState();
     const [containerInfoHeight, setContainerInfoHeight] = useState(50);
+    const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const authContext = useContext(AuthContext);
 
@@ -24,12 +25,11 @@ function MediaCard(props) {
             borderColor: hexColor
         },
         imageArea: {
-            maxHeight: "600px",
-            width: "97vw",
-            maxWidth: 540
+            width: "95vw",
+            maxWidth: 540,
         },
         containerInfo: {
-            padding: "2px 16px",
+            padding: "0 16px 10px",
             height: containerInfoHeight,
             display: "flex",
             alignItems: "start",
@@ -80,10 +80,12 @@ function MediaCard(props) {
     }
 
     const toggleComments = () => {
-        if(containerInfoHeight === 50) {
+        if (!comments) {
             setContainerInfoHeight(200);
+            setComments(!comments);
         } else {
             setContainerInfoHeight(50);
+            setComments(!comments);
         }
     }
 
@@ -154,22 +156,26 @@ function MediaCard(props) {
                 );
             } else {
                 return (
-                    <div>
-                        <div className="card panel">
-                            <div className="imageArea" style={style.imageArea}>
-                                <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
-                            </div>
-                            <div className="containerInfo" style={style.containerInfo}>
-                                <div className="userInfoMedia">
-                                    <div className="innerUserInfoMedia">
-                                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                        <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                    <div className="card panel">
+                        <div className="imageArea" style={style.imageArea}>
+                            <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
+                        </div>
+                        <div className="containerInfo" style={style.containerInfo}>
+                            <div className="basicInfoMedia">
+                                <div className="infoLeft">
+                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                    <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                                </div>
+                                <div className="buttons">
+                                    <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon" onClick={() => toggleComments()}></img>
+                                    <div className="containerTipArea">
+                                        {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                                     </div>
                                 </div>
-                                <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon" onClick={() => toggleComments()}></img>
-                                <div className="containerTipArea">
-                                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                                </div>
+                            </div>
+                            {/* {comments ? <Comments/> : null} */}
+                            <div className="comments">
+                                dfsdf
                             </div>
                         </div>
                     </div>
