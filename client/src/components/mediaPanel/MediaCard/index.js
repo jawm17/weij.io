@@ -8,6 +8,7 @@ import FeedImageView from "../../FeedImageView";
 import Comments from "../../Comments";
 import "./style.css";
 import zIndex from '@material-ui/core/styles/zIndex';
+import { set } from 'mongoose';
 
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
@@ -15,6 +16,7 @@ function MediaCard(props) {
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [paywall, setPaywall] = useState(true);
     const [height, setHeight] = useState();
+    const [containerInfoHeight, setContainerInfoHeight] = useState(50);
     const [imageView, setImageView] = useState(false);
     const authContext = useContext(AuthContext);
 
@@ -28,6 +30,13 @@ function MediaCard(props) {
             maxHeight: "600px",
             width: "97vw",
             maxWidth: 540
+        },
+        containerInfo: {
+            padding: "2px 16px",
+            height: containerInfoHeight,
+            display: "flex",
+            alignItems: "start",
+            transition: "all 0.3s ease-in-out"
         }
     };
 
@@ -99,6 +108,14 @@ function MediaCard(props) {
         setImageView(!imageView);
     }
 
+    const toggleComments = () => {
+        if(containerInfoHeight === 50) {
+            setContainerInfoHeight(200);
+        } else {
+            setContainerInfoHeight(50);
+        }
+    }
+
     if (paywall) {
         //paywall
         return (
@@ -162,27 +179,28 @@ function MediaCard(props) {
             //photo post
             if (imageView) {
                 return (
-                    <FeedImageView toggleImageView={() => toggleImageView()} imgUrl={props.imgUrl}/>
+                    <FeedImageView toggleImageView={() => toggleImageView()} imgUrl={props.imgUrl} />
                 );
             } else {
                 return (
-                    <div className="card panel" data-color={color}>
-                        <div className="imageArea" style={style.imageArea}>
-                            <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
-                        </div>
-                        <div className="containerInfo">
-                            <div className="userInfoMedia">
-                                <div className="innerUserInfoMedia">
-                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                    <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                    <div>
+                        <div className="card panel" data-color={color}>
+                            <div className="imageArea" style={style.imageArea}>
+                                <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
+                            </div>
+                            <div className="containerInfo" style={style.containerInfo}>
+                                <div className="userInfoMedia">
+                                    <div className="innerUserInfoMedia">
+                                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                        <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                                    </div>
+                                </div>
+                                <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon" onClick={() => toggleComments()}></img>
+                                <div className="containerTipArea">
+                                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                                 </div>
                             </div>
-                            <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon"></img>
-                            <div className="containerTipArea">
-                                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                            </div>
                         </div>
-
                     </div>
                 );
             }
