@@ -1,7 +1,7 @@
 .card {
   /* Add shadows to create the "card" effect */
   width: 95vw;
-  max-width: 600px;
+  max-width: 540px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-color: white;
   margin-top: 25px;
@@ -21,7 +21,8 @@
 .infoLeft {
   display: flex;
   align-items: center;
-  width: 260px;
+  width: 90vw;
+  max-width: 430px;
 }
 
 .userLink {
@@ -53,7 +54,7 @@
 }
 
 .buttons {
-  float: right;
+  
 }
 
 .commentIcon {
