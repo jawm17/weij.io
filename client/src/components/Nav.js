@@ -20,10 +20,10 @@ export default function Navbar(props) {
     useEffect(() => {
         switch (props.page) {
             case "wallet":
-                setWalletImg("https://image.flaticon.com/icons/svg/843/843823.svg");
+                setWalletImg("https://mymo-secure-content.s3.us-east-2.amazonaws.com/ICON2.png");
                 break;
             case "search":
-                setSearchImg("https://image.flaticon.com/icons/svg/2948/2948244.svg");
+                setSearchImg("https://mymo-secure-content.s3.us-east-2.amazonaws.com/ICON4.png");
                 break;
             case "home":
                 setHomeImg("https://mymo-secure-content.s3.us-east-2.amazonaws.com/ICON3.png");
