@@ -4,16 +4,25 @@ export default function TreasureHunt() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
 
     const style = {
+        background: {
+            width: "100vw",
+            height: "100vh",
+            background: "white"
+            // background: `linear-gradient(90deg, rgba(156,26,190,1) -600px, rgba(49,187,242,1) 100%)`,
+        },
         treasureHuntLogo: {
             background: 'url("https://previews.123rf.com/images/stevanovicigor/stevanovicigor1508/stevanovicigor150800150/43924569-tv-damage-bad-sync-tv-channel-rgb-lcd-television-screen-with-static-noise-from-poor-broadcast-signal.jpg")',
+            backgroundColor: "red",
             backgroundPositionX: mousePosition.x,
             backgroundPositionY: mousePosition.y,
-            fontFamily: "'Sonsie One', cursive",
+            fontFamily: 'Bungee, cursive',
             position: "absolute",
-            bottom: 30,
-            left: 50,
+            fontSize: 80,
+            bottom: 50,
+            left: 60,
             WebkitTextFillColor: "transparent",
-            WebkitBackgroundClip: "text"
+            WebkitBackgroundClip: "text",
+            margin: 0
         }
     }
 
@@ -34,7 +43,8 @@ export default function TreasureHunt() {
 
     return (
         <div>
-            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>MYMO</h1>
+            <div className="treasureHuntBackground" style={style.background}></div>
+            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>WEIJ</h1>
         </div>
     )
 }   

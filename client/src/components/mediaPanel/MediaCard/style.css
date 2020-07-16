@@ -21,8 +21,7 @@
 .infoLeft {
   display: flex;
   align-items: center;
-  width: 90vw;
-  max-width: 430px;
+  width: 260px;
 }
 
 .userLink {
@@ -54,7 +53,7 @@
 }
 
 .buttons {
-  
+  float: right;
 }
 
 .commentIcon {
@@ -62,6 +61,6 @@
   margin-right: 5px;
 }
 
-.comments {
-
+.commentIcon:hover {
+  cursor: pointer;
 }

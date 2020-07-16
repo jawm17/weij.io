@@ -57,10 +57,11 @@ export default function PostModal(props) {
     }
 
     const newImage = (event) => {
-        console.log(event.target.files[0]);
-        setImage(event.target.files[0]);
-        setNewPostSrc(URL.createObjectURL(event.target.files[0]));
-        setError(false);
+        if (event.target.files.length > 0) {
+            setImage(event.target.files[0]);
+            setNewPostSrc(URL.createObjectURL(event.target.files[0]));
+            setError(false);
+        }
     }
 
     const emptyFields = () => {

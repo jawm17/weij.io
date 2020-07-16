@@ -11,6 +11,7 @@ import "./style.css";
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    const [commentIcon, setCommentIcon] = useState("https://image.flaticon.com/icons/svg/876/876221.svg");
     const [paywall, setPaywall] = useState(true);
     const [height, setHeight] = useState();
     const [containerInfoHeight, setContainerInfoHeight] = useState(50);
@@ -33,7 +34,9 @@ function MediaCard(props) {
             height: containerInfoHeight,
             display: "flex",
             alignItems: "start",
-            transition: "all 0.3s ease-in-out"
+            transition: "all 0.3s ease-in-out",
+            width: "95vw",
+            maxWidth: 540
         }
     };
 
@@ -46,7 +49,7 @@ function MediaCard(props) {
     const getDimensions = () => {
         var img = new Image();
         img.onload = function () {
-            setHeight((this.height / this.width) * (window.innerWidth * .95));
+            setHeight((this.height / this.width) * (window.innerWidth / .95));
         }
         img.src = props.imgUrl;
     }
@@ -82,9 +85,11 @@ function MediaCard(props) {
     const toggleComments = () => {
         if (!comments) {
             setContainerInfoHeight(200);
+            setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
             setContainerInfoHeight(50);
+            setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
             setComments(!comments);
         }
     }
@@ -161,21 +166,19 @@ function MediaCard(props) {
                             <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
                         </div>
                         <div className="containerInfo" style={style.containerInfo}>
-                            <div className="basicInfoMedia">
-                                <div className="infoLeft">
-                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                    <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
-                                </div>
-                            </div>
-                            <div className="buttons">
-                                    <img className="commentIcon" src="https://image.flaticon.com/icons/svg/876/876221.svg" alt="comment icon" onClick={() => toggleComments()}></img>
+                            <div className="basicInfo">
+                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                                <div className="buttons">
+                                    <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
                                     <div className="containerTipArea">
                                         {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                                     </div>
                                 </div>
+                            </div>
                             {/* {comments ? <Comments/> : null} */}
                             <div className="comments">
-                                dfsdf
+
                             </div>
                         </div>
                     </div>
