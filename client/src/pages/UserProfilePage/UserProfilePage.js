@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
-import AuthService from '../../services/AuthService';
 import "../ProfilePage/ProfilePageStyle.css";
 import Background from "../../components/Background";
 import Background2 from "../../components/Background2";
