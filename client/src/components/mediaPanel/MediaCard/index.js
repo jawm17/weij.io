@@ -169,16 +169,10 @@ function MediaCard(props) {
                             <div className="basicInfo">
                                 <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
                                 <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
-                                <div className="buttons">
-                                    <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
-                                    <div className="containerTipArea">
-                                        {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                                    </div>
+                                <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
+                                <div className="containerTipArea">
+                                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                                 </div>
-                            </div>
-                            {/* {comments ? <Comments/> : null} */}
-                            <div className="comments">
-
                             </div>
                         </div>
                     </div>
