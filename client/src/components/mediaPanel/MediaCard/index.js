@@ -149,30 +149,23 @@ function MediaCard(props) {
                 </div>
             );
         } else {
-            //photo post
-            if (imageView) {
-                return (
-                    <FeedImageView toggleImageView={() => toggleImageView()} imgUrl={props.imgUrl} />
-                );
-            } else {
-                return (
-                    <div className="card panel">
-                        <div className="imageArea" style={style.imageArea}>
-                            <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
-                        </div>
-                        <div className="containerInfo" style={style.containerInfo}>
-                            <div className="basicInfo">
-                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
-                                <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
-                                <div className="containerTipArea">
-                                    {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
-                                </div>
+            return (
+                <div className="card panel">
+                    <div className="imageArea" style={style.imageArea}>
+                        <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
+                    </div>
+                    <div className="containerInfo" style={style.containerInfo}>
+                        <div className="basicInfo">
+                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                            <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                            <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
+                            <div className="containerTipArea">
+                                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                             </div>
                         </div>
                     </div>
-                );
-            }
+                </div>
+            );
         }
 
     }
