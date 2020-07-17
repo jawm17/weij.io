@@ -41,8 +41,15 @@
 
 .sendIcon {
     position: absolute;
-    right: 40px;
-    width: 40px;
+    right: 300px;
+    width: 30px;
+    bottom: 20px;
+}
+
+.menuIcon {
+    position: absolute;
+    left: 300px;
+    width: 28px;
     bottom: 20px;
 }
 
