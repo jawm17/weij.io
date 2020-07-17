@@ -38,7 +38,7 @@ export default function Header(props) {
                 break;
         }
         document.addEventListener("scroll", () => {
-            const name = window.scrollY < 7 ? "header" : "shadowedHeader";
+            const name = window.scrollY < 7 ? "header" : "header shadowed";
             setClassName(name);
         });
     }, []);
