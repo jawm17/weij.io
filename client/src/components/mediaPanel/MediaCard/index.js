@@ -12,7 +12,7 @@ function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [commentIcon, setCommentIcon] = useState("https://image.flaticon.com/icons/svg/876/876221.svg");
-    const [paywall, setPaywall] = useState(true);
+    const [paywall, setPaywall] = useState(false);
     const [height, setHeight] = useState();
     const [containerInfoHeight, setContainerInfoHeight] = useState(50);
     const [comments, setComments] = useState(false);
@@ -49,15 +49,15 @@ function MediaCard(props) {
     const getDimensions = () => {
         var img = new Image();
         img.onload = function () {
-            setHeight((this.height / this.width) * (window.innerWidth / .95));
+            setHeight((this.height / this.width) * 540);
         }
         img.src = props.imgUrl;
     }
 
     const checkPaywall = () => {
-        if (!props.price) {
-            setPaywall(false);
-        } else if (authContext.user.username === props.username) {
+        if (props.price) {
+            setPaywall(true);
+        } if (authContext.user.username === props.username) {
             setPaywall(false);
         } else {
             UserService.getUserInfo().then(data => {
@@ -101,15 +101,10 @@ function MediaCard(props) {
                 <div className="imageArea" style={style.imageArea}>
                     <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia>
                 </div>
-                <div className="containerInfo">
-                    <div className="userInfoMedia">
-                        <div className="innerUserInfoMedia">
-                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                            <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
-                        </div>
-                    </div>
-                    <div className="containerTipArea">
-                        {authContext.user.username === props.username ? null : <TipModal username={props.username} />}
+                <div className="containerInfo" style={style.containerInfo}>
+                    <div className="basicInfo">
+                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                        <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
                     </div>
                 </div>
             </div>

@@ -7,8 +7,6 @@
     color: white;
 }
 
-.infoArea{
-    display: block;
-    text-align: center;
+.button3 {
+    display: inline-block;
 }
-

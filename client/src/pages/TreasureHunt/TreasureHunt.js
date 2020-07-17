@@ -18,7 +18,7 @@ export default function TreasureHunt() {
             fontFamily: 'Bungee, cursive',
             position: "absolute",
             fontSize: 80,
-            bottom: 50,
+            bottom: 35,
             left: 60,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",

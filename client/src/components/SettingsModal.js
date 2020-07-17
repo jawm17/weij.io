@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Modal from 'react-awesome-modal';
 import UpdateUserService from '../services/UpdateUserService';
+import AuthService from '../services/AuthService';
 import UserService from "../services/UserService";
 import { AuthContext } from '../context/AuthContext';
 import './SettingsModalStyle.css'
@@ -9,11 +10,12 @@ export default function SettingsModal(props) {
     const [visible, setVisible] = useState(false);
     const [bio, setBio] = useState("");
     const [color, setColor] = useState("");
-    const authContext = useContext(AuthContext);
     const [error, setError] = useState(true);
     const [message, setMessage] = useState(null);
     const [profileImg, setProfileImg] = useState();
     const [selected, setSelected] = useState(false);
+    const { setIsAuthenticated, setUser } = useContext(AuthContext);
+    const authContext = useContext(AuthContext);
 
     // color stuff (should be more semantic xD)
     const [violetSelected, setVioletSelected] = useState(false);
@@ -160,6 +162,15 @@ export default function SettingsModal(props) {
         setColor(e.target.name);
     }
 
+        const onClickLogoutHandler = () => {
+        AuthService.logout().then(data => {
+            if (data.success) {
+                setUser(data.user);
+                setIsAuthenticated(false);
+            }
+        });
+    }
+
     return (
         <section>
             <button onClick={() => openModal()}> Settings </button>
@@ -207,6 +218,7 @@ export default function SettingsModal(props) {
                         <br></br>
                         <br></br>
                         <button onClick={() => saveSettings()}>Save Settings</button>
+                        <button onClick={() => onClickLogoutHandler()}>Logout</button>
                     </div>
                 </div>
             </Modal>
