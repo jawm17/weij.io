@@ -7,56 +7,15 @@
     bottom: 0;
     transition: all 0.3s ease-in-out;
     z-index: 300;
-    /* background-color: red; */
-    /* opacity: 100%; */
-}
-
-.shadowedNavBar {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    bottom: 0;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    transition: all 0.3s ease-in-out;
-    z-index: 300;
-    /* background-color: red; */
-    /* opacity: 100%; */
 }
 
 .navArea {
     max-width:  450px;
     width: 80vw;
-    
-}
-
-/* @media only screen and (min-width: 900px) {
-    .navArea {
-      width: 700px;
-    }
-  } */
-
-.logoNav {
-    float: left;
-    padding-top: 7px;
-    margin-left: 80px;
-    font-size: 40px;
-    font-family: 'Righteous', cursive;
-    color: lightblue;
- 
-}
-
-.logoNav:hover {
-    cursor: pointer;
-}
-
-.mainNavRight {
-   
     display: flex;
     justify-content: space-between;
-    padding-top: 15px;
-
+    align-items: center;
+    padding-bottom: 5px;
 }
 
 .homeIcon {
@@ -65,18 +24,10 @@
     display:inline-block;
 }
 
-.homeIcon:hover {
-    cursor: pointer;
-}
-
 .searchIcon {
     width: 30px;
     height: 30px;
     display:inline-block;
-}
-
-.searchIcon:hover {
-    cursor: pointer;
 }
 
 .walletIcon {
@@ -85,13 +36,13 @@
     display:inline-block;
 }
 
-.walletIcon:hover {
-    cursor: pointer;
-}
-
 .profilePicNav {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     display:inline-block;
+}
+
+.navButton:hover {
+    cursor: pointer;
 }

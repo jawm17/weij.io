@@ -3,8 +3,6 @@ import history from '../history';
 import "./NavStyle.css";
 
 export default function Navbar(props) {
-    const [className, setClassName] = useState("navBar");
-    const [backgroundColor, setBackgroundColor] = useState("");
     const [walletImg, setWalletImg] = useState("https://image.flaticon.com/icons/svg/846/846204.svg");
     const [searchImg, setSearchImg] = useState("https://image.flaticon.com/icons/svg/2948/2948094.svg ");
     const [homeImg, setHomeImg] = useState("https://image.flaticon.com/icons/svg/860/860807.svg");
@@ -43,21 +41,15 @@ export default function Navbar(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        // document.addEventListener("scroll", () => {
-        //     const name = window.scrollY < 7 ? "navBar" : "shadowedNavBar";
-        //     setClassName(name);
-        // });
     }, []);
 
     return (
-        <div className={className} style={style.nav}>
+        <div className="navBar" style={style.nav}>
             <div className="navArea">
-                <div className="mainNavRight">
-                    <img className="homeIcon" src={homeImg} alt="home icon" onClick={() => history.push('/home')}></img>
-                    <img className="searchIcon" src={searchImg} alt="search icon" onClick={() => history.push('/search')}></img>
-                    <img className="walletIcon" src={walletImg} alt="wallet icon" onClick={() => history.push('/wallet')}></img>
-                    <img className="profilePicNav" src="https://cdn.dribbble.com/users/612987/screenshots/5002917/shark.jpg" alt="profile avatar" onClick={() => history.push('/profile')}></img>
-                </div>
+                <img className="homeIcon navButton" src={homeImg} alt="home icon" onClick={() => history.push('/home')}></img>
+                <img className="searchIcon navButton" src={searchImg} alt="search icon" onClick={() => history.push('/search')}></img>
+                <img className="walletIcon navButton" src={walletImg} alt="wallet icon" onClick={() => history.push('/wallet')}></img>
+                <img className="profilePicNav navButton" src="https://cdn.dribbble.com/users/612987/screenshots/5002917/shark.jpg" alt="profile avatar" onClick={() => history.push('/profile')}></img>
             </div>
         </div>
     )
