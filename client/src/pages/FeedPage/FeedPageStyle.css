@@ -6,8 +6,13 @@ body {
 }
 
 .mediaPanel {
-  margin-top: 80px;
+  margin-top: 60px;
+  height: 80vh;
+  width: 560px;
+  overflow-y: scroll; 
   scroll-snap-type: y mandatory;
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -23,7 +28,7 @@ body {
   height: 100%;
   min-height: 100vh;
 }
-  
+
 /* colors */
 .color-violet {
   background-color: #7A4EAB;

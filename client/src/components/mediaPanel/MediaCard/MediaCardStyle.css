@@ -6,6 +6,7 @@
   background-color: white;
   margin-top: 25px;
   border-radius: 4px;
+  scroll-snap-align: end;
 }
 
 .feedImg {

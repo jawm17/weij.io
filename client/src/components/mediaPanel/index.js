@@ -29,7 +29,7 @@ export default function MediaPanel(props) {
     }
 
     return (
-        <div className="mediaPanel">
+        <div>
             {posts.map(post => {
                 if (!post.deleted) {
                     return <MediaCard

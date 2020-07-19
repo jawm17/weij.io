@@ -30,7 +30,6 @@ function MediaCard(props) {
             maxWidth: 540,
         },
         containerInfo: {
-            padding: "0 16px 10px",
             height: containerInfoHeight,
             display: "flex",
             alignItems: "start",
