@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        maxWidth: 400,
+        maxWidth: 500,
         width: "90vw",
         boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)"
     },

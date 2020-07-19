@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import MediaCard from "./MediaCard";
+import MediaCard from "./MediaCard/MediaCard";
 import LoadingAnimation from "./LoadingAnimation";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
-import { PromiseProvider } from "mongoose";
 
 export default function MediaPanel(props) {
     const [posts, setPosts] = useState([]);
@@ -30,10 +29,11 @@ export default function MediaPanel(props) {
     }
 
     return (
-        <div>
+        <div className="mediaPanel">
             {posts.map(post => {
                 if (!post.deleted) {
                     return <MediaCard
+                        className="mediaCard"
                         getBalance={props.getBalance}
                         key={post._id}
                         id={post._id}

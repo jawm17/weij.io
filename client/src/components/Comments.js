@@ -5,12 +5,12 @@ export default function Comments() {
 
     const style = {
         commentsStyle: {
-            backgroundColor: "red",
+            backgroundColor: "white",
             width: "95vw",
             maxWidth: 535,
             height: 140,
-            position: "absolute",
-            right: 170,
+            position: "relative",
+            right: 526,
             marginTop: 65
         }
     }

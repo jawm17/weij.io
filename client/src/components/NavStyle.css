@@ -46,3 +46,7 @@
 .navButton:hover {
     cursor: pointer;
 }
+
+.navButton:active {
+    margin-top: 10px;
+}

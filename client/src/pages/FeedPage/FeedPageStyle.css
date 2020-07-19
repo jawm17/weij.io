@@ -5,22 +5,9 @@ body {
   font-family: sans-serif;
 }
 
-.leftPanel {
-  float: left;
-  display: flex;
-  justify-content: center;
-
-  position: fixed;
-  left: 150px;
-  top: 55px;
-  width: 300px;
-  /* Fixed Sidebar (stay in place on scroll) */
-}
-
 .mediaPanel {
-  display: inline-block;
-  width: 100%;
-  margin-top: 60px;
+  margin-top: 80px;
+  scroll-snap-type: y mandatory;
 }
 
 @media only screen and (max-width: 600px) {
@@ -35,50 +22,6 @@ body {
   margin-right: 0;
   height: 100%;
   min-height: 100vh;
-}
-
-.nav {
-  width: 250px;
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.wallet {
-  height: 80px;
-  width: 250px;
-}
-
-.ethlogo {
-    padding-top: 12px;
-    width: 50px;
-    height: 50px;
-    float: left;
-}
-
-.walletText {
-    margin-left: 60px;
-    margin-top: 27.3px;
-}
-
-.walletBtn {
-  text-decoration: none;
-}
-
-.walletBtn:visited {
-    color: black;
-}
-
-.btn {
-  text-decoration: none;
-}
-
-.btn:hover {
-  cursor: pointer;
-}
-
-.btn:visited {
-  color: #000;
 }
   
 /* colors */

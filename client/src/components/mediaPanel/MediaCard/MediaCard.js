@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import FeedImageView from "../../FeedImageView";
 import Comments from "../../Comments";
-import "./style.css";
+import "./MediaCardStyle.css";
 
 function MediaCard(props) {
     const [hexColor, setHexColor] = useState();
