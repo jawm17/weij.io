@@ -14,7 +14,7 @@ function MediaCard(props) {
     const [commentIcon, setCommentIcon] = useState("https://image.flaticon.com/icons/svg/876/876221.svg");
     const [paywall, setPaywall] = useState(false);
     const [height, setHeight] = useState();
-    const [containerInfoHeight, setContainerInfoHeight] = useState(50);
+    const [containerInfoHeight, setContainerInfoHeight] = useState(60);
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const authContext = useContext(AuthContext);
@@ -26,10 +26,10 @@ function MediaCard(props) {
             borderColor: hexColor
         },
         imageArea: {
-            width: "95vw",
-            maxWidth: 540,
+   
         },
         containerInfo: {
+
             height: containerInfoHeight,
             display: "flex",
             alignItems: "start",
@@ -87,7 +87,7 @@ function MediaCard(props) {
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
-            setContainerInfoHeight(50);
+            setContainerInfoHeight(60);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
             setComments(!comments);
         }
@@ -155,11 +155,19 @@ function MediaCard(props) {
                     </div>
                     <div className="containerInfo" style={style.containerInfo}>
                         <div className="basicInfo">
-                            <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                            <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
-                            <img className="commentIcon" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
-                            <div className="containerTipArea">
-                                {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                            <div className="outerProfileImageUsername clickable" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}>
+                                <div className="profileImageUsername">
+                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                    <h4 className="userLink" >{props.username}</h4>
+                                </div>
+                            </div>
+                            <div className="outerButtons">
+                                <div className="buttons">
+                                    <img className="commentIcon clickable" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
+                                    <div className="tipIcon clickable">
+                                        {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {comments ? <Comments /> : null}

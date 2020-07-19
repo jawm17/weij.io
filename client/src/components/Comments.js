@@ -22,9 +22,9 @@ export default function Comments() {
         >
             {props => (
                 <div style={props}>
-                    <div style={style.commentsStyle}>
+                    {/* <div style={style.commentsStyle}>
                         Comments
-                    </div>
+                    </div> */}
                 </div>
             )}
         </Spring>

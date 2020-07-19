@@ -4,7 +4,7 @@
   max-width: 540px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-color: white;
-  margin-top: 25px;
+  margin-bottom: 25px;
   border-radius: 4px;
   scroll-snap-align: end;
 }
@@ -15,20 +15,11 @@
 }
 
 .basicInfo{
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .userLink {
-  text-decoration: none;
-  display: inline-block;
   margin-left: 10px;
-  width: 60vw;
-  max-width: 400px;
-}
-
-.userLink:hover {
-  cursor: pointer;
 }
 
 .profileImgSmall {
@@ -38,23 +29,44 @@
   border-radius: 50%;
   border-width: 2px;
   border-style: solid;
-  display: inline-block;
 }
 
 .extraBlock {
   height: 100px;
 }
 
-.buttons {
-  float: right;
+.profileImageUsername {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
 }
 
 .commentIcon {
   width: 24px;
   margin-right: 5px;
+  float: right;
+}
+
+.tipIcon {
+  float: right;
+}
+
+.outerButtons {
+  float: right;
+  margin-top: 12px;
+  margin-right: 10px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.outerProfileImageUsername {
   display: inline-block;
 }
 
-.commentIcon:hover {
+.clickable:hover {
   cursor: pointer;
 }

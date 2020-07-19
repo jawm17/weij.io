@@ -37,8 +37,8 @@ export default function Header(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        document.addEventListener("scroll", () => {
-            const name = window.scrollY < 7 ? "header" : "header shadowed";
+        document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
+            const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
             setClassName(name);
         });
     }, []);
