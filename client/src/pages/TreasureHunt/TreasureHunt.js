@@ -7,15 +7,14 @@ export default function TreasureHunt() {
         background: {
             width: "100vw",
             height: "100vh",
-            background: "white"
-            // background: `linear-gradient(90deg, rgba(156,26,190,1) -600px, rgba(49,187,242,1) 100%)`,
+            background: `linear-gradient(90deg, rgba(22,73,222,1) -600px, rgba(0,212,255,1) 100%)`,
         },
         treasureHuntLogo: {
             background: 'url("https://previews.123rf.com/images/stevanovicigor/stevanovicigor1508/stevanovicigor150800150/43924569-tv-damage-bad-sync-tv-channel-rgb-lcd-television-screen-with-static-noise-from-poor-broadcast-signal.jpg")',
-            backgroundColor: "red",
+            backgroundColor: "gray",
             backgroundPositionX: mousePosition.x,
             backgroundPositionY: mousePosition.y,
-            fontFamily: 'Bungee, cursive',
+            fontFamily: 'Fredoka One, cursive',
             position: "absolute",
             fontSize: 80,
             bottom: 35,
@@ -44,7 +43,7 @@ export default function TreasureHunt() {
     return (
         <div>
             <div className="treasureHuntBackground" style={style.background}></div>
-            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>WEIJ</h1>
+            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>WEIJ.io</h1>
         </div>
     )
 }   

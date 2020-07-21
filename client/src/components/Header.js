@@ -46,7 +46,7 @@ export default function Header(props) {
             setClassName("header shadowed");
             setTimeout(() => {
                 setClassName("header");
-            }, 90)
+            }, 300)
         } else {
             document.addEventListener("scroll", () => {
                 const name = window.scrollY < 7 ? "header" : "header shadowed";
