@@ -24,7 +24,7 @@
 }
 
 .logo {
-    margin-top: 16px;
+    margin-top: 14px;
     color: white;
     font-size: 30px;
 }
@@ -35,10 +35,16 @@
 
 .sendIcon {
     width: 25px;
+    margin-top: 0px;
 }
 
 .menuIcon {
     width: 22px;
+    margin-top: 0px;
+}
+
+.button:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {

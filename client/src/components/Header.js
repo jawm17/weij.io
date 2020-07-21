@@ -42,6 +42,11 @@ export default function Header(props) {
                 const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
                 setClassName(name);
             });
+        } else if (props.page === "send") {
+            setClassName("header shadowed");
+            setTimeout(() => {
+                setClassName("header");
+            }, 90)
         } else {
             document.addEventListener("scroll", () => {
                 const name = window.scrollY < 7 ? "header" : "header shadowed";
@@ -62,9 +67,9 @@ export default function Header(props) {
     return (
         <div className={className} style={style.nav}>
             <div className="headerArea">
-                <img className="menuIcon" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
+                <img className="menuIcon button" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
                 <h3 className="logo" style={style.logo} onClick={() => changeLogoImage()}>weij</h3>
-                <img className="sendIcon" src="https://image.flaticon.com/icons/svg/2983/2983788.svg" alt="Send icon"></img>
+                <img className="sendIcon button" src="https://image.flaticon.com/icons/svg/2983/2983788.svg" alt="Send icon" onClick={() => history.push('/send')}></img>
             </div>
         </div>
     )
