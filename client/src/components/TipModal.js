@@ -64,7 +64,7 @@ export default function TipModal(props) {
             <Modal
                 visible={visible}
                 width="400"
-                height="300"
+                height="280"
                 effect="fadeInDown"
                 onClickAway={() => closeModal()}
             >

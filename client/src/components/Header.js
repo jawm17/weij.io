@@ -37,14 +37,21 @@ export default function Header(props) {
                 setEndColor("rgba(41,195,242,1)");
                 break;
         }
-        document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
-            const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
-            setClassName(name);
-        });
+        if (props.page === "home") {
+            document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
+                const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
+                setClassName(name);
+            });
+        } else {
+            document.addEventListener("scroll", () => {
+                const name = window.scrollY < 7 ? "header" : "header shadowed";
+                setClassName(name);
+            });
+        }
     }, []);
 
     function changeLogoImage() {
-        if(!localStorage.getItem('logoImageNum')) {
+        if (!localStorage.getItem('logoImageNum')) {
             localStorage.setItem('logoImageNum', 0);
         } else {
             localStorage.setItem('logoImageNum', parseInt(localStorage.getItem('logoImageNum')) + 1);
@@ -56,7 +63,7 @@ export default function Header(props) {
         <div className={className} style={style.nav}>
             <div className="headerArea">
                 <img className="menuIcon" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
-                <h3 className="logo" style={style.logo} onClick={() => changeLogoImage()}>WIN</h3>
+                <h3 className="logo" style={style.logo} onClick={() => changeLogoImage()}>weij</h3>
                 <img className="sendIcon" src="https://image.flaticon.com/icons/svg/2983/2983788.svg" alt="Send icon"></img>
             </div>
         </div>

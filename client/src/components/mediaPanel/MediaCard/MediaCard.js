@@ -25,9 +25,7 @@ function MediaCard(props) {
         profileImgSmall: {
             borderColor: hexColor
         },
-        imageArea: {
-   
-        },
+    
         containerInfo: {
 
             height: containerInfoHeight,
@@ -83,7 +81,7 @@ function MediaCard(props) {
 
     const toggleComments = () => {
         if (!comments) {
-            setContainerInfoHeight(200);
+            setContainerInfoHeight(400);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
@@ -97,13 +95,17 @@ function MediaCard(props) {
         //paywall
         return (
             <div className="card panel">
-                <div className="imageArea" style={style.imageArea}>
+                <div className="imageArea">
                     <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia>
                 </div>
                 <div className="containerInfo" style={style.containerInfo}>
                     <div className="basicInfo">
-                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                        <a className="userLink" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}><h4>{props.username}</h4></a>
+                        <div className="outerProfileImageUsername clickable" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}>
+                            <div className="profileImageUsername">
+                                <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                <h4 className="userLink" >{props.username}</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

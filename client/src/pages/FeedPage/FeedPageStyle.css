@@ -6,20 +6,21 @@ body {
 }
 
 .mediaPanel {
-  margin-top: 70px;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 140px);
   width: 580px;
   overflow-y: scroll; 
   scroll-snap-type: y mandatory;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+  position: absolute;
+  top: 70px;
 }
 
 @media only screen and (max-width: 600px) {
   .mediaPanel {
-    margin-top: 54px;
-    height: calc(100vh - 128px);
+    top: 63px;
+    height: calc(100vh - 130px);
   }
 }
 
@@ -29,6 +30,7 @@ body {
   margin-right: 0;
   height: 100%;
   min-height: 100vh;
+  min-width: 300px;
 }
 
 /* colors */

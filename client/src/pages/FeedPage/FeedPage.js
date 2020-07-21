@@ -63,7 +63,7 @@ function Feed() {
     return (
         <div>
             <Background />
-            <Header />
+            <Header page={"home"}/>
             <Nav page={"home"} />
             <div className="feedPage">
                 <div className="mediaPanel" id="mediaPanel">
