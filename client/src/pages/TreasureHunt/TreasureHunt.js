@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
+import "./TreasureHuntStyle.css";
 
 export default function TreasureHunt() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+    const textbg ="https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg";
 
     const style = {
         background: {
             width: "100vw",
             height: "100vh",
-            background: `linear-gradient(90deg, rgba(22,73,222,1) -600px, rgba(0,212,255,1) 100%)`,
+            background: `white`,
         },
         treasureHuntLogo: {
-            background: 'url("https://previews.123rf.com/images/stevanovicigor/stevanovicigor1508/stevanovicigor150800150/43924569-tv-damage-bad-sync-tv-channel-rgb-lcd-television-screen-with-static-noise-from-poor-broadcast-signal.jpg")',
+            background: `url(${textbg})`,
             backgroundColor: "gray",
             backgroundPositionX: mousePosition.x,
             backgroundPositionY: mousePosition.y,
@@ -21,7 +23,7 @@ export default function TreasureHunt() {
             left: 60,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
-            margin: 0
+            margin: 0,   
         }
     }
 
@@ -42,7 +44,7 @@ export default function TreasureHunt() {
 
     return (
         <div>
-            <div className="treasureHuntBackground" style={style.background}></div>
+            <div className="treasureHuntBackground" ></div>
             <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>WEIJ.io</h1>
         </div>
     )

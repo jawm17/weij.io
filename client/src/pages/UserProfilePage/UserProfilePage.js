@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
-import AuthService from '../../services/AuthService';
 import "../ProfilePage/ProfilePageStyle.css";
 import Background from "../../components/Background";
-import Background2 from "../../components/Background2";
 import PostModal from '../../components/PostModal';
 import SettingsModal from "../../components/SettingsModal";
 import Nav from "../../components/Nav";
@@ -20,7 +18,6 @@ export default function UserProfilePage(props) {
     const [color, setColor] = useState("purple");
     const [numFollowers, setNumFollowers] = useState();
     const [following, setFollowing] = useState(false);
-    const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -60,22 +57,6 @@ export default function UserProfilePage(props) {
                 authContext.setIsAuthenticated(false);
             }
         });
-    }
-
-    function followUser() {
-        if (!following) {
-            UserService.followUser(username).then(data => {
-                setFollowing(true);
-            });
-        }
-    }
-
-    function unFollowUser() {
-        if (following) {
-            UserService.unfollowUser(username).then(data => {
-                setFollowing(false);
-            });
-        }
     }
 
     return (

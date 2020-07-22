@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserService from '../../services/UserService';
+import history from '../../history';
 import "./ProfilePageStyle.css";
 import Background from "../../components/Background";
 import Background2 from "../../components/Background2";
@@ -72,7 +73,7 @@ export default function ProfilePage(props) {
                                 <h3 className="numFollowers">{numFollowers} Followers</h3>
                                 {bio ? <p className="bio">{bio}</p> : null}
                                 {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>}
-                                <button className="followToggle">^</button>
+                                {following ? <button className="directSend" onClick={() => (history.push("/send"))}><img  className="directSendImage" src="https://image.flaticon.com/icons/svg/2983/2983788.svg"></img></button> : null}
                             </div>
 
                         </div>

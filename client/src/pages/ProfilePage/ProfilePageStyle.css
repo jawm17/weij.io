@@ -36,6 +36,20 @@
   float: right;
 }
 
+.directSend {
+  margin-left: 10px;
+  float: right;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.directSendImage {
+  width: 15px;
+  height: 15px;
+}
+
 .bottomInfo {
 
 }

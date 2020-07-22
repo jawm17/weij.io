@@ -1,15 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Header from "../../components/Header";
 import Background from "../../components/Background";
+import Finder from "../../components/ContactFinder/Finder";
 import "./SendPageStyle.css";
+
+import UserService from '../../services/UserService';
+import { AuthContext } from '../../context/AuthContext';
+
 
 export default function SendPage() {
     const [position, setPosition] = useState("-100vh");
+    const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    const authContext = useContext(AuthContext);
+    
 
     useEffect(() => {
         setTimeout(() => {
             setPosition("80px");
         }, 60)
+        getFriends();
     }, []);
 
 
@@ -25,6 +34,19 @@ export default function SendPage() {
             backgroundColor: "white",
             transition: "all 0.3s ease-in-out"
         }
+    };
+
+    function getFriends() {
+        UserService.getUserInfo().then(data => {
+            const { message } = data;
+            if (!message) {
+                console.log(data.following);
+            }
+            else if (message.msgBody === "Unauthorized") {
+                authContext.setUser({ username: "" });
+                authContext.setIsAuthenticated(false);
+            }
+        });
     }
 
     return (
@@ -33,6 +55,17 @@ export default function SendPage() {
             <Background />
             <div className="outerBody">
                 <div className="sendCardMain" style={style.sendCardMain}>
+                    <div className="letterScroll">
+                        {alphabet.map((letter) => {
+                            return (
+                                <Finder
+                                    letter={letter}
+                                    key={alphabet.indexOf(letter)}
+                                    id={alphabet.indexOf(letter) + 1}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

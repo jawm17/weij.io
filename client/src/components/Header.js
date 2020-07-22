@@ -7,6 +7,7 @@ export default function Header(props) {
     const [startColor, setStartColor] = useState("rgba(22,73,222,1)");
     const [endColor, setEndColor] = useState("rgba(0,212,255,1)");
     const [logoImage, setLogoImage] = useState("https://upload.wikimedia.org/wikipedia/commons/c/c0/White_color_Page.jpg");
+    const [sendPage, setSendPage] = useState("https://mymo-secure-content.s3.us-east-2.amazonaws.com/send.png");
 
     const logoImages = ["https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/abstract-rainbow-background-similar-to-stained-glass-elena-sysoeva.jpg", "https://i.pinimg.com/originals/7f/37/64/7f3764f10458b32028a577e113c21651.jpg", "https://www.muralswallpaper.com/app/uploads/pink-bright-gradient-wallpaper-mural-Plain-820x532.jpg", "https://www.xmple.com/wallpaper/yellow-pink-gradient-linear-1920x1080-c2-ff69b4-ffff00-a-120-f-14.svg"]
 
@@ -38,6 +39,7 @@ export default function Header(props) {
                 break;
         }
         if (props.page === "home") {
+            setSendPage("https://image.flaticon.com/icons/svg/2983/2983788.svg");
             document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
                 const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
                 setClassName(name);
@@ -46,8 +48,10 @@ export default function Header(props) {
             setClassName("header shadowed");
             setTimeout(() => {
                 setClassName("header");
-            }, 300)
+                setSendPage("https://mymo-secure-content.s3.us-east-2.amazonaws.com/send.png")
+            }, 250)
         } else {
+            setSendPage("https://image.flaticon.com/icons/svg/2983/2983788.svg");
             document.addEventListener("scroll", () => {
                 const name = window.scrollY < 7 ? "header" : "header shadowed";
                 setClassName(name);
@@ -64,12 +68,20 @@ export default function Header(props) {
         setLogoImage(logoImages[localStorage.getItem('logoImageNum') % logoImages.length]);
     }
 
+    function changePage(page) {
+        if(page === "send") {
+       
+                history.push('/send');
+            
+        }
+    }
+
     return (
         <div className={className} style={style.nav}>
             <div className="headerArea">
                 <img className="menuIcon button" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
                 <h3 className="logo" style={style.logo} onClick={() => changeLogoImage()}>weij</h3>
-                <img className="sendIcon button" src="https://image.flaticon.com/icons/svg/2983/2983788.svg" alt="Send icon" onClick={() => history.push('/send')}></img>
+                <img className="sendIcon button" src={sendPage} alt="Send icon" onClick={() => changePage("send")}></img>
             </div>
         </div>
     )

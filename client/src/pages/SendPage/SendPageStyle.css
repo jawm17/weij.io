@@ -3,3 +3,22 @@
     display: flex;
     justify-content: center;
 }
+
+.sendCardMain {
+    display: flex;
+    justify-content: center;
+}
+
+.letterScroll {
+    display: flex;
+    justify-content: space-between;
+    height: 20px;
+    width: 90%;
+    margin-top: 70px;
+    font-size: 10px;
+    font-family: 'Fredoka One';
+}
+
+.letterScroll:hover {
+    cursor: default;
+}
