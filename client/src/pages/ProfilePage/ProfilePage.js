@@ -73,7 +73,7 @@ export default function ProfilePage(props) {
                                 <h3 className="numFollowers">{numFollowers} Followers</h3>
                                 {bio ? <p className="bio">{bio}</p> : null}
                                 {following ? <button className="followToggle" onClick={() => unFollowUser()}>Unfollow</button> : <button className="followToggle" onClick={() => followUser()}>Follow</button>}
-                                {following ? <button className="directSend" onClick={() => (history.push("/send"))}><img  className="directSendImage" src="https://image.flaticon.com/icons/svg/2983/2983788.svg"></img></button> : null}
+                                {following ? <button className="directSend" onClick={() => (history.push(`/send/to/${username}`))}><img  className="directSendImage" src="https://image.flaticon.com/icons/svg/2983/2983788.svg"></img></button> : null}
                             </div>
 
                         </div>

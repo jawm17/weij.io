@@ -20,12 +20,13 @@ function App() {
       <Switch>
         <UserRestrictedRoute exact path="/login" component={SignIn} />
         <UserRestrictedRoute exact path="/register" component={Register} />
-        <Route path="/user/:user" component={ProfilePage} />
+        <PrivateRoute path="/user/:user" component={ProfilePage} />
         <PrivateRoute path="/profile" component={UserProfilePage} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
         <PrivateRoute exact path={["/", "/home"]} component={Feed} />
-        <PrivateRoute exact path={["/send"]} component={SendPage} />
+        <PrivateRoute path={["/send/to/:user"]} component={SendPage} />
+        <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
         <Route>

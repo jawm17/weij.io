@@ -8,7 +8,7 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 
 
-export default function SendPage() {
+export default function SendPage(props) {
     const [position, setPosition] = useState("-100vh");
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     const authContext = useContext(AuthContext);
@@ -19,6 +19,9 @@ export default function SendPage() {
             setPosition("80px");
         }, 60)
         getFriends();
+        if(props.match.params.user) {
+            console.log(props.match.params.user);
+        }
     }, []);
 
 
