@@ -17,6 +17,7 @@ function MediaCard(props) {
     const [containerInfoHeight, setContainerInfoHeight] = useState(60);
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
+    const [imageError, setImageError] = useState(false);
     const authContext = useContext(AuthContext);
 
     document.body.style.overflow = "scroll"
@@ -153,7 +154,7 @@ function MediaCard(props) {
             return (
                 <div className="card panel">
                     <div className="imageArea" style={style.imageArea}>
-                        <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} />
+                        {imageError ? <div className="errorScreen" alt="Image not loading">Image not loading...</div> : <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} onError={() => setImageError(true)}/>}
                     </div>
                     <div className="containerInfo" style={style.containerInfo}>
                         <div className="basicInfo">

@@ -14,6 +14,13 @@
   max-height: 600px;
 }
 
+.errorScreen {
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
   .feedImg {
       width: 100%;
