@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from "../../../services/UserService";
+import MediaContentService from '../../../services/MediaContentService';
 import LockedMedia from "../LockedMedia/lockedMedia";
 import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
@@ -42,6 +43,9 @@ function MediaCard(props) {
         getDisplayUserInfo();
         checkPaywall();
         getDimensions();
+        MediaContentService.getComments(props.imgUrl).then(data => {
+            console.log(data);
+        })
     }, []);
 
     const getDimensions = () => {

@@ -16,6 +16,7 @@ export default function MediaPanel(props) {
 
         UserService.getFeed().then(data => {
             if(!data.message) {
+                console.log(data);
                 data.sort(function (a, b) {
                     return new Date(b.createdAt) - new Date(a.createdAt);
                 });

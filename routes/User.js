@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 const passport = require('passport');
+require('../passport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/User');
 const Post = require('../models/Post');
@@ -14,8 +15,6 @@ const signToken = userID => {
         sub: userID
     }, "crackPotHippie", { expiresIn: "48h" });
 }
-
-// All routes in this file are prefixed with /user/ --------------------------------------------------------------------
 
 // register new user
 userRouter.post('/register', (req, res) => {
