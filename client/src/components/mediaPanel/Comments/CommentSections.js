@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from 'react';
 import { Spring } from "react-spring/renderprops";
+import UserService from "../../../services/UserService";
+import MediaContentService from '../../../services/MediaContentService';
 
-export default function Comments() {
+export default function CommentSection(props) {
 
     const style = {
         commentsStyle: {

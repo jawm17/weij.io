@@ -10,7 +10,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 export default function SendPage(props) {
-    const [position, setPosition] = useState("-100vh");
+    const [position, setPosition] = useState("-140vh");
     const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     const authContext = useContext(AuthContext);
     
@@ -54,7 +54,7 @@ export default function SendPage(props) {
     }
 
     function leavePage() {
-        setPosition("-100vh");
+        setPosition("-140vh");
     }
 
     return (

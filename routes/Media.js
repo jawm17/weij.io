@@ -13,7 +13,7 @@ const signToken = userID => {
     }, "crackPotHippie", { expiresIn: "48h" });
 }
 
-// get comments
+// get comments for an image
 mediaRouter.post('/comments', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     Post.find({ "imgSrc": req.body.photoID }).exec((err, document) => {
@@ -22,11 +22,24 @@ mediaRouter.post('/comments', passport.authenticate('jwt', { session: false }), 
         }
         else {
             res.status(200).json({
-                authenticated: true,
-                message: "ample forth wayward traveller..."
+                comments: document.comments
             });
         }
     });
 });
+
+// post a comment
+mediaRouter.post('/new-comment', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured in MEDIA", msgError: true };
+    Post.findOneAndUpdate({ "imgSrc": req.body.photoID }, { $push: { comments: req.body.comment } }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ message: { msgBody: "Successfully posted comment", msgError: false } })
+        }
+    });
+});
+
 
 module.exports = mediaRouter;

@@ -6,7 +6,7 @@ import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import FeedImageView from "../../FeedImageView";
-import Comments from "../../Comments";
+import CommentSection from "../Comments/CommentSections";
 import "./MediaCardStyle.css";
 
 function MediaCard(props) {
@@ -14,7 +14,7 @@ function MediaCard(props) {
     const [userImg, setUserImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [commentIcon, setCommentIcon] = useState("https://image.flaticon.com/icons/svg/876/876221.svg");
     const [paywall, setPaywall] = useState(false);
-    const [height, setHeight] = useState();
+    const [height, setHeight] = useState("73vh");
     const [containerInfoHeight, setContainerInfoHeight] = useState(60);
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
@@ -27,7 +27,11 @@ function MediaCard(props) {
         profileImgSmall: {
             borderColor: hexColor
         },
-    
+        imageArea: {
+            height: height,
+            maxWidth: 540,
+            maxHeight: "73vh"
+        },
         containerInfo: {
 
             height: containerInfoHeight,
@@ -100,7 +104,7 @@ function MediaCard(props) {
         //paywall
         return (
             <div className="card panel">
-                <div className="imageArea">
+                <div className="imageArea" style={style.imageArea}>
                     <LockedMedia price={props.price} updatePaywall={() => (setPaywall(false))} id={props.id} username={props.username} getBalance={props.getBalance} imgUrl={props.imgUrl} height={height}></LockedMedia>
                 </div>
                 <div className="containerInfo" style={style.containerInfo}>
@@ -177,7 +181,7 @@ function MediaCard(props) {
                                 </div>
                             </div>
                         </div>
-                        {comments ? <Comments /> : null}
+                        {comments ? <CommentSection /> : null}
                     </div>
                 </div>
             );
