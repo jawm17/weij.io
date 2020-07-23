@@ -22,6 +22,7 @@ export default function UserProfilePage(props) {
 
     useEffect(() => {
         // setUser(props.match.params.user);
+        localStorage.setItem('prevPage', `/profile`);
         getUserInfo(props.match.params.user);
         getUserPosts();
     }, [save]);
@@ -61,8 +62,8 @@ export default function UserProfilePage(props) {
 
     return (
         <div>
-            <Header color={color} />
-            <Nav color={color} page={"profile"} />
+            <Header color={color} page={"userProfile"} />
+            <Nav color={color} page={"userProfile"} />
             <Background color={color} />
 
             <div className="profilePageContainer">

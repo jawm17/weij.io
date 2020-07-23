@@ -24,6 +24,7 @@ export default function Header(props) {
     }
 
     useEffect(() => {
+        console.log(props);
         switch (props.color) {
             case "purple":
                 setStartColor("rgba(156,26,190,1)");
@@ -60,19 +61,28 @@ export default function Header(props) {
     }, []);
 
     function changeLogoImage() {
-        if (!localStorage.getItem('logoImageNum')) {
-            localStorage.setItem('logoImageNum', 0);
-        } else {
-            localStorage.setItem('logoImageNum', parseInt(localStorage.getItem('logoImageNum')) + 1);
-        }
-        setLogoImage(logoImages[localStorage.getItem('logoImageNum') % logoImages.length]);
+        // if (!localStorage.getItem('logoImageNum')) {
+        //     localStorage.setItem('logoImageNum', 0);
+        // } else {
+        //     localStorage.setItem('logoImageNum', parseInt(localStorage.getItem('logoImageNum')) + 1);
+        // }
+        // setLogoImage(logoImages[localStorage.getItem('logoImageNum') % logoImages.length]);
     }
 
     function changePage(page) {
-        if(page === "send") {
-       
+        if(page==="send") {
+            if(props.page === "send") {
+                if (!localStorage.getItem('prevPage')) {
+                    localStorage.setItem('prevPage', "/home");
+                }
+                props.leavePage();
+                setClassName("header shadowed");
+                setTimeout(() => {
+                    history.push(localStorage.getItem('prevPage'));
+                }, 400)
+            } else {
                 history.push('/send');
-            
+            }
         }
     }
 

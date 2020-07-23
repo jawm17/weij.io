@@ -9,7 +9,7 @@ export default function SearchPage() {
     return (
         <div>
             <Background />
-            <Header />
+            <Header page={"search"} />
             <Nav page={"search"} />
             <div className="feedPage">
                 <SearchPanel />

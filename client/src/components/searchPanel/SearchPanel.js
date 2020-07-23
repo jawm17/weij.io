@@ -39,6 +39,7 @@ export default function CustomizedInputBase() {
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
+        localStorage.setItem('prevPage', "/search");
         if (query.query) {
             UserService.getUsers(query).then(data => {
                 const { message } = data;

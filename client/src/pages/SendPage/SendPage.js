@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Header from "../../components/Header";
 import Background from "../../components/Background";
 import Finder from "../../components/ContactFinder/Finder";
+import history from '../../history';
 import "./SendPageStyle.css";
 
 import UserService from '../../services/UserService';
@@ -52,9 +53,13 @@ export default function SendPage(props) {
         });
     }
 
+    function leavePage() {
+        setPosition("-100vh");
+    }
+
     return (
         <div>
-            <Header page={"send"} />
+            <Header page={"send"} leavePage={() => leavePage()}/>
             <Background />
             <div className="outerBody">
                 <div className="sendCardMain" style={style.sendCardMain}>
@@ -69,6 +74,9 @@ export default function SendPage(props) {
                             );
                         })}
                     </div>
+                </div>
+                <div className="footer">
+                    <div onClick={() => history.push("/terms")}></div>
                 </div>
             </div>
         </div>

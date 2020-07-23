@@ -28,6 +28,10 @@ const PostSchema = new mongoose.Schema({
     tips: {
         type: Number,
         default: 0
+    },
+    comments: {
+        type: Array,
+        default: []
     }
 });
 

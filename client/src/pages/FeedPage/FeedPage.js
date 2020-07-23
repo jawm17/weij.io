@@ -12,6 +12,7 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v
 function Feed() {
 
     useEffect(() => {
+        localStorage.setItem('prevPage', "/home");
         initWalletData();
     }, []);
 

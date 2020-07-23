@@ -22,3 +22,22 @@
 .letterScroll:hover {
     cursor: default;
 }
+
+.letterScroll::selection {
+    color: none;
+    background: none;
+}
+/* For Mozilla Firefox */
+.letterScroll::-moz-selection {
+    color: none;
+    background: none;
+}
+
+.footer {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
