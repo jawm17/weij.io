@@ -47,9 +47,6 @@ function MediaCard(props) {
         getDisplayUserInfo();
         checkPaywall();
         getDimensions();
-        MediaContentService.getComments(props.imgUrl).then(data => {
-            console.log(data);
-        })
     }, []);
 
     const getDimensions = () => {
@@ -180,7 +177,7 @@ function MediaCard(props) {
                                     </div>
                                 </div>
                             </div>
-                            {comments ? <CommentSection /> : null}
+                            {comments ? <CommentSection src={props.imgUrl}/> : null}
                         </div>
                     </div>
                 </div>

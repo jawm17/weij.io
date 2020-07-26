@@ -16,7 +16,7 @@ const signToken = userID => {
 // get comments for an image
 mediaRouter.post('/comments', (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
-    Post.find({ "imgSrc": req.body.photoID }).exec((err, document) => {
+    Post.findOne({ "imgSrc": req.body.photoID }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
