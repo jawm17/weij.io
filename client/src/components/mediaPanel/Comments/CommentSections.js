@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
+import "./PostComment";
 import { Spring } from "react-spring/renderprops";
 import UserService from "../../../services/UserService";
 import MediaContentService from '../../../services/MediaContentService';
+import PostComment from './PostComment';
 
 export default function CommentSection(props) {
 
@@ -9,11 +11,14 @@ export default function CommentSection(props) {
         commentsStyle: {
             backgroundColor: "white",
             width: "95vw",
-            maxWidth: 535,
-            height: 140,
-            position: "relative",
-            right: 526,
-            marginTop: 65
+            maxWidth: 540,
+            height: 338,
+        },
+        comments: {
+    
+            width: "95vw",
+            maxWidth: 540,
+            height: 310,
         }
     }
 
@@ -24,9 +29,12 @@ export default function CommentSection(props) {
         >
             {props => (
                 <div style={props}>
-                    {/* <div style={style.commentsStyle}>
-                        Comments
-                    </div> */}
+                    <div style={style.commentsStyle}>
+                        <div className="comments" style={style.comments}>
+
+                        </div>
+                        <PostComment/>
+                    </div>
                 </div>
             )}
         </Spring>

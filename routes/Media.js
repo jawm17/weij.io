@@ -14,7 +14,7 @@ const signToken = userID => {
 }
 
 // get comments for an image
-mediaRouter.post('/comments', passport.authenticate('jwt', { session: false }), (req, res) => {
+mediaRouter.post('/comments', (req, res) => {
     const message = { msgBody: "Error has occured", msgError: true };
     Post.find({ "imgSrc": req.body.photoID }).exec((err, document) => {
         if (err) {

@@ -28,9 +28,9 @@ function MediaCard(props) {
             borderColor: hexColor
         },
         imageArea: {
-            height: height,
+           
             maxWidth: 540,
-            maxHeight: "73vh"
+          
         },
         containerInfo: {
 
@@ -180,8 +180,8 @@ function MediaCard(props) {
                                     </div>
                                 </div>
                             </div>
+                            {comments ? <CommentSection /> : null}
                         </div>
-                        {comments ? <CommentSection /> : null}
                     </div>
                 </div>
             );

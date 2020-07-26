@@ -4,7 +4,7 @@
   max-width: 540px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-color: white;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   border-radius: 4px;
   scroll-snap-align: end;
 }
@@ -13,11 +13,13 @@
   display: flex;
   justify-content: center;
   background-color: white;
+  border-radius: 4px;
 }
 
 .feedImg {
   max-width: 540px;
-  max-height: 73vh;
+  max-height: 75vh;
+  max-width: 95vw;
 }
 
 .errorScreen {
@@ -38,9 +40,22 @@
     max-width: 540px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     background-color: white;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     border-radius: 4px;
-    scroll-snap-align: end;
+    scroll-snap-align: none;
+  }
+  .profileImgSmall {
+    margin-right: 10;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-width: 0.5px;
+    border-style: solid;
+    margin-left: 5px;
+  }
+  .userLink {
+    margin-left: 5px;
+
   }
 }
 
