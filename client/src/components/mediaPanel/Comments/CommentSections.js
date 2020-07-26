@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Spring } from "react-spring/renderprops";
-import UserService from "../../../services/UserService";
 import MediaContentService from '../../../services/MediaContentService';
 import PostComment from './PostComment';
 import Comment from "./Comment";

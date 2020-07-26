@@ -114,5 +114,20 @@ export default {
             else
                 return { message: { msgBody: "Unauthorized" }, msgError: true };
         });
+    },
+    getInfoByID: (id) => {
+        return fetch('/user/infoByID', {
+            method: "post",
+            body: JSON.stringify({ "id": id }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.status !== 401) {
+                return response.json().then(data => data);
+            }
+            else
+                return { message: { msgBody: "Unauthorized" }, msgError: true };
+        });
     }
 }

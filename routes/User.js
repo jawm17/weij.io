@@ -347,4 +347,17 @@ userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: fals
     });
 });
 
+// get user's username by id
+userRouter.post('/infoByID', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const message = { msgBody: "Error has occured", msgError: true };
+    User.findById({ _id: req.body.id }).exec((err, document) => {
+        if (err) {
+            res.status(500).json({ message });
+        }
+        else {
+            res.status(200).json({ username: document.username, profileImg: document.profileImgSrc });
+        }
+    });
+});
+
 module.exports = userRouter;
