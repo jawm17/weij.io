@@ -47,7 +47,7 @@ export default function CommentSection(props) {
                     <div style={style.commentsStyle}>
                         <div className="comments" style={style.comments}>
                             {comments.map((comment) => {
-                                return <Comment comment={comment} key={Math.random()}/>
+                                return <Comment comment={comment.body} user={comment.user} key={comment.date} />
                             })}
                         </div>
                         <PostComment src={src} refresh={() => getComments()}/>

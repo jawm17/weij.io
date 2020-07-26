@@ -6,7 +6,7 @@ export default function PostComment(props) {
     const [newComment, setNewComment] = useState("");
 
     useEffect(() => {
-       console.log(props.src)
+
     }, []);
 
     const style = {
@@ -25,7 +25,6 @@ export default function PostComment(props) {
     function postComment() {
         if(newComment && newComment.length < 120) {
             MediaContentService.postComment(newComment, props.src).then(data => {
-                console.log(data);
                 props.refresh();
             })     
         }

@@ -31,7 +31,7 @@ mediaRouter.post('/comments', (req, res) => {
 // post a comment
 mediaRouter.post('/new-comment', passport.authenticate('jwt', { session: false }), (req, res) => {
     const message = { msgBody: "Error has occured in MEDIA", msgError: true };
-    Post.findOneAndUpdate({ "imgSrc": req.body.photoID }, { $push: { comments: req.body.comment } }).exec((err, document) => {
+    Post.findOneAndUpdate({ "imgSrc": req.body.photoID }, { $push: { comments: {body: req.body.comment, date: Date.now(), user: req.user._id} } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
         }
