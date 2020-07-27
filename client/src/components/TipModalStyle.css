@@ -1,6 +1,4 @@
-.tipArea {
-    margin-left: 20px;
-}
+
 
 .tipTitle {
     margin-top: 25px;
@@ -12,6 +10,7 @@
 
 .tipIconButton {
     height: 30px;
+    margin-left: 10px;
 }
 
 .tipIconButton:hover {

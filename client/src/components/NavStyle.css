@@ -22,35 +22,35 @@
 
 @media only screen and (max-width: 600px) {
         .navBar {
-            height:40px;
+            height: 45px;
         }
         .navArea {
-            margin-bottom: 30px;
-            width: 80vw;
+            margin-bottom: 10px;
+            width: 85vw;
         }
 }
 
 .homeIcon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display:inline-block;
 }
 
 .searchIcon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display:inline-block;
 }
 
 .walletIcon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display:inline-block;
 }
 
 .profilePicNav {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display:inline-block;
 }
@@ -59,6 +59,6 @@
     cursor: pointer;
 }
 
-.navButton:corner-present {
+.navButton:active {
     margin-top: 10px;
 }

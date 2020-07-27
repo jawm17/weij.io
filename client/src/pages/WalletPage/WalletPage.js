@@ -4,6 +4,7 @@ import UserService from '../../services/UserService';
 import TxHistoryService from '../../services/TxHistoryService';
 import TransactionDetail from "../../components/transactionDetail";
 import SendEthModal from "../../components/SendEthModal";
+import Background from "../../components/Background";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import "./WalletPageStyle.css";
@@ -51,20 +52,20 @@ function Wallet() {
     return (
         <div>
             <Header />
+            <Background/>
             <Nav page={"wallet"} />
             <div className="walletPage">
                 <div className="walletMain">
                     <div className="walletCard">
-                        <div className="addressInfo">
-                            <img className="qrCode" src={qrCode} alt="qr code"></img>
+                      
                             <h2>Ethereum Wallet</h2>
                             <h2>Address: {address}</h2>
 
                             <h3 className="balance">Balance: </h3>
                             <h2>{parseFloat(balance)} ETH</h2>
-                        </div>
+                      
                         {/* <SendEthModal /> */}
-                        <div className="walletTxCard">
+                        <div className="txHistory">
                             {txs.map(tx => {
                                 return <TransactionDetail
                                     amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
@@ -75,7 +76,7 @@ function Wallet() {
                                     key={Math.random() * 10000}
                                 />
                             })}
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>

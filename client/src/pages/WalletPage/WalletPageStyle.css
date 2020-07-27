@@ -1,7 +1,6 @@
 .walletPage {
     display: flex;
     justify-content: center;
-    background: linear-gradient(90deg,  rgba(22,73,222,1) -600px, rgba(0,212,255,1) 100%);
     height: 100vh;
 }
 
@@ -10,8 +9,8 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     margin-top: 70px;
-    height: calc(100vh - 190px);
-    max-height: 700px;
+    height: 700px;
+
     width: 93vw;
     max-width: 540px;
   }
@@ -29,11 +28,10 @@ h3 {
     padding-top: 15px;
     width: 120px;
     height: 120px;
-    display: inline-block;
 }
 
 .addressInfo {
-    word-break: break-all;
+    float: right;
 }
 
 .addressText {
@@ -44,8 +42,7 @@ h3 {
   
 }
 
-.walletTxCard {
-    overflow-y: scroll;
+.txHistory {
     height: 400px;
-    margin-left: 20px;
+    overflow-y: scroll;
 }
