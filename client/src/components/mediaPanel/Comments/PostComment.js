@@ -17,29 +17,29 @@ export default function PostComment(props) {
             justifyContent: "center"
         },
         input: {
-            width: 200,
-            marginRight: 10
+            marginRight: 10,
+            borderRadius: 25,
         }
     }
 
     function postComment() {
-        if(newComment && newComment.length < 120) {
+        if (newComment && newComment.length < 120) {
             MediaContentService.postComment(newComment, props.src).then(data => {
                 props.refresh();
-            })     
+            })
         }
     }
 
     function eventHandler(e) {
-        if(e.target.value.length < 120) {
+        if (e.target.value.length < 120) {
             setNewComment(e.target.value);
         }
     }
 
     return (
-                <div style={style.post}>
-                    <input style={style.input} onChange={eventHandler} placeholder="say something"></input>
-                    <button onClick={() => postComment()}>POST</button>
-                </div>
+        <div style={style.post}>
+            <input style={style.input} onChange={eventHandler} placeholder="say something"></input>
+            <button onClick={() => postComment()}>POST</button>
+        </div>
     );
 }
