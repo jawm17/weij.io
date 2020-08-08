@@ -176,7 +176,7 @@ export default function SettingsModal(props) {
             <button onClick={() => openModal()}> Settings </button>
             <Modal
                 visible={visible}
-                width="900"
+                width="540"
                 height="300"
                 effect="fadeInDown"
             >

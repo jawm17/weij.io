@@ -64,13 +64,13 @@ export default function TipModal(props) {
             <Modal
                 visible={visible}
                 width="400"
-                height="280"
+                height="250"
                 effect="fadeInDown"
                 onClickAway={() => closeModal()}
             >
                 <div className="tipArea">
                     <div className="top">
-                        <h1 className="tipTitle">Tip {props.username}</h1>
+                        <h1 className="tipTitle">Ethereum</h1>
                         <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                     </div>
                     <div className="tipButtons">
@@ -78,18 +78,6 @@ export default function TipModal(props) {
                             {(0.5 / price).toFixed(5)} ETH
                         </Button>
                         <div className="estimateTip">about 0.50 USD</div>
-                        <br></br>
-                        <br></br>
-                        <Button variant="contained" color="primary" onClick={() => sendTip((1 / price).toFixed(5))}>
-                            {(1 / price).toFixed(5)} ETH
-                        </Button>
-                        <div className="estimateTip">about 1.00 USD</div>
-                        <br></br>
-                        <br></br>
-                        <Button variant="contained" color="primary" onClick={() => sendTip((5 / price).toFixed(5))}>
-                            {(5 / price).toFixed(5)} ETH
-                        </Button>
-                        <div className="estimateTip">about 5.00 USD</div>
                     </div>
                     {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
                 </div>

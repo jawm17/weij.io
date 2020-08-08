@@ -14,11 +14,10 @@
   justify-content: center;
   background-color: white;
   border-radius: 4px;
-  max-height: 75vh;
 }
 
 .feedImg {
-  max-width: 540px;
+  max-width: 400px;
   width: 95vw;
 }
 
@@ -91,7 +90,7 @@
 
 .commentIcon {
   width: 24px;
-  
+  margin-right: 10px;
   float: right;
 }
 
