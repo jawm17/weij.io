@@ -6,7 +6,7 @@
   background-color: white;
   margin-bottom: 40px;
   border-radius: 4px;
-  scroll-snap-align: end;
+  scroll-snap-align: center;
 }
 
 .imageArea {

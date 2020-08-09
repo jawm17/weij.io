@@ -77,7 +77,7 @@ export default function Header(props) {
         <div className={className} style={style.nav}>
             <div className="headerArea">
                 <img className="menuIcon button" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
-                <h3 className="logo" style={style.logo}>weija</h3>
+                <h3 className="logo" style={style.logo}>weij</h3>
                 <img className="sendIcon button" src={sendPage} alt="Send icon" onClick={() => changePage("send")}></img>
             </div>
         </div>
