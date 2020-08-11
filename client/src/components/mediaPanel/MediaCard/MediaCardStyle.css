@@ -6,7 +6,7 @@
   background-color: white;
   margin-bottom: 40px;
   border-radius: 4px;
-  scroll-snap-align: center;
+  scroll-snap-align: end;
 }
 
 .imageArea {
@@ -17,7 +17,7 @@
 }
 
 .feedImg {
-  max-width: 400px;
+  max-width: 540px;
   width: 95vw;
 }
 
