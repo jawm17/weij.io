@@ -28,12 +28,9 @@ function MediaCard(props) {
             borderColor: hexColor
         },
         imageArea: {
-           
             maxWidth: 540,
-          
         },
         containerInfo: {
-
             height: containerInfoHeight,
             display: "flex",
             alignItems: "start",

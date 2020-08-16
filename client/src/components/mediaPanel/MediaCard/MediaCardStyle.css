@@ -17,8 +17,7 @@
 }
 
 .feedImg {
-  max-width: 540px;
-  width: 95vw;
+  max-height: calc(100vh - 200px);
 }
 
 .errorScreen {
