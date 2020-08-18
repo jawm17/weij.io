@@ -14,18 +14,11 @@ export default function CommentSection(props) {
     }, []);
 
     const style = {
-        commentsStyle: {
-            backgroundColor: "white",
-            width: "95vw",
-            maxWidth: 540,
-            height: 338,
-            
-        },
         comments: {
             backgroundColor: "white",
             width: "95vw",
             maxWidth: 540,
-            height: 310,
+            height: 300,
             overflowY: "scroll",
         }
     };
@@ -43,7 +36,7 @@ export default function CommentSection(props) {
         >
             {props => (
                 <div style={props}>
-                    <div style={style.commentsStyle}>
+                    <div>
                         <div className="comments" style={style.comments}>
                             {comments.map((comment) => {
                                 return <Comment comment={comment.body} user={comment.user} key={comment.date} />

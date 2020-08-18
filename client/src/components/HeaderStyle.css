@@ -49,12 +49,9 @@
     cursor: pointer;
 }
 
-a:active {
+a, a:active, a:visited {
     color: white;
-}
-
-a:visited {
-    color: white;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {

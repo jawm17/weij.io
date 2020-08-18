@@ -1,5 +1,6 @@
 import React, { useEffect , useState} from 'react';
 import UserService from "../../../services/UserService";
+import "./CommentSectionStyle.css";
 
 export default function Comment(props) {
     const [username, setUsername] = useState("unknown");
@@ -12,7 +13,7 @@ export default function Comment(props) {
 
 
     return (
-        <div>
+        <div className="comment">
             {username + "   " + props.comment}
         </div>
     );

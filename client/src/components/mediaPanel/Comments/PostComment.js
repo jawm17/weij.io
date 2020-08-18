@@ -14,11 +14,13 @@ export default function PostComment(props) {
             width: "95vw",
             maxWidth: 540,
             display: "flex",
-            justifyContent: "center"
+            justifyContent: "center",
+            marginTop: 5
         },
         input: {
             marginRight: 10,
-            borderRadius: 25,
+            width: "70vw",
+            maxWidth: 450,
         }
     }
 
