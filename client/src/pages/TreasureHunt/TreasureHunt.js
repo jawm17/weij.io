@@ -45,7 +45,7 @@ export default function TreasureHunt() {
     return (
         <div>
             <div className="treasureHuntBackground" ></div>
-            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>WEIJ.io</h1>
+            <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>weij.io</h1>
         </div>
     )
 }   

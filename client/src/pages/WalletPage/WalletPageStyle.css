@@ -8,9 +8,8 @@
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
-    margin-top: 70px;
+    margin-top: 80px;
     height: calc(100vh - 150px);
-
     width: 93vw;
     max-width: 540px;
   }

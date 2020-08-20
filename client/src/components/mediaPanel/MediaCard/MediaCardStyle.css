@@ -40,7 +40,7 @@
     background-color: white;
     margin-bottom: 20px;
     border-radius: 4px;
-    scroll-snap-align: end;
+    scroll-snap-align: center;
   }
   .profileImgSmall {
     margin-right: 10;
@@ -83,7 +83,7 @@
 .profileImageUsername {
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 12px;
 
 }
 

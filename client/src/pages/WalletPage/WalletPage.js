@@ -59,7 +59,7 @@ function Wallet() {
                     <div className="walletCard">
                       <div className="infoBlock">
                             <h2>Ethereum Card</h2>
-                            {/* <h2>Address: {address}</h2> */}
+                            <h2>Address: {address}</h2>
 
                             <h3 className="balance">Balance: </h3>
                             <h2>{parseFloat(balance)} ETH</h2>

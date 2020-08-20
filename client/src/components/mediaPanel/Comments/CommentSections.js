@@ -25,7 +25,7 @@ export default function CommentSection(props) {
 
     function getComments() {
         MediaContentService.getComments(props.src).then(data => {
-           setComments(data.comments);
+           setComments(data.comments.reverse());
         })
     }
 

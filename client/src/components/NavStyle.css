@@ -42,6 +42,12 @@
     display:inline-block;
 }
 
+.plusIcon {
+    width: 30px;
+    height: 30px;
+
+}
+
 .walletIcon {
     width: 25px;
     height: 25px;

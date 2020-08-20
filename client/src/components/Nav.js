@@ -48,6 +48,7 @@ export default function Navbar(props) {
             <div className="navArea">
                 <img className="homeIcon navButton" src={homeImg} alt="home icon" onClick={() => history.push('/home')}></img>
                 <img className="searchIcon navButton" src={searchImg} alt="search icon" onClick={() => history.push('/search')}></img>
+                {/* <img className="plusIcon navButton" src="https://cdn.onlinewebfonts.com/svg/img_47850.png" alt="new creation" onClick={() => (console.log("fuck a nigger"))}></img> */}
                 <img className="walletIcon navButton" src={walletImg} alt="wallet icon" onClick={() => history.push('/wallet')}></img>
                 <img className="profilePicNav navButton" src="https://cdn.dribbble.com/users/612987/screenshots/5002917/shark.jpg" alt="profile avatar" onClick={() => history.push('/profile')}></img>
             </div>
