@@ -32,10 +32,6 @@ const PostSchema = new mongoose.Schema({
     comments: {
         type: Array,
         default: []
-    },
-    type: {
-        type: String,
-        required: true
     }
 });
 

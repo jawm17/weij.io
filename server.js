@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/index");
 const app = express();
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 8080;
 const cookieParser = require("cookie-parser");
 
 // Define middleware here

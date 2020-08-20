@@ -26,15 +26,19 @@ export default function TransactionDetail(props) {
         }
     }, []);
 
-    return (
-        <div>
-            {txText ?
-                <div>
-                    <div className="detail">
-                        {txText}
+    if(txText) {
+        return (
+            <div>
+                <hr></hr>
+                <div className="detail">
+                    {txText}
+                    <div className="date">
+                        {props.date}
                     </div>
                 </div>
-                : null}
-        </div>
-    );
+            </div>
+        );
+    } else {
+        return null;
+    }
 }

@@ -23,6 +23,15 @@ function Wallet() {
     useEffect(() => {
         localStorage.setItem('prevPage', `/wallet`);
         getWalletInfo();
+        navigator.permissions.query({name: "clipboard-write"}).then(result => {
+            if (result.state == "granted" || result.state == "prompt") {
+                navigator.clipboard.writeText("address").then(function() {
+                    console.log("success")
+                  }, function() {
+                    return;
+                  });
+            }
+          });
     }, [])
 
     function getWalletInfo() {
@@ -36,7 +45,9 @@ function Wallet() {
                 setAddress(data.address);
                 setBalance(balance.toFixed(7));
                 TxHistoryService.getTransactions(data.address).then(data2 => {
-                    setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse());
+                    if(data2) {
+                        setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse());
+                    }
                 });
 
             }
@@ -57,12 +68,12 @@ function Wallet() {
             <div className="walletPage">
                 <div className="walletMain">
                     <div className="walletCard">
+                    <img className="qrCode" src={qrCode} alt="address qr"></img>
                       <div className="infoBlock">
-                            <h2>Ethereum Card</h2>
-                            <h2>Address: {address}</h2>
-
-                            <h3 className="balance">Balance: </h3>
-                            <h2>{parseFloat(balance)} ETH</h2>
+                            <h3 className="balance info">Ethereum Address</h3>
+                            <h2 className="info">{address.slice(0,20)}...</h2>
+                            <h3 className="balance info">Balance</h3>
+                            <h2 className="info">{parseFloat(balance)} ETH</h2>
                             </div>
                         {/* <SendEthModal /> */}
                         <div className="txHistory">
@@ -73,6 +84,7 @@ function Wallet() {
                                     from={tx.from}
                                     type={tx.type}
                                     to={tx.to}
+                                    date={tx.timeStamp}
                                     key={Math.random() * 10000}
                                 />
                             })}

@@ -46,6 +46,7 @@ export default function PostModal(props) {
                         authContext.setUser({ username: "" });
                         authContext.setIsAuthenticated(false);
                     } else {
+                        console.log(data)
                         closeModal();
                     }
                 });

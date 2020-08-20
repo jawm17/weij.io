@@ -8,17 +8,28 @@
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
-    margin-top: 80px;
+    margin-top: 75px;
     height: calc(100vh - 150px);
     width: 93vw;
     max-width: 540px;
-  }
+}
 
-  .infoBlock {
+.infoBlock {
     height: 150px;
-    width: 93vw;
-    max-width: 540px;
-  }
+    width: calc(93vw - 157px);
+    max-width: 383px;
+    float: right;
+    padding-top: 10px;
+    background-color: transparent;
+}
+
+.info {
+    padding-left: 20px;
+}
+
+.balance {
+    margin-top: 10px;
+}
 
 h2 {
     margin: 0;
@@ -29,14 +40,14 @@ h3 {
 }
 
 .qrCode {
-    padding-left: 15px;
-    padding-top: 15px;
-    width: 120px;
-    height: 120px;
+    padding-left: 7px;
+    padding-top: 7px;
+    width: 150px;
+    height: 150px;
 }
 
 .txHistory {
-    height: 500px;
+    height: 481px;
+    width: 100%;
     overflow-y: scroll;
-    color: burlywood;
 }
