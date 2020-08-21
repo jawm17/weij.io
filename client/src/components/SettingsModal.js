@@ -177,7 +177,7 @@ export default function SettingsModal(props) {
             <Modal
                 visible={visible}
                 width="540"
-                height="300"
+                height="600"
                 effect="fadeInDown"
             >
                 <div className="settingsArea">

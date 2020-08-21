@@ -31,7 +31,7 @@ export default function ProfilePage(props) {
             if (!data.error) {
                 setUsername(data.username);
                 setProfileImg(data.profileImg);
-                setPosts(data.posts);
+                setPosts(data.posts.reverse());
                 setBio(data.bio);
                 setNumFollowers(data.followers.length);
                 setNumFollowing(data.following.length);

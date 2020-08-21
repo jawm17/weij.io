@@ -17,7 +17,8 @@
 }
 
 .feedImg {
-  max-height: calc(100vh - 200px);
+  height: calc(100vh - 200px);
+  max-width: 540px;
 }
 
 .errorScreen {
@@ -40,7 +41,7 @@
     background-color: white;
     margin-bottom: 20px;
     border-radius: 4px;
-    scroll-snap-align: center;
+    scroll-snap-align: end;
   }
   .profileImgSmall {
     margin-right: 10;

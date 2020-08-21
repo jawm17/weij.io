@@ -51,7 +51,7 @@ export default function UserProfilePage(props) {
             console.log(data.posts);
             const { message } = data;
             if (!message) {
-                setPosts(data.posts)
+                setPosts(data.posts.reverse())
             }
             else if (message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });

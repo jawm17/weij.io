@@ -69,11 +69,11 @@ const Register = props => {
     const onSubmit = e => {
         e.preventDefault();
         if (!user.username || !user.password || !user.password2) {
-            setMessage({msgBody: "Please fill out all fields", msgError: true});
+            setMessage({ msgBody: "Please fill out all fields", msgError: true });
         }
         else if (user.password !== user.password2) {
-            setMessage({msgBody: "Passwords do not match", msgError: true});
-            setUser({...user, password: "", password2: "" });
+            setMessage({ msgBody: "Passwords do not match", msgError: true });
+            setUser({ ...user, password: "", password2: "" });
         }
         else {
             AuthService.register(user).then(data => {
@@ -153,12 +153,12 @@ const Register = props => {
                         className={classes.submit}
                     >
                         Sign Up
-          </Button>
+                    </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/login" variant="body2">
                                 Already have an account? Sign in
-              </Link>
+                            </Link>
                         </Grid>
                     </Grid>
                 </form>
