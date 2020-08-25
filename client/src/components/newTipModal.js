@@ -13,6 +13,7 @@ export default function NewTipModal(props) {
     const [notification, setNotification] = useState("");
     const [notificationError, setNotificationError] = useState();
     const [rainbowWidth, setRainbowWidth] = useState(0);
+    const [value, setValue] = useState(0.5);
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
@@ -33,6 +34,7 @@ export default function NewTipModal(props) {
 
     function closeModal() {
         setModal(false);
+        setRainbowWidth(0);
     }
 
     function getPrice() {
@@ -42,6 +44,10 @@ export default function NewTipModal(props) {
 
     function sendAnimation() {
         setRainbowWidth(400);
+    }
+
+    function amountEntered(e) {
+        console.log(e);
     }
 
     function sendTip(value) {
@@ -85,13 +91,18 @@ export default function NewTipModal(props) {
 
                         <div className="tipArea">
                             <div className="top">
-                                <h1 className="tipTitle">Ethereum</h1>
+                                <h2 className="tipTitle">Tip {props.username}</h2>
                                 <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                             </div>
                             <div className="tipButtons">
+                                <div class="quantity">
+                                    <a onClick={() => setValue(value - 0.25)} href="#" class="quantity__minus"><span>-</span></a>
+                                    <input name="quantity" type="text" class="quantity__input" value={value} onChange={() => amountEntered()}/>
+                                    <a onClick={() => setValue(value + 0.25)} href="#" class="quantity__plus"><span>+</span></a>
+                                </div>
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
                                     {(0.5 / price).toFixed(5)} ETH
-                        </Button>
+                                </Button>
                                 <div className="estimateTip">about 0.50 USD</div>
                             </div>
                             {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
