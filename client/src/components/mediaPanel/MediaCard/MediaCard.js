@@ -176,7 +176,6 @@ function MediaCard(props) {
                                         {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
                                         {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} />}
                                     </div>
-                                    <button onClick={() => setOpenTipModal(true)}>Open</button>
                                 </div>
                             </div>
                             {comments ? <CommentSection src={props.imgUrl} /> : null}
