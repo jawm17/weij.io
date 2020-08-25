@@ -5,6 +5,7 @@ import LockedMedia from "../LockedMedia/lockedMedia";
 import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
+import NewTipModal from "../../newTipModal";
 import FeedImageView from "../../FeedImageView";
 import CommentSection from "../Comments/CommentSections";
 import "./MediaCardStyle.css";
@@ -19,6 +20,7 @@ function MediaCard(props) {
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const [imageError, setImageError] = useState(false);
+    const [openTipModal, setOpenTipModal] = useState(false);
     const authContext = useContext(AuthContext);
 
     document.body.style.overflow = "scroll"
@@ -154,29 +156,34 @@ function MediaCard(props) {
             );
         } else {
             return (
-                <div className="card panel">
-                    <div className="imageArea" style={style.imageArea}>
-                        {imageError ? <div className="errorScreen" alt="Image not loading">Image not loading...</div> : <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} onError={() => setImageError(true)}/>}
-                    </div>
-                    <div className="containerInfo" style={style.containerInfo}>
-                        <div className="basicInfo">
-                            <div className="outerProfileImageUsername clickable" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}>
-                                <div className="profileImageUsername">
-                                    <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
-                                    <h4 className="userLink" >{props.username}</h4>
-                                </div>
-                            </div>
-                            <div className="outerButtons">
-                                <div className="buttons">
-                                    <img className="commentIcon clickable" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
-                                    <div className="tipIcon clickable">
-                                        {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                // no paywall photo post
+                <div>
+                    <div className="card panel">
+                        <div className="imageArea" style={style.imageArea}>
+                            {imageError ? <div className="errorScreen" alt="Image not loading">Image not loading...</div> : <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} onError={() => setImageError(true)} />}
+                        </div>
+                        <div className="containerInfo" style={style.containerInfo}>
+                            <div className="basicInfo">
+                                <div className="outerProfileImageUsername clickable" onClick={() => (authContext.user.username === props.username ? history.push('/profile') : history.push('/user/' + props.username))}>
+                                    <div className="profileImageUsername">
+                                        <img className="profileImgSmall" style={style.profileImgSmall} src={userImg} alt="Avatar"></img>
+                                        <h4 className="userLink" >{props.username}</h4>
                                     </div>
                                 </div>
+                                <div className="outerButtons">
+                                    <div className="buttons">
+                                        <img className="commentIcon clickable" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
+                                        <div className="tipIcon clickable">
+                                            {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                                        </div>
+                                        <button onClick={() => setOpenTipModal(true)}>Open</button>
+                                    </div>
+                                </div>
+                                {comments ? <CommentSection src={props.imgUrl} /> : null}
                             </div>
-                            {comments ? <CommentSection src={props.imgUrl}/> : null}
                         </div>
                     </div>
+                    {openTipModal ? <NewTipModal/> : null}
                 </div>
             );
         }

@@ -7,7 +7,7 @@
     border-bottom: 1px transparent solid ;
     top: 0;
     transition: all 0.3s ease-in-out;
-    z-index: 300;
+    z-index: 2;
     font-family: 'Fredoka One', cursive;
 }
 
@@ -63,7 +63,7 @@ a, a:active, a:visited {
         border-bottom: 1px transparent solid ;
         top: 0;
         transition: all 0.3s ease-in-out;
-        z-index: 300;
+        z-index: 2;
         font-family: 'Fredoka One', cursive;
     }
 

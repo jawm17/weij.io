@@ -41,7 +41,7 @@
     background-color: white;
     margin-bottom: 20px;
     border-radius: 4px;
-    scroll-snap-align: end;
+    scroll-snap-align: center;
   }
   .profileImgSmall {
     margin-right: 10;

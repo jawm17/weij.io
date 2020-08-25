@@ -12,8 +12,20 @@ export default function TipModal(props) {
     const [price, setPrice] = useState();
     const [notification, setNotification] = useState("");
     const [notificationError, setNotificationError] = useState();
+    const [rainbowWidth, setRainbowWidth] = useState(0);
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
+
+    const style = {
+        rainbowStyle: {
+            width: rainbowWidth,
+            height: 5,
+            position: "absolute",
+            transition: "width 0.5s",
+            borderTopLeftRadius: 5,
+            borderTopRightRadius: 5
+        }
+    }
 
     const openModal = () => {
         setVisible(true);
@@ -25,6 +37,7 @@ export default function TipModal(props) {
     }
 
     const sendTip = (value) => {
+        sendAnimation();
         UserService.getUserInfo().then(data => {
             const { message, balance } = data;
             if (!message) {
@@ -58,6 +71,10 @@ export default function TipModal(props) {
         setPrice(230.17);
     }
 
+    const sendAnimation = () => {
+        setRainbowWidth(400);
+    }
+
     return (
         <section className="tipModalButton">
             <img className="tipIconButton" src="https://image.flaticon.com/icons/svg/3037/3037255.svg" alt="ethereum icon" onClick={() => openModal()}></img>
@@ -68,6 +85,8 @@ export default function TipModal(props) {
                 effect="fadeInDown"
                 onClickAway={() => closeModal()}
             >
+                <img style={style.rainbowStyle} src={"https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch10-mynt-11.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=f701199de450fc12516032a94444742e"} alt="rainbow animation"></img>
+                
                 <div className="tipArea">
                     <div className="top">
                         <h1 className="tipTitle">Ethereum</h1>
@@ -81,6 +100,7 @@ export default function TipModal(props) {
                     </div>
                     {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
                 </div>
+                
             </Modal>
         </section>
     )
