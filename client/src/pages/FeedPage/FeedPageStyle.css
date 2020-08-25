@@ -21,6 +21,7 @@ body {
   .mediaPanel {
     top: 63px;
     height: calc(100vh - 120px);
+    width: 95vw;
   }
 }
 
