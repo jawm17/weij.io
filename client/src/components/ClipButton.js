@@ -3,7 +3,6 @@ import React, { useState, } from "react";
 export default function ClipButton(props) {
     const [clipboard, setClipboard] = useState(false);
 
-
     function copyAddress() {
         /* Get the text field */
         var copyText = document.getElementById("addressInput");

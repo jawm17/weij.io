@@ -22,9 +22,21 @@ export default function NewTipModal(props) {
             width: rainbowWidth,
             height: 5,
             position: "absolute",
-            transition: "width 0.5s",
+            transition: "width 0.2s",
             borderTopLeftRadius: 5,
             borderTopRightRadius: 5
+        },
+        success: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 11,
+            width: "100vw",
+            height: "100vw",
+            height: 250,
+            maxWidth: 400,
+            width: "95%",
+            backgroundColor: "white"
         }
     }
 
@@ -88,7 +100,6 @@ export default function NewTipModal(props) {
                 <div className="modalOpen">
                     <div className="tipModalBody">
                         <img style={style.rainbowStyle} src={"https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch10-mynt-11.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=f701199de450fc12516032a94444742e"} alt="rainbow animation"></img>
-
                         <div className="tipArea">
                             <div className="top">
                                 <h2 className="tipTitle">Tip {props.username}</h2>
@@ -101,7 +112,7 @@ export default function NewTipModal(props) {
                                     <a onClick={() => setValue(value + 0.25)} href="#" class="quantity__plus"><span>+</span></a>
                                 </div>
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
-                                    {(0.5 / price).toFixed(5)} ETH
+                                    Send Tip
                                 </Button>
                                 <div className="estimateTip">about 0.50 USD</div>
                             </div>
