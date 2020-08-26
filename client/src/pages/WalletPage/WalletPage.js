@@ -8,6 +8,7 @@ import Background from "../../components/Background";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import "./WalletPageStyle.css";
+import ClipButton from "../../components/ClipButton";
 const QRCode = require('qrcode');
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/ee2cbc278b5442dfbd27dedb4806c237"));
@@ -18,7 +19,6 @@ function Wallet() {
     const [txs, setTxs] = useState([]);
     const [address, setAddress] = useState("");
     const [qrCode, setQrCode] = useState("");
-    const [clipboard, setClipboard] = useState(false);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -96,61 +96,41 @@ function Wallet() {
         });
     }
 
-    function copyAddress() {
-        /* Get the text field */
-        var copyText = document.getElementById("addressInput");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        setClipboard(true);
-
-        setTimeout(function () {
-            setClipboard(false);
-        }, 1000);
-}
-
-return (
-    <div>
-        <Header />
-        <Background />
-        <Nav page={"wallet"} />
-        <div className="walletPage">
-            <div className="walletMain">
-                <div className="walletCard">
-                    <div className="infoBlock">
-                        <img className="qrCode" src={qrCode} alt="address qr"></img>
-                        <h3 className="addressLabel">Ethereum Address</h3>
-                        <h2 className="address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
-                        <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address" onClick={() => copyAddress()}></img>
-                        {clipboard ? <span className="clipboardAlertShow">Copied Address</span> : <span className="clipboardAlert">Link Copied on Clipboard</span>}
-                        <h3 className="balanceLabel">Balance</h3>
-                        <h2 className="balance">{parseFloat(balance)} ETH</h2>
-                    </div>
-                    {/* <SendEthModal /> */}
-                    <div className="txHistory">
-                        {txs.map(tx => {
-                            return <TransactionDetail
-                                amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
-                                address={address}
-                                from={tx.from}
-                                type={tx.type}
-                                to={tx.to}
-                                date={tx.timeStamp}
-                                key={Math.random() * 10000}
-                            />
-                        })}
+    return (
+        <div>
+            <Header />
+            <Background />
+            <Nav page={"wallet"} />
+            <div className="walletPage">
+                <div className="walletMain">
+                    <div className="walletCard">
+                        <div className="infoBlock">
+                            <img className="qrCode" src={qrCode} alt="address qr"></img>
+                            <h3 className="addressLabel">Ethereum Address</h3>
+                            <h2 className="address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
+                            <ClipButton address={address} />
+                            <h3 className="balanceLabel">Balance</h3>
+                            <h2 className="balance">{parseFloat(balance)} ETH</h2>
+                        </div>
+                        {/* <SendEthModal /> */}
+                        <div className="txHistory">
+                            {txs.map(tx => {
+                                return <TransactionDetail
+                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
+                                    address={address}
+                                    from={tx.from}
+                                    type={tx.type}
+                                    to={tx.to}
+                                    date={tx.timeStamp}
+                                    key={Math.random() * 10000}
+                                />
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <input id="addressInput" type="text" value={address.toString()}></input>
-    </div>
-);
+    );
 }
 
 

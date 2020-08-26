@@ -34,7 +34,7 @@
 }
 
 .address {
-    display: inline;
+    display: inline-block;
     margin-left: 10px;
 }
 
@@ -92,9 +92,9 @@ h3 {
     text-align: center;
     z-index: 1000;
     display: none; 
-  }
+}
 
-  .clipboardAlertShow {
+.clipboardAlertShow {
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
     display: inline-block;
@@ -112,7 +112,13 @@ h3 {
     text-align: center;
     z-index: 1000;
     display: block; 
-  }
+}
+
+.clip {
+    float: right;
+    margin-top: 4px;
+    margin-right: 80px;
+}
 
 #addressInput {
     position: fixed;

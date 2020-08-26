@@ -74,7 +74,7 @@ export default function ProfilePage(props) {
             <div className="profilePageContainer">
                 <div className="profilePage">
                     <div className="userDiv">
-                        <img className="profileImg" src={profileImg} alt="Profile Pic" />
+                    <img className="profileImg" src={profileImg} alt="Profile Pic" />
                         <div className="userInfo">
                             <h3 className="username">{username}</h3>
                             <div className="bottomInfo">

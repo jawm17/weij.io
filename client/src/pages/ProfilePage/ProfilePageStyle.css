@@ -18,12 +18,13 @@
 .profileImg {
   float: left;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 135px;
+  height: 135px;
 }
 
 .userInfo {
   padding-top: 13px;
+  margin-left: 180px;
 }
 
 .username {
