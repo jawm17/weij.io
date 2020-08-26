@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import UserService from "../../../services/UserService";
 import MediaContentService from '../../../services/MediaContentService';
 import LockedMedia from "../LockedMedia/lockedMedia";
@@ -20,7 +20,8 @@ function MediaCard(props) {
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const [imageError, setImageError] = useState(false);
-    const [openTipModal, setOpenTipModal] = useState(false);
+    const [cardSnap, setCardSnap] = useState("card");
+    let timerID = useRef(null);
     const authContext = useContext(AuthContext);
 
     document.body.style.overflow = "scroll"
@@ -86,10 +87,14 @@ function MediaCard(props) {
 
     const toggleComments = () => {
         if (!comments) {
+            setCardSnap("cardSnapEnd");
             setContainerInfoHeight(400);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
+            timerID = setTimeout(() => {
+                setCardSnap("card");
+            }, 220)
             setContainerInfoHeight(60);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
             setComments(!comments);
@@ -157,7 +162,7 @@ function MediaCard(props) {
         } else {
             return (
                 // no paywall photo post
-                <div className="card panel">
+                <div className={cardSnap}>
                     <div className="imageArea" style={style.imageArea}>
                         {imageError ? <div className="errorScreen" alt="Image not loading">Image not loading...</div> : <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} onError={() => setImageError(true)} />}
                     </div>
