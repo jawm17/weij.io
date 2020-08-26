@@ -80,7 +80,7 @@ function Wallet() {
                 setAddress(data.address);
                 setBalance(balance.toFixed(7));
                 TxHistoryService.getTransactions(data.address).then(data2 => {
-                    if(data2) {
+                    if (data2) {
                         setTxs(data.recievedTx.concat(data.sentTx.concat(data2.result)).sort((a, b) => (a.timeStamp.toString().substring(0, 9)) - (b.timeStamp.toString().substring(0, 9))).reverse());
                     }
                 });
@@ -98,18 +98,19 @@ function Wallet() {
     return (
         <div>
             <Header />
-            <Background/>
+            <Background />
             <Nav page={"wallet"} />
             <div className="walletPage">
                 <div className="walletMain">
                     <div className="walletCard">
-                    <img className="qrCode" src={qrCode} alt="address qr"></img>
-                      <div className="infoBlock">
+                        <div className="infoBlock">
+                            <img className="qrCode" src={qrCode} alt="address qr"></img>
                             <h3 className="balance info">Ethereum Address</h3>
-                            <h2 className="info">{address.slice(0,20)}...</h2>
+                            <h2 className="info address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
+                            <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address"></img>
                             <h3 className="balance info">Balance</h3>
                             <h2 className="info">{parseFloat(balance)} ETH</h2>
-                            </div>
+                        </div>
                         {/* <SendEthModal /> */}
                         <div className="txHistory">
                             {txs.map(tx => {
@@ -123,7 +124,7 @@ function Wallet() {
                                     key={Math.random() * 10000}
                                 />
                             })}
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>
