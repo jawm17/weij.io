@@ -3,9 +3,11 @@ import "./transactionDetailStyle.css";
 
 export default function TransactionDetail(props) {
     const [txText, setTxText] = useState("");
+    const [date, setDate] = useState(0);
 
     useEffect(() => {
-        // transaction is a db tx
+        // check tx type
+        console.log(props.date);
         if (props.type === "tip") {
             if (props.from) {
                 setTxText(`Recieved a ${props.amount} ${props.type} from ${props.from}`);
@@ -24,16 +26,25 @@ export default function TransactionDetail(props) {
                 setTxText(`Recieved ${props.amount} ETH from ${props.from}`);
             }
         }
+        // set date
+        if (props.date.length === 10) {
+            let adjustedDate = parseInt(props.date + "000");
+            let time = new Date(adjustedDate);
+            setDate(time);
+        } else {
+            let time = new Date(props.date);
+            setDate(time);
+        }
     }, []);
 
-    if(txText) {
+    if (txText) {
         return (
             <div>
                 <hr></hr>
                 <div className="detail">
                     {txText}
                     <div className="date">
-                        {props.date}
+                        {((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear()}
                     </div>
                 </div>
             </div>
