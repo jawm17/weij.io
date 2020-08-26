@@ -115,5 +115,6 @@ h3 {
   }
 
 #addressInput {
-    display: none;
+    position: fixed;
+    top: -100px;
 }

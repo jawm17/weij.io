@@ -127,7 +127,7 @@ return (
                         <h3 className="addressLabel">Ethereum Address</h3>
                         <h2 className="address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
                         <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address" onClick={() => copyAddress()}></img>
-                        {clipboard ? <span className="clipboardAlertShow">Link Copied on Clipboard</span> : <span className="clipboardAlert">Link Copied on Clipboard</span>}
+                        {clipboard ? <span className="clipboardAlertShow">Copied Address</span> : <span className="clipboardAlert">Link Copied on Clipboard</span>}
                         <h3 className="balanceLabel">Balance</h3>
                         <h2 className="balance">{parseFloat(balance)} ETH</h2>
                     </div>
