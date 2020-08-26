@@ -18,6 +18,7 @@ function Wallet() {
     const [txs, setTxs] = useState([]);
     const [address, setAddress] = useState("");
     const [qrCode, setQrCode] = useState("");
+    const [clipboard, setClipboard] = useState(false);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -95,41 +96,61 @@ function Wallet() {
         });
     }
 
-    return (
-        <div>
-            <Header />
-            <Background />
-            <Nav page={"wallet"} />
-            <div className="walletPage">
-                <div className="walletMain">
-                    <div className="walletCard">
-                        <div className="infoBlock">
-                            <img className="qrCode" src={qrCode} alt="address qr"></img>
-                            <h3 className="balance info">Ethereum Address</h3>
-                            <h2 className="info address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
-                            <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address"></img>
-                            <h3 className="balance info">Balance</h3>
-                            <h2 className="info">{parseFloat(balance)} ETH</h2>
-                        </div>
-                        {/* <SendEthModal /> */}
-                        <div className="txHistory">
-                            {txs.map(tx => {
-                                return <TransactionDetail
-                                    amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
-                                    address={address}
-                                    from={tx.from}
-                                    type={tx.type}
-                                    to={tx.to}
-                                    date={tx.timeStamp}
-                                    key={Math.random() * 10000}
-                                />
-                            })}
-                        </div>
+    function copyAddress() {
+        /* Get the text field */
+        var copyText = document.getElementById("addressInput");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        setClipboard(true);
+
+        setTimeout(function () {
+            setClipboard(false);
+        }, 1000);
+}
+
+return (
+    <div>
+        <Header />
+        <Background />
+        <Nav page={"wallet"} />
+        <div className="walletPage">
+            <div className="walletMain">
+                <div className="walletCard">
+                    <div className="infoBlock">
+                        <img className="qrCode" src={qrCode} alt="address qr"></img>
+                        <h3 className="addressLabel">Ethereum Address</h3>
+                        <h2 className="address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
+                        <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address" onClick={() => copyAddress()}></img>
+                        {clipboard ? <span className="clipboardAlertShow">Link Copied on Clipboard</span> : <span className="clipboardAlert">Link Copied on Clipboard</span>}
+                        <h3 className="balanceLabel">Balance</h3>
+                        <h2 className="balance">{parseFloat(balance)} ETH</h2>
+                    </div>
+                    {/* <SendEthModal /> */}
+                    <div className="txHistory">
+                        {txs.map(tx => {
+                            return <TransactionDetail
+                                amount={parseFloat((tx.value / 1000000000000000000).toFixed(6)) || tx.amount}
+                                address={address}
+                                from={tx.from}
+                                type={tx.type}
+                                to={tx.to}
+                                date={tx.timeStamp}
+                                key={Math.random() * 10000}
+                            />
+                        })}
                     </div>
                 </div>
             </div>
         </div>
-    );
+        <input id="addressInput" type="text" value={address.toString()}></input>
+    </div>
+);
 }
 
 
