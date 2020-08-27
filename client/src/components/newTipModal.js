@@ -54,7 +54,8 @@ export default function NewTipModal(props) {
     }
 
     function sendAnimation() {
-        setRainbowWidth(400);
+        let modalWidth = document.getElementById("tipModalBody").style.width;
+        setRainbowWidth(modalWidth);
     }
 
     function amountEntered(e) {
@@ -100,7 +101,7 @@ export default function NewTipModal(props) {
             <div>
                 <img className="tipIconButton" src="https://image.flaticon.com/icons/svg/3037/3037255.svg" alt="ethereum icon" onClick={() => setModal(true)}></img>
                 <div className="modalOpen">
-                    <div className="tipModalBody">
+                    <div id="tipModalBody">
                         <img style={style.rainbowStyle} src={"https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch10-mynt-11.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=f701199de450fc12516032a94444742e"} alt="rainbow animation"></img>
                         <div className="tipArea">
                             <div className="top">
@@ -115,7 +116,7 @@ export default function NewTipModal(props) {
                                 </Button> 
                                 : 
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
-                                    Send Tip
+                                    {"Send Tip " + value + "ETH"}
                                 </Button> }
                                 
                             </div>
