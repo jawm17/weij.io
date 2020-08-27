@@ -73,8 +73,8 @@ h1{
 }
 
 .tipInput {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 22px;
+  margin-top: 15px;
 }
 
 .estimateTip {
@@ -84,8 +84,8 @@ h1{
 }
 
 .errorMsg {
-    margin-top: 20px;
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-left: 22px;
     color: red;
 }
 
