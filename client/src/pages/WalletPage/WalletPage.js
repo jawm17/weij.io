@@ -109,7 +109,7 @@ function Wallet() {
                             <h3 className="addressLabel">Ethereum Address</h3>
                             <h2 className="address">{address.slice(0, 10) + "..." + address.slice(address.length - 8, address.length)}</h2>
                             <ClipButton address={address} />
-                            <h3 className="balanceLabel">Balance</h3>
+                            {/* <h3 className="balanceLabel">Balance</h3> */}
                             <h2 className="balance">{parseFloat(balance)} ETH</h2>
                         </div>
                         {/* <SendEthModal /> */}

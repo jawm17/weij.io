@@ -30,6 +30,7 @@
 
 .balance {
     margin-left: 160px;
+    margin-top: 10px;
 }
 
 .address {
@@ -128,17 +129,38 @@ h3 {
 @media only screen and (max-width: 600px) {
     .qrCode {
         padding-left: 7px;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         float: left;
     }
     .address {
         display: inline-block;
         margin-left: 10px;
+        margin-top: 4px;
+        font-size: 18px;
+    }
+    .addressLabel {
+        margin-left: 135px;
         font-size: 20px;
     }
     .txHistory {
-       height: calc(100% - 170px);
+       height: calc(100% - 140px);
     }
-    
+    .clip {
+        float: right;
+        margin-top: 4px;
+        margin-right: 15px;
+    }
+    .infoBlock {
+        height: 130px;
+        width: 93vw;
+        max-width: 540px;
+        padding-top: 10px;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+    }
+    .balance {
+        margin-left: 136px;
+        margin-top: 10px;
+    }
 }
