@@ -8,7 +8,6 @@ import "./newTipModalStyle.css";
 export default function NewTipModal(props) {
     const [modal, setModal] = useState(false);
     const [price, setPrice] = useState();
-    const [notification, setNotification] = useState("");
     const [notificationError, setNotificationError] = useState();
     const [rainbowWidth, setRainbowWidth] = useState(0);
     const [value, setValue] = useState("");
@@ -68,20 +67,15 @@ export default function NewTipModal(props) {
                 if (!message) {
                     if (value < balance) {
                         TransactionService.tipTx((value), props.username, data.username).then(data => {
-                            setNotification("Succesfully sent Ether");
-                            setNotificationError(false);
                             sendAnimation();
                             setValue("");
                             timerID = setTimeout(() => {
-                                setNotification("");
                                 closeModal();
                             }, 1500)
                         })
                     } else {
-                        setNotification("Insufficent Funds");
                         setNotificationError(true);
                         timerID = setTimeout(() => {
-                            setNotification("");
                             setNotificationError(false);
                         }, 1500)
                     }
