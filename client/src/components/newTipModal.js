@@ -54,8 +54,11 @@ export default function NewTipModal(props) {
     }
 
     function sendAnimation() {
-        let modalWidth = document.getElementById("tipModalBody").style.width;
-        setRainbowWidth(modalWidth);
+        if(window.innerWidth * .95 >= 400) {
+            setRainbowWidth(400);
+        } else {
+            setRainbowWidth(window.innerWidth * .95);
+        }
     }
 
     function amountEntered(e) {
