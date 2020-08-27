@@ -43,6 +43,7 @@ h1 {
     margin: 0;
     padding: 0;
 }
+
 .tipTitle {
     margin-top: 20px;
     margin-bottom: 25px;
@@ -73,7 +74,7 @@ h1 {
 }
 
 .tipInput {
-  margin-left: 22px;
+  margin-left: 26px;
   margin-top: 15px;
 }
 

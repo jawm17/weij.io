@@ -21,7 +21,6 @@
     padding-top: 10px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-
 }
 
 .balanceLabel {
@@ -123,4 +122,18 @@ h3 {
 #addressInput {
     position: fixed;
     top: -100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .qrCode {
+        padding-left: 7px;
+        width: 100px;
+        height: 100px;
+        float: left;
+    }
+    .address {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 20px;
+    }
 }

@@ -62,34 +62,36 @@ export default function NewTipModal(props) {
     }
 
     function sendTip() {
-        UserService.getUserInfo().then(data => {
-            const { message, balance } = data;
-            if (!message) {
-                if (value < balance) {
-                    TransactionService.tipTx((value), props.username, data.username).then(data => {
-                        setNotification("Succesfully sent Ether");
-                        setNotificationError(false);
-                        sendAnimation();
-                        setValue("");
+        if(value > 0) {
+            UserService.getUserInfo().then(data => {
+                const { message, balance } = data;
+                if (!message) {
+                    if (value < balance) {
+                        TransactionService.tipTx((value), props.username, data.username).then(data => {
+                            setNotification("Succesfully sent Ether");
+                            setNotificationError(false);
+                            sendAnimation();
+                            setValue("");
+                            timerID = setTimeout(() => {
+                                setNotification("");
+                                closeModal();
+                            }, 1500)
+                        })
+                    } else {
+                        setNotification("Insufficent Funds");
+                        setNotificationError(true);
                         timerID = setTimeout(() => {
                             setNotification("");
-                            closeModal();
+                            setNotificationError(false);
                         }, 1500)
-                    })
-                } else {
-                    setNotification("Insufficent Funds");
-                    setNotificationError(true);
-                    timerID = setTimeout(() => {
-                        setNotification("");
-                        setNotificationError(false);
-                    }, 1500)
+                    }
                 }
-            }
-            else if (message.msgBody === "Unauthorized") {
-                authContext.setUser({ username: "" });
-                authContext.setIsAuthenticated(false);
-            }
-        });
+                else if (message.msgBody === "Unauthorized") {
+                    authContext.setUser({ username: "" });
+                    authContext.setIsAuthenticated(false);
+                }
+            });
+        }
     }
 
 
@@ -113,7 +115,7 @@ export default function NewTipModal(props) {
                                 </Button> 
                                 : 
                                 <Button variant="contained" color="primary" onClick={() => sendTip()}>
-                                    {"Send Tip " + value + " ETH"}
+                                    {"Send " + value + " ETH"}
                                 </Button> }
                                 
                             </div>
