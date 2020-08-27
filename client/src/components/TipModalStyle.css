@@ -10,8 +10,13 @@ h1{
 .tipTitle {
     margin-top: 20px;
     margin-bottom: 25px;
-    margin-left: 15px;
+    margin-left: 25px;
     display: inline-block;
+}
+
+.top {
+    max-width: 400px; 
+    width: 100%;
 }
 
 .tipIconButton {
@@ -23,8 +28,17 @@ h1{
     cursor: pointer;
 }
 
-.tipButtons {
-    margin-left: 10px;
+.sendTipButton {
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  margin-right: 20px;
+  float: right;
+}
+
+.tipInput {
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .estimateTip {
@@ -46,8 +60,8 @@ h1{
 }
 
 .x {
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
     width: 20px;
     height: 20px;
     float: right;

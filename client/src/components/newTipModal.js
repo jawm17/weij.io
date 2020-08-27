@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Button from '@material-ui/core/Button';
-import "./TipModalStyle.css";
 import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
 import TransactionService from '../services/TransactionService';
@@ -105,11 +104,11 @@ export default function NewTipModal(props) {
                                 <h2 className="tipTitle">Tip {props.username}</h2>
                                 <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                             </div>
-                            <div className="tipButtons">
-                                <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
+                            <input className="tipInput" placeholder="Enter Amount (ETH)"></input>
+                            <div className="sendTipButton">
+                                <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))} disabled>
                                     Send Tip
                                 </Button>
-                                <div className="estimateTip">about 0.50 USD</div>
                             </div>
                             {notificationError ? <div className="errorMsg">Insufficent Funds</div> : null}
                         </div>
