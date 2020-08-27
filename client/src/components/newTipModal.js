@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Button from '@material-ui/core/Button';
-import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
 import TransactionService from '../services/TransactionService';
 import "./newTipModalStyle.css";
@@ -40,17 +39,12 @@ export default function NewTipModal(props) {
     }
 
     useEffect(() => {
-        getPrice();
+        console.log(props.ethPrice)
     });
 
     function closeModal() {
         setModal(false);
         setRainbowWidth(0);
-    }
-
-    function getPrice() {
-        //Set current eth price with api or manually
-        setPrice(230.17);
     }
 
     function sendAnimation() {

@@ -3,26 +3,29 @@ import MediaPanel from "../../components/mediaPanel";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 import Background from "../../components/Background";
+import PriceService from "../../services/PriceService";
 import './FeedPageStyle.css';
 
-function Feed() {
+export default function Feed() {
+    const [ethPrice, setEthPrice] = useState();
 
     useEffect(() => {
         localStorage.setItem('prevPage', "/home");
+        PriceService.getEthPrice().then(data => {
+            setEthPrice(data.rate);
+        });
     }, []);
 
     return (
         <div>
             <Background />
-            <Header page={"home"}/>
+            <Header page={"home"} />
             <Nav page={"home"} />
             <div className="feedPage">
                 <div className="mediaPanel" id="mediaPanel">
-                    <MediaPanel />
+                    <MediaPanel ethPrice={ethPrice}/>
                 </div>
             </div>
         </div>
     )
 }
-
-export default Feed;

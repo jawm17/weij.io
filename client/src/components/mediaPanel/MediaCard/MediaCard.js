@@ -178,7 +178,7 @@ function MediaCard(props) {
                                 <div className="buttons">
                                     <img className="commentIcon clickable" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
                                     <div className="tipIcon clickable">
-                                        {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} />}
+                                        {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} ethPrice={props.ethPrice}/>}
                                     </div>
                                 </div>
                             </div>

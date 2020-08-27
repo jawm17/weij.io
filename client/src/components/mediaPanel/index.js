@@ -42,6 +42,7 @@ export default function MediaPanel(props) {
                         price={post.price}
                         privileged={post.privileged}
                         username={post.user}
+                        ethPrice={props.ethPrice}
                     />
                 }
             })}
