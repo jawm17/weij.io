@@ -58,7 +58,9 @@ export default function NewTipModal(props) {
     }
 
     function amountEntered(e) {
-        console.log(e);
+        if (!isNaN(e.target.value)) {
+            setValue(e.target.value)
+        }
     }
 
     function sendTip(value) {
@@ -104,7 +106,7 @@ export default function NewTipModal(props) {
                                 <h2 className="tipTitle">Tip {props.username}</h2>
                                 <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                             </div>
-                            <input className="tipInput" placeholder="Enter Amount (ETH)"></input>
+                            <input className="tipInput" placeholder="Enter Amount (ETH)" onChange={amountEntered}></input>
                             <div className="sendTipButton">
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))} disabled>
                                     Send Tip

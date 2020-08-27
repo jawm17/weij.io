@@ -29,8 +29,7 @@ export default function PostModal(props) {
             setError(false);
             setMessage("");
         } else if (e.target.name === "price" && !isNaN(e.target.value)) {
-            console.log(e.target.value)
-            setNewPostPrice(e.target.value)
+            setNewPostPrice(e.target.value);
         }
     }
 
