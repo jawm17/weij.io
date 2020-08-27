@@ -58,9 +58,10 @@ h3 {
 }
 
 .txHistory {
-    height: 481px;
+    height: calc(100% - 182px);
     width: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .clipboardIcon {
@@ -136,4 +137,8 @@ h3 {
         margin-left: 10px;
         font-size: 20px;
     }
+    .txHistory {
+       height: calc(100% - 170px);
+    }
+    
 }
