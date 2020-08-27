@@ -12,7 +12,7 @@ export default function NewTipModal(props) {
     const [notification, setNotification] = useState("");
     const [notificationError, setNotificationError] = useState();
     const [rainbowWidth, setRainbowWidth] = useState(0);
-    const [value, setValue] = useState(0.5);
+    const [value, setValue] = useState("");
     const authContext = useContext(AuthContext);
     let timerID = useRef(null);
 
@@ -59,7 +59,7 @@ export default function NewTipModal(props) {
 
     function amountEntered(e) {
         if (!isNaN(e.target.value)) {
-            setValue(e.target.value)
+            setValue(e.target.value);
         }
     }
 
@@ -72,6 +72,7 @@ export default function NewTipModal(props) {
                         setNotification("Succesfully sent Ether");
                         setNotificationError(false);
                         sendAnimation();
+                        setValue("");
                         timerID = setTimeout(() => {
                             setNotification("");
                             closeModal();
@@ -106,11 +107,17 @@ export default function NewTipModal(props) {
                                 <h2 className="tipTitle">Tip {props.username}</h2>
                                 <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                             </div>
-                            <input className="tipInput" placeholder="Enter Amount (ETH)" onChange={amountEntered}></input>
+                            <input className="tipInput" placeholder="Enter Amount (ETH)" onChange={amountEntered} value={value}></input>
                             <div className="sendTipButton">
+                                {!value ? 
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))} disabled>
                                     Send Tip
-                                </Button>
+                                </Button> 
+                                : 
+                                <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
+                                    Send Tip
+                                </Button> }
+                                
                             </div>
                             {notificationError ? <div className="errorMsg">Insufficent Funds</div> : null}
                         </div>
