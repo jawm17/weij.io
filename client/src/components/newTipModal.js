@@ -106,17 +106,12 @@ export default function NewTipModal(props) {
                                 <img className="x" src="https://image.flaticon.com/icons/svg/104/104812.svg" alt="x in circle icon" onClick={() => (closeModal())}></img>
                             </div>
                             <div className="tipButtons">
-                                <div class="quantity">
-                                    <a onClick={() => setValue(value - 0.25)} href="#" class="quantity__minus"><span>-</span></a>
-                                    <input name="quantity" type="text" class="quantity__input" value={value} onChange={() => amountEntered()}/>
-                                    <a onClick={() => setValue(value + 0.25)} href="#" class="quantity__plus"><span>+</span></a>
-                                </div>
                                 <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
                                     Send Tip
                                 </Button>
                                 <div className="estimateTip">about 0.50 USD</div>
                             </div>
-                            {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
+                            {notificationError ? <div className="errorMsg">Insufficent Funds</div> : null}
                         </div>
                     </div>
                 </div>
