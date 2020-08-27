@@ -32,7 +32,6 @@ function MediaCard(props) {
         },
         imageArea: {
             maxWidth: 540,
-            height: height
         },
         containerInfo: {
             height: containerInfoHeight,

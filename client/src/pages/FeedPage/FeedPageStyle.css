@@ -19,7 +19,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   .mediaPanel {
-    top: 63px;
+    top: 66px;
     height: calc(100vh - 120px);
     width: 95vw;
   }
