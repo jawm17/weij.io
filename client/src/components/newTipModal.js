@@ -110,7 +110,7 @@ export default function NewTipModal(props) {
                                     Send Tip
                                 </Button>
                             </div>
-                            {<div className="errorMsg">Insufficent Funds</div>}
+                            {notificationError ? <div className="errorMsg">Insufficent Funds</div> : null}
                         </div>
                     </div>
                 </div>
