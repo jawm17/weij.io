@@ -23,7 +23,7 @@ export default function ClipButton(props) {
         <div className="clip">
             <img className="clipboardIcon" src="https://image.flaticon.com/icons/svg/1621/1621635.svg" alt="copy address" onClick={() => copyAddress()}></img>
             {clipboard ? <span className="clipboardAlertShow">Copied Address</span> : <span className="clipboardAlert">Link Copied on Clipboard</span>}
-            <input id="addressInput" type="text" value={props.address.toString()}></input>
+            <input id="addressInput" type="text" defaultValue={props.address.toString()}></input>
         </div>
     );
 }

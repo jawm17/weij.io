@@ -7,7 +7,6 @@ export default function TransactionDetail(props) {
 
     useEffect(() => {
         // check tx type
-        console.log(props.date);
         if (props.type === "tip") {
             if (props.from) {
                 setTxText(`Recieved a ${props.amount} ${props.type} from ${props.from}`);

@@ -39,7 +39,7 @@ export default function NewTipModal(props) {
     }
 
     useEffect(() => {
-        console.log(props.ethPrice)
+        
     });
 
     function closeModal() {
@@ -61,7 +61,7 @@ export default function NewTipModal(props) {
         }
     }
 
-    function sendTip(value) {
+    function sendTip() {
         UserService.getUserInfo().then(data => {
             const { message, balance } = data;
             if (!message) {
@@ -108,12 +108,12 @@ export default function NewTipModal(props) {
                             <input className="tipInput" placeholder="Enter Amount (ETH)" onChange={amountEntered} value={value}></input>
                             <div className="sendTipButton">
                                 {!value ? 
-                                <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))} disabled>
+                                <Button variant="contained" color="primary" disabled>
                                     Send Tip
                                 </Button> 
                                 : 
-                                <Button variant="contained" color="primary" onClick={() => sendTip((0.5 / price).toFixed(5))}>
-                                    {"Send Tip " + value + "ETH"}
+                                <Button variant="contained" color="primary" onClick={() => sendTip()}>
+                                    {"Send Tip " + value + " ETH"}
                                 </Button> }
                                 
                             </div>
