@@ -22,8 +22,6 @@ app.use(router);
 // Connect to the Mongo DB
 if(process.env.NODE_ENV === "production") {
   mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-} else {
-  mongoose.connect("mongodb://localhost/MyMoLocalDB", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 }
 
 // Start the API server
