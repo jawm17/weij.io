@@ -24,14 +24,12 @@ function App() {
         <PrivateRoute path="/profile" component={UserProfilePage} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
-        <Route path={["/", "/home"]} component={Feed} />
+        <PrivateRoute exact path={["/", "/home"]} component={Feed} />
         <PrivateRoute path={["/send/to/:user"]} component={SendPage} />
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
-        <Route>
-          <NoMatchPage />
-        </Route>
+   
       </Switch>
     </Router>
   );
