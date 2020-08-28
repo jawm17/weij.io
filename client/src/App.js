@@ -7,7 +7,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
 import Wallet from "./pages/WalletPage/WalletPage";
-
+import SearchPage from "./pages/SearchPage/SearchPage";
+// import NoMatchPage from "./pages/NoMatchPage.js";
 import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
@@ -21,7 +22,7 @@ function App() {
         <UserRestrictedRoute exact path="/register" component={Register} />
         <PrivateRoute path="/user/:user" component={ProfilePage} />
         <PrivateRoute path="/profile" component={UserProfilePage} />
-      
+        <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
         <PrivateRoute exact path={["/", "/home"]} component={Feed} />
         <PrivateRoute path={["/send/to/:user"]} component={SendPage} />
