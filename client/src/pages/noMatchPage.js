@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoMatchPage() {
+export default function NoMatchPage() {
     return (
         <div>
             <h1>404 This page does not exist</h1>
@@ -12,5 +12,3 @@ function NoMatchPage() {
         </div>
     );
 }
-
-export default NoMatchPage;
