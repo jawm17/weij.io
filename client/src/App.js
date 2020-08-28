@@ -29,7 +29,7 @@ function App() {
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
-        <Route>
+        <Route path="/">
           <NoMatchPage />
         </Route>
       </Switch>
