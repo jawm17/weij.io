@@ -8,7 +8,7 @@ import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
 import Wallet from "./pages/WalletPage/WalletPage";
 import SearchPage from "./pages/SearchPage";
-import NoMatchPage from "./pages/NoMatchPage";
+import NoMatchPage from "./pages/NoMatchPage.js";
 import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
@@ -29,7 +29,9 @@ function App() {
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
-   
+        <Route>
+          <NoMatchPage />
+        </Route>
       </Switch>
     </Router>
   );
