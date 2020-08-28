@@ -8,7 +8,7 @@ import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
 import Wallet from "./pages/WalletPage/WalletPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
-import NoMatchPage from "./pages/NoMatchPage.js";
+import NoMatchPage from "./pages/NoMatchPage/NoMatchPage.js";
 import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
