@@ -17,7 +17,7 @@ export default function SendPage(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            setPosition("70px");
+            setPosition("73px");
         }, 60)
         getFriends();
         if(props.match.params.user) {
