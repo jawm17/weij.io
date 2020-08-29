@@ -8,8 +8,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 aws.config.update({
-    secretAccessKey: (config.AWS_A_KEYID + "NOSQE3A"),
-    accessKeyId: (config.AWS_S_KEY + "y6j/0TqQ+k"),
+    secretAccessKey: (config.AWS_S_KEYID + "y6j/0TqQ+k"),
+    accessKeyId: (config.AWS_A_KEYID + "OSQE3A"),
     region: 'us-east-2'
 });
 

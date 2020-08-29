@@ -4,6 +4,6 @@
 module.exports = {
     db: "mongodb+srv://koikoi5:koikoi5@mymodata-4ywri.mongodb.net/MyMoData?retryWrites=true&w=majority",
     db_dev: "mongodb+srv://koikoi5:koikoi5@mymodata-4ywri.mongodb.net/MyMoData?retryWrites=true&w=majority",
-    AWS_A_KEYID: "AKIAITXRLE2MX",
-    AWS_S_KEY: "+Lxff9y+/LIPGanTRx1wL1u3mcD83X"
-  };
+    AWS_A_KEYID: "AKIAITXRLE2MXN",
+    AWS_S_KEYID: "+Lxff9y+/LIPGanTRx1wL1u3mcD83X"
+};

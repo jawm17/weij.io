@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const router = require("./routes/index");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const cookieParser = require("cookie-parser");
 const config = require('./config/config');
 
