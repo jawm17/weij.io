@@ -37,10 +37,10 @@ export default function Header(props) {
         }
         if (props.page === "home") {
             setSendPage("https://image.flaticon.com/icons/svg/2983/2983788.svg");
-            document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
-                const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
-                setClassName(name);
-            });
+            // document.getElementById("mediaPanel").addEventListener("scroll", (e) => {
+            //     const name = e.target.scrollTop < 7 ? "header" : "header shadowed";
+            //     setClassName(name);
+            // });
         } else if (props.page === "send") {
             setClassName("header shadowed");
             setTimeout(() => {

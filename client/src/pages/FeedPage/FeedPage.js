@@ -22,9 +22,9 @@ export default function Feed() {
             <Header page={"home"} />
             <Nav page={"home"} />
             <div className="feedPage">
-                <div className="mediaPanel" id="mediaPanel">
+            
                     <MediaPanel ethPrice={ethPrice}/>
-                </div>
+               
             </div>
         </div>
     )
