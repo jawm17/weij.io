@@ -5,7 +5,7 @@
   background-color: white;
   margin-bottom: 40px;
   border-radius: 4px;
-  scroll-snap-align: end;
+  scroll-snap-align: center;
 }
 
 .cardSnapEnd {
@@ -50,7 +50,7 @@
     background-color: white;
     margin-bottom: 20px;
     border-radius: 4px;
-    scroll-snap-align: end;
+    scroll-snap-align: center;
   }
   .profileImgSmall {
     margin-right: 10;

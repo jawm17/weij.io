@@ -183,6 +183,7 @@ function MediaCard(props) {
                                 </div>
                             </div>
                             {comments ? <CommentSection src={props.imgUrl} /> : null}
+                            <button onClick={() => history.push("/17830921898230")}></button>
                         </div>
                     </div>
                 </div>
