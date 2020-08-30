@@ -8,18 +8,16 @@
     top: 0;
     transition: all 0.3s ease-in-out;
     z-index: 2;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
     font-family: 'Fredoka One', cursive;
 }
 
-/* applied to header on scroll */
 .shadowed {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .headerArea {
-
-    width: 83vw;
+    width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
