@@ -87,14 +87,9 @@ function MediaCard(props) {
 
     const toggleComments = () => {
         if (!comments) {
-            setCardSnap("cardSnapEnd");
-            setContainerInfoHeight(400);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
-            timerID = setTimeout(() => {
-                setCardSnap("cardSnapEnd");
-            }, 220)
             setContainerInfoHeight(60);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
             setComments(!comments);
