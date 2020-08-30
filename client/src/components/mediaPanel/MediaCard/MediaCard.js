@@ -20,7 +20,7 @@ function MediaCard(props) {
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const [imageError, setImageError] = useState(false);
-    const [cardSnap, setCardSnap] = useState("card");
+    const [cardSnap, setCardSnap] = useState("cardSnapEnd");
     let timerID = useRef(null);
     const authContext = useContext(AuthContext);
 
@@ -93,7 +93,7 @@ function MediaCard(props) {
             setComments(!comments);
         } else {
             timerID = setTimeout(() => {
-                setCardSnap("card");
+                setCardSnap("cardSnapEnd");
             }, 220)
             setContainerInfoHeight(60);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
