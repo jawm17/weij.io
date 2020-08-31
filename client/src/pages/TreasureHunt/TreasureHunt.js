@@ -3,7 +3,7 @@ import "./TreasureHuntStyle.css";
 
 export default function TreasureHunt() {
     const [mousePosition, setMousePosition] = useState({ x: null, y: null });
-    const textbg ="https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg";
+    const textbg = "https://ak.picdn.net/shutterstock/videos/1026842039/thumb/9.jpg";
 
     const style = {
         background: {
@@ -23,7 +23,7 @@ export default function TreasureHunt() {
             left: 60,
             WebkitTextFillColor: "transparent",
             WebkitBackgroundClip: "text",
-            margin: 0,   
+            margin: 0,
         }
     }
 
@@ -46,6 +46,7 @@ export default function TreasureHunt() {
         <div>
             <div className="treasureHuntBackground" ></div>
             <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>weij.io</h1>
+
         </div>
-    )
+    );
 }   
