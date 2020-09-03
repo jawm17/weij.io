@@ -42,6 +42,9 @@ export default function TransactionDetail(props) {
                 <hr></hr>
                 <div className="detail">
                     {txText}
+                    <div className="colors">
+
+                    </div>
                     <div className="date">
                         {((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear()}
                     </div>
