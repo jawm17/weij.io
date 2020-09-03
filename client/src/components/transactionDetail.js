@@ -6,6 +6,11 @@ export default function TransactionDetail(props) {
     const [date, setDate] = useState(0);
 
     useEffect(() => {
+        checkTx();
+        setDate(props.date);
+    }, []);
+
+    function checkTx() {
         // check tx type
         if (props.type === "tip") {
             if (props.from) {
@@ -25,16 +30,19 @@ export default function TransactionDetail(props) {
                 setTxText(`Recieved ${props.amount} ETH from ${props.from}`);
             }
         }
+    }
+
+    function setDate(date) {
         // set date
-        if (props.date.length === 10) {
-            let adjustedDate = parseInt(props.date + "000");
+        if (date.length === 10) {
+            let adjustedDate = parseInt(date + "000");
             let time = new Date(adjustedDate);
             setDate(time);
         } else {
-            let time = new Date(props.date);
+            let time = new Date(date);
             setDate(time);
         }
-    }, []);
+    }
 
     if (txText) {
         return (
