@@ -162,7 +162,7 @@ function MediaCard(props) {
         } else {
             return (
                 // no paywall photo post
-                <div className={cardSnap}>
+                <div className={"card"}>
                     <div className="imageArea" style={style.imageArea}>
                         {imageError ? <div className="errorScreen" alt="Image not loading">Image not loading...</div> : <img className="feedImg" src={props.imgUrl} alt="post" onClick={() => toggleImageView()} onError={() => setImageError(true)} />}
                     </div>

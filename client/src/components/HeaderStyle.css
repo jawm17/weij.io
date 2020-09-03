@@ -17,6 +17,7 @@
 }
 
 .headerArea {
+    max-width: 520px;
     width: 90vw;
     display: flex;
     justify-content: space-between;

