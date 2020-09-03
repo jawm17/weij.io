@@ -42,9 +42,7 @@ export default function TransactionDetail(props) {
                 <hr></hr>
                 <div className="detail">
                     {txText}
-                    <div className="colors">
-
-                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ski_trail_rating_symbol-green_circle.svg/1024px-Ski_trail_rating_symbol-green_circle.svg.png" className="colors"></img>
                     <div className="date">
                         {((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear()}
                     </div>
