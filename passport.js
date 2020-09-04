@@ -5,7 +5,7 @@ const User = require("./models/User");
 
 const cookieExtractor = req => {
     let token = null;
-    if(req && req.cookies){
+    if (req && req.cookies) {
         token = req.cookies["access_token"];
     }
     return token;
@@ -16,11 +16,11 @@ passport.use(new JwtStrategy({
     jwtFromRequest: cookieExtractor,
     secretOrKey: "crackPotHippie"
 }, (payload, done) => {
-    User.findById({_id: payload.sub}, (err, user) => {
-        if(err){
+    User.findById({ _id: payload.sub }, (err, user) => {
+        if (err) {
             return done(err, false);
         }
-        if(user){
+        if (user) {
             return done(null, user);
         }
         else {
@@ -31,13 +31,13 @@ passport.use(new JwtStrategy({
 
 // authenticated local strategy using username and password
 passport.use(new LocalStrategy((username, password, done) => {
-    User.findOne({username}, (err, user) => {
+    User.findOne({ username }, (err, user) => {
         // Something went wrong with database
-        if(err){
+        if (err) {
             return done(err);
         }
         // User does not exist
-        if(!user){
+        if (!user) {
             return done(null, false);
         }
         // Uses User model's function to see if user entered correct password

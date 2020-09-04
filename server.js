@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(router);
 
 // Connect to the Mongo DB
-if(process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 } else {
   mongoose.connect(config.db_dev, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
