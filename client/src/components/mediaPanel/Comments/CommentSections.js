@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Spring } from "react-spring/renderprops";
 import MediaContentService from '../../../services/MediaContentService';
 import PostComment from './PostComment';
