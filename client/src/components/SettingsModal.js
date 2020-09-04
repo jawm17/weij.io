@@ -11,9 +11,7 @@ export default function SettingsModal(props) {
     const [bio, setBio] = useState("");
     const [color, setColor] = useState("");
     const [error, setError] = useState(true);
-    const [message, setMessage] = useState(null);
     const [profileImg, setProfileImg] = useState();
-    const [selected, setSelected] = useState(false);
     const { setIsAuthenticated, setUser } = useContext(AuthContext);
     const authContext = useContext(AuthContext);
 
@@ -88,7 +86,6 @@ export default function SettingsModal(props) {
         else {
             setProfileImg(e.target.value);
             setError(false);
-            setMessage("");
         }
     }
 
@@ -162,7 +159,7 @@ export default function SettingsModal(props) {
         setColor(e.target.name);
     }
 
-        const onClickLogoutHandler = () => {
+    const onClickLogoutHandler = () => {
         AuthService.logout().then(data => {
             if (data.success) {
                 setUser(data.user);
