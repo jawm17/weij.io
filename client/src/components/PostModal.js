@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Modal from 'react-awesome-modal';
 import PostPhotoService from '../services/PostPhotoService';
 import { AuthContext } from '../context/AuthContext';
@@ -12,11 +12,6 @@ export default function PostModal(props) {
     const [error, setError] = useState(true);
     const [message, setMessage] = useState(null);
     const [image, setImage] = useState(null);
-
-    useEffect(() => {
-        setNewPostSrc("");
-        setNewPostSrc("");
-    });
 
     const openModal = () => {
         setVisible(true);
