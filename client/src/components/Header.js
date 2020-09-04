@@ -79,7 +79,7 @@ export default function Header(props) {
                 <img className="menuIcon button" src="https://image.flaticon.com/icons/svg/847/847454.svg" alt="Menu icon"></img>
                 <h3 className="logo" style={style.logo}><a href="/home">weij</a></h3>
                 <img className="sendIcon button" src={sendPage} alt="Send icon" onClick={() => changePage("send")}></img>
-            </div>
+            </div>  
         </div>
     )
 }

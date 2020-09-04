@@ -7,7 +7,7 @@ export default function TransactionDetail(props) {
 
     useEffect(() => {
         checkTx();
-        setDate(props.date);
+        formatDate(props.date);
     }, []);
 
     function checkTx() {
@@ -32,7 +32,7 @@ export default function TransactionDetail(props) {
         }
     }
 
-    function setDate(date) {
+    function formatDate(date) {
         // set date
         if (date.length === 10) {
             let adjustedDate = parseInt(date + "000");

@@ -6,7 +6,7 @@ import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
 import TipModal from "../../TipModal";
 import NewTipModal from "../../newTipModal";
-import FeedImageView from "../../FeedImageView";
+// import FeedImageView from "../../FeedImageView";
 import CommentSection from "../Comments/CommentSections";
 import "./MediaCardStyle.css";
 
@@ -20,7 +20,6 @@ function MediaCard(props) {
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const [imageError, setImageError] = useState(false);
-    const [cardSnap, setCardSnap] = useState("card");
     let timerID = useRef(null);
     const authContext = useContext(AuthContext);
 
@@ -87,14 +86,10 @@ function MediaCard(props) {
 
     const toggleComments = () => {
         if (!comments) {
-            setCardSnap("cardSnapEnd");
             setContainerInfoHeight(400);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876170.svg");
             setComments(!comments);
         } else {
-            timerID = setTimeout(() => {
-                setCardSnap("card");
-            }, 220)
             setContainerInfoHeight(60);
             setCommentIcon("https://image.flaticon.com/icons/svg/876/876221.svg");
             setComments(!comments);
@@ -178,7 +173,7 @@ function MediaCard(props) {
                                 <div className="buttons">
                                     <img className="commentIcon clickable" src={commentIcon} alt="comment icon" onClick={() => toggleComments()}></img>
                                     <div className="tipIcon clickable">
-                                        {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} ethPrice={props.ethPrice}/>}
+                                        {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} ethPrice={props.ethPrice} />}
                                     </div>
                                 </div>
                             </div>
