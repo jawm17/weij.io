@@ -53,25 +53,25 @@ const SignIn = props => {
   const authContext = useContext(AuthContext);
 
   const onChange = e => {
-      setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   }
 
   const onSubmit = e => {
     e.preventDefault();
     AuthService.login(user).then(data => {
-        const { isAuthenticated, user, message } = data;
-        if (isAuthenticated) {
-            authContext.setUser(user);
-            authContext.setIsAuthenticated(isAuthenticated);
-            props.history.push('/home');
-        }
-        else
+      const { isAuthenticated, user } = data;
+      if (isAuthenticated) {
+        authContext.setUser(user);
+        authContext.setIsAuthenticated(isAuthenticated);
+        props.history.push('/home');
+      }
+      else
         setMessage("Invalid Username or Password");
     });
-}
+  }
 
   return (
-      
+
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
