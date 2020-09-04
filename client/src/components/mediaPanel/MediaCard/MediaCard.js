@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import UserService from "../../../services/UserService";
-import MediaContentService from '../../../services/MediaContentService';
 import LockedMedia from "../LockedMedia/lockedMedia";
 import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
@@ -20,7 +19,6 @@ function MediaCard(props) {
     const [comments, setComments] = useState(false);
     const [imageView, setImageView] = useState(false);
     const [imageError, setImageError] = useState(false);
-    let timerID = useRef(null);
     const authContext = useContext(AuthContext);
 
     document.body.style.overflow = "scroll"
@@ -116,9 +114,8 @@ function MediaCard(props) {
             </div>
         );
     } else {
-        //no paywall
+        //no paywall video post
         if (props.type === "video") {
-            // video post
             return (
                 <div className="card panel">
                     <div >
@@ -184,7 +181,6 @@ function MediaCard(props) {
                 </div>
             );
         }
-
     }
 }
 
