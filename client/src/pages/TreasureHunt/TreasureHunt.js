@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "./TreasureHuntStyle.css";
 
 export default function TreasureHunt() {
@@ -33,7 +33,7 @@ export default function TreasureHunt() {
         window.addEventListener("mousemove", mouseMove);
         // return () => window.removeEventListener("mousemove", mouseMove);
     }, []);
-    
+
     function touchMove(e) {
         // console.log("x = " + e.clientX + " y = " + e.clientY);
         setMousePosition({ x: e.touches[0].clientX, y: e.touches[0].clientY });
@@ -58,7 +58,6 @@ export default function TreasureHunt() {
         <div>
             <div className="treasureHuntBackground" ></div>
             <h1 className="treasureHuntLogo" style={style.treasureHuntLogo}>weij.io</h1>
-
         </div>
     );
 }   

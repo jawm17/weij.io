@@ -3,7 +3,6 @@ import Modal from 'react-awesome-modal';
 import { AuthContext } from '../context/AuthContext';
 import Button from '@material-ui/core/Button';
 import "./TipModalStyle.css";
-import PriceService from "../services/PriceService";
 import UserService from '../services/UserService';
 import TransactionService from '../services/TransactionService';
 
@@ -14,7 +13,6 @@ export default function TipModal(props) {
     const [notificationError, setNotificationError] = useState();
     const [rainbowWidth, setRainbowWidth] = useState(0);
     const authContext = useContext(AuthContext);
-    let timerID = useRef(null);
 
     const style = {
         rainbowStyle: {
@@ -45,7 +43,7 @@ export default function TipModal(props) {
                     TransactionService.tipTx((value), props.username, data.username).then(data => {
                         setNotification("Succesfully sent Ether");
                         setNotificationError(false);
-                        timerID = setTimeout(() => {
+                        setTimeout(() => {
                             setNotification("");
                             closeModal();
                         }, 1500)
@@ -53,7 +51,7 @@ export default function TipModal(props) {
                 } else {
                     setNotification("Insufficent Funds");
                     setNotificationError(true);
-                    timerID = setTimeout(() => {
+                    setTimeout(() => {
                         setNotification("");
                         setNotificationError(false);
                     }, 1500)
@@ -86,7 +84,6 @@ export default function TipModal(props) {
                 onClickAway={() => closeModal()}
             >
                 <img style={style.rainbowStyle} src={"https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm218batch10-mynt-11.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=f701199de450fc12516032a94444742e"} alt="rainbow animation"></img>
-                
                 <div className="tipArea">
                     <div className="top">
                         <h1 className="tipTitle">Ethereum</h1>
@@ -100,7 +97,6 @@ export default function TipModal(props) {
                     </div>
                     {notification ? notificationError ? <div className="errorMsg">Insufficent Funds</div> : <div className="successMsg">Succesfully sent Ether</div> : null}
                 </div>
-                
             </Modal>
         </section>
     )

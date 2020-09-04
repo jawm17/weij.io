@@ -17,7 +17,6 @@ export default function UserProfilePage(props) {
     const [numFollowing, setNumFollowing] = useState();
     const [color, setColor] = useState("purple");
     const [numFollowers, setNumFollowers] = useState();
-    const [following, setFollowing] = useState(false);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -65,7 +64,6 @@ export default function UserProfilePage(props) {
             <Header color={color} page={"userProfile"} />
             <Nav color={color} page={"userProfile"} />
             <Background color={color} />
-
             <div className="profilePageContainer">
                 <div className="profilePage">
                     <div className="userDiv">
@@ -87,7 +85,6 @@ export default function UserProfilePage(props) {
                                     refresh={() => (setSave(!save))}
                                     color={color} />
                             </div>
-
                         </div>
                     </div>
                     <div className="userPosts">
@@ -104,9 +101,6 @@ export default function UserProfilePage(props) {
         </div>
     );
 }
-
-
-
 
 // import React, { useEffect, useState, useContext } from "react";
 // import { AuthContext } from '../../context/AuthContext';

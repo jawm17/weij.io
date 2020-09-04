@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import UserService from '../../services/UserService';
 import history from '../../history';
 import "./ProfilePageStyle.css";
@@ -11,7 +11,6 @@ export default function ProfilePage(props) {
     const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [bio, setBio] = useState("");
     const [posts, setPosts] = useState([]);
-    const [numFollowing, setNumFollowing] = useState();
     const [numFollowers, setNumFollowers] = useState();
     const [following, setFollowing] = useState(false);
 
@@ -33,7 +32,6 @@ export default function ProfilePage(props) {
                 setPosts(data.posts.reverse());
                 setBio(data.bio);
                 setNumFollowers(data.followers.length);
-                setNumFollowing(data.following.length);
             } else {
                 history.push("/home");
             }
