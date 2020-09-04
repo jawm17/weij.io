@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import MediaCard from "./MediaCard/MediaCard";
-import LoadingAnimation from "./LoadingAnimation";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -15,7 +14,7 @@ export default function MediaPanel(props) {
     function getFeed() {
 
         UserService.getFeed().then(data => {
-            if(!data.message) {
+            if (!data.message) {
                 console.log(data);
                 data.sort(function (a, b) {
                     return new Date(b.createdAt) - new Date(a.createdAt);
@@ -47,7 +46,6 @@ export default function MediaPanel(props) {
                 }
             })}
             <div className="extraBlock"></div>
-            {/* <LoadingAnimation /> */}
         </div>
     );
 }
