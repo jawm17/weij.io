@@ -13,6 +13,11 @@ export default function PostModal(props) {
     const [message, setMessage] = useState(null);
     const [image, setImage] = useState(null);
 
+    useEffect(() => {
+        setNewPostSrc("");
+        setNewPostSrc("");
+    });
+
     const openModal = () => {
         setVisible(true);
     }
@@ -86,14 +91,6 @@ export default function PostModal(props) {
                     <div className="inputArea">
                         <h1>Post an Image</h1>
                         <input type="file" onChange={newImage}></input>
-                        {/* <h4 className="label">Image URL: </h4>
-                            <input
-                                className="imgUrlInput"
-                                name="imgSrc"
-                                id="imgSrc"
-                                onChange={onChange}
-                                value={newPostSrc}
-                            /> */}
                         <br></br>
                         <h4 className="label">Price (optional): </h4>
                         <input

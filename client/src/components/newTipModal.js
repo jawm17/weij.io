@@ -63,13 +63,13 @@ export default function NewTipModal(props) {
                         TransactionService.tipTx((value), props.username, data.username).then(data => {
                             sendAnimation();
                             setValue("");
-                            timerID = setTimeout(() => {
+                            setTimeout(() => {
                                 closeModal();
                             }, 1500)
                         })
                     } else {
                         setNotificationError(true);
-                        timerID = setTimeout(() => {
+                        setTimeout(() => {
                             setNotificationError(false);
                         }, 1500)
                     }
