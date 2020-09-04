@@ -1,13 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
-import UserService from "../../../services/UserService";
+import React, { useEffect, useState } from 'react';
 import MediaContentService from '../../../services/MediaContentService';
 
 export default function PostComment(props) {
     const [newComment, setNewComment] = useState("");
-
-    useEffect(() => {
-
-    }, []);
 
     const style = {
         post: {
