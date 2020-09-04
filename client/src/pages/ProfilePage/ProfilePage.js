@@ -3,7 +3,6 @@ import UserService from '../../services/UserService';
 import history from '../../history';
 import "./ProfilePageStyle.css";
 import Background from "../../components/Background";
-import Background2 from "../../components/Background2";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
 
