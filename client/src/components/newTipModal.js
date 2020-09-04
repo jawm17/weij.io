@@ -7,12 +7,10 @@ import "./newTipModalStyle.css";
 
 export default function NewTipModal(props) {
     const [modal, setModal] = useState(false);
-    const [price, setPrice] = useState();
     const [notificationError, setNotificationError] = useState();
     const [rainbowWidth, setRainbowWidth] = useState(0);
     const [value, setValue] = useState("");
     const authContext = useContext(AuthContext);
-    let timerID = useRef(null);
 
     const style = {
         rainbowStyle: {
@@ -37,17 +35,13 @@ export default function NewTipModal(props) {
         }
     }
 
-    useEffect(() => {
-        
-    });
-
     function closeModal() {
         setModal(false);
         setRainbowWidth(0);
     }
 
     function sendAnimation() {
-        if(window.innerWidth * .95 >= 400) {
+        if (window.innerWidth * .95 >= 400) {
             setRainbowWidth(400);
         } else {
             setRainbowWidth(window.innerWidth * .95);
@@ -61,7 +55,7 @@ export default function NewTipModal(props) {
     }
 
     function sendTip() {
-        if(value > 0) {
+        if (value > 0) {
             UserService.getUserInfo().then(data => {
                 const { message, balance } = data;
                 if (!message) {
@@ -103,15 +97,15 @@ export default function NewTipModal(props) {
                             </div>
                             <input className="tipInput" placeholder="Enter Amount (ETH)" onChange={amountEntered} value={value}></input>
                             <div className="sendTipButton">
-                                {!value ? 
-                                <Button variant="contained" color="primary" disabled>
-                                    Send Tip
-                                </Button> 
-                                : 
-                                <Button variant="contained" color="primary" onClick={() => sendTip()}>
-                                    {"Send " + value + " ETH"}
-                                </Button> }
-                                
+                                {!value ?
+                                    <Button variant="contained" color="primary" disabled>
+                                        Send Tip
+                                    </Button>
+                                    :
+                                    <Button variant="contained" color="primary" onClick={() => sendTip()}>
+                                        {"Send " + value + " ETH"}
+                                    </Button>}
+
                             </div>
                             {notificationError ? <div className="errorMsg">Insufficent Funds</div> : null}
                         </div>
