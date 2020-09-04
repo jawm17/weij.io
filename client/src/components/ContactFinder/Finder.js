@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Finder(props) {
-    const [fontSize, setFontSize] = useState(10);
     const [color, setColor] = useState("#ADADAD");
-    const [margin, setMargin] = useState("0px");
 
     const style = {
         letter: {
@@ -17,15 +15,11 @@ export default function Finder(props) {
     });
 
     function onLetter() {
-        setFontSize(15);
         setColor("black");
-        setMargin("0px");
     }
 
     function offLetter() {
-        setFontSize(10);
         setColor("#ADADAD");
-        setMargin("200px");
     }
 
     return (
