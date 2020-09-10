@@ -3,7 +3,6 @@ import UserService from "../../../services/UserService";
 import LockedMedia from "../LockedMedia/lockedMedia";
 import history from '../../../history';
 import { AuthContext } from '../../../context/AuthContext';
-import TipModal from "../../TipModal";
 import NewTipModal from "../../newTipModal";
 // import FeedImageView from "../../FeedImageView";
 import CommentSection from "../Comments/CommentSections";
@@ -146,7 +145,7 @@ function MediaCard(props) {
                             </div>
                         </div>
                         <div className="containerTipArea">
-                            {authContext.user.username === props.username ? null : <TipModal username={props.username} getBalance={props.getBalance} />}
+                            {authContext.user.username === props.username ? null : <NewTipModal username={props.username} getBalance={props.getBalance} />}
                         </div>
                     </div>
                 </div>

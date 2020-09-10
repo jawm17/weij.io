@@ -2,7 +2,6 @@ import React, { useState, useContext, useRef } from 'react';
 import Modal from 'react-awesome-modal';
 import { AuthContext } from '../context/AuthContext';
 import Button from '@material-ui/core/Button';
-import "./TipModalStyle.css";
 import UserService from '../services/UserService';
 import "./SendEthModalStyle.css";
 var Web3 = require('web3');
