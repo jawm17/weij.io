@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MediaPanel from "../../components/mediaPanel";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import HeaderNav from "../../components/HeaderNav";
 import Background from "../../components/Background";
 import PriceService from "../../services/PriceService";
 import './FeedPageStyle.css';
@@ -19,7 +20,7 @@ export default function Feed() {
     return (
         <div>
             <Background />
-            <Header page={"home"} />
+            <HeaderNav page={"home"} />
             <Nav page={"home"} />
             <div className="feedPage">
                 <div className="mediaPanel" id="mediaPanel">
