@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import UserService from '../../services/UserService';
 import history from '../../history';
-import "./ProfilePageStyle.css";
 import Background from "../../components/Background";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
+import "./ProfilePageStyle.css";
 
 export default function ProfilePage(props) {
     const [username, setUsername] = useState("");
@@ -15,7 +15,9 @@ export default function ProfilePage(props) {
     const [following, setFollowing] = useState(false);
 
     useEffect(() => {
+        // if url has a user parameter
         if (props.match.params.user) {
+            //get user info and set previous page
             getUserInfo(props.match.params.user);
             localStorage.setItem('prevPage', `/user/${props.match.params.user}`);
         } else {
