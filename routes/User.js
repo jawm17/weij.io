@@ -312,13 +312,13 @@ userRouter.post('/update-numTx', passport.authenticate('jwt', { session: false }
 
 // send any type transaction
 userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const message = { msgBody: "Error has occured", msgError: true };
-    const funds = req.body.funds;
-    const to = req.body.to;
-    const from = req.body.from;
-    const type = req.body.type;
-    const photoId = req.body.photoId;
-    const userId = req.body.userId;
+    let message = { msgBody: "Error has occured", msgError: true };
+    let funds = req.body.funds;
+    let to = req.body.to;
+    let from = req.body.from;
+    let type = req.body.type;
+    let photoId = req.body.photoId;
+    let userId = req.body.userId;
     User.findOneAndUpdate({ "username": from }, { $inc: { balance: -(funds) }, $push: { sentTx: { "to": to, "amount": funds, "type": type, "timeStamp": Date.now() } } }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
@@ -349,7 +349,7 @@ userRouter.post('/sendTransaction', passport.authenticate('jwt', { session: fals
 
 // get user's username by id
 userRouter.post('/infoByID', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const message = { msgBody: "Error has occured", msgError: true };
+    let message = { msgBody: "Error has occured", msgError: true };
     User.findById({ _id: req.body.id }).exec((err, document) => {
         if (err) {
             res.status(500).json({ message });
