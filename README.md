@@ -8,10 +8,10 @@ Monetize everything
     
 ## Usage 
 
-clone repo
-cd weij.io 
-npm i
-npm start
-open localhost:3000
+ - clone repo
+ - cd weij.io 
+ - npm i
+ - npm start
+ - open localhost:3000
 
 *****Config file is missing. Contact jawm17@gmail.com for environment variables and configuration******
