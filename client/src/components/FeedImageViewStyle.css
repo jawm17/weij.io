@@ -1,0 +1,15 @@
+.FeedImageView {
+    width: 100vw;
+    max-height: 100%;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    display: flex;
+   justify-content: center;
+    background-color: blue;
+}
+
+.fullscreenImg {
+    height: 100%;
+    max-height: calc(100vh - 120px);
+}

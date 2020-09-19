@@ -1,0 +1,73 @@
+/* Setting fade transition and default settings */
+body {  
+  margin: 0;
+  transition: background-color 1s ease;
+  font-family: sans-serif;
+}
+
+.mediaPanel {
+  height: calc(100vh - 140px);
+  width: 580px;
+  overflow-y: scroll; 
+  scroll-snap-type: y mandatory;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  position: absolute;
+  top: 72px;
+}
+
+@media only screen and (max-width: 600px) {
+  .mediaPanel {
+    top: 66px;
+    height: calc(100vh - 120px);
+    width: 95vw;
+  }
+}
+
+.feedPage{
+  display: flex;
+  justify-content: center;
+  margin-right: 0;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 300px;
+}
+
+/* colors */
+.color-violet {
+  background-color: #7A4EAB;
+  border: #7A4EAB;
+}
+.color-indigo {
+  background-color: #4332CF;
+  border: #4332CF;
+}
+.color-blue {
+  background: linear-gradient(-40deg,#4378bf ,#3689ce ,#428fd0 ,#8fb3da);
+  border: #2F8FED;
+}
+.color-green {
+  background-color: #4DCF42;
+  border: #4DCF42;
+}
+.color-yellow {
+  background-color: #FAEB33;
+  border: #FAEB33;
+}
+.color-orange {
+  background-color: #F19031;
+  border: #F19031;
+}
+.color-red {
+  background-color: #F2293A;
+  border: #F2293A;
+}
+.color-black {
+  background-color: #000;
+  border: #000;
+}
+.color-pink {
+  background-color: #FF1493;
+  border: #FF1493;
+}

@@ -1,0 +1,103 @@
+.modalOpen {
+    display: flex; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.modalClosed {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+#tipModalBody {
+    background-color: #fefefe;
+    height: 250px;
+    max-width: 400px; 
+    width: 95%;
+    border-radius: 5px;
+}
+
+.top {
+    width: 100%;
+    height: 50px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.tipTitle {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    display: inline-block;
+}
+
+.top {
+    max-width: 400px; 
+    width: 100%;
+}
+
+.tipIconButton {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.tipIconButton:hover {
+    cursor: pointer;
+}
+
+.sendTipButton {
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  margin-right: 20px;
+  float: right;
+}
+
+.tipInput {
+  margin-left: 26px;
+  margin-top: 15px;
+}
+
+.estimateTip {
+    float: right;
+    margin-top: 9px;
+    margin-right: 120px;
+}
+
+.errorMsg {
+    margin-top: 10px;
+    margin-left: 22px;
+    color: red;
+}
+
+.x {
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.x:hover {
+    cursor: pointer;
+}

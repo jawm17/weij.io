@@ -1,0 +1,15 @@
+.headerFull {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.headerPrimary {
+    max-width: 900px;
+    width: 90vw;
+}

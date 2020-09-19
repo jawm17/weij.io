@@ -1,0 +1,78 @@
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    border-bottom: 1px transparent solid ;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+    /* font-family: sans-serif; */
+    font-family: 'Fredoka One', cursive;
+}
+
+.shadowed {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.headerArea {
+    max-width: 520px;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 30px;
+}
+
+.logo:hover {
+    cursor: default;
+}
+
+.sendIcon {
+    width: 25px;
+    height: 25px;
+    margin-top: 0px;
+}
+
+.menuIcon {
+    width: 22px;
+    margin-top: 0px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+a, a:active, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 65px;
+        position: fixed;
+        border-bottom: 1px transparent solid ;
+        top: 0;
+        transition: all 0.3s ease-in-out;
+        z-index: 2;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .shadowed {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .logo {
+        color: white;
+        font-size: 30px;
+    }
+  }

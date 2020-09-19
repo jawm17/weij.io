@@ -1,0 +1,39 @@
+.postModal{
+    color: black;
+}
+
+.label{
+    display: inline-block;
+    margin: 0;
+    margin-right: 7px;
+    margin-bottom: 20px;
+}
+
+.priceTitle{
+    display: inline-block;
+}
+
+.imgUrlInput{
+    width: 200px;
+    display: inline-block;
+}
+
+.priceInput{
+    width: 200px;
+    display: inline-block;
+}
+
+.inputArea{
+    margin-left: 20px;
+}
+
+.imgArea{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.sampleImg{
+    height: 300px;
+    border: solid;
+}

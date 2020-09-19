@@ -1,0 +1,65 @@
+.settingsArea{
+    margin-left: 20px;
+    color: black;
+}
+
+.bioLabel{
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.colorLabel{
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.colorRow{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+}
+
+.colorBtn {
+    font-family: sans-serif;
+    border:none;
+    margin:0;
+    padding:0;
+    width: 20px;
+    height: 20px;
+}
+
+.colorBtn:hover {
+    cursor: pointer;
+}
+
+.selected {
+    width: 30px;
+    height: 30px;
+    border: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.settingsImgArea {
+    float: right;
+}
+
+.profileImgPreview {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    border: solid;
+    margin-right: 60px;
+    margin-top: 20px;
+
+}
+
+.settingsAreaLeft {
+    float: left;
+}
+
+.settingsImgUrlInput {
+    width: 200px;
+    padding-right: 20px;
+}
