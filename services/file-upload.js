@@ -3,9 +3,9 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 const config = require('../config/config');
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config();
+// }
 
 aws.config.update({
     secretAccessKey: (config.AWS_S_KEYID + "y6j/0TqQ+k"),
