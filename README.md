@@ -1,12 +1,10 @@
 ![node](https://img.shields.io/badge/node-js-blue) ![javascript](https://img.shields.io/badge/javascript-js-green) ![react](https://img.shields.io/badge/react-16.3.1-gold) 
 # Weij
     
-## Description
-
 Monetize everything
     
     
-## Usage 
+## Development 
 
  - clone repo
  - cd weij.io 
