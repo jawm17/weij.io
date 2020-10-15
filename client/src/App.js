@@ -13,6 +13,7 @@ import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
 import SendPage from './pages/SendPage/SendPage';
+import NewDemo from "./pages/NewDemo/NewDemo";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
+        <Route path="/landing" component={NewDemo} />
         <Route path="/">
           <NoMatchPage />
         </Route>

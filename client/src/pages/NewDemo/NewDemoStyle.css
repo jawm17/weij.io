@@ -1,0 +1,36 @@
+#header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100vw;
+    background-color: blue;
+}
+
+.outer {
+    padding-top: 80px;
+    text-align: center;
+    width: 100vw;
+}
+
+.row {
+    width: 100vw;
+    height: 350px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.item {
+    width: 210px;
+    height: 280px;
+    background-color: blueviolet;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: #8A73E2;
+}

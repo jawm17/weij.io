@@ -20,7 +20,7 @@ export default function Feed() {
     return (
         <div>
             <Background />
-            <HeaderNav page={"home"} />
+            <Header page={"home"} />
             <Nav page={"home"} />
             <div className="feedPage">
                 <div className="mediaPanel" id="mediaPanel">
