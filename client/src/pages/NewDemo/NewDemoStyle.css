@@ -5,6 +5,12 @@
     height: 80px;
     width: 100vw;
     background-color: blue;
+    z-index: 5;
+}
+
+.mainLogo {
+    color: white;
+    margin-left: 40px;
 }
 
 .outer {
@@ -13,20 +19,45 @@
     width: 100vw;
 }
 
+.rowTitle {
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 25px;
+}
+
 .row {
     width: 100vw;
     height: 350px;
     overflow: auto;
     white-space: nowrap;
+    margin-bottom: 24px;
 }
+/* 
+.row:nth-of-type(2) {
+    width: 100vw;
+    height: 350px;
+    overflow: auto;
+    white-space: nowrap;
+    background-color: red;
+} */
 
 .item {
-    width: 210px;
-    height: 280px;
+    width: 196px;
+    height: 260px;
     background-color: blueviolet;
     border-radius: 12px;
-    margin-top: 20px;
-    margin-left: 35px;
+    margin-top: 80px;
+    margin-right: 35px;
+    display: inline-block;
+}
+
+.item:nth-of-type(1) {
+    width: 196px;
+    height: 260px;
+    background-color: blueviolet;
+    border-radius: 12px;
+    margin-top: 80px;
+    margin-left: 30px;
     display: inline-block;
 }
 
