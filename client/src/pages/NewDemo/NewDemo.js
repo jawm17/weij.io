@@ -11,10 +11,10 @@ export default function NewDemo() {
                 </h3>
                 <div className="buttonGroup">
                     <div id="wallet">
+                        
                     </div>
                     <div id="profile">
-                    </div>
-                    <div id="message">
+                        
                     </div>
                 </div>
 
