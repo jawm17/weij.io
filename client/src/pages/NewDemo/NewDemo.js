@@ -11,13 +11,11 @@ export default function NewDemo() {
                 </h3>
                 <div className="buttonGroup">
                     <div id="wallet">
-                        {/* <div id="walletFlex">
-
-                        </div>
-                        <img id="ethLogo" src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Ethereum-ETH-icon.png" alt="eth logo"></img> */}
+                        <p>wallet</p>
+                        {/* <img id="ethLogo" src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Ethereum-ETH-icon.png" alt="eth logo"></img> */}
                     </div>
                     <div id="wallet">
-                        
+                        <p>profile</p>
                     </div>
                 </div>
 
