@@ -1,20 +1,28 @@
+import { MediaStoreData } from 'aws-sdk';
 import React, { useEffect, useState } from 'react';
 import "./NewDemoStyle.css";
 
 export default function NewDemo() {
 
-
     function openMedia(e) {
-        let id = document.getElementById(e.target.id);
-        let x = id.getBoundingClientRect().x;
-        let y = id.getBoundingClientRect().y;
-        id.style.backgroundColor = "black";
-        id.style.position = "fixed";
-        id.style.margin = 0;
-        id.style.width = "100vw";
-        id.style.height = "100vh";
-        id.style.top = "0px";
-        id.style.left = "0px";
+        let media = document.createElement("div");
+        let x = document.getElementById(e.target.id).getBoundingClientRect().x;
+        let y = document.getElementById(e.target.id).getBoundingClientRect().y;
+        media.setAttribute("class", "item");
+        media.style.margin = 0;
+        media.style.position = "fixed";
+        media.style.top = y + "px";
+        media.style.left = x + "px";
+        document.body.appendChild(media);
+        setTimeout(() => {
+            media.style.borderRadius = "0px";
+        }, 100)
+        setTimeout(() => {
+            media.style.width = "100vw";
+            media.style.height = "100vh";
+            media.style.top = "0px";
+            media.style.left = "0px";
+        }, 200)
     }
 
     return (
@@ -40,16 +48,16 @@ export default function NewDemo() {
                     <div className="item" id="media" onClick={(e) => openMedia(e)}>
 
                     </div>
-                    <div className="item" id="media" onClick={(e) => openMedia(e)}>
+                    <div className="item" id="media2" onClick={(e) => openMedia(e)}>
 
                     </div>
-                    <div className="item" id="media" onClick={(e) => openMedia(e)}>
+                    <div className="item" id="media3" onClick={(e) => openMedia(e)}>
 
                     </div>
-                    <div className="item" id="media" onClick={(e) => openMedia(e)}>
+                    <div className="item" id="media4" onClick={(e) => openMedia(e)}>
 
                     </div>
-                    <div className="item" id="media" onClick={(e) => openMedia(e)}>
+                    <div className="item" id="media5" onClick={(e) => openMedia(e)}>
 
                     </div>
                     <div className="item">
