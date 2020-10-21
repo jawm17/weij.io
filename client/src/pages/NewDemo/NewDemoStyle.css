@@ -86,7 +86,7 @@
     margin-top: 80px;
     margin-right: 35px;
     display: inline-block;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .item:nth-of-type(1) {
