@@ -65,63 +65,35 @@ export default function NewDemo() {
                 </div>
                 <div className="row">
                     <h2 className="rowTitle">B00By736's Videos</h2>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
+                    {posts.map(post => {
+                        if (!post.deleted) {
+                            return <MediaPreview
+                                className="item"
+                                key={post._id}
+                                id={post._id}
+                                imgUrl={post.imgSrc}
+                                price={post.price}
+                                privileged={post.privileged}
+                                username={post.user}
+                            />
+                        }
+                    })}
                 </div>
                 <div className="row">
                     <h2 className="rowTitle">For You</h2>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
-                    <div className="item">
-
-                    </div>
+                    {posts.map(post => {
+                        if (!post.deleted) {
+                            return <MediaPreview
+                                className="item"
+                                key={post._id}
+                                id={post._id}
+                                imgUrl={post.imgSrc}
+                                price={post.price}
+                                privileged={post.privileged}
+                                username={post.user}
+                            />
+                        }
+                    })}
                 </div>
             </div>
         </div>

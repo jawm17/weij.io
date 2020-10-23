@@ -1,8 +1,6 @@
-import zIndex from '@material-ui/core/styles/zIndex';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Media(props) {
-    const [open, setOpen] = useState(false);
     const [x, setX] = useState(document.getElementById(props.id).getBoundingClientRect().x);
     const [y, setY] = useState(document.getElementById(props.id).getBoundingClientRect().y);
     const [width, setWidth] = useState(196);
