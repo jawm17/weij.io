@@ -14,6 +14,10 @@
     display: inline-block;
 }
 
+.mainLogo:hover {
+    cursor: pointer;
+}
+
 .buttonGroup {
     float: right;
 }
@@ -97,4 +101,10 @@
 .item:hover {
     cursor: pointer;
     background-color: #8A73E2;
+}
+
+.inlineBlock {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }

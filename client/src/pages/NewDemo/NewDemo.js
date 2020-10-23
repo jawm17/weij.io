@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import Media from "../../components2/media";
+import MediaPreview from "../../components2/mediaPreview";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import "./NewDemoStyle.css";
@@ -32,7 +32,7 @@ export default function NewDemo() {
     return (
         <div>
             <div id="header">
-                <h3 className="mainLogo">
+                <h3 className="mainLogo" onClick={() => window.location.href = "/landing"}>
                     ethereal
                 </h3>
                 <div className="buttonGroup">
@@ -51,7 +51,7 @@ export default function NewDemo() {
                     <h2 className="rowTitle">Popular Content</h2>
                     {posts.map(post => {
                         if (!post.deleted) {
-                            return <Media
+                            return <MediaPreview
                                 className="item"
                                 key={post._id}
                                 id={post._id}

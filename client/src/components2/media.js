@@ -1,36 +1,48 @@
+import zIndex from '@material-ui/core/styles/zIndex';
 import React, { useEffect, useState, useContext } from 'react';
 
 export default function Media(props) {
+    const [open, setOpen] = useState(false);
+    const [x, setX] = useState(document.getElementById(props.id).getBoundingClientRect().x);
+    const [y, setY] = useState(document.getElementById(props.id).getBoundingClientRect().y);
+    const [width, setWidth] = useState(196);
+    const [height, setHeight] = useState(260);
+    const [br, setBr] = useState(12);
 
-    // useEffect(() => {
-    //     openMedia
-    // }, []);
+    const style = {
+        mediaMain: {
+            position: "fixed",
+            top: y,
+            left: x,
+            margin: 0,
+            width: width,
+            height: height,
+            backgroundColor: "gray",
+            borderRadius: br,
+            transition: "all 0.2s ease-in-out",
+            zIndex: 2
+        }
+    }
+
+    useEffect(() => {
+        openMedia();
+    }, []);
 
 
-    function openMedia(e) {
-        console.log(e);
-        let media = document.createElement("div");
-        let x = document.getElementById(e.target.id).getBoundingClientRect().x;
-        let y = document.getElementById(e.target.id).getBoundingClientRect().y;
-        media.setAttribute("class", "item");
-        media.style.margin = 0;
-        media.style.position = "fixed";
-        media.style.top = y + "px";
-        media.style.left = x + "px";
-        document.body.appendChild(media);
+    function openMedia() {
         setTimeout(() => {
-            media.style.borderRadius = "0px";
+            setBr(0);
         }, 100)
         setTimeout(() => {
-            media.style.width = "100vw";
-            media.style.height = "100vh";
-            media.style.top = "0px";
-            media.style.left = "0px";
+            setWidth("100vw");
+            setHeight("100vh");
+            setY(0);
+            setX(0);
         }, 200)
     }
 
     return (
-        <div className="item" id={props.id}  onClick={(e) => openMedia(e)}>
+        <div style={style.mediaMain} >
             
         </div>
     );
