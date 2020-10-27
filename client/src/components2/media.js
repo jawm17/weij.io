@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./mediaStyle.css";
 
 export default function Media(props) {
     const [x, setX] = useState(document.getElementById(props.id).getBoundingClientRect().x);
@@ -18,7 +19,7 @@ export default function Media(props) {
             backgroundColor: "gray",
             borderRadius: br,
             transition: "all 0.2s ease-in-out",
-            zIndex: 2
+            zIndex: 5
         }
     }
 
@@ -41,7 +42,9 @@ export default function Media(props) {
 
     return (
         <div style={style.mediaMain} >
-            
+            {/* <div className="player">
+
+            </div> */}
         </div>
     );
 }
