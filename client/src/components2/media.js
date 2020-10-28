@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Player from "./player";
+import history from '../history';
 import "./mediaStyle.css";
 
 export default function Media(props) {
@@ -47,7 +48,7 @@ export default function Media(props) {
 
             </div> */}
             <Player />
-            <div id="return" >-</div>
+            <div id="return" onClick={() => history.push("/landing")}>&lt;</div>
         </div>
     );
 }
