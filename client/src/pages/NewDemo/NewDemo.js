@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import MediaPreview from "../../components2/mediaPreview";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
+import media from "../../videos.json";
 import "./NewDemoStyle.css";
 
 export default function NewDemo() {
@@ -49,13 +50,13 @@ export default function NewDemo() {
             <div className="outer">
                 <div className="row">
                     <h2 className="rowTitle">Popular Content</h2>
-                    {posts.map(post => {
+                    {media.map(post => {
                         if (!post.deleted) {
                             return <MediaPreview
                                 className="item"
-                                key={post._id}
-                                id={post._id}
-                                imgUrl={post.imgSrc}
+                                key={post.thumb}
+                                id={post.thumb}
+                                imgUrl={post.sources}
                                 price={post.price}
                                 privileged={post.privileged}
                                 username={post.user}

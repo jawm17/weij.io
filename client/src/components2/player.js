@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function Player(props) {
 
     const style = {
-        video : {
+        video: {
             width: "100vw",
             height: 400,
             backgroundColor: "black"
