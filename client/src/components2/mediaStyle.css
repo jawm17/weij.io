@@ -11,3 +11,18 @@
     font-size: 40px;
     color: white;
 }
+
+#videoTitle {
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: 30px;
+    width: 900px;
+}
+
+#description {
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 10px;
+    width: 900px;
+    width: 900px;
+}
