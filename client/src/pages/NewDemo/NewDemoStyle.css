@@ -93,7 +93,7 @@
 } */
 
 .group {
-    margin-left: 30px;
+    margin-left: 80px;
 }
 
 .item {
@@ -109,7 +109,7 @@
 
 .item:hover {
     cursor: pointer;
-    background-color: #8A73E2;
+    /* background-color: #8A73E2; */
 }
 
 .inlineBlock {
