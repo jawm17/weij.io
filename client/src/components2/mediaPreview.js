@@ -7,7 +7,12 @@ export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-
+        let figure = document.getElementById(props.id + "vid");
+        if(figure.duration) {
+            figure.currentTime = parseInt(figure.duration)/2;
+        } else {
+            figure.currentTime = 2;
+        }
     }, []);
 
     function openMedia(e) {
@@ -33,7 +38,7 @@ export default function MediaPreview(props) {
     return (
         <div className="inlineBlock">
             <div className="item" id={props.id} onClick={(e) => openMedia(e)} onMouseEnter={() => startPreview()} onMouseLeave={() => endPreview()}>
-                <video className="sample" id={props.id + "vid"}>
+                <video className="sample" id={props.id + "vid"} muted>
                     <source src={props.imgUrl[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
