@@ -7,7 +7,7 @@ export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log(props)
+
     }, []);
 
     function openMedia(e) {
@@ -17,7 +17,11 @@ export default function MediaPreview(props) {
 
     function startPreview() {
         let figure = document.getElementById(props.id + "vid");
-        figure.currentTime = 2;
+        if(figure.duration) {
+            figure.currentTime = parseInt(figure.duration)/2;
+        } else {
+            figure.currentTime = 2;
+        }
         figure.play();
     }
 
