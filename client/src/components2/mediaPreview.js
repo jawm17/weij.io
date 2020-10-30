@@ -17,13 +17,12 @@ export default function MediaPreview(props) {
 
     function startPreview() {
         let figure = document.getElementById(props.id + "vid");
-        figure.currentTime = 3;
+        figure.currentTime = 2;
         figure.play();
     }
 
     function endPreview() {
         let figure = document.getElementById(props.id + "vid");
-        figure.currentTime = 0;
         figure.pause();
     }
 

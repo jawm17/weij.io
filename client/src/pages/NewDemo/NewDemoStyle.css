@@ -1,6 +1,6 @@
 #header {
     position: fixed;
-    height: 80px;
+    height: 90px;
     width: 100vw;
     background-color: white;
     z-index: 5;
@@ -8,8 +8,8 @@
 
 .mainLogo {
     color:  #8A62E2;
-    margin-left: 50px;
-    margin-top: 25px;
+    margin-left: 80px;
+    margin-top: 30px;
     font-size: 22px;
     display: inline-block;
 }
@@ -62,7 +62,7 @@
 
 .rowTitle {
     position: absolute;
-    margin-left: 40px;
+    margin-left: 75px;
     margin-top: 25px;
 }
 
@@ -82,20 +82,19 @@
     background-color: red;
 } */
 
+.group {
+    margin-left: 30px;
+}
+
 .item {
     width: 196px;
     height: 260px;
     background-color: gray;
     border-radius: 12px;
     margin-top: 80px;
-    margin-right: 35px;
+    margin-right: 40px;
     display: inline-block;
     transition: all 0.2s ease-in-out;
-}
-
-.item:nth-of-type(1) {
-    width: 196px;
-    margin-left: 30px;
 }
 
 .item:hover {

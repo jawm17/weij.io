@@ -50,6 +50,7 @@ export default function NewDemo() {
             <div className="outer">
                 <div className="row">
                     <h2 className="rowTitle">Popular Content</h2>
+                    <div className="group">
                     {media.map(post => {
                         if (!post.deleted) {
                             return <MediaPreview
@@ -63,6 +64,7 @@ export default function NewDemo() {
                             />
                         }
                     })}
+                    </div>
                 </div>
                 <div className="row">
                     <h2 className="rowTitle">B00By736's Videos</h2>
