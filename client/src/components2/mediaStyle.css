@@ -12,17 +12,29 @@
     color: white;
 }
 
+.content {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+}
+
 #videoTitle {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 30px;
-    width: 900px;
+    width: 700px;
 }
 
 #description {
     margin-top: 10px;
     margin-left: 40px;
     font-size: 10px;
-    width: 900px;
-    width: 900px;
+    width: 700px;
+}
+
+.relatedContent {
+    float: right;
+    width: 400px;
+    height: 10000px;
+    background-color: red;
 }

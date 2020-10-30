@@ -26,7 +26,7 @@ export default function Media(props) {
     }
 
     // useEffect(() => {
-        
+
     // }, []);
 
 
@@ -49,12 +49,15 @@ export default function Media(props) {
             </div> */}
             <Player />
             <div id="return" onClick={() => history.push("/landing")}>&lt;</div>
-            <div>
+            <div className="content">
                 <div id="videoTitle">
                     The Great big green bunny
                 </div>
                 <div id="description">
-                Proin eget dapibus urna. Aliquam in augue ante. Aliquam non tempor tortor. Morbi ullamcorper rhoncus metus vitae aliquet. Duis rhoncus velit nec lobortis tempor. Integer tempor libero massa, tincidunt molestie lorem ultricies id. Integer sed ullamcorper dolor.
+                    Proin eget dapibus urna. Aliquam in augue ante. Aliquam non tempor tortor. Morbi ullamcorper rhoncus metus vitae aliquet. Duis rhoncus velit nec lobortis tempor. Integer tempor libero massa, tincidunt molestie lorem ultricies id. Integer sed ullamcorper dolor.
+                </div>
+                <div className="relatedContent">
+
                 </div>
             </div>
         </div>
