@@ -12,7 +12,7 @@ export default function Media(props) {
 
     const style = {
         mediaMain: {
-            position: "fixed",
+
             top: 0,
             left: 0,
             margin: 0,
