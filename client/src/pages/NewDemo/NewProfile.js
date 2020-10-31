@@ -3,11 +3,13 @@ import "./profileStyle.css";
 
 export default function NewProfile() {
 
-
+    useEffect(() => {
+        console.log("Profile");
+    },[]);
 
     return (
         <div>
-            hellllllowoowowowoo
+            hello
         </div>
     );
 }
