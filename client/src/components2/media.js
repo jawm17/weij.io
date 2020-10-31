@@ -12,7 +12,6 @@ export default function Media(props) {
 
     const style = {
         mediaMain: {
-
             top: 0,
             left: 0,
             margin: 0,

@@ -4,7 +4,7 @@ import "./profileStyle.css";
 export default function NewProfile() {
 
     useEffect(() => {
-        console.log("Profile");
+        console.log("Profile Page");
     },[]);
 
     return (
