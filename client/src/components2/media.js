@@ -12,6 +12,7 @@ export default function Media(props) {
 
     const style = {
         mediaMain: {
+            position: "fixed",
             top: 0,
             left: 0,
             margin: 0,
@@ -42,7 +43,7 @@ export default function Media(props) {
     // }
 
     return (
-        <div style={style.mediaMain} >
+        <div id="mediaPage">
             {/* <div className="player">
 
             </div> */}

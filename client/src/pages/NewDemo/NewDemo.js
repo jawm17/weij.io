@@ -158,6 +158,9 @@ export default function NewDemo() {
                     </div>
                 </div>
             </div>
+            <div id="footer">
+
+            </div>
         </div>
     );
 }

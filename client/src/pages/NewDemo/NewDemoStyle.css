@@ -6,6 +6,12 @@
     z-index: 5;
 }
 
+#footer {
+    height: 200px;
+    width: 100vw;
+    background-color:  #8A62E2;
+}
+
 .mainLogo {
     color:  #8A62E2;
     margin-left: 80px;
@@ -23,10 +29,10 @@
 }
 
 #wallet {
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 33px;
     margin-right: 20px;
-    margin-top: 19.8px;
+    margin-top: 24px;
     border-color: #8A62E2;
     border-style: solid;
     border-width: 2px;
@@ -47,9 +53,9 @@
 }
 
 #profile {
-    width: 100px;
-    height: 40px;
-    margin-right: 40px;
+    width: 80px;
+    height: 33px;
+    margin-right: 3vw;
     border-color: #8A62E2;
     border-style: solid;
     border-width: 2px;
