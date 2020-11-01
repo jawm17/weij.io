@@ -41,7 +41,7 @@ export default function NewDemo() {
 
                         {/* <img id="ethLogo" src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Ethereum-ETH-icon.png" alt="eth logo"></img> */}
                     </div>
-                    <div id="profile">
+                    <div id="profile" onClick={() => window.location.href = "/profile"}>
 
                     </div>
                 </div>
@@ -50,6 +50,7 @@ export default function NewDemo() {
             <div className="outer">
                 <div className="row">
                     <h2 className="rowTitle">Popular Content</h2>
+                    <div className="scrollRight"></div>
                     <div className="group">
                         {media.map(post => {
                             if (!post.deleted) {
