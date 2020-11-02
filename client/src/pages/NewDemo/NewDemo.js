@@ -159,17 +159,15 @@ export default function NewDemo() {
                 </div>
             </div>
             <div id="footer">
-                <div className="slide">
-                    <a>copyright</a>
-                    <a>copyright</a>
-                    <a>copyright</a>
+                <div className="tile">
+                    <div className="footerElement">agreement</div>
+                    <div className="footerElement">copyright</div>
+                    <div className="footerElement">about</div>
                 </div>
-                <div className="slide">
-                    <ul>
-                        <li>copright</li>
-                        <li>copright</li>
-                        <li>copright</li>
-                    </ul>
+                <div className="tile2">
+                    <div className="footerElement">account</div>
+                    <div className="footerElement">ethereum</div>
+                    <div className="footerElement">help</div>
                 </div>
             </div>
         </div>
