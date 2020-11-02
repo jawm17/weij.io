@@ -112,14 +112,11 @@
     white-space: nowrap;
     margin-top: 24px;
 }
-/* 
-.row:nth-of-type(2) {
-    width: 100vw;
-    height: 350px;
-    overflow: auto;
-    white-space: nowrap;
-    background-color: red;
-} */
+
+.row:nth-of-type(6) {
+    padding-bottom: 40px;
+
+}
 
 .group {
     margin-left: 80px;
