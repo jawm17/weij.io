@@ -70,13 +70,13 @@ export default function NewDemo() {
                 <div className="row">
                     <h2 className="rowTitle">B00By736's Videos</h2>
                     <div className="group">
-                        {posts.map(post => {
+                    {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
                                     className="item"
-                                    key={post._id}
-                                    id={post._id}
-                                    imgUrl={post.imgSrc}
+                                    key={post.thumb}
+                                    id={post.thumb + "9"}
+                                    imgUrl={post.sources}
                                     price={post.price}
                                     privileged={post.privileged}
                                     username={post.user}
@@ -88,13 +88,13 @@ export default function NewDemo() {
                 <div className="row">
                     <h2 className="rowTitle">For You</h2>
                     <div className="group">
-                        {posts.map(post => {
+                    {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
                                     className="item"
-                                    key={post._id}
-                                    id={post._id}
-                                    imgUrl={post.imgSrc}
+                                    key={post.thumb}
+                                    id={post.thumb +" 90"}
+                                    imgUrl={post.sources}
                                     price={post.price}
                                     privileged={post.privileged}
                                     username={post.user}
@@ -159,7 +159,18 @@ export default function NewDemo() {
                 </div>
             </div>
             <div id="footer">
-
+                <div className="slide">
+                    <a>copyright</a>
+                    <a>copyright</a>
+                    <a>copyright</a>
+                </div>
+                <div className="slide">
+                    <ul>
+                        <li>copright</li>
+                        <li>copright</li>
+                        <li>copright</li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

@@ -12,6 +12,11 @@
     background-color:  #8A62E2;
 }
 
+.slide {
+    display: flex;
+    align-content: space-between;
+}
+
 .mainLogo {
     color:  #8A62E2;
     margin-left: 80px;
