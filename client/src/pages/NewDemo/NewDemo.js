@@ -30,6 +30,11 @@ export default function NewDemo() {
         });
     }
 
+    function scrollRight() {
+       let row = document.getElementById("rowOne");
+       row.scrollLeft += 900;
+    }
+
     return (
         <div>
             <div id="header">
@@ -48,9 +53,9 @@ export default function NewDemo() {
 
             </div>
             <div className="outer">
-                <div className="row">
+                <div className="row" id="rowOne">
                     <h2 className="rowTitle">Popular Content</h2>
-                    <div className="scrollRight"></div>
+                    <div className="scrollRight" onClick={() => scrollRight()}></div>
                     <div className="group">
                         {media.map(post => {
                             if (!post.deleted) {
@@ -160,14 +165,14 @@ export default function NewDemo() {
             </div>
             <div id="footer">
                 <div className="tile">
-                    <div className="footerElement">agreement</div>
-                    <div className="footerElement">copyright</div>
-                    <div className="footerElement">about</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/agreement"}>agreement</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/copyright"}>copyright</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/about"}>about</div>
                 </div>
                 <div className="tile2">
-                    <div className="footerElement">account</div>
-                    <div className="footerElement">ethereum</div>
-                    <div className="footerElement">help</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/profile"}>account</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/about/ethereum"}>ethereum</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/help"}>help</div>
                 </div>
             </div>
         </div>
