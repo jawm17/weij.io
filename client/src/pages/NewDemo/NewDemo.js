@@ -30,9 +30,9 @@ export default function NewDemo() {
         });
     }
 
-    function scrollRight() {
-       let row = document.getElementById("rowOne");
-       row.scrollLeft += 900;
+    function scrollRight(id) {
+       let row = document.getElementById(id);
+       row.scrollLeft += 950;
     }
 
     return (
@@ -55,7 +55,7 @@ export default function NewDemo() {
             <div className="outer">
                 <div className="row" id="rowOne">
                     <h2 className="rowTitle">Popular Content</h2>
-                    <div className="scrollRight" onClick={() => scrollRight()}></div>
+                    <div className="scrollRight" onClick={() => scrollRight("rowOne")}></div>
                     <div className="group">
                         {media.map(post => {
                             if (!post.deleted) {

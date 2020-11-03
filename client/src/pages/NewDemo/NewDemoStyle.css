@@ -150,10 +150,16 @@ html {
 
 .scrollRight {
     position: absolute;
-    right: 0;
+    right: 12px;
     margin-top: 180px;
-    width: 40px;
-    height: 40px;
-    background-color: red;
-    z-index: 10;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 4;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.scrollRight:hover {
+    cursor: pointer;
 }
