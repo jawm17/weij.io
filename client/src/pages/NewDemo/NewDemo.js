@@ -55,7 +55,9 @@ export default function NewDemo() {
             <div className="outer">
                 <div className="row" id="rowOne">
                     <h2 className="rowTitle">Popular Content</h2>
-                    <div className="scrollRight" onClick={() => scrollRight("rowOne")}></div>
+                    <div className="scrollRight" onClick={() => scrollRight("rowOne")}>
+                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImg"></img>
+                    </div>
                     <div className="group">
                         {media.map(post => {
                             if (!post.deleted) {

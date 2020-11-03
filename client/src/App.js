@@ -24,7 +24,7 @@ function App() {
         <UserRestrictedRoute exact path="/login" component={SignIn} />
         <UserRestrictedRoute exact path="/register" component={Register} />
         <PrivateRoute path="/user/:user" component={ProfilePage} />
-        <PrivateRoute path="/profile" component={NewProfile} />
+        <PrivateRoute path="/profile" component={UserProfilePage} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
         <PrivateRoute exact path={["/", "/home"]} component={Feed} />
