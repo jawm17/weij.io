@@ -5,7 +5,6 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
-    const [blocked, setBlocked] = useState(false);
 
     useEffect(() => {
         let figure = document.getElementById(props.id + "vid");
@@ -22,22 +21,16 @@ export default function MediaPreview(props) {
     }
 
     function startPreview() {
-        if (!blocked) {
-            let figure = document.getElementById(props.id + "vid");
-            if (figure.duration) {
-                figure.currentTime = parseInt(figure.duration) / 2;
-            } else {
-                figure.currentTime = 2;
-            }
-            figure.play();
+        let figure = document.getElementById(props.id + "vid");
+        if (figure.duration) {
+            figure.currentTime = parseInt(figure.duration) / 2;
+        } else {
+            figure.currentTime = 2;
         }
+        figure.play();
     }
 
     function endPreview() {
-        setBlocked(true);
-        setTimeout(() => {
-            setBlocked(false);
-        }, 30)
         let figure = document.getElementById(props.id + "vid");
         figure.pause();
     }
