@@ -48,7 +48,9 @@ export default function Media(props) {
 
             </div> */}
             <Player />
-            <div id="return" onClick={() => history.push("/landing")}>&lt;</div>
+            <div id="return" onClick={() => window.history.back()}>
+                <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" id="returnImg"></img>
+            </div>
             <div className="content">
                 <div id="videoTitle">
                     The Great big green bunny
