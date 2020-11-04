@@ -5,11 +5,12 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
+    const [blocked, setBlocked] = useState(false);
 
     useEffect(() => {
         let figure = document.getElementById(props.id + "vid");
-        if(figure.duration) {
-            figure.currentTime = parseInt(figure.duration)/2;
+        if (figure.duration) {
+            figure.currentTime = parseInt(figure.duration) / 2;
         } else {
             figure.currentTime = 2;
         }
@@ -21,16 +22,22 @@ export default function MediaPreview(props) {
     }
 
     function startPreview() {
-        let figure = document.getElementById(props.id + "vid");
-        if(figure.duration) {
-            figure.currentTime = parseInt(figure.duration)/2;
-        } else {
-            figure.currentTime = 2;
+        if (!blocked) {
+            let figure = document.getElementById(props.id + "vid");
+            if (figure.duration) {
+                figure.currentTime = parseInt(figure.duration) / 2;
+            } else {
+                figure.currentTime = 2;
+            }
+            figure.play();
         }
-        figure.play();
     }
 
     function endPreview() {
+        setBlocked(true);
+        setTimeout(() => {
+            setBlocked(false);
+        }, 30)
         let figure = document.getElementById(props.id + "vid");
         figure.pause();
     }
