@@ -52,6 +52,8 @@ export default function NewDemo() {
 
     return (
         <div>
+            <div id="landingBg">
+            </div>
             <div id="header">
                 <h3 className="mainLogo" onClick={() => window.location.href = "/landing"}>
                     ethereal

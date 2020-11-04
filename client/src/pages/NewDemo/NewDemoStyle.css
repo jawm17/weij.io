@@ -2,6 +2,14 @@ html {
     scroll-behavior: smooth;
 }
 
+#landingBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #EFEFEF;
+    z-index: -1;
+}
+
 #header {
     position: fixed;
     top: 0;
@@ -100,7 +108,7 @@ html {
 }
 
 .contentContainer {
-    margin-top: 80px;
+    padding-top: 83px;
 }
 
 .rowTitle {
@@ -172,6 +180,7 @@ html {
     margin-top: 3px;
     width: 55px;
     height: 55px;
+    margin-left: 2px;
 }
 
 .scrollLeft {
@@ -198,6 +207,7 @@ html {
 
 .arrowImgLeft {
     margin-top: 3px;
+    margin-left: 3px;
     width: 55px;
     height: 55px;
     -webkit-transform:rotate(180deg);

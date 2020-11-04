@@ -42,6 +42,9 @@ export default function MediaPreview(props) {
                     <source src={props.imgUrl[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
+                <div className="">
+
+                </div>
             </div>
             {/* {open ? <Media id={props.id}></Media> : null} */}
 
