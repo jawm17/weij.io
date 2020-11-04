@@ -4,6 +4,7 @@ html {
 
 #header {
     position: fixed;
+    top: 0;
     height: 90px;
     width: 100vw;
     background-color: white;
@@ -98,11 +99,8 @@ html {
     color: white;
 }
 
-.outer {
-    padding-top: 80px;
-    text-align: center;
-    width: 100vw;
-    background-color: #EFEFEF;
+.contentContainer {
+    margin-top: 80px;
 }
 
 .rowTitle {
@@ -153,7 +151,7 @@ html {
 .scrollRight {
     position: absolute;
     right: 18px;
-    margin-top: 180px;
+    margin-top: 185px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -170,8 +168,41 @@ html {
     box-shadow: 0 0 0 0;
 }
 
-.arrowImg {
+.arrowImgRight {
     margin-top: 3px;
     width: 55px;
     height: 55px;
+}
+
+.scrollLeft {
+    position: absolute;
+    left: 40px;
+    margin-top: 185px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 4;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.scrollLeft:hover {
+    cursor: pointer;
+}
+
+.scrollLeft:active {
+    box-shadow: 0 0 0 0;
+}
+
+.arrowImgLeft {
+    margin-top: 3px;
+    width: 55px;
+    height: 55px;
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }

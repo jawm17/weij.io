@@ -7,10 +7,12 @@ import "./NewDemoStyle.css";
 
 export default function NewDemo() {
     const [posts, setPosts] = useState([]);
+    const [positioned, setPositioned] = useState(false);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
         getFeed();
+
     }, []);
 
     function getFeed() {
@@ -31,8 +33,16 @@ export default function NewDemo() {
     }
 
     function scrollRight(id) {
-       let row = document.getElementById(id);
-       row.scrollLeft += 950;
+        let row = document.getElementById(id);
+        row.scrollLeft += 950;
+    }
+
+    function scrollChecker(id) {
+        if (document.getElementById(id).scrollLeft >= 9) {
+            document.getElementById(id + "Button").style.opacity = 100;
+        } else {
+            document.getElementById(id + "Button").style.opacity = 0;
+        }
     }
 
     return (
@@ -50,13 +60,15 @@ export default function NewDemo() {
 
                     </div>
                 </div>
-
             </div>
-            <div className="outer">
-                <div className="row" id="rowOne">
+            <div className="contentContainer">
+                <div className="row" id="rowOne" onScroll={() => scrollChecker("rowOne")}>
                     <h2 className="rowTitle">Popular Content</h2>
+                    <div className="scrollLeft" id="rowOneButton">
+                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
+                    </div>
                     <div className="scrollRight" onClick={() => scrollRight("rowOne")}>
-                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImg"></img>
+                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgRight"></img>
                     </div>
                     <div className="group">
                         {media.map(post => {
@@ -74,10 +86,16 @@ export default function NewDemo() {
                         })}
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" id="rowTwo" onScroll={() => scrollChecker("rowTwo")}>
                     <h2 className="rowTitle">B00By736's Videos</h2>
+                    <div className="scrollLeft" id="rowTwoButton">
+                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
+                    </div>
+                    <div className="scrollRight" onClick={() => scrollRight("rowTwo")}>
+                        <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgRight"></img>
+                    </div>
                     <div className="group">
-                    {media.map(post => {
+                        {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
                                     className="item"
@@ -95,12 +113,12 @@ export default function NewDemo() {
                 <div className="row">
                     <h2 className="rowTitle">For You</h2>
                     <div className="group">
-                    {media.map(post => {
+                        {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
                                     className="item"
                                     key={post.thumb}
-                                    id={post.thumb +" 90"}
+                                    id={post.thumb + " 90"}
                                     imgUrl={post.sources}
                                     price={post.price}
                                     privileged={post.privileged}
