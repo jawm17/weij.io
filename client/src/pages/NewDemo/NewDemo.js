@@ -37,6 +37,11 @@ export default function NewDemo() {
         row.scrollLeft += 950;
     }
 
+    function scrollLeft(id) {
+        let row = document.getElementById(id);
+        row.scrollLeft = 0;
+    }
+
     function scrollChecker(id) {
         if (document.getElementById(id).scrollLeft >= 9) {
             document.getElementById(id + "Button").style.opacity = 100;
@@ -64,7 +69,7 @@ export default function NewDemo() {
             <div className="contentContainer">
                 <div className="row" id="rowOne" onScroll={() => scrollChecker("rowOne")}>
                     <h2 className="rowTitle">Popular Content</h2>
-                    <div className="scrollLeft" id="rowOneButton">
+                    <div className="scrollLeft" id="rowOneButton" onClick={() => scrollLeft("rowOne")}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
                     </div>
                     <div className="scrollRight" onClick={() => scrollRight("rowOne")}>
@@ -88,7 +93,7 @@ export default function NewDemo() {
                 </div>
                 <div className="row" id="rowTwo" onScroll={() => scrollChecker("rowTwo")}>
                     <h2 className="rowTitle">B00By736's Videos</h2>
-                    <div className="scrollLeft" id="rowTwoButton">
+                    <div className="scrollLeft" id="rowTwoButton" onClick={() => scrollLeft("rowTwo")}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
                     </div>
                     <div className="scrollRight" onClick={() => scrollRight("rowTwo")}>
