@@ -43,7 +43,7 @@ export default function NewDemo() {
     }
 
     function scrollChecker(id) {
-        if (document.getElementById(id).scrollLeft >= 9) {
+        if (document.getElementById(id).scrollLeft >= 23) {
             document.getElementById(id + "Button").style.opacity = 100;
         } else {
             document.getElementById(id + "Button").style.opacity = 0;
