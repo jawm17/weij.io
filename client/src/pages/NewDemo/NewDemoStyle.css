@@ -85,7 +85,7 @@ html {
 
 .rowTitle {
     position: absolute;
-    margin-left: 80px;
+    margin-left: 83px;
     margin-top: 25px;
 }
 
@@ -157,7 +157,7 @@ html {
 
 .scrollLeft {
     position: absolute;
-    left: 40px;
+    left: 30px;
     margin-top: 185px;
     width: 60px;
     height: 60px;
