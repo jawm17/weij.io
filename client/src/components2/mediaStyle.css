@@ -39,14 +39,15 @@
     transform: rotate(180deg);
 }
 
-.content {
-    width: 100vw;
-    height: 100vh;
+.contentLeft {
+    float: left;
+    width: 800px;
+    background-color: gray;
 }
 
 #videoTitle {
-    margin-top: 20px;
-    margin-left: 40px;
+    margin-top: 28px;
+    margin-left: 50px;
     font-size: 30px;
     width: 700px;
 }
@@ -58,7 +59,15 @@
     width: 700px;
 }
 
+#tipButton {
+    float: right;
+    width: 80px;
+    height: 40px;
+    background-color: blue;
+}
+
 .relatedContent {
+    margin-top: 200px;
     float: right;
     width: 400px;
     height: 10000px;
