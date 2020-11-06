@@ -42,6 +42,7 @@
 .contentTop {
     float: left;
     width: 100vw;
+    height: 130px;
 }
 
 .contentTopLeft {
@@ -62,15 +63,43 @@
     width: 700px;
 }
 
+#mediaButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 110px;
+    margin-right: 5vw;
+    float: right;
+}
+
 #tipButton {
-    float: left;
     width: 80px;
     height: 40px;
     background-color: blue;
 }
 
+#likeButton {
+    width: 80px;
+    height: 40px;
+    background-color: blue;
+}
+
+#shareButton {
+    width: 80px;
+    height: 40px;
+    background-color: blue;
+}
+
+.commentArea {
+    float: left;
+    width: calc(100vw - 420px);
+    height: 10000px;
+    background-color: grey;
+}
+
 .relatedContent {
-    margin-top: 0px;
+    margin-top: 110px;
     float: right;
     width: 400px;
     height: 10000px;

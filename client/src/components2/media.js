@@ -60,12 +60,20 @@ export default function Media(props) {
                         Proin eget dapibus urna. Aliquam in augue ante. Aliquam non tempor tortor. Morbi ullamcorper rhoncus metus vitae aliquet. Duis rhoncus velit nec lobortis tempor. Integer tempor libero massa, tincidunt molestie lorem ultricies id. Integer sed ullamcorper dolor.
                 </div>
                 </div>
-                <div id="tipButton">
+                <div id="mediaButtons">
+                    <div id="tipButton">
 
-                </div>
-                <div id="likeButton">
+                    </div>
+                    <div id="likeButton">
 
+                    </div>
+                    <div id="shareButton">
+
+                    </div>
                 </div>
+            </div>
+            <div className="commentArea">
+
             </div>
             <div className="relatedContent">
 
