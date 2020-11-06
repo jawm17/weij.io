@@ -28,6 +28,12 @@ export default function NewProfile() {
         <div>
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
+                <div id="profileUsername">
+                    Jawm42
+                </div>
+                <div id="settingsButton">
+
+                </div>
             </div>
             <div id="rightPanelProfile">
 
