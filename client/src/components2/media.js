@@ -25,9 +25,8 @@ export default function Media(props) {
         }
     }
 
-    // useEffect(() => {
-
-    // }, []);
+    useEffect(() => {
+    }, []);
 
 
     // function openMedia() {

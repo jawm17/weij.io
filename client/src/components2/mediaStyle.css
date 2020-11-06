@@ -1,3 +1,11 @@
+#mediaPage {
+    background-color: #efefef;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow-y: scroll;
+}
+
 .player {
     height: 400px;
     width: 100vw;
@@ -89,14 +97,14 @@
     float: left;
     width: calc(100vw - 500px);
     margin-left: 20px;
-    height: 10000px;
+    height: 700px;
     border-radius: 12px;
-    background-color: grey;
+    background-color: white;
 }
 
 .relatedContent {
     float: right;
     width: 400px;
-    height: 10000px;
+    height: 810px;
     background-color: red;
 }
