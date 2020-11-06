@@ -26,7 +26,12 @@ export default function NewProfile() {
 
     return (
         <div>
-            hello
+            <div id="leftPanelProfile">
+                <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
+            </div>
+            <div id="rightPanelProfile">
+
+            </div>
         </div>
     );
 }
