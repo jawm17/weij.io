@@ -51,19 +51,21 @@ export default function Media(props) {
             <div id="return" onClick={() => window.history.back()}>
                 <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" id="returnImg"></img>
             </div>
-            <div className="contentLeft">
-                <div id="videoTitle">
-                    The Great big green bunny
+            <div className="contentTop">
+                <div className="contentTopLeft">
+                    <div id="videoTitle">
+                        The Great big green bunny
                 </div>
-                <div id="description">
-                    Proin eget dapibus urna. Aliquam in augue ante. Aliquam non tempor tortor. Morbi ullamcorper rhoncus metus vitae aliquet. Duis rhoncus velit nec lobortis tempor. Integer tempor libero massa, tincidunt molestie lorem ultricies id. Integer sed ullamcorper dolor.
+                    <div id="description">
+                        Proin eget dapibus urna. Aliquam in augue ante. Aliquam non tempor tortor. Morbi ullamcorper rhoncus metus vitae aliquet. Duis rhoncus velit nec lobortis tempor. Integer tempor libero massa, tincidunt molestie lorem ultricies id. Integer sed ullamcorper dolor.
+                </div>
                 </div>
                 <div id="tipButton">
 
-            </div>
-            <div id="likeButton">
+                </div>
+                <div id="likeButton">
 
-            </div>
+                </div>
             </div>
             <div className="relatedContent">
 
