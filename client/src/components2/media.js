@@ -73,7 +73,6 @@ export default function Media(props) {
                 </div>
             </div>
             <div className="commentArea">
-
             </div>
             <div className="relatedContent">
 
