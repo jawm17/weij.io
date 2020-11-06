@@ -41,7 +41,7 @@
 
 .contentLeft {
     float: left;
-    width: 800px;
+    width: 100vw;
     background-color: gray;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .relatedContent {
-    margin-top: 200px;
+    margin-top: 0px;
     float: right;
     width: 400px;
     height: 10000px;
