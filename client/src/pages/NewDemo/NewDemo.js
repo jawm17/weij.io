@@ -34,7 +34,7 @@ export default function NewDemo() {
 
     function scrollRight(id) {
         let row = document.getElementById(id);
-        row.scrollLeft += 950;
+        row.scrollLeft += 300;
     }
 
     function scrollLeft(id) {

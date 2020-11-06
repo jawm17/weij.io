@@ -60,14 +60,14 @@ export default function Media(props) {
                 </div>
                 </div>
                 <div id="mediaButtons">
-                    <div id="tipButton">
-
+                    <div id="tipButton" className="mediaButton">
+                        Tip
                     </div>
-                    <div id="likeButton">
-
+                    <div id="likeButton" className="mediaButton">
+                        Like
                     </div>
-                    <div id="shareButton">
-
+                    <div id="shareButton" className="mediaButton">
+                        Share
                     </div>
                 </div>
             </div>
