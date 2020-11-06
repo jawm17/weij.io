@@ -6,9 +6,9 @@ import "./mediaStyle.css";
 export default function Media(props) {
     // const [x, setX] = useState(document.getElementById(props.id).getBoundingClientRect().x);
     // const [y, setY] = useState(document.getElementById(props.id).getBoundingClientRect().y);
+    // const [br, setBr] = useState(12);
     const [width, setWidth] = useState(196);
     const [height, setHeight] = useState(260);
-    const [br, setBr] = useState(12);
 
     const style = {
         mediaMain: {
