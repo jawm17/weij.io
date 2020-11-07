@@ -44,7 +44,7 @@
 .contentTop {
     float: left;
     width: 100vw;
-    height: 130px;
+    height: 140px;
 }
 
 .contentTopLeft {
@@ -52,14 +52,14 @@
 }
 
 #videoTitle {
-    margin-top: 28px;
+    margin-top: 34px;
     margin-left: 50px;
     font-size: 30px;
     width: 700px;
 }
 
 #description {
-    margin-top: 10px;
+    margin-top: 14px;
     margin-left: 40px;
     font-size: 10px;
     width: 700px;
@@ -103,5 +103,5 @@
     float: right;
     width: 400px;
     height: 810px;
-    background-color: red;
+    background-color: white;
 }
