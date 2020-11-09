@@ -29,7 +29,7 @@
 
 #rightPanelProfile {
     position: fixed;
-    top: 100px;
+    top: 80px;
     left: 500px;
     width: 400px;
     height: calc(100vh - 100px);
@@ -46,6 +46,7 @@
     background-color: red;
     display: inline;
     float: left;
+    margin-top: 70px;
 }
 
 #rowTwoPro {
@@ -54,6 +55,7 @@
     background-color: blue;
     display: inline;
     float: left;
+    margin-top: 70px;
 }
 
 #rowThreePro {
@@ -62,4 +64,5 @@
     background-color: red;
     display: inline;
     float: left;
+    margin-top: 70px;
 }
