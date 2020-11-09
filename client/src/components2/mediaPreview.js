@@ -21,13 +21,19 @@ export default function MediaPreview(props) {
     }
 
     function startPreview() {
+        let exited = false;
+        document.getElementById(props.id).addEventListener("mouseleave", () => exited = true);
         let figure = document.getElementById(props.id + "vid");
-        if (figure.duration) {
-            figure.currentTime = parseInt(figure.duration) / 2;
-        } else {
-            figure.currentTime = 2;
-        }
-        figure.play();
+        setTimeout(() => {
+            if(!exited) {
+                if (figure.duration) {
+                    figure.currentTime = parseInt(figure.duration) / 2;
+                } else {
+                    figure.currentTime = 2;
+                }
+                figure.play();
+            }
+        }, 500);
     }
 
     function endPreview() {
