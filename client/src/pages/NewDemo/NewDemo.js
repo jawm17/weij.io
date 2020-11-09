@@ -3,6 +3,7 @@ import MediaPreview from "../../components2/mediaPreview";
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import media from "../../videos.json";
+import HeaderEth from "../../components2/headerEth";
 import "./NewDemoStyle.css";
 
 export default function NewDemo() {
@@ -54,21 +55,7 @@ export default function NewDemo() {
         <div>
             <div id="landingBg">
             </div>
-            <div id="header">
-                <h3 className="mainLogo" onClick={() => window.location.href = "/landing"}>
-                    ethereal
-                </h3>
-                <div className="buttonGroup">
-                    <div id="wallet" className="fixedButtons">
-                        
-                    </div>
-                    <div id="profile" className="fixedButtons" onClick={() => window.location.href = "/profile"}>
-                        <div>
-                            Profile
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <HeaderEth />
             <div className="contentContainer">
                 <div className="row" id="rowOne" onScroll={() => scrollChecker("rowOne")}>
                     <h2 className="rowTitle">Popular Content</h2>

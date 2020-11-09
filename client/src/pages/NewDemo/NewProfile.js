@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
+import HeaderEth from "../../components2/headerEth";
 import "./profileStyle.css";
 
 export default function NewProfile() {
@@ -26,6 +27,7 @@ export default function NewProfile() {
 
     return (
         <div>
+            <HeaderEth />
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
                 <div id="profileUsername">
@@ -36,7 +38,15 @@ export default function NewProfile() {
                 </div>
             </div>
             <div id="rightPanelProfile">
+                <div id="rowOnePro">
+                    Nigger 
+                </div>
+                <div id="rowTwoPro">
 
+                </div>
+                <div id="rowThreePro">
+
+                </div>
             </div>
         </div>
     );

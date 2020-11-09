@@ -1,16 +1,17 @@
 #leftPanelProfile {
     width: 500px;
     height: 100vh;
-    background-color: #efefef;
+    background-color: white;
     text-align: center;
     position: fixed;
+    left: 0;
     z-index: -1;
 }
 
 #profilePictureFull {
     border-radius: 50%;
-    width: 200px;
-    margin-top: 120px;
+    width: 160px;
+    margin-top: 130px;
 }
 
 #profileUsername {
@@ -21,6 +22,44 @@
 #settingsButton {
     width: 60px;
     height: 60px;
+    margin-left: 80px;
     border-radius: 10px;
     background-color: white;
+}
+
+#rightPanelProfile {
+    position: fixed;
+    top: 100px;
+    left: 500px;
+    width: 400px;
+    height: calc(100vh - 100px);
+    float: right;
+    width: calc(100vw - 500px);
+    background-color:  #efefef;
+    overflow-y: scroll;
+}
+
+#rowOnePro {
+    width: 250px;
+    height: 1000px;
+    margin-left: 100px;
+    background-color: red;
+    display: inline;
+    float: left;
+}
+
+#rowTwoPro {
+    width: 250px;
+    height: 1000px;
+    background-color: blue;
+    display: inline;
+    float: left;
+}
+
+#rowThreePro {
+    width: 250px;
+    height: 1000px;
+    background-color: red;
+    display: inline;
+    float: left;
 }
