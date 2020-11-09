@@ -11,7 +11,7 @@ export default function NewProfile() {
     useEffect(() => {
         console.log("Profile Page");
         requestUserData();
-    },[]);
+    }, []);
 
     function requestUserData() {
         UserService.getUserInfo().then(data => {
@@ -44,17 +44,33 @@ export default function NewProfile() {
 
                     </div>
                     <div className="profilePreview">
-                        
+
                     </div>
                     <div className="profilePreview">
-                        
+
                     </div>
                 </div>
                 <div id="rowTwoPro">
+                    <div className="profilePreview">
 
+                    </div>
+                    <div className="profilePreview">
+
+                    </div>
+                    <div className="profilePreview">
+
+                    </div>
                 </div>
                 <div id="rowThreePro">
+                    <div className="profilePreview">
 
+                    </div>
+                    <div className="profilePreview">
+
+                    </div>
+                    <div className="profilePreview">
+
+                    </div>
                 </div>
             </div>
         </div>
