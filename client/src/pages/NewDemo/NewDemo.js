@@ -59,10 +59,13 @@ export default function NewDemo() {
                     ethereal
                 </h3>
                 <div className="buttonGroup">
-                    <div id="wallet">
+                    <div id="wallet" className="fixedButtons">
                         
                     </div>
-                    <div id="profile" onClick={() => window.location.href = "/profile"}>
+                    <div id="profile" className="fixedButtons" onClick={() => window.location.href = "/profile"}>
+                        <div>
+                            Profile
+                        </div>
                     </div>
                 </div>
             </div>
