@@ -66,3 +66,11 @@
     float: left;
     margin-top: 70px;
 }
+
+.profilePreview {
+    width: 196px;
+    height: 260px;
+    border-radius: 12px;
+    background-color: gray;
+    margin-bottom: 20px;
+}

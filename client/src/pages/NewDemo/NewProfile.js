@@ -3,6 +3,7 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderEth from "../../components2/headerEth";
 import "./profileStyle.css";
+import { IoTEvents } from 'aws-sdk';
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
@@ -39,7 +40,15 @@ export default function NewProfile() {
             </div>
             <div id="rightPanelProfile">
                 <div id="rowOnePro">
-                    Nigger 
+                    <div className="profilePreview">
+
+                    </div>
+                    <div className="profilePreview">
+                        
+                    </div>
+                    <div className="profilePreview">
+                        
+                    </div>
                 </div>
                 <div id="rowTwoPro">
 
