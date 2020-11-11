@@ -9,7 +9,7 @@
     width: 196px;
     height: 260px;
     margin-top: 80px;
-    margin-right: 40px;
+    margin-right: 60px;
     position: relative;
     border-radius: 12px;
     background-color: gray;
@@ -30,5 +30,5 @@
 }
 
 .thumbnail {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }

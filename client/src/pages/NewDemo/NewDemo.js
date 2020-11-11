@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import MediaPreview from "../../components2/mediaPreview";
 import UserService from '../../services/UserService';
-import { AuthContext } from '../../context/AuthContext';
+import AuthContext from '../../context/AuthContext';
 import media from "../../videos.json";
 import HeaderEth from "../../components2/headerEth";
 import "./NewDemoStyle.css";
