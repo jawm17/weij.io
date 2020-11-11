@@ -32,16 +32,15 @@ export default function Landing() {
 
     return (
         <div>
-            <div id="landingBg">
-            </div>
             <HeaderEth />
+            <div id="landingBg"></div>
             <div className="contentContainer">
                 
                 <Row posts={posts}/>
-                <Row />
-                <Row />
-                <Row />
-                <Row className="lastRow"/>
+                <Row posts={posts}/>
+                <Row posts={posts}/>
+                <Row posts={posts}/>
+                <Row posts={posts}/>
 
                 {/* <div className="row">
                     <h2 className="rowTitle">For You</h2>
