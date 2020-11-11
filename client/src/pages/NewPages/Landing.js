@@ -2,11 +2,13 @@ import React, { useEffect, useState, useContext } from 'react';
 import UserService from '../../services/UserService';
 import AuthContext from '../../context/AuthContext';
 import HeaderEth from "../../components2/headerEth";
+import HeaderAccessed from "../../components2/headerAccessed";
 import Row from "../../components2/row";
 import "./LandingStyle.css";
 
 export default function Landing() {
     const [posts, setPosts] = useState([]);
+    const [access, setAccess] = useState(false);
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
@@ -21,10 +23,12 @@ export default function Landing() {
                     return new Date(b.createdAt) - new Date(a.createdAt);
                 });
                 setPosts(data);
+                setAccess(true);
             }
             else if (data.message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
                 authContext.setIsAuthenticated(false);
+                setAccess(false);
                 window.alert("not logged in");
             }
         });
@@ -32,7 +36,7 @@ export default function Landing() {
 
     return (
         <div>
-            <HeaderEth />
+            {access ? <HeaderAccessed /> : <HeaderEth />}
             <div id="landingBg"></div>
             <div className="contentContainer">
                 
