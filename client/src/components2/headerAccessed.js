@@ -11,7 +11,9 @@ export default function HeaderAccessed() {
                     ethereal
                 </h3>
                 <div className="buttonGroup">
-                    <div id="wallet" className="fixedButtons" onClick={() => window.location.href = "/register"}>
+                    <div id="walletA" className="fixedButtonsA" onClick={() => window.location.href = "/wallet"}>
+                    {/* <img id="ethIcon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkhipus.io%2Fimages%2Fether-iso.png&f=1&nofb=1"></img>
+                        2.01 */}
                         Wallet
                     </div>
                     <div id="profileA"  onClick={() => window.location.href = "/profile"}>
