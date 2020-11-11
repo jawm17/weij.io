@@ -37,18 +37,13 @@ export default function MediaPreview(props) {
         let exited = false;
         document.getElementById(props.id).addEventListener("mouseleave", () => exited = true);
         let figure = document.getElementById(props.id + "vid");
-        figure.style.display = "initial";
-        setOpacity(0);
         setTimeout(() => {
             if (!exited) {
-                if (figure.duration) {
-                    figure.currentTime = parseInt(figure.duration) / 2;
-                } else {
-                    figure.currentTime = 2;
-                }
+                figure.style.display = "initial";
+                setOpacity(0);
                 figure.play();
             }
-        }, 500);
+        }, 450);
     }
 
     function endPreview() {

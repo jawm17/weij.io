@@ -1,0 +1,43 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#landingBg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #EFEFEF;
+    z-index: -1;
+}
+
+.contentContainer {
+    padding-top: 83px;
+}
+
+#footer {
+    height: 200px;
+    width: 100vw;
+    background-color:  #8A62E2;
+    
+}
+
+.tile {
+    width: 200px;
+    margin-left: 90px;
+    padding-top: 34px;
+    display: inline-block
+}
+
+.tile2 {
+    width: 200px;
+    display: inline-block
+}
+
+.footerElement {
+    padding-bottom: 34px;
+    color: white;
+}
+
+.footerElement:hover {
+    cursor: default;
+}
