@@ -38,23 +38,6 @@ html {
     margin-left: 80px;
 }
 
-.item {
-    width: 196px;
-    height: 260px;
-    background-color: gray;
-    border-radius: 12px;
-    margin-top: 80px;
-    margin-right: 40px;
-    display: inline-block;
-    transition: all 0.2s ease-in-out;
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
-}
-
-.item:hover {
-    cursor: pointer;
-    /* background-color: #8A73E2; */
-}
-
 .inlineBlock {
     display: inline-block;
 }

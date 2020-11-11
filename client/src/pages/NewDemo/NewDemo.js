@@ -13,7 +13,6 @@ export default function NewDemo() {
 
     useEffect(() => {
         getFeed();
-
     }, []);
 
     function getFeed() {
@@ -69,7 +68,6 @@ export default function NewDemo() {
                         {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post.thumb}
                                     id={post.thumb}
                                     imgUrl={post.sources}
@@ -93,7 +91,6 @@ export default function NewDemo() {
                         {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post.thumb}
                                     id={post.thumb + "9"}
                                     imgUrl={post.sources}
@@ -111,7 +108,6 @@ export default function NewDemo() {
                         {media.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post.thumb}
                                     id={post.thumb + " 90"}
                                     imgUrl={post.sources}
@@ -129,7 +125,6 @@ export default function NewDemo() {
                         {posts.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post._id}
                                     id={post._id}
                                     imgUrl={post.imgSrc}
@@ -147,7 +142,6 @@ export default function NewDemo() {
                         {posts.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post._id}
                                     id={post._id}
                                     imgUrl={post.imgSrc}
@@ -165,7 +159,6 @@ export default function NewDemo() {
                         {posts.map(post => {
                             if (!post.deleted) {
                                 return <MediaPreview
-                                    className="item"
                                     key={post._id}
                                     id={post._id}
                                     imgUrl={post.imgSrc}
