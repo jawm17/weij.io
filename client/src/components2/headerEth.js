@@ -11,7 +11,7 @@ export default function HeaderEth() {
                     ethereal
                 </h3>
                 <div className="buttonGroup">
-                    <div id="wallet" className="fixedButtons">
+                    <div id="wallet" className="fixedButtons" onClick={() => window.location.href = "/register"}>
                         Sign Up
                     </div>
                     <div id="profile" className="fixedButtons" onClick={() => window.location.href = "/profile"}>

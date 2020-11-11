@@ -13,9 +13,9 @@ import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
 import SendPage from './pages/SendPage/SendPage';
-import Landing from "./pages/Landing/Landing";
+import Landing from "./pages/NewPages/Landing";
 import Media from "./components2/media";
-import NewProfile from "./pages/NewDemo/NewProfile";
+import NewProfile from "./pages/NewPages/NewProfile";
 
 function App() {
   return (

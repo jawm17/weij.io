@@ -3,10 +3,10 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderEth from "../../components2/headerEth";
 import "./profileStyle.css";
-import { IoTEvents } from 'aws-sdk';
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
+    const settingsSrc = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fmodern-ui-1%2F64%2Fsettings-cog-512.png&f=1&nofb=1";
 
     useEffect(() => {
         console.log("Profile Page");
@@ -34,8 +34,19 @@ export default function NewProfile() {
                 <div id="profileUsername">
                     Jawm42
                 </div>
-                <div id="settingsButton">
-
+                <div id="infoGroup">
+                
+                </div>
+                <div id="buttonGroup">
+                    <div id="settingsButton">
+                        <img src={settingsSrc} alt="settings cog" id="cog"></img>
+                    </div>
+                    <div id="uploadButton">
+                        upload
+                    </div>
+                    <div id="manageSubs">
+                        subscriptions
+                    </div>
                 </div>
             </div>
             <div id="rightPanelProfile">

@@ -1,11 +1,10 @@
 #leftPanelProfile {
     width: 500px;
     height: 100vh;
-    background-color: white;
+    background-color:  gray;
     text-align: center;
     position: fixed;
     left: 0;
-    z-index: -1;
 }
 
 #profilePictureFull {
@@ -19,12 +18,47 @@
     font-size: 24px;
 }
 
+#buttonGroup {
+    height: 120px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 #settingsButton {
     width: 60px;
     height: 60px;
-    margin-left: 80px;
     border-radius: 10px;
     background-color: white;
+    display: inline;
+    margin-left: 60px;
+}
+
+#cog {
+    width: 60px;
+    height: 60px;
+}
+
+#uploadButton {
+    width: 120px;
+    height: 60px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#manageSubs {
+    width: 120px;
+    height: 60px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
 }
 
 #rightPanelProfile {
@@ -45,7 +79,7 @@
     margin-left: 100px;
     display: inline;
     float: left;
-    margin-top: 170px;
+    margin-top: 70px;
 }
 
 #rowTwoPro {
@@ -61,7 +95,7 @@
     height: 1000px;
     display: inline;
     float: left;
-    margin-top: 170px;
+    margin-top: 70px;
 }
 
 .profilePreview {
