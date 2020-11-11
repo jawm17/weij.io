@@ -42,10 +42,12 @@ export default function NewProfile() {
                         <img src={settingsSrc} alt="settings cog" id="cog"></img>
                     </div>
                     <div id="uploadButton">
-                        upload
+                    <div className="bold">4000</div>
+                        subscribers
                     </div>
                     <div id="manageSubs">
-                        subscriptions
+                        <div className="bold">510</div>
+                        eth earned
                     </div>
                 </div>
             </div>

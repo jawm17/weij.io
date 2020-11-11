@@ -1,14 +1,20 @@
 #leftPanelProfile {
     width: 500px;
     height: 100vh;
-    background-color:  gray;
+    background-color:  white;
     text-align: center;
     position: fixed;
     left: 0;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-color: gray;
 }
 
 #profilePictureFull {
     border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
     width: 160px;
     margin-top: 130px;
 }
@@ -21,6 +27,7 @@
 #buttonGroup {
     height: 120px;
     width: 500px;
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -31,13 +38,15 @@
     height: 60px;
     border-radius: 10px;
     background-color: white;
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 60px;
 }
 
 #cog {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 
 #uploadButton {
@@ -45,9 +54,7 @@
     height: 60px;
     background-color: white;
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #manageSubs {
@@ -55,18 +62,24 @@
     height: 60px;
     background-color: white;
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     margin-right: 60px;
+}
+
+.bold {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #rightPanelProfile {
     position: fixed;
     top: 80px;
-    left: 500px;
+    left: 502px;
     width: 400px;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     float: right;
     width: calc(100vw - 500px);
     background-color:  #efefef;

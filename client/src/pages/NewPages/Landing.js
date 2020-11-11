@@ -62,14 +62,14 @@ export default function Landing() {
             </div>
             <div id="footer">
                 <div className="tile">
-                    <div className="footerElement" onClick={() => window.location.href = "/agreement"}>agreement</div>
-                    <div className="footerElement" onClick={() => window.location.href = "/copyright"}>copyright</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/agreement"}>copyright</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/copyright"}>agreement</div>
                     <div className="footerElement" onClick={() => window.location.href = "/about"}>about</div>
                 </div>
                 <div className="tile2">
-                    <div className="footerElement" onClick={() => window.location.href = "/profile"}>account</div>
-                    <div className="footerElement" onClick={() => window.location.href = "/about/ethereum"}>ethereum</div>
-                    <div className="footerElement" onClick={() => window.location.href = "/help"}>help</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/about/ethereum"}>what is ethereal</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/help"}>what is ethereum</div>
+                    <div className="footerElement" onClick={() => window.location.href = "/profile"}>leaderboard</div>
                 </div>
             </div>
         </div>
