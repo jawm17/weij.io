@@ -26,8 +26,20 @@
     font-size: 22px;
 }
 
-.mediaLogo{
+#mediaLogo{
     color:  #8A62E2;
+    margin-left: 45px;
+    font-size: 22px;
+}
+
+#musicLogo {
+    color: gray;
+    margin-left: 45px;
+    font-size: 22px;
+}
+
+#gamesLogo {
+    color: gray;
     margin-left: 45px;
     font-size: 22px;
 }
