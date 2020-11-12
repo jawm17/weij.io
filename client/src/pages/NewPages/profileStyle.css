@@ -16,12 +16,13 @@
     border-width: 1px;
     border-color: black;
     width: 160px;
-    margin-top: 130px;
+    margin-top: 200px;
 }
 
 #profileUsername {
     margin-top: 20px;
     font-size: 24px;
+    color: white;
 }
 
 #buttonGroup {
@@ -38,6 +39,7 @@
     height: 60px;
     border-radius: 10px;
     background-color: white;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +54,8 @@
 #uploadButton {
     width: 120px;
     height: 60px;
-    background-color: white;
+    background-color: none;
+    color: white;
     border-radius: 8px;
     text-align: center;
 }
@@ -60,7 +63,8 @@
 #manageSubs {
     width: 120px;
     height: 60px;
-    background-color: white;
+    background-color: none;
+    color: white;
     border-radius: 8px;
     text-align: center;
     margin-right: 60px;
