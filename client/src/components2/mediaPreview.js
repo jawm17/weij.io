@@ -17,6 +17,16 @@ export default function MediaPreview(props) {
                 borderRadius: 12,
                 zIndex: 2,
                 opacity: opacity
+        },
+        bottom: {
+            position: "absolute",
+            width: "100%",
+            height: 70,
+            bottom: 0,
+            borderBottomRightRadius: 12,
+            borderBottomLeftRadius: 12,
+            backgroundColor: "black",
+            // display: "none"
         }
     }
     useEffect(() => {
@@ -61,7 +71,7 @@ export default function MediaPreview(props) {
                     <source src={props.imgUrl[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
-                <div className="">
+                <div style={style.bottom} className="bottomPopUp">
 
                 </div>
             </div>
