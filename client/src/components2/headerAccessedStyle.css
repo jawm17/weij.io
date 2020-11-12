@@ -70,6 +70,19 @@
     color: white;
 }
 
+
+#messagesA {
+    position: fixed;
+    right: 280px;
+    top: 26px;
+}
+
+#messagesA:hover {
+    cursor: pointer;
+    background-color: #8A62E2;
+    color: white;
+}
+
 #ethIcon {
     width: 20px;
 }
@@ -92,3 +105,18 @@
 #profileIcon:hover {
     cursor: pointer;
 }
+
+.notif {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right: -8px;
+    top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+}   
