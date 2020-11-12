@@ -3,6 +3,12 @@ import "./headerAccessedStyle.css";
 
 export default function HeaderAccessed() {
 
+    // ----------------------------------------------
+
+        // LOGGED IN LOGGED IN LOGGED IN LOGGED IN
+
+    // ----------------------------------------------
+
 
     function selectSection(selection) {
         if(selection === "music") {

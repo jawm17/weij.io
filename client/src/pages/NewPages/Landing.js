@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import UserService from '../../services/UserService';
-import AuthContext from '../../context/AuthContext';
-import HeaderEth from "../../components2/headerEth";
+import { AuthContext } from '../../context/AuthContext';
+import HeaderDefault from "../../components2/headerDefault";
 import HeaderAccessed from "../../components2/headerAccessed";
 import Row from "../../components2/row";
 import "./LandingStyle.css";
@@ -36,7 +36,7 @@ export default function Landing() {
 
     return (
         <div>
-            {access ? <HeaderAccessed /> : <HeaderEth />}
+            {access ? <HeaderAccessed /> : <HeaderDefault />}
             <div id="landingBg"></div>
             <div className="contentContainer">
                 
