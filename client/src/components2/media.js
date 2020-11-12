@@ -50,6 +50,9 @@ export default function Media(props) {
             <div id="return" onClick={() => window.history.back()}>
                 <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" id="returnImg"></img>
             </div>
+            <div id="returnText">
+                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fmwconcepts.com%2Fimagemagick%2Ftidbits%2Fgraphics%2Fpolar_rainbow.png&f=1&nofb=1" alt="scroll arrow right" className="rainbowCircle"></img>
+            </div>
             <div className="contentTop">
                 <div className="contentTopLeft">
                     <div id="videoTitle">

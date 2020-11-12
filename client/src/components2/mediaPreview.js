@@ -26,6 +26,7 @@ export default function MediaPreview(props) {
             borderBottomRightRadius: 12,
             borderBottomLeftRadius: 12,
             backgroundColor: "black",
+            opacity: "50%"
             // display: "none"
         }
     }
