@@ -15,11 +15,6 @@
     background-color: gray;
 }
 
-.item:hover {
-    cursor: pointer;
-    /* background-color: #8A73E2; */
-}
-
 .sample {
     position: absolute;
     width: 196px;
@@ -33,6 +28,52 @@
     transition: all 0.15s ease-in;
 }
 
+.thumbnail:hover {
+    cursor: pointer;
+    /* background-color: #8A73E2; */
+}
+
 .bottomPopUp {
     transition: all 2s ease-in-out;
+}
+
+.popUpUser {
+    color: white;
+    opacity: 100%;
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 150px;
+    height: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.popUpTitle {
+    color: white;
+    opacity: 100%;
+    margin-left: 10%;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.popUpName {
+    margin-top: 3px;
+}
+
+.popUpPic {
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.flag {
+    transition: all 0.35s ease-out;
+}
+
+.dolla {
+    width: 12px;
+    position: absolute;
+    bottom: 10px;
+    left: 4.3px;
 }

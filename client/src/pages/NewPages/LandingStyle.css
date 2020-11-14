@@ -39,5 +39,5 @@ html {
 }
 
 .footerElement:hover {
-    cursor: default;
+    cursor: pointer;
 }

@@ -5,9 +5,6 @@
     text-align: center;
     position: fixed;
     left: 0;
-    border-right-style: solid;
-    border-right-width: 2px;
-    border-color: gray;
 }
 
 #profilePictureFull {
@@ -51,7 +48,7 @@
     height: 40px;
 }
 
-#uploadButton {
+#subs {
     width: 120px;
     height: 60px;
     background-color: none;

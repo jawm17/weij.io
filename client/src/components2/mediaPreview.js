@@ -7,6 +7,8 @@ export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
     const [thumbnail, setThumbnail] = useState("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fphotos%2Fbloody-halloween-theme-crazy-face-picture-id599139428%3Fk%3D6%26m%3D599139428%26s%3D612x612%26w%3D0%26h%3DVQ7gCzve1IIIoGlftVsvEvSkNscDj4pGDGYO1QI4P2M%3D&f=1&nofb=1");
     const [opacity, setOpacity] = useState(100);
+    const [flagPos, setFlagPos] = useState(-50);
+    const [flagDisplay, setFlagDisplay] = useState("initial");
 
     const style = {
         thumbnail: {
@@ -15,7 +17,7 @@ export default function MediaPreview(props) {
                 height: 260,
                 objectFit: "cover",
                 borderRadius: 12,
-                zIndex: 2,
+                zIndex: 4,
                 opacity: opacity
         },
         bottom: {
@@ -25,9 +27,29 @@ export default function MediaPreview(props) {
             bottom: 0,
             borderBottomRightRadius: 12,
             borderBottomLeftRadius: 12,
-            backgroundColor: "black",
-            opacity: "50%"
+            backgroundColor: "rgba(0,0,0,0.5)"
             // display: "none"
+        },
+        flagBlock: {
+            position: "absolute",
+            zIndex: 10,
+            backgroundColor: "#EFEFEF",
+            width: 200,
+            height: 60,
+            top: -60,
+            left: 0
+        },
+        flag: {
+            display: flagDisplay,
+            position: "absolute",
+            zIndex: 2,
+            width: 20,
+            height: 50,
+            top: flagPos,
+            right: 10,
+            borderBottomRightRadius: 12,
+            borderBottomLeftRadius: 12,
+            backgroundColor: "#5DE900",
         }
     }
     useEffect(() => {
@@ -53,6 +75,11 @@ export default function MediaPreview(props) {
                 figure.style.display = "initial";
                 setOpacity(0);
                 figure.play();
+                setTimeout(() => {
+                    if (!exited) {
+                        setFlagPos(0);
+                    }
+                }, 150);
             }
         }, 450);
     }
@@ -62,18 +89,31 @@ export default function MediaPreview(props) {
         figure.pause();
         figure.style.display = "none";
         setOpacity(100);
+        setFlagPos(-50);
     }
 
     return (
         <div className="inlineBlock">
-            <div className="item" id={props.id} onClick={(e) => openMedia(e)} onMouseEnter={() => startPreview()} onMouseLeave={() => endPreview()}>
-                <img src={thumbnail} style={style.thumbnail} alt="video thumbnail" className="thumbnail"></img>
+            <div className="item" id={props.id}>
+                <div className="flag" style={style.flag}>
+                    <img className="dolla" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.iconsdb.com%2Ficons%2Fpreview%2Fwhite%2Fus-dollar-xxl.png&f=1&nofb=1" alt="money"></img>
+                </div>
+                <div style={style.flagBlock}></div>
+                <img src={thumbnail} style={style.thumbnail} alt="video thumbnail" className="thumbnail" onClick={(e) => openMedia(e)} onMouseEnter={() => startPreview()} onMouseLeave={() => endPreview()}></img>
                 <video className="sample" id={props.id + "vid"} muted>
                     <source src={props.imgUrl[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
                 <div style={style.bottom} className="bottomPopUp">
-
+                    <div className="popUpUser">
+                        <img className="popUpPic" src="https://avatars3.githubusercontent.com/u/56066513?s=460&u=2724432d8929c333aea5ea6751128b6db55c747e&v=4" alt="profile picture"></img>
+                       <div className="popUpName">
+                       Jawm42
+                       </div>
+                    </div>
+                    <div className="popUpTitle">
+                        Where the wild things are
+                    </div>
                 </div>
             </div>
             {/* {open ? <Media id={props.id}></Media> : null} */}
