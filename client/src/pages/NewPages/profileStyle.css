@@ -75,6 +75,27 @@
     font-weight: bold;
 }
 
+.center {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+#postButtn {
+    width: 400px;
+    height: 80px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 17px;
+    color: #8A62E2
+}
+
+#postButtn:hover {
+    cursor: pointer;
+}
+
 #rightPanelProfile {
     position: fixed;
     top: 80px;

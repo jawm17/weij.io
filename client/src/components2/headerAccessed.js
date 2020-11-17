@@ -30,7 +30,7 @@ export default function HeaderAccessed() {
     }
 
     function showBalance() {
-        document.getElementById("walletText").textContent = "0.0023";
+        document.getElementById("walletText").textContent = "4.23 eth";
     }
 
     function hideBalance() {

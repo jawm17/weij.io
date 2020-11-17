@@ -35,13 +35,13 @@ export default function NewProfile() {
                     Jawm42
                 </div>
                 <div id="infoGroup">
-                
+
                 </div>
                 <div id="buttonGroup">
                     <div id="settingsButton">
                         <img src={settingsSrc} alt="settings cog" id="cog"></img>
                     </div>
-                    <div id="subs">  
+                    <div id="subs">
                         <div className="bold">
                             4000
                         </div>
@@ -52,6 +52,11 @@ export default function NewProfile() {
                             510
                         </div>
                         eth earned
+                    </div>
+                </div>
+                <div className="center">
+                    <div id="postButtn">
+                        Post Something
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ export default function MediaPreview(props) {
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");
+    const [infoDisplay, setInfoDisplay] = useState("none")
 
     const style = {
         thumbnail: {
@@ -27,8 +28,8 @@ export default function MediaPreview(props) {
             bottom: 0,
             borderBottomRightRadius: 12,
             borderBottomLeftRadius: 12,
-            backgroundColor: "rgba(0,0,0,0.5)"
-            // display: "none"
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: infoDisplay
         },
         flagBlock: {
             position: "absolute",
@@ -73,6 +74,7 @@ export default function MediaPreview(props) {
         setTimeout(() => {
             if (!exited) {
                 figure.style.display = "initial";
+                setInfoDisplay("initial");
                 setOpacity(0);
                 figure.play();
                 setTimeout(() => {
@@ -90,6 +92,7 @@ export default function MediaPreview(props) {
         figure.style.display = "none";
         setOpacity(100);
         setFlagPos(-50);
+        setInfoDisplay("none");
     }
 
     return (
