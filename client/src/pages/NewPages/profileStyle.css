@@ -96,6 +96,14 @@
     cursor: pointer;
 }
 
+.hey {
+    position: fixed;
+    z-index: 900;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}
+
 #rightPanelProfile {
     position: fixed;
     top: 80px;

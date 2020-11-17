@@ -2,11 +2,27 @@ import React, { useEffect, useState, useContext } from 'react';
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderAccessed from '../../components2/headerAccessed';
+import { app } from '../../base';
 import "./profileStyle.css";
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
     const settingsSrc = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fmodern-ui-1%2F64%2Fsettings-cog-512.png&f=1&nofb=1";
+    const [display, setDisplay] = useState("none");
+
+    const style = {
+        shade: {
+
+        },
+        white: {
+            position: "fixed",
+            zIndex: 200,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "white",
+            display: display,
+        }
+    }
 
     useEffect(() => {
         console.log("Profile Page");
@@ -26,9 +42,29 @@ export default function NewProfile() {
         });
     }
 
+    function createAPost() {
+        setDisplay("initial");
+    }
+
+    function submitFile(e) {
+        const file = e.target.files[0];
+        const storageRef = app.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        fileRef.put(file).then((e) => {
+            fileRef.getDownloadURL().then(function (url) {
+                console.log(url);
+            });
+        })
+    }
+
     return (
         <div>
             <HeaderAccessed />
+            <div style={style.white}>
+                <div className="hey">
+                    <input type="file" onChange={(e) => submitFile(e)}></input>
+                </div>
+            </div>
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
                 <div id="profileUsername">
@@ -55,7 +91,7 @@ export default function NewProfile() {
                     </div>
                 </div>
                 <div className="center">
-                    <div id="postButtn">
+                    <div id="postButtn" onClick={() => createAPost()}>
                         Post Something
                     </div>
                 </div>
