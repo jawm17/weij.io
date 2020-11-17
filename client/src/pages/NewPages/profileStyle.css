@@ -5,6 +5,7 @@
     text-align: center;
     position: fixed;
     left: 0;
+    overflow-y: scroll;
 }
 
 #profilePictureFull {
@@ -13,7 +14,7 @@
     border-width: 1px;
     border-color: black;
     width: 160px;
-    margin-top: 200px;
+    margin-top: 130px;
 }
 
 #profileUsername {
@@ -25,7 +26,7 @@
 #buttonGroup {
     height: 120px;
     width: 500px;
-    margin-top: 15px;
+    margin-top: 0px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -79,6 +80,7 @@
     width: 500px;
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 #postButtn {
@@ -89,7 +91,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 17px;
-    color: #8A62E2
+    color: #8A62E2;
+    font-weight: bold;
 }
 
 #postButtn:hover {
