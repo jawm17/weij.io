@@ -38,13 +38,13 @@ export default function HeaderBlue() {
         <div>
             <div id="header">
                 <div className="logoTextBlock">
-                    <div className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
+                    <div className="mainLogoB selectable" onClick={() => window.location.href = "/landing"}>
                         ethereal
                         </div>
                     <div id="mediaLogo" className="selectable" onClick={() =>window.location.href = "/landing"}>
                         media
                         </div>
-                    <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/landing"}>
+                    <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
                         music
                         </div>
                     <div id="gamesLogo" className="selectable" onClick={() => selectSection("games")}>
