@@ -16,6 +16,7 @@ import SendPage from './pages/SendPage/SendPage';
 import Landing from "./pages/NewPages/Landing";
 import Media from "./components2/media";
 import NewProfile from "./pages/NewPages/NewProfile";
+import Music from "./pages/NewPages/Music";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
+        <Route path="/music" component={Music} />
         <Route path="/landing" component={Landing} />
         <Route path="/p/:id" component={Media} />
         <Route path="/">

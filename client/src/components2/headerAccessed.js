@@ -45,10 +45,10 @@ export default function HeaderAccessed() {
                         <div className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
                             ethereal
                         </div>
-                        <div id="mediaLogo" className="selectable" onClick={() => selectSection("media")}>
+                        <div id="mediaLogo" className="selectable" onClick={() => window.location.href = "/landing"}>
                             media
                         </div>
-                        <div id="musicLogo" className="selectable" onClick={() => selectSection("music")}>
+                        <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
                             music
                         </div>
                         <div id="gamesLogo" className="selectable" onClick={() => selectSection("games")}>

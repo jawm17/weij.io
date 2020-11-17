@@ -7,7 +7,7 @@ import "./profileStyle.css";
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
-    const settingsSrc = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn0.iconfinder.com%2Fdata%2Ficons%2Fmodern-ui-1%2F64%2Fsettings-cog-512.png&f=1&nofb=1";
+    const settingsSrc = "https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/cog.png?alt=media&token=87cbbba1-3074-4c77-99b1-717671936260";
     const [display, setDisplay] = useState("none");
 
     const style = {
