@@ -13,6 +13,7 @@ export default function() {
             alignItems: "center",
         },
         messageBody: {
+            marginTop: 45,
             fontWeight: "bold",
             color: "white"
         }
@@ -23,7 +24,7 @@ export default function() {
         <HeaderBlue />
         <div style={style.bg} className="bluebg">
             <div style={style.messageBody}>
-                This site is coming soon!
+                This site is coming 2021!
             </div>
         </div>
         </div>

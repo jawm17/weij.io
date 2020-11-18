@@ -5,35 +5,37 @@ import "./rowStyle.css";
 
 export default function Row(props) {
 
+    const [rowId, setRowId] = useState(Math.random() * 10000);
+
     useEffect(() => {
         console.log(props);
     }, []);
 
-    function scrollRight(id) {
-        let row = document.getElementById(id);
+    function scrollRight() {
+        let row = document.getElementById(rowId);
         row.scrollLeft += 300;
     }
 
-    function scrollLeft(id) {
-        let row = document.getElementById(id);
+    function scrollLeft() {
+        let row = document.getElementById(rowId);
         row.scrollLeft = 0;
     }
 
-    function scrollChecker(id) {
-        if (document.getElementById(id).scrollLeft >= 23) {
-            document.getElementById(id + "Button").style.opacity = 100;
+    function scrollChecker() {
+        if (document.getElementById(rowId).scrollLeft >= 23) {
+            document.getElementById(rowId + "Button").style.opacity = 100;
         } else {
-            document.getElementById(id + "Button").style.opacity = 0;
+            document.getElementById(rowId + "Button").style.opacity = 0;
         }
     }
 
     return (
-        <div className="row" id="rowOne" onScroll={() => scrollChecker("rowOne")}>
+        <div className="row" id={rowId} onScroll={() => scrollChecker()}>
                     <h2 className="rowTitle">Popular Content</h2>
-                    <div className="scrollLeft" id="rowOneButton" onClick={() => scrollLeft("rowOne")}>
+                    <div className="scrollLeft" id={rowId + "Button"} onClick={() => scrollLeft()}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
                     </div>
-                    <div className="scrollRight" onClick={() => scrollRight("rowOne")}>
+                    <div className="scrollRight" onClick={() => scrollRight()}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgRight"></img>
                     </div>
                     <div className="group">
