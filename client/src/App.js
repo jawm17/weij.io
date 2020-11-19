@@ -17,6 +17,7 @@ import Landing from "./pages/NewPages/Landing";
 import Media from "./components2/media";
 import NewProfile from "./pages/NewPages/NewProfile";
 import Music from "./pages/NewPages/Music";
+import Games from "./pages/NewPages/Games";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
         <Route path="/music" component={Music} />
+        <Route path="/games" component={Games} />
         <Route path="/landing" component={Landing} />
         <Route path="/p/:id" component={Media} />
         <Route path="/">

@@ -1,7 +1,6 @@
-import React from "react";
-import "./headerDefaultStyle.css";
+import React, { useEffect } from "react";
 
-export default function HeaderDefault() {
+export default function HeaderBlue() {
 
     // ----------------------------------------------
 
@@ -9,15 +8,21 @@ export default function HeaderDefault() {
 
     // ----------------------------------------------
 
+    useEffect(() => {
+        document.getElementById("mediaLogo").style.color = "gray";
+        document.getElementById("gamesLogo").style.color = "#5DE900";
+        document.getElementById("mainLogo").style.color = "#5DE900";
+    });
+
 
     return (
         <div>
             <div id="header">
                 <div className="logoTextBlock">
-                    <div className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
+                    <div id="mainLogo" className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
                         ethereal
                         </div>
-                    <div id="mediaLogo" className="selectable" onClick={() => window.location.href = "/landing"}>
+                    <div id="mediaLogo" className="selectable" onClick={() =>window.location.href = "/landing"}>
                         media
                         </div>
                     <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
@@ -26,16 +31,6 @@ export default function HeaderDefault() {
                     <div id="gamesLogo" className="selectable" onClick={() => window.location.href = "/games"}>
                         games
                         </div>
-                </div>
-                <div className="buttonGroup">
-                    <div id="wallet" className="fixedButtons" onClick={() => window.location.href = "/register"}>
-                        Sign Up
-                    </div>
-                    <div id="profile" className="fixedButtons" onClick={() => window.location.href = "/login"}>
-                        <div>
-                            Login
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

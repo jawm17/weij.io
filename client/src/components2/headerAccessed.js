@@ -9,26 +9,6 @@ export default function HeaderAccessed() {
 
     // ----------------------------------------------
 
-
-    function selectSection(selection) {
-        if(selection === "music") {
-            document.getElementById("mediaLogo").style.color = "gray";
-            document.getElementById("gamesLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "#01CBFF";
-        } 
-        else if (selection === "games"){
-            document.getElementById("mediaLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "gray";
-            document.getElementById("gamesLogo").style.color = "#5DE900";
-        } 
-        else if (selection === "media") {
-            document.getElementById("gamesLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "gray";
-            document.getElementById("mediaLogo").style.color = "#8A62E2";
-        }
-
-    }
-
     function showBalance() {
         document.getElementById("walletText").textContent = "4.23 eth";
     }
@@ -51,7 +31,7 @@ export default function HeaderAccessed() {
                         <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
                             music
                         </div>
-                        <div id="gamesLogo" className="selectable" onClick={() => selectSection("games")}>
+                        <div id="gamesLogo" className="selectable" onClick={() => window.location.href = "/games"}>
                             games
                         </div>
                     </div>

@@ -2,30 +2,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderAccessed from '../../components2/headerAccessed';
-import { app } from '../../base';
+import PostModal from '../../components2/postModal';
 import "./profileStyle.css";
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
     const settingsSrc = "https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/cog.png?alt=media&token=87cbbba1-3074-4c77-99b1-717671936260";
-    const [display, setDisplay] = useState("none");
-
-    const style = {
-        shade: {
-
-        },
-        white: {
-            position: "fixed",
-            zIndex: 200,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "white",
-            display: display,
-        }
-    }
 
     useEffect(() => {
-        console.log("Profile Page");
         requestUserData();
     }, []);
 
@@ -43,28 +27,13 @@ export default function NewProfile() {
     }
 
     function createAPost() {
-        setDisplay("initial");
-    }
-
-    function submitFile(e) {
-        const file = e.target.files[0];
-        const storageRef = app.storage().ref();
-        const fileRef = storageRef.child(file.name);
-        fileRef.put(file).then((e) => {
-            fileRef.getDownloadURL().then(function (url) {
-                console.log(url);
-            });
-        })
+        document.getElementById("createPost").style.display = "initial";
     }
 
     return (
         <div>
             <HeaderAccessed />
-            <div style={style.white}>
-                <div className="hey">
-                    <input type="file" onChange={(e) => submitFile(e)}></input>
-                </div>
-            </div>
+            <PostModal />
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
                 <div id="profileUsername">

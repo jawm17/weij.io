@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import "./headerBlueStyle.css";
+import React, { useEffect } from "react";
 
 export default function HeaderBlue() {
 
@@ -12,33 +11,15 @@ export default function HeaderBlue() {
     useEffect(() => {
         document.getElementById("mediaLogo").style.color = "gray";
         document.getElementById("musicLogo").style.color = "#01CBFF";
+        document.getElementById("mainLogo").style.color = "#01CBFF";
     });
-
-    function selectSection(selection) {
-        if (selection === "music") {
-            document.getElementById("mediaLogo").style.color = "gray";
-            document.getElementById("gamesLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "#01CBFF";
-        }
-        else if (selection === "games") {
-            document.getElementById("mediaLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "gray";
-            document.getElementById("gamesLogo").style.color = "#5DE900";
-        }
-        else if (selection === "media") {
-            document.getElementById("gamesLogo").style.color = "gray";
-            document.getElementById("musicLogo").style.color = "gray";
-            document.getElementById("mediaLogo").style.color = "#8A62E2";
-        }
-
-    }
 
 
     return (
         <div>
             <div id="header">
                 <div className="logoTextBlock">
-                    <div className="mainLogoB selectable" onClick={() => window.location.href = "/landing"}>
+                    <div id="mainLogo" className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
                         ethereal
                         </div>
                     <div id="mediaLogo" className="selectable" onClick={() =>window.location.href = "/landing"}>
@@ -47,7 +28,7 @@ export default function HeaderBlue() {
                     <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
                         music
                         </div>
-                    <div id="gamesLogo" className="selectable" onClick={() => selectSection("games")}>
+                    <div id="gamesLogo" className="selectable" onClick={() => window.location.href = "/games"}>
                         games
                         </div>
                 </div>
