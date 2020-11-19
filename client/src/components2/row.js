@@ -4,8 +4,7 @@ import media from "../videos.json";
 import "./rowStyle.css";
 
 export default function Row(props) {
-
-    const [rowId, setRowId] = useState(Math.random() * 10000);
+    const rowId = Math.random() * 10000;
 
     useEffect(() => {
         console.log(props);
