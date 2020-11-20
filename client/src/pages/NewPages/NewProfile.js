@@ -64,16 +64,6 @@ export default function NewProfile() {
                         Post Something
                     </div>
                 </div>
-                <div className="center">
-                    <div id="postButtn" onClick={() => createAPost()}>
-                        Subscriptions
-                    </div>
-                </div>
-                <div className="center">
-                    <div id="postButtn" onClick={() => createAPost()}>
-                        Analytics
-                    </div>
-                </div>
             </div>
             <div id="rightPanelProfile">
                 <div id="rowOnePro">

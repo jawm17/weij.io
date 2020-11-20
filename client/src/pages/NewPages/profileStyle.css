@@ -8,13 +8,14 @@
     overflow-y: scroll;
 }
 
+
 #profilePictureFull {
     border-radius: 50%;
     border-style: solid;
     border-width: 1px;
     border-color: plum;
     width: 160px;
-    margin-top: 130px;
+    margin-top: 180px;
 }
 
 #profileUsername {
@@ -150,4 +151,40 @@
     background-color: gray;
     margin-bottom: 30px;
     margin-left: 25px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .profilePreview {
+        width: 160px;
+        height: 213px;
+        border-radius: 12px;
+
+        margin-bottom: 30px;
+        margin-left: 25px;
+    }
+    #rowOnePro {
+        width: 200px;
+        height: 1000px;
+        margin-left: 100px;
+        display: inline;
+        float: left;
+        margin-top: 70px;
+    }
+    
+    #rowTwoPro {
+        width: 200px;
+        height: 1000px;
+        display: inline;
+        float: left;
+        margin-top: 70px;
+    }
+    
+    #rowThreePro {
+        width: 200px;
+        height: 1000px;
+        display: inline;
+        float: left;
+        margin-top: 70px;
+    }
+    
 }
