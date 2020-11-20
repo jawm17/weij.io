@@ -4,6 +4,7 @@ import "./postModalStyle.css";
 
 export default function PostModal() {
     const [display, setDisplay] = useState("none");
+    const [file, setFile] = useState("");
 
     const style = {
         shade: {
@@ -16,8 +17,7 @@ export default function PostModal() {
         }
     }
 
-    function submitFile(e) {
-        const file = e.target.files[0];
+    function publishFile() {
         const storageRef = app.storage().ref();
         const fileRef = storageRef.child(file.name);
         fileRef.put(file).then((e) => {
@@ -25,11 +25,33 @@ export default function PostModal() {
                 console.log(url);
             });
         })
+    }
 
+    function selectFile(e) {
+        setFile(e.target.files[0]);
     }
 
     function exit() {
         document.getElementById("createPost").style.display = "none";
+    }
+
+    function dropHandler(ev) {
+        console.log(ev);
+        ev.preventDefault();
+        if (ev.dataTransfer.items) {
+            // Use DataTransferItemList interface to access the file(s)
+            for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+                // If dropped items aren't files, reject them
+                if (ev.dataTransfer.items[i].kind === 'file') {
+                    setFile(ev.dataTransfer.items[i].getAsFile());
+                }
+            }
+        }
+    }
+
+    function dragOverHandler(ev) {
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
     }
 
 
@@ -39,8 +61,12 @@ export default function PostModal() {
                 <div style={style.shade} id="createPost">
                     <div id="center">
                         <div className="white">
-                            <input type="file" onChange={(e) => submitFile(e)}></input>
-                            <button onClick={() => exit()}></button>
+                            <div id="dropZone" onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
+                                <p>Drag one or more files to this Drop Zone ...</p>
+                            </div>
+                            <input type="file" onChange={(e) => selectFile(e)}></input>
+                            <button onClick={() => exit()}>exit</button>
+                            <button onClick={() => publishFile()}>publish</button>
                         </div>
                     </div>
                 </div>
