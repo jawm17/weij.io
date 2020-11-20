@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { app } from '../base';
+import Sample from "./sample";
 import "./postModalStyle.css";
 
 export default function PostModal() {
     const [display, setDisplay] = useState("none");
     const [file, setFile] = useState("");
+    const [displaySample, setDisplaySample] = useState(false);
 
     const style = {
         shade: {
@@ -39,14 +41,15 @@ export default function PostModal() {
         console.log(ev);
         ev.preventDefault();
         if (ev.dataTransfer.items) {
-            // Use DataTransferItemList interface to access the file(s)
-            for (var i = 0; i < ev.dataTransfer.items.length; i++) {
-                // If dropped items aren't files, reject them
-                if (ev.dataTransfer.items[i].kind === 'file') {
-                    setFile(ev.dataTransfer.items[i].getAsFile());
-                }
-            }
+            setFile(ev.dataTransfer.items[0].getAsFile());
+            document.getElementById("dropZone").style.display = "none";
+            setDisplaySample(true);
+            displayVideo();
         }
+    }
+
+    function displayVideo() {
+        console.log(file);
     }
 
     function dragOverHandler(ev) {
@@ -57,17 +60,18 @@ export default function PostModal() {
 
     return (
         <div>
-            <div >
-                <div style={style.shade} id="createPost">
-                    <div id="center">
-                        <div className="white">
-                            <div id="dropZone" onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
-                                <p>Drag one or more files to this Drop Zone ...</p>
+            <div style={style.shade} id="createPost">
+                <div id="center">
+                    <div className="white">
+                        <div id="centerDrop">
+                            <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
+                            <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
+                                <p>Drag and drop a file here or click</p>
                             </div>
-                            <input type="file" onChange={(e) => selectFile(e)}></input>
-                            <button onClick={() => exit()}>exit</button>
-                            <button onClick={() => publishFile()}>publish</button>
+                            {displaySample ? <Sample src={file.name} /> : null}
                         </div>
+                        <button className="buttonOption" onClick={() => exit()}>exit</button>
+                        <button className="buttonOption" onClick={() => publishFile()}>publish</button>
                     </div>
                 </div>
             </div>
