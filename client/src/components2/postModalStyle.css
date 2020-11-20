@@ -1,3 +1,8 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
 #center {
     width: 100vw;
     height: 100vh;
@@ -36,17 +41,6 @@
     margin-left: 40px;
 }
 
-#centerDrop {
-    min-width: 200px;
-    max-width: 1000px;
-    width: 90vw;
-    height: 400px;
-    margin-left: 20px;
-    margin-top: 20px;
-    display: flex;
-    color: grey;
-}
-
 #dropZone {
     min-width: 140px;
     max-width: 500px;
@@ -55,6 +49,23 @@
     background-color: white;
     border-radius: 12px;
     text-align: center;
+    float: left;
+    color: grey;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#dragDropText {
+    margin-top: 15px;
+}
+
+.enterVidInfo {
+    width: 400px;
+    height: 200px;
+    background-color: red;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 #dropZone:hover { 

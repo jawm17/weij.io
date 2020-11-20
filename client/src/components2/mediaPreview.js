@@ -5,7 +5,7 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
-    const [thumbnail, setThumbnail] = useState("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fphotos%2Fbloody-halloween-theme-crazy-face-picture-id599139428%3Fk%3D6%26m%3D599139428%26s%3D612x612%26w%3D0%26h%3DVQ7gCzve1IIIoGlftVsvEvSkNscDj4pGDGYO1QI4P2M%3D&f=1&nofb=1");
+    const [thumbnail, setThumbnail] = useState("https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/jennifer_dark_throated9_big.jpg?alt=media&token=e7a5e215-285b-477d-96de-8d859132c6cf");
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");

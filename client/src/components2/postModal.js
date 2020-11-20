@@ -15,7 +15,7 @@ export default function PostModal() {
             width: "100vw",
             height: "100vh",
             display: display,
-            backgroundColor: "rgba(0,0,0,0.5)",
+            backgroundColor: "rgba(0,0,0,0.8)",
         }
     }
 
@@ -69,9 +69,12 @@ export default function PostModal() {
                         <div id="centerDrop">
                             <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
                             <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
-                                <p>Drag and drop a file or click here</p>
+                                <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
                             {displaySample ? <Sample src={file.name} /> : null}
+                            <div className="enterVidInfo">
+
+                            </div>
                         </div>
                         <button id="back" onClick={() => exit()}>exit</button>
                         <button id="forward" onClick={() => publishFile()}>next</button>
