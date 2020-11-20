@@ -63,15 +63,18 @@ export default function PostModal() {
             <div style={style.shade} id="createPost">
                 <div id="center">
                     <div className="white">
+                        <div id="banner">
+                            <p id="bannerText">Upload Video</p>
+                        </div>
                         <div id="centerDrop">
                             <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
                             <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
-                                <p>Drag and drop a file here or click</p>
+                                <p>Drag and drop a file or click here</p>
                             </div>
                             {displaySample ? <Sample src={file.name} /> : null}
                         </div>
-                        <button className="buttonOption" onClick={() => exit()}>exit</button>
-                        <button className="buttonOption" onClick={() => publishFile()}>publish</button>
+                        <button id="back" onClick={() => exit()}>exit</button>
+                        <button id="forward" onClick={() => publishFile()}>next</button>
                     </div>
                 </div>
             </div>
