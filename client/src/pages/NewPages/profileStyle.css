@@ -11,9 +11,6 @@
 
 #profilePictureFull {
     border-radius: 50%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: plum;
     width: 160px;
     margin-top: 180px;
 }

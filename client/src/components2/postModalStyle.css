@@ -53,19 +53,39 @@ p {
     color: grey;
     margin-left: 20px;
     margin-top: 20px;
+    border-style: dashed;
+    border-color: gray;
 }
 
 #dragDropText {
     margin-top: 15px;
 }
 
-.enterVidInfo {
+.enterTitle {
     width: 400px;
     height: 200px;
-    background-color: red;
     float: left;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 25px;
+    margin-top: 30px;
+}
+
+.enterDescription {
+    width: 400px;
+    height: 200px;
+    float: left;
+    margin-left: 25px;
+}
+
+#titleLabel {
+    color: grey;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#descriptionLabel {
+    color: grey;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #dropZone:hover { 

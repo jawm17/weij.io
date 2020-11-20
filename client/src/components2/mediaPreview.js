@@ -5,7 +5,7 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
-    const [thumbnail, setThumbnail] = useState("https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/jennifer_dark_throated9_big.jpg?alt=media&token=e7a5e215-285b-477d-96de-8d859132c6cf");
+    const [thumbnail, setThumbnail] = useState("https://styles.redditmedia.com/t5_2s94b/styles/communityIcon_hnj0uhrxk4r21.png?width=256&s=8a1ae193da24ed2a6a57a71ca1d3ae105396a283");
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");

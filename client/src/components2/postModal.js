@@ -42,7 +42,7 @@ export default function PostModal() {
         ev.preventDefault();
         if (ev.dataTransfer.items) {
             setFile(ev.dataTransfer.items[0].getAsFile());
-            document.getElementById("dropZone").style.display = "none";
+            document.getElementById("loadingSlide").style.display = "initial";
             setDisplaySample(true);
             displayVideo();
         }
@@ -72,8 +72,17 @@ export default function PostModal() {
                                 <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
                             {displaySample ? <Sample src={file.name} /> : null}
-                            <div className="enterVidInfo">
-
+                            <div className="enterTitle">
+                                <div id="titleLabel">
+                                    Title
+                                </div>
+                                
+                            </div>
+                            <div className="enterDescription">
+                                <div id="descriptionLabel">
+                                    Description
+                                </div>
+                                
                             </div>
                         </div>
                         <button id="back" onClick={() => exit()}>exit</button>

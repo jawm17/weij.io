@@ -7,7 +7,7 @@ import "./profileStyle.css";
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
-    const settingsSrc = "https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/cog.png?alt=media&token=87cbbba1-3074-4c77-99b1-717671936260";
+    const settingsSrc = "https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/cog.png?alt=media&token=23ca742a-18ce-4318-b62c-b697f299afcb";
 
     useEffect(() => {
         requestUserData();
