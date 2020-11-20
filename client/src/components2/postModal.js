@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { app } from '../base';
+import "./postModalStyle.css";
 
 export default function PostModal() {
     const [display, setDisplay] = useState("none");
@@ -7,19 +8,11 @@ export default function PostModal() {
     const style = {
         shade: {
             position: "fixed",
-            zIndex: 199,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "white",
-            display: display,
-        },
-        area: {
-            position: "fixed",
             zIndex: 200,
             width: "100vw",
             height: "100vh",
-            backgroundColor: "white",
             display: display,
+            backgroundColor: "rgba(0,0,0,0.5)",
         }
     }
 
@@ -32,7 +25,7 @@ export default function PostModal() {
                 console.log(url);
             });
         })
-        
+
     }
 
     function exit() {
@@ -42,10 +35,15 @@ export default function PostModal() {
 
     return (
         <div>
-            <div style={style.area} id="createPost">
-
-                <input type="file" onChange={(e) => submitFile(e)}></input>
-                <button onClick={() => exit()}></button>
+            <div >
+                <div style={style.shade} id="createPost">
+                    <div id="center">
+                        <div className="white">
+                            <input type="file" onChange={(e) => submitFile(e)}></input>
+                            <button onClick={() => exit()}></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
