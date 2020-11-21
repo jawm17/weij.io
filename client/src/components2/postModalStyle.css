@@ -67,6 +67,7 @@ p {
     float: left;
     margin-left: 25px;
     margin-top: 30px;
+    position: relative;
 }
 
 .enterDescription {
@@ -74,18 +75,32 @@ p {
     height: 200px;
     float: left;
     margin-left: 25px;
+    position: relative;
 }
 
 #titleLabel {
     color: grey;
     font-size: 30px;
     font-weight: bold;
+    position: absolute;
+    z-index: 210;
 }
 
 #descriptionLabel {
     color: grey;
     font-size: 30px;
     font-weight: bold;
+    position: absolute;
+    z-index: 210;
+}
+
+.textArea {
+    position: absolute;
+    width: 380px;
+    height: 165px;
+    background-color: white;
+    border-radius: 12px;
+    top: 30px;
 }
 
 #dropZone:hover { 

@@ -76,13 +76,15 @@ export default function PostModal() {
                                 <div id="titleLabel">
                                     Title
                                 </div>
-                                
+                                <div className="textArea">
+                                </div>
                             </div>
                             <div className="enterDescription">
                                 <div id="descriptionLabel">
                                     Description
                                 </div>
-                                
+                                <div className="textArea">
+                                </div>
                             </div>
                         </div>
                         <button id="back" onClick={() => exit()}>exit</button>
