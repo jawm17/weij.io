@@ -5,7 +5,7 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
-    const [thumbnail, setThumbnail] = useState("https://styles.redditmedia.com/t5_2s94b/styles/communityIcon_hnj0uhrxk4r21.png?width=256&s=8a1ae193da24ed2a6a57a71ca1d3ae105396a283");
+    const [thumbnail, setThumbnail] = useState("https://preview.redd.it/vltxezijqhu31.jpg?width=640&crop=smart&auto=webp&s=4d278a3189fe3598c3315794a27d19a850602b2e");
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");
