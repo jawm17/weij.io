@@ -48,8 +48,7 @@ p {
     height: 400px;
     background-color: white;
     border-radius: 12px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     float: left;
     color: grey;
     margin-left: 20px;
@@ -66,7 +65,7 @@ p {
     display: none;
 }
 
-.loader {
+#loader {
     border: 8px solid #f3f3f3; /* Light grey */
     border-top: 8px solid gray; /* Blue */
     border-radius: 50%;
@@ -74,7 +73,6 @@ p {
     height: 80px;
     animation: spin 2s linear infinite;
     margin-top: 80px;
-    margin-left: 10px;
   }
   
   @keyframes spin {
@@ -83,8 +81,38 @@ p {
   }
 
   #uploadText {
-      margin-top: 10px;
-      
+      margin-top: 35px;
+  }
+
+  #uploadFlex {
+      min-width: 140px;
+      max-width: 500px;
+      width: 83vw;
+      display: flex;
+      justify-content: center;
+  }
+
+  #success {
+    width: 96px;
+    height: 96px;
+    margin-top: 80px;
+    border-radius: 50%;
+    background-color: #5DE900;
+    display: none;
+  }
+
+  #successFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+  }
+
+  #checkMark {
+      width: 40px;
+      height: 40px;
   }
 
 .enterTitle {

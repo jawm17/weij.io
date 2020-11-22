@@ -3,7 +3,6 @@ import { app } from '../base';
 import "./postModalStyle.css";
 
 export default function PostModal() {
-    const [display, setDisplay] = useState("none");
     const [file, setFile] = useState("");
 
     const style = {
@@ -12,7 +11,7 @@ export default function PostModal() {
             zIndex: 200,
             width: "100vw",
             height: "100vh",
-            display: display,
+            display: "none",
             backgroundColor: "rgba(0,0,0,0.8)",
         }
     }
@@ -20,16 +19,23 @@ export default function PostModal() {
     function selectFile(e) {
         let file = e.target.files[0];
         setFile(file);
-        displayAnimation();
 
-        // upload to firebase
-        let storageRef = app.storage().ref();
-        let fileRef = storageRef.child(file.name);
-        fileRef.put(file).then((e) => {
-            fileRef.getDownloadURL().then(function (url) {
-                console.log(url);
-            });
-        })
+        let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
+        if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+            displayAnimation();
+
+            // upload to firebase
+            let storageRef = app.storage().ref();
+            let fileRef = storageRef.child(file.name);
+            fileRef.put(file).then((e) => {
+                fileRef.getDownloadURL().then(function (url) {
+                    console.log(url);
+                    uploadFinished(file.name);
+                });
+            })
+        } else {
+            fileError();
+        }
     }
 
     function exit() {
@@ -42,16 +48,21 @@ export default function PostModal() {
         if (ev.dataTransfer.items) {
             let file = ev.dataTransfer.items[0].getAsFile();
             setFile(file);
-            displayAnimation();
 
-            // upload to firebase
-            let storageRef = app.storage().ref();
-            let fileRef = storageRef.child(file.name);
-            fileRef.put(file).then((e) => {
-                fileRef.getDownloadURL().then(function (url) {
-                    console.log(url);
-                });
-            })
+            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
+            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+                displayAnimation();
+
+                // upload to firebase
+                let storageRef = app.storage().ref();
+                let fileRef = storageRef.child(file.name);
+                fileRef.put(file).then((e) => {
+                    fileRef.getDownloadURL().then(function (url) {
+                        console.log(url);
+                        uploadFinished(file.name);
+                    });
+                })
+            }
         }
     }
 
@@ -66,6 +77,15 @@ export default function PostModal() {
         ev.preventDefault();
     }
 
+    function uploadFinished(name) {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("success").style.display = "initial";
+        document.getElementById("uploadText").textContent = ("uploaded " + name);
+    }
+
+    function fileError() {
+        document.getElementById("dragDropText").textContent = "This file type is not supported";
+    }
 
     return (
         <div>
@@ -79,7 +99,14 @@ export default function PostModal() {
                             <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
                             <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
                                 <div id="uploadingDiv">
-                                    <div className="loader">
+                                    <div id="uploadFlex">
+                                        <div id="loader">
+                                        </div>
+                                        <div id="success">
+                                            <div id="successFlex">
+                                                <img id="checkMark" alt="success" src="https://i.pinimg.com/originals/0f/7c/61/0f7c619d53fbe58fabce214b53530141.png"></img>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div id="uploadText">
                                         {"uploading " + file.name}
