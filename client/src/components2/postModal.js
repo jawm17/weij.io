@@ -17,24 +17,26 @@ export default function PostModal() {
     }
 
     function selectFile(e) {
-        let file = e.target.files[0];
-        setFile(file);
-
-        let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-        if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
-            displayAnimation();
-
-            // upload to firebase
-            let storageRef = app.storage().ref();
-            let fileRef = storageRef.child(file.name);
-            fileRef.put(file).then((e) => {
-                fileRef.getDownloadURL().then(function (url) {
-                    console.log(url);
-                    uploadFinished(file.name);
-                });
-            })
-        } else {
-            fileError();
+        if(e.target.files[0]) {
+            let file = e.target.files[0];
+            setFile(file);
+    
+            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
+            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+                displayAnimation();
+                
+                // upload to firebase
+                let storageRef = app.storage().ref();
+                let fileRef = storageRef.child(file.name);
+                fileRef.put(file).then((e) => {
+                    fileRef.getDownloadURL().then(function (url) {
+                        console.log(url);
+                        uploadFinished(file.name);
+                    });
+                })
+            } else {
+                fileError();
+            }
         }
     }
 
