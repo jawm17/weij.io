@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { app } from '../base';
-import Sample from "./sample";
 import "./postModalStyle.css";
 
 export default function PostModal() {
     const [display, setDisplay] = useState("none");
     const [file, setFile] = useState("");
-    const [displaySample, setDisplaySample] = useState(false);
 
     const style = {
         shade: {
@@ -19,9 +17,14 @@ export default function PostModal() {
         }
     }
 
-    function publishFile() {
-        const storageRef = app.storage().ref();
-        const fileRef = storageRef.child(file.name);
+    function selectFile(e) {
+        let file = e.target.files[0];
+        setFile(file);
+        displayAnimation();
+
+        // upload to firebase
+        let storageRef = app.storage().ref();
+        let fileRef = storageRef.child(file.name);
         fileRef.put(file).then((e) => {
             fileRef.getDownloadURL().then(function (url) {
                 console.log(url);
@@ -29,27 +32,33 @@ export default function PostModal() {
         })
     }
 
-    function selectFile(e) {
-        setFile(e.target.files[0]);
-    }
-
     function exit() {
-        document.getElementById("createPost").style.display = "none";
+        window.location.href = "/profile";
     }
 
     function dropHandler(ev) {
         console.log(ev);
         ev.preventDefault();
         if (ev.dataTransfer.items) {
-            setFile(ev.dataTransfer.items[0].getAsFile());
-            document.getElementById("loadingSlide").style.display = "initial";
-            setDisplaySample(true);
-            displayVideo();
+            let file = ev.dataTransfer.items[0].getAsFile();
+            setFile(file);
+            displayAnimation();
+
+            // upload to firebase
+            let storageRef = app.storage().ref();
+            let fileRef = storageRef.child(file.name);
+            fileRef.put(file).then((e) => {
+                fileRef.getDownloadURL().then(function (url) {
+                    console.log(url);
+                });
+            })
         }
     }
 
-    function displayVideo() {
-        console.log(file);
+    function displayAnimation() {
+        document.getElementById("dropZone").style.borderColor = "white";
+        document.getElementById("dragDropText").textContent = "";
+        document.getElementById("uploadingDiv").style.display = "initial";
     }
 
     function dragOverHandler(ev) {
@@ -69,9 +78,15 @@ export default function PostModal() {
                         <div id="centerDrop">
                             <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
                             <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
+                                <div id="uploadingDiv">
+                                    <div className="loader">
+                                    </div>
+                                    <div id="uploadText">
+                                        {"uploading " + file.name}
+                                    </div>
+                                </div>
                                 <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
-                            {displaySample ? <Sample src={file.name} /> : null}
                             <div className="enterTitle">
                                 <div id="titleLabel">
                                     Title
@@ -87,8 +102,8 @@ export default function PostModal() {
                                 </div>
                             </div>
                         </div>
-                        <button id="back" onClick={() => exit()}>exit</button>
-                        <button id="forward" onClick={() => publishFile()}>next</button>
+                        <div id="back" onClick={() => exit()}>exit</div>
+                        <button id="forward" onClick={() => console.log()}>next</button>
                     </div>
                 </div>
             </div>
