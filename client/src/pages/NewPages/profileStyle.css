@@ -23,7 +23,6 @@
 
 #buttonGroup {
     height: 120px;
-    width: 500px;
     margin-top: 0px;
     display: flex;
     align-items: center;
@@ -73,12 +72,12 @@
     font-weight: bold;
 }
 
-.center {
-    width: 500px;
+#btnCntr {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
 }
+
 
 #postButtn {
     width: 400px;
@@ -149,6 +148,14 @@
 }
 
 @media only screen and (max-width: 1400px) {
+    #leftPanelProfile {
+        width: 40vw;
+    }    
+
+#rightPanelProfile {
+    width: 60vw;
+
+}
     .profilePreview {
         width: 160px;
         height: 213px;

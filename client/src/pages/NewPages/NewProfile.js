@@ -59,7 +59,7 @@ export default function NewProfile() {
                         eth earned
                     </div>
                 </div>
-                <div className="center">
+                <div id="btnCntr">
                     <div id="postButtn" onClick={() => createAPost()}>
                         Post Something
                     </div>

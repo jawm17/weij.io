@@ -23,7 +23,7 @@ export default function PostModal() {
     
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
             if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
-                displayAnimation();
+                uploading();
 
                 // upload to firebase
                 let storageRef = app.storage().ref();
@@ -53,7 +53,7 @@ export default function PostModal() {
 
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
             if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
-                displayAnimation();
+                uploading();
 
                 // upload to firebase
                 let storageRef = app.storage().ref();
@@ -70,10 +70,12 @@ export default function PostModal() {
         }
     }
 
-    function displayAnimation() {
+    function uploading() {
         document.getElementById("dropZone").style.borderColor = "white";
         document.getElementById("dragDropText").textContent = "";
         document.getElementById("uploadingDiv").style.display = "initial";
+        document.getElementById("success").style.display = "none";
+        document.getElementById("loader").style.display = "initial";
     }
 
     function dragOverHandler(ev) {
@@ -89,6 +91,8 @@ export default function PostModal() {
 
     function fileError() {
         document.getElementById("dragDropText").textContent = "This file type is not supported";
+        document.getElementById("dropZone").style.borderColor = "gray";
+        document.getElementById("uploadingDiv").style.display = "none";
     }
 
     return (

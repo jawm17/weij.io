@@ -24,7 +24,7 @@ export default function() {
         <HeaderGreen />
         <div style={style.bg} className="bluebg">
             <div style={style.messageBody}>
-                This site is coming 2021!
+                This site is coming soon!
             </div>
         </div>
         </div>
