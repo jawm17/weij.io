@@ -12,7 +12,7 @@ p {
     align-items: center;
 }
 
-.white {
+#whiteFirst {
     min-width: 200px;
     max-width: 1000px;
     width: 90vw;
@@ -20,6 +20,7 @@ p {
     background-color: #efefef;
     border-radius: 12px;
     position: relative;
+    overflow-y: scroll;
 }
 
 #banner {
@@ -81,7 +82,7 @@ p {
   }
 
   #uploadText {
-      margin-top: 35px;
+      margin-top: 210px;
   }
 
   #uploadFlex {
@@ -90,6 +91,7 @@ p {
       width: 83vw;
       display: flex;
       justify-content: center;
+      float: left;
   }
 
   #success {
@@ -117,10 +119,10 @@ p {
 
 .enterTitle {
     width: 400px;
-    height: 200px;
+    height: 195px;
     float: left;
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 20px;
     position: relative;
 }
 
@@ -129,7 +131,7 @@ p {
     height: 200px;
     float: left;
     margin-left: 25px;
-    margin-top: 20px;
+    margin-top: 0px;
     position: relative;
 }
 
@@ -149,20 +151,65 @@ p {
     z-index: 210;
 }
 
-.textArea {
+#textAreaTitle {
+    position: absolute;
+    width: 380px;
+    height: 110px;
+    background-color: white;
+    border-radius: 12px;
+    top: 30px;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: white;
+}
+
+#textAreaDescript {
     position: absolute;
     width: 380px;
     height: 165px;
     background-color: white;
     border-radius: 12px;
     top: 30px;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: white;
+}
+
+#title {
+    margin-top: 6px;
+    margin-left: 6px;
+    width: 360px;
+    height: 90px;
+    font-size: 20px;
+    font-family: sans-serif;
+    resize: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    font-weight: 100;
+}
+
+#descript {
+    margin-top: 6px;
+    margin-left: 6px;
+    width: 360px;
+    height: 140px;
+    font-size: 20px;
+    font-family: sans-serif;
+    resize: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    font-weight: 100;
 }
 
 #dropZone:hover { 
     cursor: pointer;
 }
 
-#back {
+#exit {
     position: absolute;
     bottom: 20px;
     right: 100px;

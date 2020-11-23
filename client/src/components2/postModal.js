@@ -1,9 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { app } from '../base';
+import PostModalSecond from './postModalSecond';
 import "./postModalStyle.css";
 
 export default function PostModal() {
     const [file, setFile] = useState("");
+    const [url, setUrl] = useState("");
+    const [title, setTitle] = useState("");
+    const [descript, setDescript] = useState("");
 
     const style = {
         shade: {
@@ -13,12 +17,19 @@ export default function PostModal() {
             height: "100vh",
             display: "none",
             backgroundColor: "rgba(0,0,0,0.8)",
-        }
-    }
+        },
 
+    }
 
     function exit() {
         window.location.href = "/profile";
+    }
+
+    function next() {
+        if(url && title) {
+            document.getElementById("modalSecond").style.display = "initial";
+            document.getElementById("whiteFirst").style.display = "none";
+        }
     }
 
     // on click select file handler
@@ -64,7 +75,7 @@ export default function PostModal() {
         let fileRef = storageRef.child(file.name);
         fileRef.put(file).then((e) => {
             fileRef.getDownloadURL().then(function (url) {
-                console.log(url);
+                setUrl(url);
                 uploadFinished(file.name);
             });
         })
@@ -89,6 +100,28 @@ export default function PostModal() {
         document.getElementById("uploadText").textContent = ("uploaded " + name);
     }
 
+    function titleChange(e) {
+        console.log(e.target.value);
+        let newTitle = e.target.value;
+        setTitle(newTitle);
+        if(newTitle) {
+            document.getElementById("titleLabel").style.color = "#8A62E2";
+        } else {
+            document.getElementById("titleLabel").style.color = "gray";
+        }
+    }
+
+    function descriptChange(e) {
+        console.log(e.target.value);
+        let newD = e.target.value;
+        setDescript(newD);
+        if(newD) {
+            document.getElementById("descriptionLabel").style.color = "#8A62E2";
+        } else {
+            document.getElementById("descriptionLabel").style.color = "gray";
+        }
+    }
+
     function fileError() {
         document.getElementById("dragDropText").textContent = "This file type is not supported";
         document.getElementById("dropZone").style.borderColor = "gray";
@@ -99,7 +132,8 @@ export default function PostModal() {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <div className="white">
+                   <PostModalSecond url={url} title={title} description={descript}/>
+                    <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>
                         </div>
@@ -122,23 +156,27 @@ export default function PostModal() {
                                 </div>
                                 <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
+
+
                             <div className="enterTitle">
                                 <div id="titleLabel">
                                     Title
                                 </div>
-                                <div className="textArea">
+                                <div id="textAreaTitle">
+                                    <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
                                 </div>
                             </div>
                             <div className="enterDescription">
                                 <div id="descriptionLabel">
                                     Description
                                 </div>
-                                <div className="textArea">
+                                <div id="textAreaDescript">
+                                    <textarea id="descript" onChange={(e) => descriptChange(e)} onClick={() => document.getElementById("textAreaDescript").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaDescript").style.borderColor = "white"}></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div id="back" onClick={() => exit()}>exit</div>
-                        <button id="forward" onClick={() => console.log()}>next</button>
+                        <div id="exit" onClick={() => exit()}>exit</div>
+                        <button id="forward" onClick={() => next()}>next</button>
                     </div>
                 </div>
             </div>
