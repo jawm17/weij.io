@@ -24,7 +24,7 @@ export default function PostModal() {
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
             if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
                 displayAnimation();
-                
+
                 // upload to firebase
                 let storageRef = app.storage().ref();
                 let fileRef = storageRef.child(file.name);
@@ -64,6 +64,8 @@ export default function PostModal() {
                         uploadFinished(file.name);
                     });
                 })
+            } else {
+                fileError();
             }
         }
     }

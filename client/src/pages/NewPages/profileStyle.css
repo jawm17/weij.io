@@ -1,5 +1,5 @@
 #leftPanelProfile {
-    width: 500px;
+    width: 560px;
     height: 100vh;
     background-color:  #8A62E2;
     text-align: center;
@@ -107,21 +107,21 @@
 #rightPanelProfile {
     position: fixed;
     top: 80px;
-    left: 502px;
+    right: 0;
     width: 400px;
     height: calc(100vh - 80px);
     float: right;
-    width: calc(100vw - 500px);
+    width: calc(100vw - 560px);
     background-color:  #efefef;
     overflow-y: scroll;
+    display: flex;
+    justify-content: center;
 }
 
 #rowOnePro {
     width: 250px;
     height: 1000px;
-    margin-left: 100px;
     display: inline;
-    float: left;
     margin-top: 70px;
 }
 
@@ -129,7 +129,6 @@
     width: 250px;
     height: 1000px;
     display: inline;
-    float: left;
     margin-top: 70px;
 }
 
@@ -137,7 +136,6 @@
     width: 250px;
     height: 1000px;
     display: inline;
-    float: left;
     margin-top: 70px;
 }
 
@@ -162,7 +160,6 @@
     #rowOnePro {
         width: 200px;
         height: 1000px;
-        margin-left: 100px;
         display: inline;
         float: left;
         margin-top: 70px;
