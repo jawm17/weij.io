@@ -16,61 +16,61 @@ export default function PostModal() {
         }
     }
 
-    function selectFile(e) {
-        if(e.target.files[0]) {
-            let file = e.target.files[0];
-            setFile(file);
-    
-            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
-                uploading();
-
-                // upload to firebase
-                let storageRef = app.storage().ref();
-                let fileRef = storageRef.child(file.name);
-                fileRef.put(file).then((e) => {
-                    fileRef.getDownloadURL().then(function (url) {
-                        console.log(url);
-                        uploadFinished(file.name);
-                    });
-                })
-            } else {
-                fileError();
-            }
-        }
-    }
 
     function exit() {
         window.location.href = "/profile";
     }
 
-    function dropHandler(ev) {
-        console.log(ev);
-        ev.preventDefault();
-        if (ev.dataTransfer.items) {
-            let file = ev.dataTransfer.items[0].getAsFile();
+    // on click select file handler
+    function selectFile(e) {
+        if (e.target.files[0]) {
+            let file = e.target.files[0];
             setFile(file);
-
+            // check file extension
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
             if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
-                uploading();
-
                 // upload to firebase
-                let storageRef = app.storage().ref();
-                let fileRef = storageRef.child(file.name);
-                fileRef.put(file).then((e) => {
-                    fileRef.getDownloadURL().then(function (url) {
-                        console.log(url);
-                        uploadFinished(file.name);
-                    });
-                })
+                firebaseUpload(file);
+                // display animation
+                uploadingAnimation();
             } else {
                 fileError();
             }
         }
     }
 
-    function uploading() {
+    // on drop file handler 
+    function dropHandler(e) {
+        // prevent file opening in browser
+        e.preventDefault();
+        if (e.dataTransfer.items) {
+            let file = e.dataTransfer.items[0].getAsFile();
+            setFile(file);
+            // check file extension
+            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
+            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+                // upload to firebase
+                firebaseUpload(file);
+                // display animation
+                uploadingAnimation();
+            } else {
+                fileError();
+            }
+        }
+    }
+
+    function firebaseUpload(file) {
+        let storageRef = app.storage().ref();
+        let fileRef = storageRef.child(file.name);
+        fileRef.put(file).then((e) => {
+            fileRef.getDownloadURL().then(function (url) {
+                console.log(url);
+                uploadFinished(file.name);
+            });
+        })
+    }
+
+    function uploadingAnimation() {
         document.getElementById("dropZone").style.borderColor = "white";
         document.getElementById("dragDropText").textContent = "";
         document.getElementById("uploadingDiv").style.display = "initial";
@@ -78,9 +78,9 @@ export default function PostModal() {
         document.getElementById("loader").style.display = "initial";
     }
 
-    function dragOverHandler(ev) {
+    function dragOverHandler(e) {
         // Prevent default behavior (Prevent file from being opened)
-        ev.preventDefault();
+        e.preventDefault();
     }
 
     function uploadFinished(name) {
@@ -104,8 +104,8 @@ export default function PostModal() {
                             <p id="bannerText">Upload Video</p>
                         </div>
                         <div id="centerDrop">
-                            <input style={{ "display": "none" }} id="j" type="file" onChange={(e) => selectFile(e)}></input>
-                            <div id="dropZone" onClick={() => document.getElementById("j").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
+                            <input style={{ "display": "none" }} id="selectileInput" type="file" onChange={(e) => selectFile(e)}></input>
+                            <div id="dropZone" onClick={() => document.getElementById("selectileInput").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
                                 <div id="uploadingDiv">
                                     <div id="uploadFlex">
                                         <div id="loader">
