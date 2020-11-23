@@ -101,7 +101,6 @@ export default function PostModal() {
     }
 
     function titleChange(e) {
-        console.log(e.target.value);
         let newTitle = e.target.value;
         setTitle(newTitle);
         if(newTitle) {
@@ -112,7 +111,6 @@ export default function PostModal() {
     }
 
     function descriptChange(e) {
-        console.log(e.target.value);
         let newD = e.target.value;
         setDescript(newD);
         if(newD) {
@@ -132,7 +130,7 @@ export default function PostModal() {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                   <PostModalSecond url={url} title={title} description={descript}/>
+                    <PostModalSecond url={url} title={title} description={descript}/>
                     <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>

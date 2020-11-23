@@ -15,3 +15,13 @@
     bottom: 20px;
     right: 100px;
 }
+
+#optionTitle {
+    color: grey;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 210;
+    top: 130px;
+    left: 60px;
+}
