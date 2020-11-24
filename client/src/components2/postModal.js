@@ -6,9 +6,6 @@ import "./postModalStyle.css";
 export default function PostModal() {
     const [file, setFile] = useState("");
     const [url, setUrl] = useState("");
-    const [title, setTitle] = useState("");
-    const [descript, setDescript] = useState("");
-
     const style = {
         shade: {
             position: "fixed",
@@ -17,8 +14,7 @@ export default function PostModal() {
             height: "100vh",
             display: "none",
             backgroundColor: "rgba(0,0,0,0.8)",
-        },
-
+        }
     }
 
     function exit() {
@@ -26,7 +22,7 @@ export default function PostModal() {
     }
 
     function next() {
-        if(url && title) {
+        if(url) {
             document.getElementById("modalSecond").style.display = "initial";
             document.getElementById("whiteFirst").style.display = "none";
         }
@@ -98,26 +94,7 @@ export default function PostModal() {
         document.getElementById("loader").style.display = "none";
         document.getElementById("success").style.display = "initial";
         document.getElementById("uploadText").textContent = ("uploaded " + name);
-    }
-
-    function titleChange(e) {
-        let newTitle = e.target.value;
-        setTitle(newTitle);
-        if(newTitle) {
-            document.getElementById("titleLabel").style.color = "#8A62E2";
-        } else {
-            document.getElementById("titleLabel").style.color = "gray";
-        }
-    }
-
-    function descriptChange(e) {
-        let newD = e.target.value;
-        setDescript(newD);
-        if(newD) {
-            document.getElementById("descriptionLabel").style.color = "#8A62E2";
-        } else {
-            document.getElementById("descriptionLabel").style.color = "gray";
-        }
+        document.getElementById("forward").style.backgroundColor = "#8A62E2";
     }
 
     function fileError() {
@@ -130,7 +107,7 @@ export default function PostModal() {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <PostModalSecond url={url} title={title} description={descript}/>
+                    <PostModalSecond url={url}/>
                     <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>
@@ -154,27 +131,9 @@ export default function PostModal() {
                                 </div>
                                 <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
-
-
-                            <div className="enterTitle">
-                                <div id="titleLabel">
-                                    Title
-                                </div>
-                                <div id="textAreaTitle">
-                                    <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
-                                </div>
-                            </div>
-                            <div className="enterDescription">
-                                <div id="descriptionLabel">
-                                    Description
-                                </div>
-                                <div id="textAreaDescript">
-                                    <textarea id="descript" onChange={(e) => descriptChange(e)} onClick={() => document.getElementById("textAreaDescript").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaDescript").style.borderColor = "white"}></textarea>
-                                </div>
-                            </div>
                         </div>
                         <div id="exit" onClick={() => exit()}>exit</div>
-                        <button id="forward" onClick={() => next()}>next</button>
+                        <div id="forward" onClick={() => next()}>next</div>
                     </div>
                 </div>
             </div>
