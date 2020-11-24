@@ -16,7 +16,7 @@ export default function PostModalSecond(props) {
                     <p id="bannerText">Thumbnail and Preview</p>
                 </div>
                 <div id="optionTitle">
-                    Choose thumbnail from video
+                    Choose a thumbnail from the video
                 </div>
                 {props.url ? <UploadPlayer url={props.url}/> : null}
                 <div id="back" onClick={() => back()}>back</div>
