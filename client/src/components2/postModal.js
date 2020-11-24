@@ -132,7 +132,7 @@ export default function PostModal() {
                                 <p id="dragDropText">Drag and drop a file or click here</p>
                             </div>
                         </div>
-                        <div id="exit" onClick={() => exit()}>exit</div>
+                        <div id="exit" onClick={() => exit()}>cancel</div>
                         <div id="forward" onClick={() => next()}>next</div>
                     </div>
                 </div>

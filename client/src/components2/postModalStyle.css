@@ -42,6 +42,15 @@ p {
     margin-left: 40px;
 }
 
+#centerDrop {
+    position: absolute;
+    top: 80px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #dropZone {
     min-width: 140px;
     max-width: 650px;
@@ -52,7 +61,6 @@ p {
     text-align: center;
     float: left;
     color: grey;
-    margin-left: 20px;
     margin-top: 20px;
     border-style: dashed;
     border-color: gray;
@@ -212,7 +220,7 @@ p {
 #exit {
     position: absolute;
     bottom: 20px;
-    right: 100px;
+    right: 115px;
     width: 70px;
     height: 40px;
     display: flex;
