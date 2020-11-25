@@ -39,12 +39,12 @@ export default function NewProfile() {
                 <div id="profileUsername">
                     Jawm42
                 </div>
-                <div id="infoGroup">
-
-                </div>
                 <div id="buttonGroup">
-                    <div id="settingsButton">
-                        <img src={settingsSrc} alt="settings cog" id="cog"></img>
+                <div id="subscriptions">
+                        <div className="bold">
+                            4
+                        </div>
+                        subscriptions
                     </div>
                     <div id="subs">
                         <div className="bold">
@@ -52,7 +52,7 @@ export default function NewProfile() {
                         </div>
                         subscribers
                     </div>
-                    <div id="manageSubs">
+                    <div id="ethEarned">
                         <div className="bold">
                             510
                         </div>

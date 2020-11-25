@@ -26,7 +26,7 @@
     margin-top: 0px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #settingsButton {
@@ -45,6 +45,16 @@
     height: 40px;
 }
 
+#subscriptions {
+    width: 120px;
+    height: 60px;
+    background-color: none;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 40px;
+}
+
 #subs {
     width: 120px;
     height: 60px;
@@ -54,14 +64,14 @@
     text-align: center;
 }
 
-#manageSubs {
+#ethEarned {
     width: 120px;
     height: 60px;
     background-color: none;
     color: white;
     border-radius: 8px;
     text-align: center;
-    margin-right: 60px;
+    margin-right: 40px;
 }
 
 .bold {

@@ -99,7 +99,6 @@ export default function PostModal() {
 
     function fileError() {
         document.getElementById("dragDropText").textContent = "This file type is not supported";
-        document.getElementById("dropZone").style.borderColor = "gray";
         document.getElementById("uploadingDiv").style.display = "none";
     }
 

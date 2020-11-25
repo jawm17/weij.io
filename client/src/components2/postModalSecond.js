@@ -47,6 +47,10 @@ export default function PostModalSecond(props) {
                 <div id="banner">
                     <p id="bannerText">Thumbnail and Preview</p>
                 </div>
+               <div id="thumbArea">
+                {props.url ? <UploadPlayer url={props.url}/> : null}
+               </div>
+
                 <div id="optionTitle">
                     Choose a thumbnail from the video
                 </div>
@@ -66,7 +70,6 @@ export default function PostModalSecond(props) {
                                     <textarea id="descript" onChange={(e) => descriptChange(e)} onClick={() => document.getElementById("textAreaDescript").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaDescript").style.borderColor = "white"}></textarea>
                                 </div>
                             </div>
-                {props.url ? <UploadPlayer url={props.url}/> : null}
                 <div id="back" onClick={() => back()}>back</div>
                 <div style={style.nextBtn} id="forward2" onClick={() => console.log()}>next</div>
             </div>
