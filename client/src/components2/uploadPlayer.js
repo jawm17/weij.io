@@ -3,6 +3,9 @@ import "./uploadPlayerStyle.css";
 
 export default function UploadPlayer(props) {
 
+    var scaleFactor = 0.25;
+    var snapshots = [];
+
     const style = {
         video: {
             width: "100",
@@ -14,8 +17,38 @@ export default function UploadPlayer(props) {
     useEffect(() => {
         let vid = document.getElementById("uploadPlayer");
         vid.disablePictureInPicture = true
+        vid.ontimeupdate = function() {timeSelected()};
     }, []);
 
+    function timeSelected() {
+        document.getElementById("selectBttn").style.color = "#8A62E2";
+    }
+
+    function capture(video, scaleFactor) {
+        if (scaleFactor == null) {
+            scaleFactor = 1;
+        }
+        var w = video.videoWidth * scaleFactor;
+        var h = video.videoHeight * scaleFactor;
+        var canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, w, h);
+        return canvas;
+        
+    }
+
+    function snap(){
+        let vid = document.getElementById("uploadPlayer");
+        var output = document.getElementById('selectBttn');
+        var canvas = capture(vid, scaleFactor);
+        snapshots.unshift(canvas);
+        output.innerHTML = '';
+        output.appendChild(snapshots[0]);
+        console.log(canvas)
+        
+    }
 
     return (
         <div>
@@ -23,6 +56,9 @@ export default function UploadPlayer(props) {
                 <source src={props.url} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
+                <div id="selectBttn" onClick={() => snap()}>
+                    select
+                </div>
         </div>
     );
 }

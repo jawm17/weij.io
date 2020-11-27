@@ -9,7 +9,8 @@ export default function MediaPreview(props) {
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");
-    const [infoDisplay, setInfoDisplay] = useState("none")
+    const [infoDisplay, setInfoDisplay] = useState("none");
+    const [duration ,setDuration] = useState();
 
     const style = {
         thumbnail: {
@@ -55,11 +56,13 @@ export default function MediaPreview(props) {
     }
     useEffect(() => {
         let figure = document.getElementById(props.id + "vid");
-        if (figure.duration) {
-            figure.currentTime = parseInt(figure.duration) / 2;
-        } else {
-            figure.currentTime = 2;
-        }
+      console.log(figure.duration)
+            figure.currentTime = 20;
+         
+    
+    //    // remove --------------------------------------------------------
+    //             figure.style.display = "initial";
+    //             setOpacity(0);
     }, []);
 
     function openMedia(e) {
@@ -68,22 +71,30 @@ export default function MediaPreview(props) {
     }
 
     function startPreview() {
-        let exited = false;
-        document.getElementById(props.id).addEventListener("mouseleave", () => exited = true);
-        let figure = document.getElementById(props.id + "vid");
-        setTimeout(() => {
-            if (!exited) {
-                figure.style.display = "initial";
-                setInfoDisplay("initial");
-                setOpacity(0);
-                figure.play();
-                setTimeout(() => {
-                    if (!exited) {
-                        setFlagPos(0);
-                    }
-                }, 150);
-            }
-        }, 450);
+        if(duration) {
+            let exited = false;
+            document.getElementById(props.id).addEventListener("mouseleave", () => exited = true);
+            let figure = document.getElementById(props.id + "vid");
+            setTimeout(() => {
+                if (!exited) {
+                    figure.style.display = "initial";
+                    setInfoDisplay("initial");
+                    setOpacity(0);
+                    figure.currentTime = parseInt(duration / 8);
+                    figure.play();
+                    setTimeout(() => {
+                        if (!exited) {
+                            setFlagPos(0);
+                        }
+                    }, 150);
+                    setTimeout(() => {
+                        if (!exited) {
+                            figure.currentTime = parseInt(duration / 2);
+                        }
+                    }, 2300);
+                }
+            }, 450);
+        }
     }
 
     function endPreview() {
@@ -95,6 +106,12 @@ export default function MediaPreview(props) {
         setInfoDisplay("none");
     }
 
+    function videoDuration(e) {
+        if(!duration) {
+            setDuration(parseInt(e.target.duration));
+        }
+    }
+
     return (
         <div className="inlineBlock">
             <div className="item" id={props.id}>
@@ -102,8 +119,8 @@ export default function MediaPreview(props) {
                     <img className="dolla" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.iconsdb.com%2Ficons%2Fpreview%2Fwhite%2Fus-dollar-xxl.png&f=1&nofb=1" alt="money"></img>
                 </div>
                 <div style={style.flagBlock}></div>
-                <img src={thumbnail} style={style.thumbnail} alt="video thumbnail" className="thumbnail" onClick={(e) => openMedia(e)} onMouseEnter={() => startPreview()} onMouseLeave={() => endPreview()}></img>
-                <video className="sample" id={props.id + "vid"} muted>
+                <img src={thumbnail} style={style.thumbnail} id={props.id + "thumb"} alt="video thumbnail" className="thumbnail" onClick={(e) => openMedia(e)} onMouseEnter={() => startPreview()} onMouseLeave={() => endPreview()}></img>
+                <video className="sample" id={props.id + "vid"} muted onDurationChange={(e) => videoDuration(e)}>
                     <source src={props.imgUrl[0]} type="video/mp4" />
                         Your browser does not support the video tag.
                 </video>
