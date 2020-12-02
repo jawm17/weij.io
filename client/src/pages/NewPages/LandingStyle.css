@@ -21,20 +21,28 @@ html {
     
 }
 
+#set {
+    display: none;
+}
+
 .tile {
-    width: 200px;
-    margin-left: 90px;
-    padding-top: 34px;
-    display: inline-block
+    width: 90px;
+    margin-left: 100px;
+    padding-top: 36px;
+    float: left;
+    font-size: 12px;
 }
 
 .tile2 {
-    width: 200px;
-    display: inline-block
+    width: 110px;
+    padding-top: 36px;
+    margin-left: 90px;
+    float: left;
+    font-size: 12px;
 }
 
 .footerElement {
-    padding-bottom: 34px;
+    margin-bottom: 34px;
     color: white;
 }
 

@@ -91,7 +91,7 @@ export default function MediaPreview(props) {
                         if (!exited) {
                             figure.currentTime = parseInt(duration / 2);
                         }
-                    }, 2300);
+                    }, 2800);
                 }
             }, 450);
         }

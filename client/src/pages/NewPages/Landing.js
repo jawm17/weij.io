@@ -8,11 +8,15 @@ import "./LandingStyle.css";
 
 export default function Landing() {
     const [posts, setPosts] = useState([]);
-    const [access, setAccess] = useState(false);
+    const [access, setAccess] = useState();
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
         getFeed();
+        console.log(authContext.isAuthenticated);
+        if(authContext.isAuthenticated) {
+            setAccess("t");
+        }
     }, []);
 
     function getFeed() {
@@ -23,20 +27,19 @@ export default function Landing() {
                     return new Date(b.createdAt) - new Date(a.createdAt);
                 });
                 setPosts(data);
-                setAccess(true);
             }
             else if (data.message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
                 authContext.setIsAuthenticated(false);
-                setAccess(false);
                 window.alert("not logged in");
+                setAccess("f");
             }
         });
     }
 
     return (
         <div>
-            {access ? <HeaderAccessed /> : <HeaderDefault />}
+            <HeaderAccessed secured={access}/>
             <div id="landingBg"></div>
             <div className="contentContainer">
                 
