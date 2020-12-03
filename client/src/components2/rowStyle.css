@@ -17,16 +17,54 @@
 
 .row:nth-of-type(5) {
     padding-bottom: 40px;
-
 }
 
 .group {
     margin-left: 80px;
 }
 
+@media only screen and (max-width: 600px) {
+    .rowTitle {
+        position: absolute;
+        margin-left: 10vw;
+        z-index: 11;
+        margin-top: 25px;
+    }
+
+
+    .row:nth-of-type(1) {
+        margin-top: 40px;
+    }   
+    
+    .row {
+        width: 100vw;
+        height: 350px;
+        overflow: auto;
+        white-space: nowrap;
+        margin-top: 24px;
+        scroll-behavior: smooth;
+    }
+    .group {
+        margin-left: 10vw;
+    }
+}
+
+  
+
 .inlineBlock {
     display: inline-block;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.row::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .row {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 .scrollRight {
     position: absolute;

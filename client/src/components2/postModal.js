@@ -5,7 +5,7 @@ import "./postModalStyle.css";
 
 export default function PostModal() {
     const [file, setFile] = useState("");
-    const [url, setUrl] = useState("https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/IMG_6172%20(1)%20(1).mov?alt=media&token=a1a0a775-d6c3-46d2-a044-3040fee39e30");
+    const [url, setUrl] = useState();
     const style = {
         shade: {
             position: "fixed",
