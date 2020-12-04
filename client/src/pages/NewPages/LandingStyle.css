@@ -49,3 +49,15 @@ html {
 .footerElement:hover {
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .tile {
+        margin-left: 13vw;
+    }
+
+    .tile2 {
+    margin-left: 60px;      
+    }
+    
+}

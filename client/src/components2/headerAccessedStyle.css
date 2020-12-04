@@ -131,4 +131,36 @@
     align-items: center;
     color: white;
     font-size: 12px;
-}   
+}  
+
+
+@media only screen and (max-width: 600px) {
+
+    .mainLogoA {
+        color:  #8A62E2;
+        margin-left: 12vw;
+        font-size: 22px;
+    }
+
+    .fixedButtonsA {
+        display: none;
+    }
+
+    #profileIcon {
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 930px) {
+    
+#gamesLogo {
+    display: none;
+}
+
+#musicLogo {
+    display: none;
+}
+
+
+}

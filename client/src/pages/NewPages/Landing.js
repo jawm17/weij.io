@@ -31,7 +31,6 @@ export default function Landing() {
             else if (data.message.msgBody === "Unauthorized") {
                 authContext.setUser({ username: "" });
                 authContext.setIsAuthenticated(false);
-                window.alert("not logged in");
                 setAccess("f");
             }
         });

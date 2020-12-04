@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: opacity
+                opacity: 0
         },
         bottom: {
             position: "absolute",
@@ -55,14 +55,7 @@ export default function MediaPreview(props) {
         }
     }
     useEffect(() => {
-        let figure = document.getElementById(props.id + "vid");
-      console.log(figure.duration)
-            figure.currentTime = 20;
-         
-    
-    //    // remove --------------------------------------------------------
-    //             figure.style.display = "initial";
-    //             setOpacity(0);
+   
     }, []);
 
     function openMedia(e) {
@@ -100,7 +93,7 @@ export default function MediaPreview(props) {
     function endPreview() {
         let figure = document.getElementById(props.id + "vid");
         figure.pause();
-        figure.style.display = "none";
+  
         setOpacity(100);
         setFlagPos(-50);
         setInfoDisplay("none");
@@ -109,6 +102,8 @@ export default function MediaPreview(props) {
     function videoDuration(e) {
         if(!duration) {
             setDuration(parseInt(e.target.duration));
+            let figure = document.getElementById(props.id + "vid");
+            figure.currentTime = parseInt(e.target.duration / 2);
         }
     }
 

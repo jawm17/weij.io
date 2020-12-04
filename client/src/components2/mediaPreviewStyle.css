@@ -9,7 +9,7 @@
     width: 196px;
     height: 260px;
     margin-top: 80px;
-    margin-right: 60px;
+    margin-right: 55px;
     position: relative;
     border-radius: 12px;
     background-color: gray;
@@ -21,12 +21,12 @@
     height: 260px;
     border-radius: 12px;
     object-fit: cover;
-    display: none;
+    display: initial;
 }
 
 @media only screen and (max-width: 600px) {
     .item {
-        margin-right: 30px;
+        margin-right: 40px;
     }
     
 }
