@@ -1,14 +1,10 @@
 #uploadPlayer {
     min-width: 140px;
-    max-width: 300px;
+    max-width: 285px;
     width: 83vw;
-    height: 400px;
+    height: 380px;
     border-radius: 20px;
     object-fit: cover;
-    margin-left: 40px;
-    margin-top: 170px;
-    float: left;
-
 }
 
 #uploadPlayer::-webkit-media-controls-fullscreen-button, #uploadPlayer::-webkit-media-controls-play-button, #uploadPlayer::-webkit-media-controls-pausebutton {
@@ -25,12 +21,117 @@
 
 #selectBttn {
     position: absolute;
-    top: 590px;
+    bottom: -30px;
+    right: 10px;
     color: gray;
-    left: 295px;
 }
 
+
 #selectBttn:hover {
+    color:#8A62E2;
     cursor: pointer;
 }
+
+#upldBttn {
+    position: absolute;
+    bottom: -29px;
+    left: 15px;
+    color: gray;
+}
+.bttn {
+    float: right;
+    margin-left: 10px;
+}
+
+.bttn:hover {
+    color:#8A62E2;
+    cursor: pointer;
+}
+
+
+
+/* #uploadThumbArea {
+    float: left;
+    min-width: 140px;
+    max-width: 300px;
+    width: 83vw;
+    height: 400px;
+    border-radius: 20px;
+    margin-top: 170px;
+    background-color: white;
+    text-align: center;
+    color: grey;
+    border-style: dashed;
+    border-color: gray;
+    position: relative;
+}
+
+#uploadThumbArea:hover {
+    cursor: pointer;
+}
+
+#dropText {
+    margin-top: 15px;
+}
+
+#centerDrop {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#uploadingDiv2 {
+    display: none;
+}
+
+#loader2 {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid gray; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spinner 2s linear infinite;
+    margin-top: 80px;
+  }
+  
+  @keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #uploadText2 {
+      margin-top: 210px;
+  }
+
+  #uploadFlex2 {
+    min-width: 140px;
+    max-width: 300px;
+    width: 83vw;
+      display: flex;
+      justify-content: center;
+      float: left;
+      background-color: red;
+  }
+
+  #thumbSample {
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      top: 0px;
+      left: 0px;
+      border-radius: 20px;
+      background-color: white;
+      display: none;
+  }
+
+  #thumbSampleImg {
+    width: 303px;
+    height: 403px;
+    border-radius: 20px;
+  }
+
+
+ */
 

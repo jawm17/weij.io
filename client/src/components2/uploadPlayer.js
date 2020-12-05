@@ -25,7 +25,7 @@ export default function UploadPlayer(props) {
     }
 
     function timeSelected() {
-        document.getElementById("selectBttn").style.color = "#8A62E2";
+        document.getElementById("optionTitle").style.color = "#8A62E2";
     }
 
     // function capture(video, scaleFactor) {
@@ -58,8 +58,8 @@ export default function UploadPlayer(props) {
                 <source src={props.url} type="video/mp4" onError={() => vidError()}/>
                         Your browser does not support the video tag.
                 </video>
-                <div id="selectBttn" onClick={() => snap()}>
-                    select
+                <div id="upldBttn" onClick={() => snap()}>
+                    or <div className="bttn">upload</div>
                 </div>
         </div>
     );

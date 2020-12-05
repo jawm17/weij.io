@@ -108,10 +108,10 @@ export default function PostModalSecond(props) {
         <div id="modalSecond" style={{ "display": "none" }}>
             <div id="whiteSecond">
                 <div id="banner">
-                    <p id="bannerText">Thumbnail</p>
+                    <p id="bannerText">Create a Post</p>
                 </div>
                 <div id="optionTitle">
-                    Choose a thumbnail from the video
+                    Slide to choose a thumbnail
                 </div>
                 <div id="thumbArea">
                     {props.url ? <UploadPlayer url={props.url} /> : null}
@@ -139,24 +139,24 @@ export default function PostModalSecond(props) {
                     </div>
                 </div> */}
 
+                    <div class="vl"></div>
+
                 <div className="vidInfo">
-                    <div id="optionTitle2">
-                        Choose a title
-                    </div>
+ 
                     <div className="enterTitle">
                         <div id="titleLabel">
-                            Title
+                            Enter a title
                                 </div>
                         <div id="textAreaTitle">
                             <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
                         </div>
                     </div>
-                    <div className="enterDescription">
-                        <div id="descriptionLabel">
-                            Description
+                    <div className="enterPrice">
+                        <div id="priceLabel">
+                            Enter a price
                                 </div>
-                        <div id="textAreaDescript">
-                            <textarea id="descript" onChange={(e) => descriptChange(e)} onClick={() => document.getElementById("textAreaDescript").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaDescript").style.borderColor = "white"}></textarea>
+                        <div id="textAreaPrice">
+                            <textarea id="price" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
                         </div>
                     </div>
                 </div>

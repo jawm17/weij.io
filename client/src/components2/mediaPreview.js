@@ -73,7 +73,6 @@ export default function MediaPreview(props) {
                     figure.style.display = "initial";
                     setInfoDisplay("initial");
                     setOpacity(0);
-                    figure.currentTime = parseInt(duration / 8);
                     figure.play();
                     setTimeout(() => {
                         if (!exited) {
@@ -86,7 +85,7 @@ export default function MediaPreview(props) {
                         }
                     }, 2800);
                 }
-            }, 450);
+            }, 900);
         }
     }
 
