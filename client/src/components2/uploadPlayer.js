@@ -58,6 +58,9 @@ export default function UploadPlayer(props) {
                 <source src={props.url} type="video/mp4" onError={() => vidError()}/>
                         Your browser does not support the video tag.
                 </video>
+                <div id="selectTime" onClick={() => props.timeChosen()}>
+                    select
+                </div>
                 <div id="upldBttn" onClick={() => snap()}>
                     or <div className="bttn">upload</div>
                 </div>

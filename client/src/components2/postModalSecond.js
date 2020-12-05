@@ -6,7 +6,7 @@ import "./modalSecondStyle.css";
 export default function PostModalSecond(props) {
 
     const [title, setTitle] = useState("");
-    const [descript, setDescript] = useState("");
+    const [price, setPrice] = useState();
     const [file, setFile] = useState("");
     const [thumbSrc, setThumbSrc] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
 
@@ -26,13 +26,13 @@ export default function PostModalSecond(props) {
         }
     }
 
-    function descriptChange(e) {
-        let newD = e.target.value;
-        setDescript(newD);
-        if (newD) {
-            document.getElementById("descriptionLabel").style.color = "#8A62E2";
+    function priceChange(e) {
+        let price = e.target.value;
+        setPrice(price);
+        if (price) {
+            document.getElementById("priceLabel").style.color = "#8A62E2";
         } else {
-            document.getElementById("descriptionLabel").style.color = "gray";
+            document.getElementById("priceLabel").style.color = "gray";
         }
     }
 
@@ -76,6 +76,10 @@ export default function PostModalSecond(props) {
         }
     }
 
+    function timeChosen() {
+        alert("time chosen!!")
+    }
+
     function firebaseUpload(file) {
         let storageRef = app.storage().ref();
         let fileRef = storageRef.child(file.name);
@@ -114,7 +118,7 @@ export default function PostModalSecond(props) {
                     Slide to choose a thumbnail
                 </div>
                 <div id="thumbArea">
-                    {props.url ? <UploadPlayer url={props.url} /> : null}
+                    {props.url ? <UploadPlayer url={props.url} timeChosen={() => timeChosen()}/> : null}
                 </div>
 
 
@@ -139,7 +143,7 @@ export default function PostModalSecond(props) {
                     </div>
                 </div> */}
 
-                    <div class="vl"></div>
+                    <div className="vl"></div>
 
                 <div className="vidInfo">
  
@@ -156,7 +160,7 @@ export default function PostModalSecond(props) {
                             Enter a price
                                 </div>
                         <div id="textAreaPrice">
-                            <textarea id="price" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                            <textarea id="price" onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
                         </div>
                     </div>
                 </div>
