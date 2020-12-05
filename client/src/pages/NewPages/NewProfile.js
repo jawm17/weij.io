@@ -32,7 +32,7 @@ export default function NewProfile() {
 
     return (
         <div>
-            <HeaderAccessed />
+            <HeaderAccessed secured="t"/>
             <PostModal />
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>

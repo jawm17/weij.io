@@ -30,7 +30,7 @@ export default function MediaPreview(props) {
             borderBottomRightRadius: 12,
             borderBottomLeftRadius: 12,
             backgroundColor: "rgba(0,0,0,0.5)",
-            display: infoDisplay
+            display: "initial"
         },
         flagBlock: {
             position: "absolute",

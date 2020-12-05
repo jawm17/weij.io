@@ -20,19 +20,6 @@
     left: 40px;
 }
 
-#orLabel {
-    height: 370px;
-    margin-top: 170px;
-    float: left;
-    font-weight: bold;
-    font-size: 30px;
-    width: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-}
-
 #uploadThumbArea {
     float: left;
     min-width: 140px;
@@ -116,7 +103,7 @@
   }
 
 
-/* .vidInfo {
+.vidInfo {
     float: left;
     margin-top: 140px;
     margin-left: 50px;
@@ -202,7 +189,7 @@
     border-bottom: 1px solid #fff;
     outline: none;
     font-weight: 100;
-} */
+}
 
 #back {
     position: absolute;

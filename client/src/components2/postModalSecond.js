@@ -116,11 +116,13 @@ export default function PostModalSecond(props) {
                 <div id="thumbArea">
                     {props.url ? <UploadPlayer url={props.url} /> : null}
                 </div>
-                <div id="orLabel">
-                    Or
-                </div>
 
-                <input style={{ "display": "none" }} id="selectThumb" type="file" onChange={(e) => selectFile(e)}></input>
+
+                {/* <div id="orLabel">
+                    Or
+                </div> */}
+
+                {/* <input style={{ "display": "none" }} id="selectThumb" type="file" onChange={(e) => selectFile(e)}></input>
                 <div id="uploadThumbArea" onClick={() => document.getElementById("selectThumb").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
                     <p id="dropText">Upload a thumbnail</p>
                     <div id="thumbSample">
@@ -135,9 +137,9 @@ export default function PostModalSecond(props) {
                             {"uploading " + file.name}
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                {/* <div className="vidInfo">
+                <div className="vidInfo">
                     <div id="optionTitle2">
                         Choose a title
                     </div>
@@ -157,7 +159,7 @@ export default function PostModalSecond(props) {
                             <textarea id="descript" onChange={(e) => descriptChange(e)} onClick={() => document.getElementById("textAreaDescript").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaDescript").style.borderColor = "white"}></textarea>
                         </div>
                     </div>
-                </div> */}
+                </div>
                 <div id="back" onClick={() => back()}>back</div>
                 <div id="forward2" onClick={() => console.log()}>next</div>
             </div>
