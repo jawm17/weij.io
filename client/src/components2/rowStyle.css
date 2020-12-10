@@ -113,9 +113,10 @@
 
 
 @media only screen and (max-width: 600px) {
+
     .rowTitle {
         position: absolute;
-        margin-left: 12vw;
+        margin-left: 10vw;
         z-index: 11;
         margin-top: 25px;
     }
@@ -133,7 +134,8 @@
         scroll-behavior: smooth;
     }
     .group {
-        margin-left: 10vw;
+        margin-left: 8vw;
+        margin-top: 0;
     }
 
     .scrollLeft {

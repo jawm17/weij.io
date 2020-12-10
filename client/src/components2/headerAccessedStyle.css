@@ -138,16 +138,22 @@
 
     .mainLogoA {
         color:  #8A62E2;
-        margin-left: 12vw;
-        font-size: 22px;
+        margin-left: 10vw;
+        font-size: 15px;
+    }
+
+    #mediaLogo{
+        color:  #8A62E2;
+        margin-left: 10px;
+        font-size: 15px;
     }
 
     .fixedButtonsA {
         display: none;
     }
 
-    #profileIcon {
-        display: none;
+    #profileA {
+        right: 25px;
     }
     
 }
