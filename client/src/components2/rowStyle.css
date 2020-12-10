@@ -1,4 +1,4 @@
-.rowTitle {
+/* .rowTitle {
     position: absolute;
     margin-left: 83px;
     margin-top: 25px;
@@ -33,6 +33,118 @@
 .group {
     margin-left: 80px;
     margin-top: 10px;
+} 
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.row::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+  .row {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+
+.scrollRight {
+    position: absolute;
+    right: 18px;
+    margin-top: 185px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.scrollRight:hover {
+    cursor: pointer;
+}
+
+.scrollRight:active {
+    box-shadow: 0 0 0 0;
+}
+
+.arrowImgRight {
+    margin-top: 3px;
+    width: 55px;
+    height: 55px;
+    margin-left: 2px;
+}
+
+.scrollLeft {
+    position: absolute;
+    left: 40px;
+    margin-top: 185px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: opacity 0.2s ;
+    opacity: 0;
+}
+
+.scrollLeft:hover {
+    cursor: pointer;
+}
+
+.scrollLeft:active {
+    box-shadow: 0 0 0 0;
+}
+
+.arrowImgLeft {
+    margin-top: 3px;
+    margin-left: 3px;
+    width: 55px;
+    height: 55px;
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+} */
+
+
+.rowTitle {
+    position: absolute;
+    margin-left: 83px;
+    margin-top: 25px;
+    color: gray;
+    z-index: 11;
+}
+
+.rowTitle:hover {
+    cursor: pointer;
+    color: #8A62E2;
+}
+
+.row {
+    width: 100vw;
+    height: 350px;
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 24px;
+    scroll-behavior: smooth;
+}
+
+.row:nth-of-type(5) {
+    padding-bottom: 40px;
+}
+
+
+.row:nth-of-type(1) {
+    margin-top: 30px;
+}   
+
+
+.group {
+    margin-left: 80px;
 } 
 
 .inlineBlock {
@@ -111,7 +223,35 @@
     transform: rotate(180deg);
 }
 
+/* 
+@media only screen and (max-width: 600px) {
+    .rowTitle {
+        position: absolute;
+        margin-left: 12vw;
+        z-index: 11;
+        margin-top: 25px;
+    }
 
+    .row:nth-of-type(1) {
+        margin-top: 30px;
+    }   
+    
+    .row {
+        width: 100vw;
+        height: 350px;
+        overflow: auto;
+        white-space: nowrap;
+        margin-top: 24px;
+        scroll-behavior: smooth;
+    }
+    .group {
+        margin-left: 10vw;
+    }
+
+    .scrollLeft {
+        display: none;
+    }
+} */
 @media only screen and (max-width: 600px) {
 
     .rowTitle {
@@ -142,3 +282,5 @@
         display: none;
     }
 }
+
+
