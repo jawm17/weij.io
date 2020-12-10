@@ -7,6 +7,7 @@ export default function PostModalSecond(props) {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
     const [file, setFile] = useState("");
+    const [time, setTime] = useState();
 
 
     function back() {
@@ -34,8 +35,10 @@ export default function PostModalSecond(props) {
         }
     }
 
-    function timeChosen() {
-       
+    function timeChosen(time) {
+
+            document.getElementById("forward2").style.backgroundColor = "#8A62E2";
+ 
     }
 
     function uploadingAnimation() {
@@ -96,7 +99,7 @@ export default function PostModalSecond(props) {
                     </div>
                 </div>
                 <div id="back" onClick={() => back()}>back</div>
-                <div id="forward2" onClick={() => console.log()}>next</div>
+                <div id="forward2" onClick={() => console.log()}>post</div>
             </div>
         </div>
     );

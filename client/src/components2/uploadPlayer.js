@@ -25,6 +25,7 @@ export default function UploadPlayer(props) {
 
     function vidError() {
         window.alert("video error");
+        window.location = "/profile";
     }
 
     function timeScrolled() {
@@ -51,6 +52,7 @@ export default function UploadPlayer(props) {
             fileRef.getDownloadURL().then(function (url) {
                 setThumbSrc(url);
                 document.getElementById("thumbnailImg").style.display = "initial";
+                document.getElementById("optionTitle").style.color = "#8A62E2";
             });
         })
     }
