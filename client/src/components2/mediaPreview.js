@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: 0
+                opacity: opacity
         },
         bottom: {
             position: "absolute",
@@ -30,12 +30,12 @@ export default function MediaPreview(props) {
             borderBottomRightRadius: 12,
             borderBottomLeftRadius: 12,
             backgroundColor: "rgba(0,0,0,0.5)",
-            display: "initial"
+            display: infoDisplay
         },
         flagBlock: {
             position: "absolute",
             zIndex: 10,
-            backgroundColor: "#EFEFEF",
+            backgroundColor: "#dadada",
             width: 200,
             height: 60,
             top: -60,

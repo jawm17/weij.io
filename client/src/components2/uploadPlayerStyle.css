@@ -1,7 +1,5 @@
 #uploadPlayer {
-    min-width: 140px;
-    max-width: 285px;
-    width: 83vw;
+    width: 285px;
     height: 380px;
     border-radius: 20px;
     object-fit: cover;
@@ -17,6 +15,15 @@
     height: 200px;
     background-color: white;
 
+}
+
+#thumbnailImg {
+    position: absolute;
+    top: 0;
+    width: 285px;
+    height: 380px;
+    border-radius: 19px;
+    display: none;
 }
 
 #selectBttn {
@@ -53,19 +60,20 @@
     top: 160px;
     left: 90px;
     background-color: white;
-    color:#8A62E2;
+    color:gray;
     width: 100px;
     height: 35px;
     border-radius: 5px;
-    display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    display: none;
 }
 
 
 #selectTime:hover {
     cursor: pointer;
+    color:#8A62E2;
 }
 
 

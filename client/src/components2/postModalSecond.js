@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { app } from '../base';
 import UploadPlayer from "./uploadPlayer";
 import "./modalSecondStyle.css";
 
@@ -8,7 +7,6 @@ export default function PostModalSecond(props) {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
     const [file, setFile] = useState("");
-    const [thumbSrc, setThumbSrc] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
 
 
     function back() {
@@ -36,59 +34,8 @@ export default function PostModalSecond(props) {
         }
     }
 
-
-    // on drop file handler 
-    function dropHandler(e) {
-        // prevent file opening in browser
-        e.preventDefault();
-        if (e.dataTransfer.items) {
-            let file = e.dataTransfer.items[0].getAsFile();
-            setFile(file);
-            // check file extension
-            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
- 
-                // upload to firebase
-                firebaseUpload(file);
-                // display animation
-                uploadingAnimation();
-         
-        }
-    }
-
-    function dragOverHandler(e) {
-        // Prevent default behavior (Prevent file from being opened)
-        e.preventDefault();
-    }
-
-    // on click select file handler
-    function selectFile(e) {
-        if (e.target.files[0]) {
-            let file = e.target.files[0];
-            setFile(file);
-            // check file extension
-            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-     
-                // upload to firebase
-                firebaseUpload(file);
-                // display animation
-                uploadingAnimation();
-         
-        }
-    }
-
     function timeChosen() {
-        alert("time chosen!!")
-    }
-
-    function firebaseUpload(file) {
-        let storageRef = app.storage().ref();
-        let fileRef = storageRef.child(file.name);
-        fileRef.put(file).then((e) => {
-            fileRef.getDownloadURL().then(function (url) {
-                setThumbSrc(url);
-                uploadFinished(url);
-            });
-        })
+       
     }
 
     function uploadingAnimation() {
@@ -121,28 +68,6 @@ export default function PostModalSecond(props) {
                     {props.url ? <UploadPlayer url={props.url} timeChosen={() => timeChosen()}/> : null}
                 </div>
 
-
-                {/* <div id="orLabel">
-                    Or
-                </div> */}
-
-                {/* <input style={{ "display": "none" }} id="selectThumb" type="file" onChange={(e) => selectFile(e)}></input>
-                <div id="uploadThumbArea" onClick={() => document.getElementById("selectThumb").click()} onDrop={(e) => dropHandler(e)} onDragOver={(e) => dragOverHandler(e)}>
-                    <p id="dropText">Upload a thumbnail</p>
-                    <div id="thumbSample">
-                        <img id="thumbSampleImg" src={thumbSrc}></img>
-                    </div>
-                    <div id="uploadingDiv2">
-                        <div id="uploadFlex2">
-                            <div id="loader2">
-                            </div>
-                        </div>
-                        <div id="uploadText2">
-                            {"uploading " + file.name}
-                        </div>
-                    </div>
-                </div> */}
-
                     <div className="vl"></div>
 
                 <div className="vidInfo">
@@ -150,7 +75,7 @@ export default function PostModalSecond(props) {
                     <div className="enterTitle">
                         <div id="titleLabel">
                             Enter a title
-                                </div>
+                        </div>
                         <div id="textAreaTitle">
                             <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
                         </div>
@@ -158,9 +83,15 @@ export default function PostModalSecond(props) {
                     <div className="enterPrice">
                         <div id="priceLabel">
                             Enter a price
-                                </div>
+                        </div>
+                        <div id="priceLabelTag">
+                            (optional)
+                        </div>
                         <div id="textAreaPrice">
                             <textarea id="price" onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#8A62E2"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                        </div>
+                        <div id="cncyType">
+                            USD
                         </div>
                     </div>
                 </div>

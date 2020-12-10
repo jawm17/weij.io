@@ -6,7 +6,7 @@ html {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: #EFEFEF;
+    background-color: #dadada;
     z-index: -1;
 }
 
@@ -28,14 +28,14 @@ html {
 .tile {
     width: 90px;
     margin-left: 100px;
-    padding-top: 36px;
+    padding-top: 40px;
     float: left;
     font-size: 12px;
 }
 
 .tile2 {
     width: 110px;
-    padding-top: 36px;
+    padding-top: 40px;
     margin-left: 90px;
     float: left;
     font-size: 12px;

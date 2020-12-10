@@ -12,7 +12,7 @@
 #profilePictureFull {
     border-radius: 50%;
     width: 160px;
-    margin-top: 180px;
+    margin-top: 175px;
 }
 
 #profileUsername {
@@ -23,7 +23,7 @@
 
 #buttonGroup {
     height: 120px;
-    margin-top: 0px;
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
