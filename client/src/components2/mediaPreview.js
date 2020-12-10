@@ -35,7 +35,7 @@ export default function MediaPreview(props) {
         flagBlock: {
             position: "absolute",
             zIndex: 10,
-            backgroundColor: "#dadada",
+            backgroundColor: "#e9e9e9",
             width: 200,
             height: 60,
             top: -60,
