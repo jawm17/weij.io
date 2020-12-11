@@ -3,19 +3,9 @@ import { app } from '../base';
 import "./uploadPlayerStyle.css";
 
 export default function UploadPlayer(props) {
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState();
-    const [file, setFile] = useState("");
+
+    const [thumbCode, setThumbCode] = useState();
     const [thumbSrc, setThumbSrc] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
-
-
-    const style = {
-        video: {
-            width: "100",
-            height: 400,
-            backgroundColor: "black"
-        }
-    }
 
     useEffect(() => {
         let vid = document.getElementById("uploadPlayer");
@@ -24,11 +14,13 @@ export default function UploadPlayer(props) {
     }, []);
 
     function vidError() {
+        // if firebase url not working abort
         window.alert("video error");
         window.location = "/profile";
     }
 
     function timeScrolled() {
+        // styling
         let selectBtn = document.getElementById("selectTime")
         selectBtn.style.display = "flex";
         selectBtn.textContent = "select";
@@ -37,11 +29,16 @@ export default function UploadPlayer(props) {
     }
 
     function timeSelected() {
+
+        // stylying changes on dom
         let selectBtn = document.getElementById("selectTime");
         selectBtn.textContent = "selected";
         selectBtn.style.color = "#8A62E2";
         document.getElementById("optionTitle").style.color = "#8A62E2";
-        // props.timeChosen()
+
+        // send time to secondModal function timeChosen
+        let vid = document.getElementById("uploadPlayer");
+        setThumbCode(vid.currentTime)
     }
 
 
@@ -51,8 +48,12 @@ export default function UploadPlayer(props) {
         fileRef.put(file).then((e) => {
             fileRef.getDownloadURL().then(function (url) {
                 setThumbSrc(url);
+                setThumbCode();
                 document.getElementById("thumbnailImg").style.display = "initial";
                 document.getElementById("optionTitle").style.color = "#8A62E2";
+
+                let selectBtn = document.getElementById("selectTime")
+                selectBtn.style.display = "none";
             });
         })
     }
@@ -62,17 +63,14 @@ export default function UploadPlayer(props) {
     function selectFile(e) {
         if (e.target.files[0]) {
             let file = e.target.files[0];
-            setFile(file);
-            console.log(file);
-            // check file extension
-            let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-
                 // upload to firebase
                 firebaseUpload(file);
-                // display animation
-                // uploadingAnimation();
-
         }
+    }
+
+    function thumbnailError() {
+        document.getElementById("thumbnailImg").style.display = "none";
+        document.getElementById("optionTitle").style.color = "gray";
     }
 
 
@@ -84,8 +82,9 @@ export default function UploadPlayer(props) {
                         Your browser does not support the video tag.
             </video>
             <div>
-                <img src={thumbSrc} id="thumbnailImg"></img>
+                <img src={thumbSrc} id="thumbnailImg" onError={() => thumbnailError()}></img>
             </div>
+            
             <div id="selectTime" onClick={() => timeSelected()}>
                 select
                 </div>

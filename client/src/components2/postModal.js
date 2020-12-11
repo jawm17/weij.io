@@ -5,7 +5,7 @@ import "./postModalStyle.css";
 
 export default function PostModal() {
     const [file, setFile] = useState("");
-    const [url, setUrl] = useState();
+    const [url, setUrl] = useState("");
     const style = {
         shade: {
             position: "fixed",
@@ -106,7 +106,7 @@ export default function PostModal() {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <PostModalSecond url={url}/>
+                    <PostModalSecond url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"}/>
                     <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>

@@ -6,9 +6,6 @@ export default function PostModalSecond(props) {
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
-    const [file, setFile] = useState("");
-    const [time, setTime] = useState();
-
 
     function back() {
         document.getElementById("modalSecond").style.display = "none";
@@ -18,6 +15,8 @@ export default function PostModalSecond(props) {
     function titleChange(e) {
         let newTitle = e.target.value;
         setTitle(newTitle);
+
+        // styling
         if (newTitle) {
             document.getElementById("titleLabel").style.color = "#8A62E2";
         } else {
@@ -28,34 +27,13 @@ export default function PostModalSecond(props) {
     function priceChange(e) {
         let price = e.target.value;
         setPrice(price);
+
+        /// styling
         if (price) {
             document.getElementById("priceLabel").style.color = "#8A62E2";
         } else {
             document.getElementById("priceLabel").style.color = "gray";
         }
-    }
-
-    function timeChosen(time) {
-
-            document.getElementById("forward2").style.backgroundColor = "#8A62E2";
- 
-    }
-
-    function uploadingAnimation() {
-        document.getElementById("uploadThumbArea").style.borderColor = "white";
-        document.getElementById("dropText").textContent = "";
-        document.getElementById("uploadingDiv2").style.display = "initial";
-        document.getElementById("loader2").style.display = "initial";
-    }
-
-    function fileError() {
-        document.getElementById("dropText").textContent = "This file type is not supported";
-        // document.getElementById("uploadingDiv").style.display = "none";
-    }
-
-    function uploadFinished() {
-        document.getElementById("thumbSample").style.display = "initial";
-        document.getElementById("forward2").style.color ="#8A62E2";
     }
 
     return (
@@ -68,7 +46,7 @@ export default function PostModalSecond(props) {
                     Slide to choose a thumbnail
                 </div>
                 <div id="thumbArea">
-                    {props.url ? <UploadPlayer url={props.url} timeChosen={() => timeChosen()}/> : null}
+                    {props.url ? <UploadPlayer url={props.url}/> : null}
                 </div>
 
                     <div className="vl"></div>
