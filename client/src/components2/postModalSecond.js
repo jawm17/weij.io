@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import "./modalSecondStyle.css";
+import PostPhotoService from '../services/PostPhotoService';
+import { AuthContext } from '../context/AuthContext';
 import { app } from '../base';
 import "./uploadPlayerStyle.css";
+import "./modalSecondStyle.css";
+let imageError = true;
+let title;
+let price = 0;
+let thumbCode;
 
 export default function PostModalSecond(props) {
 
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState();
-    const [thumbCode, setThumbCode] = useState();
-    const [thumbSrc, setThumbSrc] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    // const [title, setTitle] = useState("");
+    // const [price, setPrice] = useState();
+    // const [thumbCode, setThumbCode] = useState();
+    const [thumbSrc, setThumbSrc] = useState();
 
     useEffect(() => {
         let vid = document.getElementById("uploadPlayer");
         vid.disablePictureInPicture = true
         vid.ontimeupdate = function () { timeScrolled() };
+        console.log("f")
     }, []);
 
     function back() {
@@ -25,12 +32,22 @@ export default function PostModalSecond(props) {
 
     }
 
+    function checkInputs() {
+        if(title && price && !imageError) {
+            console.log("proceed");
+        } else if(title && (!imageError || thumbCode) && (price === 0)) {
+            console.log("proceed");
+        } else {
+            console.log("incomplete");
+        }
+    }
+
 
     // Four Inputs ------------------------------------------------------------------------------------------------------
     function titleChange(e) {
         let newTitle = e.target.value;
-        setTitle(newTitle);
-
+        title = newTitle;
+        checkInputs();
         // styling
         if (newTitle) {
             document.getElementById("titleLabel").style.color = "#8A62E2";
@@ -40,15 +57,16 @@ export default function PostModalSecond(props) {
     }
 
     function priceChange(e) {
-        let price = e.target.value;
-        setPrice(price);
-
+        let newPrice = e.target.value;
+        price = newPrice;
         /// styling
         if (price) {
             document.getElementById("priceLabel").style.color = "#8A62E2";
         } else {
             document.getElementById("priceLabel").style.color = "gray";
+            price = 0;
         }
+        checkInputs();
     }
 
     function timeSelected() {
@@ -60,7 +78,9 @@ export default function PostModalSecond(props) {
 
         // send time to secondModal function timeChosen
         let vid = document.getElementById("uploadPlayer");
-        setThumbCode(vid.currentTime)
+        thumbCode = vid.currentTime;
+        checkInputs();
+        imageError = true;
     }
 
     // on click select file handler
@@ -69,6 +89,7 @@ export default function PostModalSecond(props) {
             let file = e.target.files[0];
             // upload to firebase
             firebaseUpload(file);
+            thumbCode = 0;
         }
     }
     // Four Inputs ------------------------------------------------------------------------------------------------------
@@ -96,11 +117,10 @@ export default function PostModalSecond(props) {
         fileRef.put(file).then((e) => {
             fileRef.getDownloadURL().then(function (url) {
                 setThumbSrc(url);
-                setThumbCode();
                 document.getElementById("thumbnailImg").style.display = "initial";
                 document.getElementById("optionTitle").style.color = "#8A62E2";
 
-                let selectBtn = document.getElementById("selectTime")
+                let selectBtn = document.getElementById("selectTime");
                 selectBtn.style.display = "none";
             });
         })
@@ -109,6 +129,13 @@ export default function PostModalSecond(props) {
     function thumbnailError() {
         document.getElementById("thumbnailImg").style.display = "none";
         document.getElementById("optionTitle").style.color = "gray";
+        imageError = true;
+        checkInputs();
+    }
+
+    function imageLoaded() {
+        imageError = false;
+        checkInputs();
     }
 
 
@@ -131,7 +158,7 @@ export default function PostModalSecond(props) {
                             Your browser does not support the video tag.
                         </video>
                         <div>
-                            <img src={thumbSrc} id="thumbnailImg" onError={() => thumbnailError()}></img>
+                            <img src={thumbSrc} id="thumbnailImg" onLoad={() => imageLoaded()} onError={() => thumbnailError()}></img>
                         </div>
 
                         <div id="selectTime" onClick={() => timeSelected()}>
