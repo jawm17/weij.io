@@ -146,7 +146,6 @@ export default function PostModalSecond(props) {
                 <div className="vl"></div>
 
                 <div className="vidInfo">
-
                     <div className="enterTitle">
                         <div id="titleLabel">
                             Enter a title
@@ -170,6 +169,7 @@ export default function PostModalSecond(props) {
                         </div>
                     </div>
                 </div>
+                
                 <div id="back" onClick={() => back()}>back</div>
                 <div id="forward2" onClick={() => console.log()}>post</div>
             </div>

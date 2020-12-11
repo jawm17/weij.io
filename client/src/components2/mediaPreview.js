@@ -54,9 +54,6 @@ export default function MediaPreview(props) {
             backgroundColor: "#5DE900",
         }
     }
-    useEffect(() => {
-   
-    }, []);
 
     function openMedia(e) {
         setOpen(true);
