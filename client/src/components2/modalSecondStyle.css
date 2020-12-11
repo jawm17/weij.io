@@ -150,3 +150,8 @@
     align-items: center;
     color: white;
 }
+
+
+#forward2:hover {
+    cursor: pointer;
+}
