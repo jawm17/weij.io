@@ -8,6 +8,14 @@ import "./profileStyle.css";
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
     const settingsSrc = "https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/cog.png?alt=media&token=23ca742a-18ce-4318-b62c-b697f299afcb";
+    const [username, setUsername] = useState("");
+    const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    const [numFollowing, setNumFollowing] = useState();
+    const [numFollowers, setNumFollowers] = useState();
+
+    // const [bio, setBio] = useState("");
+    // const [posts, setPosts] = useState([]);
+
 
     useEffect(() => {
         requestUserData();
@@ -16,6 +24,10 @@ export default function NewProfile() {
     function requestUserData() {
         UserService.getUserInfo().then(data => {
             if (!data.message) {
+                setUsername(data.username);
+                setProfileImg(data.profileImgSrc);
+                setNumFollowers(data.followers.length);
+                setNumFollowing(data.following.length);
                 console.log(data);
             }
             else if (data.message.msgBody === "Unauthorized") {
@@ -33,22 +45,22 @@ export default function NewProfile() {
     return (
         <div>
             <HeaderAccessed secured="t"/>
-            <PostModal />
+            <PostModal username={username} profileSrc={profileImg}/>
             <div id="leftPanelProfile">
-                <img id="profilePictureFull" src="https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png" alt="profile picture"></img>
+                <img id="profilePictureFull" src={profileImg} alt="profile picture"></img>
                 <div id="profileUsername">
-                    Jawm42
+                    {username}
                 </div>
                 <div id="buttonGroup">
                 <div id="subscriptions">
                         <div className="bold">
-                            4
+                            {numFollowing}
                         </div>
                         subscriptions
                     </div>
                     <div id="subs">
                         <div className="bold">
-                            4000
+                            {numFollowers}
                         </div>
                         subscribers
                     </div>

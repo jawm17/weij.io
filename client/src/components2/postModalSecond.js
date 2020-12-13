@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PostPhotoService from '../services/PostPhotoService';
 import { AuthContext } from '../context/AuthContext';
 import { app } from '../base';
 import "./uploadPlayerStyle.css";
 import "./modalSecondStyle.css";
+
 let imageError = true;
 let title;
 let price = 0;
 let thumbCode;
 
 export default function PostModalSecond(props) {
+    const authContext = useContext(AuthContext);
 
     // const [title, setTitle] = useState("");
     // const [price, setPrice] = useState();
     // const [thumbCode, setThumbCode] = useState();
     const [thumbSrc, setThumbSrc] = useState();
+    const [ready, setReady] = useState(false);
 
     useEffect(() => {
         let vid = document.getElementById("uploadPlayer");
@@ -29,16 +32,40 @@ export default function PostModalSecond(props) {
     }
 
     function post() {
+        if (ready) {
+            PostPhotoService.postVideo({ "vidSrc": props.url, thumbSrc: thumbSrc, thumbCode: thumbCode, "user": props.username, "userImg": props.profileSrc, "price": price }).then(data => {
+                const { message } = data;
+                if (message.msgBody === "Unauthorized") {
+                    authContext.setUser({ username: "" });
+                    authContext.setIsAuthenticated(false);
+                } else {
+                    console.log(data)
+                }
+            });
+        }
 
     }
 
     function checkInputs() {
-        if(title && price && !imageError) {
-            console.log("proceed");
-        } else if(title && (!imageError || thumbCode) && (price === 0)) {
-            console.log("proceed");
+        if (title && price) {
+            if (price >= 0.25 && !imageError) {
+                document.getElementById("postBtn").style.backgroundColor = "#8A62E2";
+                setReady(true);
+            } else if (imageError) {
+                console.log('upload image');
+                setReady(false);
+                document.getElementById("postBtn").style.backgroundColor = "gray";
+            } else {
+                console.log('increase price');
+                setReady(false);
+                document.getElementById("postBtn").style.backgroundColor = "gray";
+            }
+        } else if (title && (!imageError || thumbCode) && (price === 0)) {
+            document.getElementById("postBtn").style.backgroundColor = "#8A62E2";
+            setReady(true);
         } else {
-            console.log("incomplete");
+            setReady(false);
+            document.getElementById("postBtn").style.backgroundColor = "gray";
         }
     }
 
@@ -103,11 +130,14 @@ export default function PostModalSecond(props) {
 
     function timeScrolled() {
         // styling
-        let selectBtn = document.getElementById("selectTime")
+        let selectBtn = document.getElementById("selectTime");
         selectBtn.style.display = "flex";
         selectBtn.textContent = "select";
         selectBtn.style.color = "gray";
         document.getElementById("optionTitle").style.color = "gray";
+
+        thumbCode = 0;
+        checkInputs();
     }
 
 
@@ -196,9 +226,9 @@ export default function PostModalSecond(props) {
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="back" onClick={() => back()}>back</div>
-                <div id="forward2" onClick={() => console.log()}>post</div>
+                <div id="postBtn" onClick={() => post()}>post</div>
             </div>
         </div>
     );

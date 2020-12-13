@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { app } from '../base';
 import PostModalSecond from './postModalSecond';
 import "./postModalStyle.css";
 
-export default function PostModal() {
+export default function PostModal(props) {
     const [file, setFile] = useState("");
     const [url, setUrl] = useState("");
+
     const style = {
         shade: {
             position: "fixed",
@@ -106,7 +107,7 @@ export default function PostModal() {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <PostModalSecond url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"}/>
+                    <PostModalSecond url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"} username={props.username} profileSrc={props.profileSrc}/>
                     <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>

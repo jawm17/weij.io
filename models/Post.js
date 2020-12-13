@@ -1,9 +1,17 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-    imgSrc: {
+    vidSrc: {
         type: String,
         required: true
+    },
+    thumbSrc: {
+        type: String,
+        required: false
+    },
+    thumbCode: {
+        type: Number,
+        required: false
     },
     price: {
         type: Number,

@@ -137,7 +137,7 @@
     cursor: pointer;
 }
 
-#forward2 {
+#postBtn {
     position: absolute;
     bottom: 20px;
     right: 30px;
@@ -152,6 +152,6 @@
 }
 
 
-#forward2:hover {
+#postBtn:hover {
     cursor: pointer;
 }

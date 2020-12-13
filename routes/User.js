@@ -102,7 +102,7 @@ userRouter.post('/query/users', passport.authenticate('jwt', { session: false })
 });
 
 //create a post
-userRouter.post('/post-photo', passport.authenticate('jwt', { session: false }), (req, res) => {
+userRouter.post('/post-video', passport.authenticate('jwt', { session: false }), (req, res) => {
     const post = new Post(req.body);
     const message = { msgBody: "Error has occured", msgError: true };
     post.save(err => {
@@ -116,7 +116,7 @@ userRouter.post('/post-photo', passport.authenticate('jwt', { session: false }),
                     res.status(500).json({ message });
                 }
                 else {
-                    res.status(200).json({ message: { msgBody: "Successfully created photo-post", msgError: false } })
+                    res.status(200).json({ message: { msgBody: "Successfully created video-post", msgError: false } })
                 }
             });
         }
