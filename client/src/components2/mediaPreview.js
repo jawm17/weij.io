@@ -15,8 +15,8 @@ export default function MediaPreview(props) {
     const style = {
         thumbnail: {
                 position: "absolute",
-                width: 196,
-                height: 260,
+                width: 260,
+                height: 196,
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
@@ -36,7 +36,7 @@ export default function MediaPreview(props) {
             position: "absolute",
             zIndex: 10,
             backgroundColor: "#e9e9e9",
-            width: 200,
+            width: 260,
             height: 60,
             top: -60,
             left: 0
@@ -80,14 +80,22 @@ export default function MediaPreview(props) {
                         if (!exited) {
                             figure.currentTime = parseInt(duration / 2);
                         }
-                    }, 2800);
+                    }, 4400);
+                    setTimeout(() => {
+                        if (!exited) {
+                            figure.currentTime = parseInt(duration / 2);
+                        }
+                    }, 8400);
                 }
-            }, 900);
+            }, 650);
         }
     }
 
     function endPreview() {
         let figure = document.getElementById(props.id + "vid");
+        if(duration) {
+            figure.currentTime = parseInt(duration / 2);
+        }
         figure.pause();
   
         setOpacity(100);

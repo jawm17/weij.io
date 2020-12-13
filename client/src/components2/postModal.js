@@ -13,13 +13,13 @@ export default function PostModal(props) {
             zIndex: 200,
             width: "100vw",
             height: "100vh",
-            display: "none",
             backgroundColor: "rgba(0,0,0,0.8)",
         }
     }
 
     function exit() {
-        window.location.href = "/profile";
+        // window.location.href = "/profile";
+        props.done();
     }
 
     function next() {
@@ -107,7 +107,7 @@ export default function PostModal(props) {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <PostModalSecond url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"} username={props.username} profileSrc={props.profileSrc}/>
+                    <PostModalSecond done={() => props.done()} url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"} username={props.username} profileSrc={props.profileSrc}/>
                     <div id="whiteFirst">
                         <div id="banner">
                             <p id="bannerText">Upload Video</p>

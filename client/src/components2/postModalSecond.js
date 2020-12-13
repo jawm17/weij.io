@@ -44,6 +44,7 @@ export default function PostModalSecond(props) {
                     console.log(data)
                     setTimeout(() => {
                         document.getElementById("createPost").style.display = "none";
+                        props.done();
                     }, 1000)
                 }
             });

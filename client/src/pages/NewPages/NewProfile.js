@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import HeaderAccessed from '../../components2/headerAccessed';
 import PostModal from '../../components2/postModal';
 import "./profileStyle.css";
+import { use } from 'passport';
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);
@@ -12,6 +13,7 @@ export default function NewProfile() {
     const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
     const [numFollowing, setNumFollowing] = useState();
     const [numFollowers, setNumFollowers] = useState();
+    const [creatingPost, setCreatingPost] = useState(false);
 
     // const [bio, setBio] = useState("");
     // const [posts, setPosts] = useState([]);
@@ -39,13 +41,17 @@ export default function NewProfile() {
     }
 
     function createAPost() {
-        document.getElementById("createPost").style.display = "initial";
+        setCreatingPost(true);
+    }
+
+    function doneCreating() {
+        setCreatingPost(false);
     }
 
     return (
         <div>
             <HeaderAccessed secured="t"/>
-            <PostModal username={username} profileSrc={profileImg}/>
+            {creatingPost ?  <PostModal username={username} profileSrc={profileImg} done={() => doneCreating()}/> : null}
             <div id="leftPanelProfile">
                 <img id="profilePictureFull" src={profileImg} alt="profile picture"></img>
                 <div id="profileUsername">

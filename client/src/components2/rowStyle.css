@@ -114,7 +114,7 @@
 .rowTitle {
     position: absolute;
     margin-left: 83px;
-    margin-top: 25px;
+    margin-top: 35px;
     color: gray;
     z-index: 11;
 }
@@ -126,15 +126,15 @@
 
 .row {
     width: 100vw;
-    height: 350px;
+    height: 290px;
     overflow: auto;
     white-space: nowrap;
-    margin-top: 24px;
+    margin-top: 20px;
     scroll-behavior: smooth;
 }
 
 .row:nth-of-type(5) {
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 
@@ -145,6 +145,7 @@
 
 .group {
     margin-left: 80px;
+    margin-top: 10px;
 } 
 
 .inlineBlock {
@@ -165,7 +166,7 @@
 .scrollRight {
     position: absolute;
     right: 18px;
-    margin-top: 185px;
+    margin-top: 160px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -192,7 +193,7 @@
 .scrollLeft {
     position: absolute;
     left: 40px;
-    margin-top: 185px;
+    margin-top: 160px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
