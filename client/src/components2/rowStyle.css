@@ -268,10 +268,10 @@
     
     .row {
         width: 100vw;
-        height: 350px;
+        height: 290px;
         overflow: auto;
         white-space: nowrap;
-        margin-top: 24px;
+        margin-top: 0px;
         scroll-behavior: smooth;
     }
     .group {
@@ -282,6 +282,15 @@
     .scrollLeft {
         display: none;
     }
+
+    .scrollRight {
+        margin-top: 145px;
+    }
+
+    .arrowImgRight {
+
+    }
+    
 }
 
 

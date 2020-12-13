@@ -5,7 +5,7 @@ import "./mediaPreviewStyle.css";
 
 export default function MediaPreview(props) {
     const [open, setOpen] = useState(false);
-    const [thumbnail, setThumbnail] = useState("https://preview.redd.it/vltxezijqhu31.jpg?width=640&crop=smart&auto=webp&s=4d278a3189fe3598c3315794a27d19a850602b2e");
+    const [thumbnail, setThumbnail] = useState("https://photographylife.com/wp-content/uploads/2016/06/Mass.jpg");
     const [opacity, setOpacity] = useState(100);
     const [flagPos, setFlagPos] = useState(-50);
     const [flagDisplay, setFlagDisplay] = useState("initial");
@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: 0
+                opacity: opacity
         },
         bottom: {
             position: "absolute",
