@@ -33,6 +33,8 @@ export default function PostModalSecond(props) {
 
     function post() {
         if (ready) {
+            setReady(false);
+            document.getElementById("postComplete").style.display = "flex";
             PostPhotoService.postVideo({ "vidSrc": props.url, thumbSrc: thumbSrc, thumbCode: thumbCode, "user": props.username, "userImg": props.profileSrc, "price": price }).then(data => {
                 const { message } = data;
                 if (message.msgBody === "Unauthorized") {
@@ -40,6 +42,9 @@ export default function PostModalSecond(props) {
                     authContext.setIsAuthenticated(false);
                 } else {
                     console.log(data)
+                    setTimeout(() => {
+                        document.getElementById("createPost").style.display = "none";
+                    }, 1000)
                 }
             });
         }
@@ -171,6 +176,9 @@ export default function PostModalSecond(props) {
 
     return (
         <div id="modalSecond" style={{ "display": "none" }}>
+            <div id="postComplete">
+                Complete!
+            </div>
             <div id="whiteSecond">
                 <div id="banner">
                     <p id="bannerText">Create a Post</p>
@@ -180,7 +188,6 @@ export default function PostModalSecond(props) {
                 </div>
 
                 <div id="thumbArea">
-                    {/* {props.url ? <UploadPlayer url={props.url}/> : null} */}
                     <div>
                         <input style={{ "display": "none" }} id="selectThumb" type="file" onChange={(e) => selectFile(e)}></input>
                         <video id="uploadPlayer" controls controlsList="nodownload nooptions">
