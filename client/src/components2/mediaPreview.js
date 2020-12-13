@@ -68,12 +68,12 @@ export default function MediaPreview(props) {
             setTimeout(() => {
                 if (!exited) {
                     figure.style.display = "initial";
-                    setInfoDisplay("initial");
-                    setOpacity(0);
                     figure.play();
                     setTimeout(() => {
                         if (!exited) {
                             setFlagPos(0);
+                            setInfoDisplay("initial");
+                            setOpacity(0);
                         }
                     }, 150);
                     setTimeout(() => {
