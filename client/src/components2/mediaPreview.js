@@ -42,7 +42,7 @@ export default function MediaPreview(props) {
             left: 0
         },
         flag: {
-            display: flagDisplay,
+            display: "none",
             position: "absolute",
             zIndex: 2,
             width: 20,
@@ -87,7 +87,7 @@ export default function MediaPreview(props) {
                         }
                     }, 8400);
                 }
-            }, 650);
+            }, 350);
         }
     }
 
@@ -130,9 +130,10 @@ export default function MediaPreview(props) {
                        Jawm42
                        </div>
                     </div>
-                    <div className="popUpTitle">
+                   
+                </div>
+                 <div className="popUpTitle">
                         Where the wild things are
-                    </div>
                 </div>
             </div>
             {/* {open ? <Media id={props.id}></Media> : null} */}

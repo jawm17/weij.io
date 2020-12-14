@@ -63,7 +63,7 @@ const SignIn = props => {
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push('/home');
+        props.history.push('/');
       }
       else
         setMessage("Invalid Username or Password");

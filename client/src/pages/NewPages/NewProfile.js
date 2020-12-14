@@ -3,8 +3,7 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderAccessed from '../../components2/headerAccessed';
 import PostModal from '../../components2/postModal';
-import "./profileStyle.css";
-import { use } from 'passport';
+import "./newProfileStyle.css";
 
 export default function NewProfile() {
     const authContext = useContext(AuthContext);

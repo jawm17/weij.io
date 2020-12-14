@@ -9,7 +9,7 @@
     width: 260px;
     height: 196px;
     margin-top: 80px;
-    margin-right: 45px;
+    margin-right: 60px;
     position: relative;
     border-radius: 12px;
     background-color: gray;
@@ -63,6 +63,22 @@
     margin-left: 10%;
     margin-top: 10px;
     font-size: 13px;
+}
+
+/* .popUpTitle {
+    color: white;
+    opacity: 100%;
+    margin-left: 10%;
+    margin-top: 10px;
+    font-size: 13px;
+} */
+
+.popUpTitle {
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    z-index: 6;
+    bottom: 15px;
 }
 
 .popUpName {

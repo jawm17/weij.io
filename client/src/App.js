@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from "react-router-dom";
 import Feed from "./pages/FeedPage/FeedPage";
 import SignIn from "./components/SignIn";
-import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import Profile from "./pages/NewPages/Profile";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
@@ -26,17 +26,16 @@ function App() {
         <UserRestrictedRoute exact path="/login" component={SignIn} />
         <UserRestrictedRoute exact path="/register" component={Register} />
         <PrivateRoute path="/user/:user" component={ProfilePage} />
-        <PrivateRoute path="/profile" component={NewProfile} />
+        <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
-        <PrivateRoute exact path={["/", "/home"]} component={Feed} />
+        <Route exact path={["/", "/landing"]} component={Landing} />
         <PrivateRoute path={["/send/to/:user"]} component={SendPage} />
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />
         <Route path="/17830921898230" component={TreasureHunt} />
         <Route path="/music" component={Music} />
         <Route path="/games" component={Games} />
-        <Route path="/landing" component={Landing} />
         <Route path="/p/:id" component={Media} />
         <Route path="/">
           <NoMatchPage />

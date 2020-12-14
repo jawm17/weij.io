@@ -4,7 +4,7 @@
     height: 100px;
     width: 100vw;
     background-color: white;
-    z-index: 5;
+    z-index: 100;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
 
@@ -22,8 +22,8 @@
 }
 
 .fixedButtons {
-    width: 80px;
-    height: 33px;
+    width: 100px;
+    height: 38px;
     border-color: #8A62E2;
     border-style: solid;
     border-width: 2px;
@@ -37,7 +37,7 @@
 
 #wallet {
     position: fixed;
-    right: 130px;
+    right: 155px;
     top: 30px;
 }
 
