@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: opacity
+                opacity: 0
         },
         bottom: {
             position: "absolute",

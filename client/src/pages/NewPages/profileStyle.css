@@ -1,0 +1,25 @@
+#profileBg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #efefef;
+    overflow-y: scroll;
+}
+
+#infoArea {
+    width: 100vw;
+    height: 225px;
+    position: fixed;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #8A62E2;
+}
+
+#long {
+    width: 100vw;
+    height: 200vh;
+}
+
+.smooth {
+    transition: top 0.3s ease-in-out;
+}
