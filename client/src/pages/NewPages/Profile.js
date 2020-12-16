@@ -65,11 +65,77 @@ export default function Profile() {
 
                     </div>
                 </div>
-                <div id="long">
+                <div id="fixedVew">
+                    <div className="proRowOne" id="One">
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                    </div>
+                    <div className="proRowOne">
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                    </div>
+                    <div className="proRowOne">
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                    </div>
+                    <div className="proRowOne">
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                        <div className="proItem">
+
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
 
         </div>
     );

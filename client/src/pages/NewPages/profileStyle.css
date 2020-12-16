@@ -4,14 +4,15 @@
     position: fixed;
     background-color: #efefef;
     overflow-y: scroll;
+    z-index: 0;
 }
 
 .smoothTop {
-    transition: top 0.3s ease-in-out;
+    transition: top 0.8s ease-in-out;
 }
 
 .smoothAll {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.8s ease-in-out;
 }
 
 #infoArea {
@@ -21,7 +22,7 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     background-color: #8A62E2;
-    background-image: url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&w=1000&q=80");
+    /* background-image: url("https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&w=1000&q=80"); */
 }
 
 #profilePicture {
@@ -32,6 +33,10 @@
     left: 80px;
 }
 
+#One {
+    margin-top: 380px;
+}
+
 #usernameDisplay {
     position: fixed;
     font-size: 24px;
@@ -39,7 +44,22 @@
     font-weight: bold;
 }
 
-#long {
-    width: 100vw;
-    height: 200vh;
+#fixedView {
+    position: fixed;
+    top: 380px;
+}
+
+.proRowOne {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.proItem {
+    width: 260px;
+    height: 196px;
+    border-radius: 12px;
+    margin-right: 40px;
+    object-fit: cover;
+    background-color: gray;
+    display: inline-block;
 }
