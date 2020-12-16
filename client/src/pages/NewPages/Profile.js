@@ -13,6 +13,7 @@ export default function Profile() {
     const [picWidth, setPicWidth] = useState(120);
     const [nameTop, setNameTop] = useState(195);
     const [nameLeft, setNameLeft] = useState(240);
+    const [fixedTop, setFixedTop] = useState(360);
     let scrollArea;
 
     const style = {
@@ -27,6 +28,9 @@ export default function Profile() {
             top: nameTop,
             left: nameLeft
         },
+        fixedView: {
+            marginTop: fixedTop
+        }
     }
 
     useEffect(() => {
@@ -37,18 +41,20 @@ export default function Profile() {
     });
 
     function checkScroll() {
-        if (scrollArea.scrollTop < 30) {
+        if (scrollArea.scrollTop < 10) {
             setTop(90);
             setProfilePicTop(60);
             setPicWidth(120);
             setNameTop(195);
             setNameLeft(240);
+            setFixedTop(360);
         } else {
             setTop(12);
             setProfilePicTop(110);
             setPicWidth(90);
             setNameTop(156);
             setNameLeft(200);
+            setFixedTop(280);
         }
     }
 
@@ -65,7 +71,7 @@ export default function Profile() {
 
                     </div>
                 </div>
-                <div id="fixedVew">
+                <div id="fixedView" className="smoothAll" style={style.fixedView}>
                     <div className="proRowOne" id="One">
                         <div className="proItem">
 

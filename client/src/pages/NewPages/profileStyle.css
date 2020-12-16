@@ -8,11 +8,11 @@
 }
 
 .smoothTop {
-    transition: top 0.8s ease-in-out;
+    transition: top 0.3s ease-in-out;
 }
 
 .smoothAll {
-    transition: all 0.8s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #infoArea {
@@ -33,9 +33,6 @@
     left: 80px;
 }
 
-#One {
-    margin-top: 380px;
-}
 
 #usernameDisplay {
     position: fixed;
@@ -45,20 +42,20 @@
 }
 
 #fixedView {
-    position: fixed;
-    top: 380px;
+    overflow-y: scroll;
 }
 
 .proRowOne {
     overflow: auto;
     white-space: nowrap;
+    margin-bottom: 40px;
 }
 
 .proItem {
     width: 260px;
     height: 196px;
     border-radius: 12px;
-    margin-right: 40px;
+    margin-left: 40px;
     object-fit: cover;
     background-color: gray;
     display: inline-block;
