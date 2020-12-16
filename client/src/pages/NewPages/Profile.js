@@ -24,7 +24,7 @@ export default function Profile() {
             width: picWidth
         },
         username: {
-            top:  nameTop,
+            top: nameTop,
             left: nameLeft
         },
     }
@@ -56,9 +56,9 @@ export default function Profile() {
         <div>
             <HeaderAccessed secured="t" />
             <div id="profileBg">
-                <div className="smoothTop" id="infoArea" style={style.infoArea}>
-                    <img className="smoothAll" id="profilePicture" src={profileImg} style={style.profilePic} alt="profile picture"></img>
-                    <div className="smoothAll" id="usernameDisplay" style={style.username}>
+                <div id="infoArea" className="smoothTop" style={style.infoArea}>
+                    <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
+                    <div id="usernameDisplay" className="smoothAll" style={style.username}>
                         Jawm42
                     </div>
                 </div>
