@@ -7,9 +7,9 @@ import "./profileStyle.css";
 
 export default function Profile() {
 
-    const [profileImg, setProfileImg] = useState("https://northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png");
+    const [profileImg, setProfileImg] = useState("https://avatars3.githubusercontent.com/u/56066513?s=460&u=2724432d8929c333aea5ea6751128b6db55c747e&v=4");
     const [top, setTop] = useState(90);
-    const [profilePicTop, setProfilePicTop] = useState(145);
+    const [profilePicTop, setProfilePicTop] = useState(60);
     const [picWidth, setPicWidth] = useState(120);
     const [nameTop, setNameTop] = useState(195);
     const [nameLeft, setNameLeft] = useState(240);
@@ -20,7 +20,7 @@ export default function Profile() {
             top: top,
         },
         profilePic: {
-            top: profilePicTop,
+            marginTop: profilePicTop,
             width: picWidth
         },
         username: {
@@ -39,13 +39,13 @@ export default function Profile() {
     function checkScroll() {
         if (scrollArea.scrollTop < 30) {
             setTop(90);
-            setProfilePicTop(145);
+            setProfilePicTop(60);
             setPicWidth(120);
             setNameTop(195);
             setNameLeft(240);
         } else {
             setTop(12);
-            setProfilePicTop(125);
+            setProfilePicTop(110);
             setPicWidth(90);
             setNameTop(156);
             setNameLeft(200);
@@ -60,6 +60,9 @@ export default function Profile() {
                     <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
                     <div id="usernameDisplay" className="smoothAll" style={style.username}>
                         Jawm42
+                    </div>
+                    <div id="">
+
                     </div>
                 </div>
                 <div id="long">
