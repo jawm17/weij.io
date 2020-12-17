@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import history from "../history.js";
 import "./headerAccessedStyle.css";
 
 export default function HeaderMain(props) {
@@ -30,16 +31,16 @@ export default function HeaderMain(props) {
         <div>
             <div id="header">
                     <div className="logoTextBlock">
-                        <div className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
+                        <div className="mainLogoA selectable" onClick={() => history.push("/landing")}>
                             ethereal
                         </div>
-                        <div id="mediaLogo" className="selectable" onClick={() => window.location.href = "/landing"}>
+                        <div id="mediaLogo" className="selectable" onClick={() => history.push("/landing")}>
                             media
                         </div>
-                        <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
+                        <div id="musicLogo" className="selectable" onClick={() => history.push("/music")}>
                             music
                         </div>
-                        <div id="gamesLogo" className="selectable" onClick={() => window.location.href = "/games"}>
+                        <div id="gamesLogo" className="selectable" onClick={() => history.push("/games")}>
                             games
                         </div>
                     </div>
@@ -56,7 +57,7 @@ export default function HeaderMain(props) {
                             19
                         </div>
                     </div>
-                    <div id="messagesA" className="fixedButtonsA" onClick={() => window.location.href = "/send"}>
+                    <div id="messagesA" className="fixedButtonsA" onClick={() => history.push("/send")}>
                         {/* <img id="ethIcon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkhipus.io%2Fimages%2Fether-iso.png&f=1&nofb=1"></img>
                         2.01 */}
                         Messages
@@ -64,7 +65,7 @@ export default function HeaderMain(props) {
                             2
                         </div>
                     </div>
-                    <div id="profileA" onClick={() => window.location.href = "/profile"}>
+                    <div id="profileA" onClick={() => history.push("/profile")}>
                         <img src='https://avatars3.githubusercontent.com/u/56066513?s=460&u=2724432d8929c333aea5ea6751128b6db55c747e&v=4' id="profileIcon"></img>
                     </div>
                 </div>

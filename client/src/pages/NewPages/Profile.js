@@ -12,25 +12,31 @@ export default function Profile() {
     const [profilePicTop, setProfilePicTop] = useState(60);
     const [picWidth, setPicWidth] = useState(120);
     const [nameTop, setNameTop] = useState(195);
-    const [nameLeft, setNameLeft] = useState(240);
+    const [picLeft, setPicLeft] = useState(80);
     const [fixedTop, setFixedTop] = useState(360);
+    const [bgTop, setBgTop] = useState(0);
     let scrollArea;
 
     const style = {
         infoArea: {
             top: top,
+            backgroundPositionY: bgTop
         },
         profilePic: {
             marginTop: profilePicTop,
+            marginLeft: picLeft,
             width: picWidth
         },
         username: {
             top: nameTop,
-            left: nameLeft
+            left: 240
         },
         fixedView: {
             marginTop: fixedTop
-        }
+        },
+        infoFlex: {
+            top: nameTop - 10
+        },
     }
 
     useEffect(() => {
@@ -42,19 +48,22 @@ export default function Profile() {
 
     function checkScroll() {
         if (scrollArea.scrollTop < 10) {
+            // initial
             setTop(90);
             setProfilePicTop(60);
             setPicWidth(120);
             setNameTop(195);
-            setNameLeft(240);
+            setPicLeft(80);
             setFixedTop(360);
+            setBgTop(0);
         } else {
             setTop(12);
             setProfilePicTop(110);
             setPicWidth(90);
             setNameTop(156);
-            setNameLeft(200);
             setFixedTop(280);
+            setPicLeft(100);
+            setBgTop(-180);
         }
     }
 
@@ -62,13 +71,30 @@ export default function Profile() {
         <div>
             <HeaderAccessed secured="t" />
             <div id="profileBg">
-                <div id="infoArea" className="smoothTop" style={style.infoArea}>
+                <div id="infoArea" className="smoothAll" style={style.infoArea}>
                     <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
                     <div id="usernameDisplay" className="smoothAll" style={style.username}>
                         Jawm42
                     </div>
-                    <div id="">
-
+                    <div id="infoFlex" className="smoothAll" style={style.infoFlex}>
+                        <div className="num">
+                            350
+                            <div className='label'>
+                                videos
+                            </div>
+                        </div>
+                        <div className="num">
+                            2,000,012
+                            <div className='label'>
+                                subscribers
+                            </div>
+                        </div>
+                        <div className="num">
+                            4,023
+                            <div className='label'>
+                                Eth Earned
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="fixedView" className="smoothAll" style={style.fixedView}>

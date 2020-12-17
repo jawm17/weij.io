@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: 0
+                opacity: opacity
         },
         bottom: {
             position: "absolute",
@@ -93,9 +93,6 @@ export default function MediaPreview(props) {
 
     function endPreview() {
         let figure = document.getElementById(props.id + "vid");
-        if(duration) {
-            figure.currentTime = parseInt(duration / 2);
-        }
         figure.pause();
   
         setOpacity(100);

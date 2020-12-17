@@ -21,7 +21,7 @@
     height: 196px;
     border-radius: 12px;
     object-fit: cover;
-    display: initial;
+    display: none;
 }
 
 @media only screen and (max-width: 600px) {
