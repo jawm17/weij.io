@@ -24,149 +24,84 @@ export default function Profile() {
         },
         profilePic: {
             marginTop: profilePicTop,
-            marginLeft: picLeft,
-            width: picWidth
-        },
-        username: {
-            top: nameTop,
-            left: 240
-        },
-        fixedView: {
-            marginTop: fixedTop
-        },
-        infoFlex: {
-            top: nameTop - 10
-        },
-    }
-
-    useEffect(() => {
-        scrollArea = document.getElementById("profileBg");
-        scrollArea.addEventListener("scroll", () => {
-            checkScroll();
-        });
-    });
-
-    function checkScroll() {
-        if (scrollArea.scrollTop < 10) {
-            // initial
-            setTop(90);
-            setProfilePicTop(60);
-            setPicWidth(120);
-            setNameTop(195);
-            setPicLeft(80);
-            setFixedTop(360);
-            setBgTop(0);
-        } else {
-            setTop(12);
-            setProfilePicTop(110);
-            setPicWidth(90);
-            setNameTop(156);
-            setFixedTop(280);
-            setPicLeft(100);
-            setBgTop(-180);
+                marginLeft: picLeft,
+                width: picWidth
+            },
+            username: {
+                top: nameTop,
+                left: 240
+            },
+            fixedView: {
+                marginTop: fixedTop
+            },
+            infoFlex: {
+                top: nameTop - 10
+            }
         }
-    }
 
-    return (
-        <div>
-            <HeaderAccessed secured="t" />
-            <div id="profileBg">
-                <div id="infoArea" className="smoothAll" style={style.infoArea}>
-                    <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
-                    <div id="usernameDisplay" className="smoothAll" style={style.username}>
-                        Jawm42
-                    </div>
-                    <div id="infoFlex" className="smoothAll" style={style.infoFlex}>
-                        <div className="num">
-                            350
-                            <div className='label'>
-                                videos
+        useEffect(() => {
+            scrollArea = document.getElementById("profileBg");
+            scrollArea.addEventListener("scroll", () => {
+                checkScroll();
+            });
+        });
+
+        function checkScroll() {
+            if (scrollArea.scrollTop < 10) {
+                // initial
+                setTop(90);
+                setProfilePicTop(60);
+                setPicWidth(120);
+                setNameTop(195);
+                setPicLeft(80);
+                setFixedTop(360);
+                setBgTop(0);
+            } else {
+                setTop(12);
+                setProfilePicTop(110);
+                setPicWidth(90);
+                setNameTop(156);
+                setFixedTop(280);
+                setPicLeft(100);
+                setBgTop(-180);
+            }
+        }
+
+        return (
+            <div>
+                <HeaderAccessed secured="t" />
+                <div id="profileBg">
+                    <div id="infoArea" className="smoothAll" style={style.infoArea}>
+                        <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
+                        <div id="usernameDisplay" className="smoothAll" style={style.username}>
+                            Jawm42
+                        </div>
+                        <div id="infoFlex" className="smoothAll" style={style.infoFlex}>
+                            <div className="num">
+                                350
+                                <div className='label'>
+                                    videos
+                                </div>
+                            </div>
+                            <div className="num">
+                                2,000,012
+                                <div className='label'>
+                                    subscribers
+                                </div>
+                            </div>
+                            <div className="num">
+                                4,023
+                                <div className='label'>
+                                    Eth Earned
+                                </div>
                             </div>
                         </div>
-                        <div className="num">
-                            2,000,012
-                            <div className='label'>
-                                subscribers
-                            </div>
-                        </div>
-                        <div className="num">
-                            4,023
-                            <div className='label'>
-                                Eth Earned
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div id="fixedView" className="smoothAll" style={style.fixedView}>
-                    <div className="proRowOne" id="One">
-                        <div className="proItem">
+                    <div id="fixedView" className="smoothAll" style={style.fixedView}>
+                        <div>
 
                         </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                    </div>
-                    <div className="proRowOne">
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                    </div>
-                    <div className="proRowOne">
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                    </div>
-                    <div className="proRowOne">
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                        <div className="proItem">
-
-                        </div>
-                    </div>
-                </div>
+                     </div>
             </div>
 
         </div>
