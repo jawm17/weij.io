@@ -15,7 +15,7 @@ export default function Profile() {
     const [picWidth, setPicWidth] = useState(120);
     const [nameTop, setNameTop] = useState(195);
     const [picLeft, setPicLeft] = useState(80);
-    const [fixedTop, setFixedTop] = useState(360);
+    const [fixedTop, setFixedTop] = useState(300);
     const [bgTop, setBgTop] = useState(0);
     let scrollArea;
 
@@ -57,14 +57,14 @@ export default function Profile() {
             setPicWidth(120);
             setNameTop(195);
             setPicLeft(80);
-            setFixedTop(360);
+            setFixedTop(300);
             setBgTop(0);
         } else {
             setTop(12);
             setProfilePicTop(110);
             setPicWidth(90);
             setNameTop(156);
-            setFixedTop(280);
+            setFixedTop(220);
             setPicLeft(100);
             setBgTop(-180);
         }
@@ -91,7 +91,7 @@ export default function Profile() {
         <div>
             <HeaderAccessed secured="t" />
             <div id="profileBg">
-                <div id="infoArea" className="smoothAll" style={style.infoArea}>
+                <div id="infoArea" className="sharpWidth" style={style.infoArea}>
                     <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
                     <div id="usernameDisplay" className="smoothAll" style={style.username}>
                         Jawm42

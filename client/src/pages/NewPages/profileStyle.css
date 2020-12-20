@@ -15,6 +15,10 @@
     transition: all 0.3s ease-in-out;
 }
 
+.sharpWidth {
+    transition: all 0.3s ease-in-out, width 0s;
+}
+
 #infoArea {
     width: 100vw;
     height: 225px;
@@ -70,18 +74,18 @@
 }
 
 #flexContainer {
-    width: 100vw;
+    width: calc(100vw - 80px);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
+    margin-left: 80px;
     max-width: 1500px;
+    margin-bottom: 100px;
 }
 
 #fixedView {
     overflow-y: scroll;
     display: flex;
     justify-content: center;
-
 }
 
 .proRowOne {
