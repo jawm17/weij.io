@@ -20,7 +20,7 @@ export default function MediaPreview(props) {
                 objectFit: "cover",
                 borderRadius: 12,
                 zIndex: 4,
-                opacity: opacity
+                opacity: 0
         },
         bottom: {
             position: "absolute",
@@ -35,7 +35,7 @@ export default function MediaPreview(props) {
         flagBlock: {
             position: "absolute",
             zIndex: 10,
-            backgroundColor: "#e9e9e9",
+            // backgroundColor: "#e9e9e9",
             width: 260,
             height: 60,
             top: -60,
@@ -78,14 +78,25 @@ export default function MediaPreview(props) {
                     }, 150);
                     setTimeout(() => {
                         if (!exited) {
-                            figure.currentTime = parseInt(duration / 2);
+                            figure.currentTime = parseInt(duration / 4);
+                            setTimeout(() => {
+                                if (!exited) {
+                                    figure.currentTime = parseInt(duration / 2);
+                                    setTimeout(() => {
+                                        if (!exited) {
+                                            figure.currentTime = parseInt(duration / 1.33);
+                                            setTimeout(() => {
+                                                if (!exited) {
+                                                    figure.currentTime = parseInt(duration / 8);
+                                                }
+                                            }, 2800);
+                                        }
+                                    }, 4400);
+                                }
+                            }, 4400);
                         }
-                    }, 4400);
-                    setTimeout(() => {
-                        if (!exited) {
-                            figure.currentTime = parseInt(duration / 2);
-                        }
-                    }, 8400);
+                    }, 4200);
+                    
                 }
             }, 350);
         }
@@ -104,7 +115,7 @@ export default function MediaPreview(props) {
         if(!duration) {
             setDuration(parseInt(e.target.duration));
             let figure = document.getElementById(props.id + "vid");
-            figure.currentTime = parseInt(e.target.duration / 2);
+            figure.currentTime = parseInt(e.target.duration / 8);
         }
     }
 

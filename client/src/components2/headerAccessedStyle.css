@@ -146,6 +146,7 @@
         color:  #8A62E2;
         margin-left: 9px;
         font-size: 20px;
+        display: none;
     }
 
     .fixedButtonsA {

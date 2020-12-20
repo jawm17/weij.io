@@ -3,6 +3,8 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import HeaderAccessed from '../../components2/headerAccessed';
 import PostModal from '../../components2/postModal';
+import media from "../../videos.json";
+import MediaPreview from "../../components2/mediaPreview";
 import "./profileStyle.css";
 
 export default function Profile() {
@@ -24,84 +26,115 @@ export default function Profile() {
         },
         profilePic: {
             marginTop: profilePicTop,
-                marginLeft: picLeft,
-                width: picWidth
-            },
-            username: {
-                top: nameTop,
-                left: 240
-            },
-            fixedView: {
-                marginTop: fixedTop
-            },
-            infoFlex: {
-                top: nameTop - 10
-            }
+            marginLeft: picLeft,
+            width: picWidth
+        },
+        username: {
+            top: nameTop,
+            left: 240
+        },
+        fixedView: {
+            marginTop: fixedTop
+        },
+        infoFlex: {
+            top: nameTop - 10
         }
+    }
 
-        useEffect(() => {
-            scrollArea = document.getElementById("profileBg");
-            scrollArea.addEventListener("scroll", () => {
-                checkScroll();
-            });
+    useEffect(() => {
+        scrollArea = document.getElementById("profileBg");
+        scrollArea.addEventListener("scroll", () => {
+            checkScroll();
         });
 
-        function checkScroll() {
-            if (scrollArea.scrollTop < 10) {
-                // initial
-                setTop(90);
-                setProfilePicTop(60);
-                setPicWidth(120);
-                setNameTop(195);
-                setPicLeft(80);
-                setFixedTop(360);
-                setBgTop(0);
-            } else {
-                setTop(12);
-                setProfilePicTop(110);
-                setPicWidth(90);
-                setNameTop(156);
-                setFixedTop(280);
-                setPicLeft(100);
-                setBgTop(-180);
-            }
-        }
+    });
 
-        return (
-            <div>
-                <HeaderAccessed secured="t" />
-                <div id="profileBg">
-                    <div id="infoArea" className="smoothAll" style={style.infoArea}>
-                        <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
-                        <div id="usernameDisplay" className="smoothAll" style={style.username}>
-                            Jawm42
+    function checkScroll() {
+        if (scrollArea.scrollTop < 10) {
+            // initial
+            setTop(90);
+            setProfilePicTop(60);
+            setPicWidth(120);
+            setNameTop(195);
+            setPicLeft(80);
+            setFixedTop(360);
+            setBgTop(0);
+        } else {
+            setTop(12);
+            setProfilePicTop(110);
+            setPicWidth(90);
+            setNameTop(156);
+            setFixedTop(280);
+            setPicLeft(100);
+            setBgTop(-180);
+        }
+    }
+
+    // function getInfo() {
+    //     UserService.getUserInfo().then(data => {
+    //         if (!data.message) {
+    //             setUsername(data.username);
+    //             setProfileImg(data.profileImgSrc);
+    //             setNumFollowers(data.followers.length);
+    //             setNumFollowing(data.following.length);
+    //             console.log(data);
+    //         }
+    //         else if (data.message.msgBody === "Unauthorized") {
+    //             authContext.setUser({ username: "" });
+    //             authContext.setIsAuthenticated(false);
+    //             window.alert("not logged in");
+    //         }
+    //     });
+    // }
+
+    return (
+        <div>
+            <HeaderAccessed secured="t" />
+            <div id="profileBg">
+                <div id="infoArea" className="smoothAll" style={style.infoArea}>
+                    <img id="profilePicture" className="smoothAll" src={profileImg} style={style.profilePic} alt="profile picture"></img>
+                    <div id="usernameDisplay" className="smoothAll" style={style.username}>
+                        Jawm42
                         </div>
-                        <div id="infoFlex" className="smoothAll" style={style.infoFlex}>
-                            <div className="num">
-                                350
+                    <div id="infoFlex" className="smoothAll" style={style.infoFlex}>
+                        <div className="num">
+                            350
                                 <div className='label'>
-                                    videos
+                                videos
                                 </div>
-                            </div>
-                            <div className="num">
-                                2,000,012
+                        </div>
+                        <div className="num">
+                            2,000,012
                                 <div className='label'>
-                                    subscribers
+                                subscribers
                                 </div>
-                            </div>
-                            <div className="num">
-                                4,023
+                        </div>
+                        <div className="num">
+                            4,023
                                 <div className='label'>
-                                    Eth Earned
+                                Eth Earned
                                 </div>
-                            </div>
                         </div>
                     </div>
-                    <div id="fixedView" className="smoothAll" style={style.fixedView}>
-                        <div>
-
-                        </div>
-                     </div>
+                </div>
+                <div id="fixedView" className="smoothTop" style={style.fixedView}>
+                    <div id="flexContainer">
+                 
+                            {media.map(video => {
+                                if (!video.deleted) {
+                                    return <MediaPreview
+                                        key={video.thumb}
+                                        id={video.thumb}
+                                        imgUrl={video.sources}
+                                        price={video.price}
+                                        privileged={video.privileged}
+                                        username={video.user}
+                                    />
+                                }
+                            })}
+                      
+                    </div>
+                </div>
             </div>
 
         </div>
