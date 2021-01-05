@@ -22,8 +22,9 @@
 #infoArea {
     width: 100vw;
     height: 225px;
-    position: fixed;
+    position: relative;
     z-index: 15;
+    top: 88px;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
     background-color: #8046ff;
@@ -80,6 +81,7 @@
     margin-left: 80px;
     max-width: 1500px;
     margin-bottom: 100px;
+    margin-top: 70px;
 }
 
 #fixedView {
