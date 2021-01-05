@@ -91,10 +91,14 @@ export default function Profile() {
         <div>
             <HeaderAccessed secured="t" />
             <div id="profileBg">
-                <div id="infoArea" className="sharpWidth">
-                   
+                <div id="infoArea">
+                   <div id="infoAreaFlex">
+                        <div id="infoAreaContainer">
+                            <img id="profilePicture" src={profileImg} alt="profile avatar"></img>
+                        </div>
+                   </div>
                 </div>
-                <div id="fixedView" className="smoothTop">
+                <div id="fixedView">
                     <div id="flexContainer">
                  
                             {media.map(video => {
