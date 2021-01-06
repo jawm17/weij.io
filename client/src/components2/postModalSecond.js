@@ -23,7 +23,10 @@ export default function PostModalSecond(props) {
         let vid = document.getElementById("uploadPlayer");
         vid.disablePictureInPicture = true
         vid.ontimeupdate = function () { timeScrolled() };
-        console.log("f")
+        // imageError = true;
+        // title = "";
+        // price = 0;
+        // thumbCode = null;
     }, []);
 
     function back() {
@@ -82,7 +85,7 @@ export default function PostModalSecond(props) {
         title = newTitle;
         checkInputs();
         // styling
-        if (newTitle) {
+        if (title) {
             document.getElementById("titleLabel").style.color = "#8A62E2";
         } else {
             document.getElementById("titleLabel").style.color = "gray";
