@@ -1,0 +1,61 @@
+.media {
+    width: 95vw;
+    max-width: 540px;
+    height: calc(100vh - 140px);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background-color: white;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    scroll-snap-align: center;
+    position: relative;
+}
+
+.mediaPlayer {
+    background-color: black;
+    border-radius: 4px;
+    width: 95vw;
+    max-width: 540px;
+    height: calc(100vh - 200px);
+}
+
+.buttons {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    bottom: 40%;
+}
+
+.commentIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.infoArea {
+    display: flex;
+    align-items: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+.infoAreaPic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.infoAreaName {
+    margin-top: 5px;
+}
+
+.infoButtons {
+   position: absolute;
+   right: 30px;
+   bottom: 11px;
+}
+
+.heart {
+    width: 30px;
+    height: 30px;
+}

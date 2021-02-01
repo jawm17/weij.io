@@ -18,6 +18,7 @@ import Media from "./components2/media";
 import NewProfile from "./pages/NewPages/NewProfile";
 import Music from "./pages/NewPages/Music";
 import Games from "./pages/NewPages/Games";
+import Body from "./pages/NewerPages/Body";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
-        <Route exact path={["/", "/landing"]} component={Landing} />
+        <Route exact path={["/", "/landing"]} component={Body} />
+        <Route exact path={["/", "/landingFirst"]} component={Landing} />
         <PrivateRoute path={["/send/to/:user"]} component={SendPage} />
         <PrivateRoute path={["/send"]} component={SendPage} />
         <PrivateRoute exact path={["/wallet"]} component={Wallet} />

@@ -64,7 +64,7 @@ function Wallet() {
                             });
                         }
                     });
-                }).catch(err => console.log("@@@wallet page + " + err));
+                }).catch(err => console.log("wallet error: " + err));
             }
         });
     }
