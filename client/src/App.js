@@ -19,6 +19,7 @@ import NewProfile from "./pages/NewPages/NewProfile";
 import Music from "./pages/NewPages/Music";
 import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
+import UserPage from "./pages/NewerPages/UserPage";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         <UserRestrictedRoute exact path="/login" component={SignIn} />
         <UserRestrictedRoute exact path="/register" component={Register} />
         <PrivateRoute path="/user/:user" component={ProfilePage} />
-        <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/profile" component={UserPage} />
         <PrivateRoute exact path="/search" component={SearchPage} />
         <PrivateRoute path="/user" component={ProfilePage} />
         <Route exact path={["/", "/landing"]} component={Body} />

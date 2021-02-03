@@ -14,12 +14,12 @@ export default function MediaCard(props) {
             {/* <div className="buttons">
                 <img src="https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/chat.png?alt=media&token=68d8b05a-1058-4db8-b587-294c51bc051b" className="commentIcon"></img>
             </div> */}
-            <video className="mediaPlayer" id={props.descript + "vid"} controls disablePictureInPicture controlsList="nodownload" >
-                <source src="https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/v09044e70000c0bdh69sp64eorjpc07g.MP4?alt=media&token=ad869d9e-48e1-4784-960c-264aa12b88ac" type="video/mp4" />
+            <video className="mediaPlayer" id={props.descript + "vid"} controls disablePictureInPicture controlsList="nodownload" muted>
+                <source src="https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/v09044740000c0c3emppghok33p9jflg.MP4?alt=media&token=0dcacc22-2348-4afc-8589-6497d8ecee3d" type="video/mp4" />
                         Your browser does not support the video tag.
             </video>
             <div className="infoArea">
-            <img src="https://avatars3.githubusercontent.com/u/56066513?s=460&u=2724432d8929c333aea5ea6751128b6db55c747e&v=4" className="infoAreaPic"></img>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR_Rv8W2Od1KkQuN-okihZ3X3Ybaiii9wT2Q&usqp=CAU" className="infoAreaPic"></img>
                <div className="infoAreaName">
                faithordway7
                </div>

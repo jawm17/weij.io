@@ -1,16 +1,3 @@
-#bodyHeader {
-    position: fixed;
-    height: 100px;
-    width: 100vw;
-    background-color: white;
-    z-index: 5;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #body {
     position: fixed;
     top: 80px;
@@ -22,7 +9,6 @@
     justify-content: center;
     transition: background-color 1s ease;
 }
-
 
 #realCat {
     position: sticky;
@@ -48,40 +34,29 @@
     background-color: white;
     border-radius: 12px;
     font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#signOut {
+    font-weight: 2px;
+    float: right;
+    margin-left: 80px;
+    color:  rgb(1, 203, 255);
+    font-size: 15px;
+}
+
+#suggestions {
+    color: gray;
+    margin-top: 20px;
+    margin-left: 55px;
 }
 
 @media only screen and (max-width: 600px) {
-    #cat {
-        width: 400px;
-        height: 200px;
-        display: none;
-    }
-    #catBox {
+    #realCat {
         display: none;
     }
   }
-
-#headerArea {
-    width: 90vw;
-    max-width: 930px;
-    font-family: 'Fredoka One', cursive;
-    font-weight: bold;
-    color:  rgb(1, 203, 255);
-    font-size: 25px;
-    position: relative;
-}
-
-#headerRight {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.headerIcon {
-    width: 30px;
-    height: 30px;
-    margin-left: 20px;
-}
 
   /* colours */
   .default {
