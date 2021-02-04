@@ -3,7 +3,7 @@ import MediaPanel2 from "../../components/mediaPanel2"
 import Header from "../../components/components3/Header";
 import "./styles/bodyStyle.css";
 
-export default function Body() {
+export default function Body(props) {
     let mediaCards;
     let scroll = window.scrollY + (window.innerHeight / 3);
 
@@ -29,7 +29,7 @@ export default function Body() {
 
     return (
         <div>
-            <Header />
+            <Header page="home"/>
             <div id="body" className="default">
                 <MediaPanel2 />
                 <div id="realCat">

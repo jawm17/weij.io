@@ -6,7 +6,7 @@ export default function UserPage() {
 
     return (
         <div>
-            <Header />
+            <Header page="profile"/>
             <div id="outerProfileBody">
                 <div id="profileBody">
                     <div id="profileInfo">

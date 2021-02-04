@@ -45,14 +45,14 @@
     cursor: pointer;
 }
 
-.blueIcon {
+.blue {
     position: absolute;
     width: 50px;
-    left: 54px;
-    bottom: -25px;
     border-bottom-width: 2px;
     border-bottom-color: rgb(1, 203, 255);
     border-bottom-style: solid;
+    left: 54px;
+    bottom: -25px;
 }
 
 #headerRight {
