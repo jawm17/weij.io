@@ -18,7 +18,7 @@ export default function Body(props) {
             let card = mediaCards[i];
             let vid = document.getElementById(card.id + "vid");
             if (card.getBoundingClientRect().top <= scroll && card.getBoundingClientRect().top + card.getBoundingClientRect().height > scroll) {
-            //  document.getElementById("body").className = card.getAttribute("color");
+                //  document.getElementById("body").className = card.getAttribute("color");
                 vid.play();
             } else {
                 vid.pause();
@@ -29,7 +29,7 @@ export default function Body(props) {
 
     return (
         <div>
-            <Header page="home"/>
+            <Header page="home" />
             <div id="body" className="default">
                 <MediaPanel2 />
                 <div id="realCat">
@@ -46,6 +46,18 @@ export default function Body(props) {
                     </div>
                     <div id="suggestions">
                         Suggestions for you
+                        <div className="suggest">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjRstf5ncFDVYX3duv7BF_-AwpNnqQb3pYSQ&usqp=CAU" className="suggestPhoto"></img>
+                            ChampagnePapi
+                        </div>
+                        <div className="suggest">
+                            <img src="https://www.usmagazine.com/wp-content/uploads/2020/09/Katy-Perry-Says-Motherhood-Is-A-Full-Time-Job-After-Welcoming-Daughter-Daisy-Promo.jpg?w=700&quality=86&strip=all" className="suggestPhoto"></img>
+                        katyPerry
+                        </div>
+                        <div className="suggest">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjRstf5ncFDVYX3duv7BF_-AwpNnqQb3pYSQ&usqp=CAU" className="suggestPhoto"></img>
+                        joesl90
+                        </div>
                     </div>
                 </div>
             </div>
