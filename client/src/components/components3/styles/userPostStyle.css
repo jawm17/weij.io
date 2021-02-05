@@ -6,6 +6,19 @@
 
 .userPost {
     background-image: url("https://i1.wp.com/www.ufn.ca/wp-content/uploads/2019/08/landscape-mountains.jpg?fit=750%2C312");
-    background-color: red;
     position: relative;
+}
+
+.userPost:hover {
+    cursor: pointer;
+}
+
+.postInfo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
