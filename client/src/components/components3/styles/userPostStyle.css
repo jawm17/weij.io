@@ -1,0 +1,11 @@
+.userPostImg {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+}
+
+.userPost {
+    background-image: url("https://i1.wp.com/www.ufn.ca/wp-content/uploads/2019/08/landscape-mountains.jpg?fit=750%2C312");
+    background-color: red;
+    position: relative;
+}

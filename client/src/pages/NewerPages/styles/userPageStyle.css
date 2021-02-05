@@ -1,5 +1,6 @@
 #profileBody {
-
+    width: 90vw;
+    max-width: 950px;
 }
 
 #outerProfileBody{
@@ -8,7 +9,6 @@
     width: 100vw;
     height: calc(100vh - 80px);
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
     background-color:  #e9e9e9;
     display: flex;
     justify-content: center;
@@ -17,16 +17,43 @@
 #profileNumbers {
     display: flex;
     align-items: center;
+    margin-top: 5px;
+}
+
+.number {
+    margin-right: 20px;
+    font-size: 20px;
 }
 
 #profileButtons {
     display: flex;
     align-items: center;
+    margin-top: 20px;
+}
+
+.profileButton {
+    margin-right: 50px;
+    font-size: 15px;
+    width: 105px;
+    height: 40px;
+    border-color:  rgb(1, 203, 255);
+    color: rgb(1, 203, 255);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileButton:hover {
+    cursor: pointer;
+    background-color: rgb(1, 203, 255);
+    color: white;
 }
 
 #profileInfo {
-    width: 90vw;
-    max-width: 930px;
     margin-top: 10px;
     display: flex;
     align-items: center;
@@ -37,14 +64,15 @@
     height: 160px;
     border-radius: 50%;
     margin-top: 35px;
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
-#profileUsername {
+#profileInfoArea {
     font-family: 'Fredoka One', cursive;
     color: black;
     font-size: 25px;
-    margin-left: 20px;
+    margin-left: 40px;
+    margin-top: 50px;
 }
 
 #line {
@@ -54,3 +82,25 @@
     border-bottom-style: solid;
     border-bottom-color: darkgray;
 }
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, 300px);
+    padding-bottom: 100px;
+    margin-top: 40px;
+}
+
+@media only screen and (max-width: 720px) {
+    #profileInfo {
+        display: block;
+    }
+    #profileImage {
+        margin-top: 20px;
+        margin-left: calc(50vw - 100px);
+    }
+    #profileInfoArea {
+        display: none;
+    }
+  }
