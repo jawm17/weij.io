@@ -43,9 +43,6 @@ export default function UserPage() {
                                 <div className="profileButton">
                                     settings
                                 </div>
-                                <div className="profileButton">
-                                    favorites
-                                </div>
                             </div>
                         </div>
 
