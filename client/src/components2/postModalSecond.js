@@ -14,7 +14,7 @@ export default function PostModalSecond(props) {
     const [imagePost, setImagePost] = useState(false);
 
     useEffect(() => {
-       
+
     })
 
     function back() {
@@ -28,13 +28,13 @@ export default function PostModalSecond(props) {
 
     function imageError() {
         setImagePost(false);
-        if(props.url != "") {
+        if (props.url != "") {
             let previewVid = document.createElement("video");
             previewVid.src = props.url;
             previewVid.className = "postPreview";
             previewVid.id = "previewVid";
             previewVid.controls = true;
-            previewVid.onerror = function() {
+            previewVid.onerror = function () {
                 window.location.href = "/profile";
             }
             document.getElementById("previewArea").append(previewVid);
@@ -43,11 +43,35 @@ export default function PostModalSecond(props) {
 
     function imageLoad() {
         setImagePost(true);
-        let previewVid =  document.getElementById("previewVid");
+        let previewVid = document.getElementById("previewVid");
         if (previewVid) {
             previewVid.style.display = "none"
         }
     }
+
+    function titleChange(e) {
+        let newTitle = e.target.value;
+        title = newTitle;
+        // styling
+        if (newTitle) {
+            document.getElementById("titleLabel").style.color = "#01ccff";
+        } else {
+            document.getElementById("titleLabel").style.color = "gray";
+        }
+    }
+
+    function priceChange(e) {
+        let newPrice = e.target.value;
+        price = newPrice;
+        /// styling
+        if (price) {
+            document.getElementById("priceLabel").style.color = "#01ccff";
+        } else {
+            document.getElementById("priceLabel").style.color = "gray";
+            price = 0;
+        }
+    }
+
 
     return (
         <div id="modalSecond" style={{ "display": "none" }}>
@@ -60,6 +84,33 @@ export default function PostModalSecond(props) {
                 </div>
                 <div id="previewArea">
                     <img className="postPreview" onError={() => imageError()} onLoad={() => imageLoad()} src={props.url} style={imagePost ? { "display": "initial" } : { "display": "none" }}></img>
+                </div>
+
+                <div id="vidInfo">
+                    <div className="enterTitle">
+                        <div id="titleLabel">
+                            Enter a title
+                        </div>
+                        <div id="textAreaTitle">
+                            <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
+                        </div>
+                    </div>
+                    <div className="enterPrice">
+                        <div id="priceLabel">
+                            Enter a price
+                        </div>
+                        <div id="priceLabelTag">
+                            (optional)
+                        </div>
+                        <div id="priceInputFlex">
+                            <div id="textAreaPrice">
+                                <textarea id="price" onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                            </div>
+                            <div id="cncyType">
+                                USD
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="back" onClick={() => back()}>back</div>

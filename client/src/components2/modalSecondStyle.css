@@ -28,6 +28,100 @@
     height: 100%;
 }
 
+#vidInfo {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.enterTitle {
+    margin-right: 30px;
+}
+
+#titleLabel {
+    color: grey;
+    font-size: 19px;
+    font-weight: bold;
+    width: 200px;
+}
+
+#textAreaTitle {
+    width: 380px;
+    height: 90px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: white;
+}
+
+#title {
+    margin-top: 6px;
+    margin-left: 6px;
+    width: 360px;
+    height: 70px;
+    font-size: 20px;
+    font-family: sans-serif;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    font-weight: 100;
+}
+
+#priceLabel {
+    color: grey;
+    font-size: 19px;
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#priceLabelTag {
+    display: inline-block;
+    color: grey;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#priceInputFlex {
+    display: flex;
+    align-items: center;
+}
+
+#textAreaPrice {
+    width: 110px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: white; 
+}
+
+#price {
+    margin-top: 14px;
+    margin-left: 7px;
+    width: 90px;
+    height: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    resize: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    font-weight: 100;
+}
+
+#cncyType {
+    color: gray;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
 #back {
     position: absolute;
     bottom: 20px;
