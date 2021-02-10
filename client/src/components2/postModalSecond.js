@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import CreatePostService from '../services/CreatePostService';
 import { AuthContext } from '../context/AuthContext';
 import "./uploadPlayerStyle.css";
@@ -12,10 +12,6 @@ export default function PostModalSecond(props) {
     const [imagePost, setImagePost] = useState(false);
     const [priceValue, setPriceValue] = useState(0);
 
-    useEffect(() => {
-
-    })
-
     function back() {
         document.getElementById("modalSecond").style.display = "none";
         document.getElementById("whiteFirst").style.display = "initial";
@@ -23,20 +19,18 @@ export default function PostModalSecond(props) {
 
     function post() {
         if (title) {
-                document.getElementById("postComplete").style.display = "flex";
-                CreatePostService.newPost({ "src": props.url, "title": title, "price": price }).then(data => {
-                    const { message } = data;
-                    if (message.msgBody === "Unauthorized") {
-                        authContext.setUser({ username: "" });
-                        authContext.setIsAuthenticated(false);
-                    } else {
-                        console.log(data)
-                        // setTimeout(() => {
-                        //     document.getElementById("createPost").style.display = "none";
-                        //     props.done();
-                        // }, 1000)
-                    }
-                });
+            document.getElementById("postComplete").style.display = "flex";
+            CreatePostService.newPost({ "src": props.url, "title": title, "price": price }).then(data => {
+                const { message } = data;
+                if (message.msgBody === "Unauthorized") {
+                    authContext.setUser({ username: "" });
+                    authContext.setIsAuthenticated(false);
+                } else {
+                    setTimeout(() => {
+                        window.location.href = "/profile";
+                    }, 1000)
+                }
+            });
         }
     }
 
@@ -94,7 +88,12 @@ export default function PostModalSecond(props) {
     return (
         <div id="modalSecond" style={{ "display": "none" }}>
             <div id="postComplete">
-                Complete!
+                <div>
+                    <div id="successGreen">
+                        <img id="successCheck" alt="success" src="https://i.pinimg.com/originals/0f/7c/61/0f7c619d53fbe58fabce214b53530141.png"></img>
+                    </div>
+                    Complete!
+                </div>
             </div>
             <div id="whiteSecond">
                 <div id="banner">

@@ -18,8 +18,7 @@ export default function PostModal(props) {
     }
 
     function exit() {
-        // window.location.href = "/profile";
-        props.done();
+       window.location.href = "/profile";
     }
 
     function next() {
