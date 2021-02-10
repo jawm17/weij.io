@@ -113,7 +113,7 @@ p {
     display: none;
   }
 
-  #successFlex {
+  .successFlex {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +122,7 @@ p {
     border-radius: 50%;
   }
 
-  #checkMark {
+  .checkMark {
       width: 40px;
       height: 40px;
   }

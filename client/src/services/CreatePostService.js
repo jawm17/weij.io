@@ -1,8 +1,8 @@
 export default {
-    postVideo: photo => {
-        return fetch('/user/post-video', {
+    newPost: post => {
+        return fetch('/user/new-post', {
             method: "post",
-            body: JSON.stringify(photo),
+            body: JSON.stringify(post),
             headers: {
                 'Content-Type': 'application/json'
             }

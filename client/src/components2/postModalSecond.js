@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import PostPhotoService from '../services/PostPhotoService';
+import CreatePostService from '../services/CreatePostService';
 import { AuthContext } from '../context/AuthContext';
 import "./uploadPlayerStyle.css";
 import "./modalSecondStyle.css";
 
-let imageError = true;
 let title;
 let price = 0;
-let thumbCode;
 
 export default function PostModalSecond(props) {
     const authContext = useContext(AuthContext);
     const [imagePost, setImagePost] = useState(false);
+    const [priceValue, setPriceValue] = useState(0);
 
     useEffect(() => {
 
@@ -23,7 +22,22 @@ export default function PostModalSecond(props) {
     }
 
     function post() {
-
+        if (title) {
+                document.getElementById("postComplete").style.display = "flex";
+                CreatePostService.newPost({ "src": props.url, "title": title, "price": price }).then(data => {
+                    const { message } = data;
+                    if (message.msgBody === "Unauthorized") {
+                        authContext.setUser({ username: "" });
+                        authContext.setIsAuthenticated(false);
+                    } else {
+                        console.log(data)
+                        // setTimeout(() => {
+                        //     document.getElementById("createPost").style.display = "none";
+                        //     props.done();
+                        // }, 1000)
+                    }
+                });
+        }
     }
 
     function imageError() {
@@ -54,6 +68,7 @@ export default function PostModalSecond(props) {
         title = newTitle;
         // styling
         if (newTitle) {
+            document.getElementById("postBtn").style.backgroundColor = "#01ccff";
             document.getElementById("titleLabel").style.color = "#01ccff";
         } else {
             document.getElementById("titleLabel").style.color = "gray";
@@ -62,7 +77,10 @@ export default function PostModalSecond(props) {
 
     function priceChange(e) {
         let newPrice = e.target.value;
-        price = newPrice;
+        if (!isNaN(newPrice)) {
+            price = newPrice;
+            setPriceValue(newPrice);
+        }
         /// styling
         if (price) {
             document.getElementById("priceLabel").style.color = "#01ccff";
@@ -104,7 +122,7 @@ export default function PostModalSecond(props) {
                         </div>
                         <div id="priceInputFlex">
                             <div id="textAreaPrice">
-                                <textarea id="price" onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                                <textarea id="price" value={priceValue} onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
                             </div>
                             <div id="cncyType">
                                 USD
@@ -112,10 +130,9 @@ export default function PostModalSecond(props) {
                         </div>
                     </div>
                 </div>
-
-                <div id="back" onClick={() => back()}>back</div>
-                <div id="postBtn" onClick={() => post()}>post</div>
             </div>
+            <div id="back" onClick={() => back()}>back</div>
+            <div id="postBtn" onClick={() => post()}>post</div>
         </div>
     );
 }

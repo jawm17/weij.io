@@ -32,6 +32,7 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    height: 1000px;
 }
 
 .enterTitle {
@@ -47,6 +48,7 @@
 
 #textAreaTitle {
     width: 380px;
+    max-width: 80vw;
     height: 90px;
     margin-top: 20px;
     background-color: white;
@@ -59,6 +61,7 @@
     margin-top: 6px;
     margin-left: 6px;
     width: 360px;
+    max-width: 76vw;
     height: 70px;
     font-size: 20px;
     font-family: sans-serif;
@@ -151,7 +154,6 @@
     color: white;
 }
 
-
 #postBtn:hover {
     cursor: pointer;
 }
@@ -171,3 +173,17 @@
     justify-content: center;
     align-items: center;
 }   
+
+@media only screen and (max-width: 710px) {
+    #vidInfo {
+        display: initial;
+    }
+    .enterTitle {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    .enterPrice {
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+  }

@@ -1,21 +1,17 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-    vidSrc: {
+    src: {
         type: String,
         required: true
     },
-    thumbSrc: {
+    title: {
         type: String,
-        required: false
-    },
-    thumbCode: {
-        type: Number,
-        required: false
+        default: ""
     },
     price: {
         type: Number,
-        required: false
+        default: 0
     },
     createdAt: {
         type: Date,
@@ -25,10 +21,6 @@ const PostSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }, 
-    user: {
-        type: String,
-        required: true
-    },
     privileged: {
         type: Array,
         default: []
@@ -38,6 +30,10 @@ const PostSchema = new mongoose.Schema({
         default: 0
     },
     comments: {
+        type: Array,
+        default: []
+    },
+    likes: {
         type: Array,
         default: []
     }

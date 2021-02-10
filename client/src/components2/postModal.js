@@ -23,8 +23,8 @@ export default function PostModal(props) {
     }
 
     function next() {
-            document.getElementById("modalSecond").style.display = "initial";
-            document.getElementById("whiteFirst").style.display = "none";
+        document.getElementById("modalSecond").style.display = "initial";
+        document.getElementById("whiteFirst").style.display = "none";
     }
 
     // on click select file handler
@@ -118,8 +118,8 @@ export default function PostModal(props) {
                                         <div id="loader">
                                         </div>
                                         <div id="success">
-                                            <div id="successFlex">
-                                                <img id="checkMark" alt="success" src="https://i.pinimg.com/originals/0f/7c/61/0f7c619d53fbe58fabce214b53530141.png"></img>
+                                            <div className="successFlex">
+                                                <img className="checkMark" alt="success" src="https://i.pinimg.com/originals/0f/7c/61/0f7c619d53fbe58fabce214b53530141.png"></img>
                                             </div>
                                         </div>
                                     </div>
