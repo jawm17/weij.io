@@ -30,7 +30,8 @@ p {
     max-width: 850px;
     width: 90vw;
     height: 80px;
-    background-color: #8A62E2;
+    font-family: 'Fredoka One', cursive;
+    background-color:  rgb(1, 203, 255);
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
     display: flex;

@@ -23,10 +23,8 @@ export default function PostModal(props) {
     }
 
     function next() {
-
             document.getElementById("modalSecond").style.display = "initial";
             document.getElementById("whiteFirst").style.display = "none";
-        
     }
 
     // on click select file handler
@@ -36,7 +34,7 @@ export default function PostModal(props) {
             setFile(file);
             // check file extension
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+            if (ext === "MOV" || ext === "MP4" || ext === "AVI" || ext === "JPG" || ext === "PNG") {
                 // upload to firebase
                 firebaseUpload(file);
                 // display animation
@@ -56,7 +54,7 @@ export default function PostModal(props) {
             setFile(file);
             // check file extension
             let ext = file.name.slice(file.name.length - 3, file.name.length).toUpperCase();
-            if (ext === "MOV" || ext === "MP4" || ext === "AVI") {
+            if (ext === "MOV" || ext === "MP4" || ext === "AVI" || ext === "JPG" || ext === "PNG") {
                 // upload to firebase
                 firebaseUpload(file);
                 // display animation
@@ -95,7 +93,7 @@ export default function PostModal(props) {
         document.getElementById("loader").style.display = "none";
         document.getElementById("success").style.display = "initial";
         document.getElementById("uploadText").textContent = ("uploaded " + name);
-        document.getElementById("forward").style.backgroundColor = "#8A62E2";
+        document.getElementById("forward").style.backgroundColor = "rgb(1, 203, 255)";
     }
 
     function fileError() {
@@ -107,10 +105,10 @@ export default function PostModal(props) {
         <div>
             <div style={style.shade} id="createPost">
                 <div id="center">
-                    <PostModalSecond done={() => props.done()} url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"} username={props.username} profileSrc={props.profileSrc}/>
+                    <PostModalSecond done={() => props.done()} url={url} username={props.username} profileSrc={props.profileSrc}/>
                     <div id="whiteFirst">
                         <div id="banner">
-                            <p id="bannerText">Upload Video</p>
+                            <p id="bannerText">Upload File</p>
                         </div>
                         <div id="centerDrop">
                             <input style={{ "display": "none" }} id="selectileInput" type="file" onChange={(e) => selectFile(e)}></input>

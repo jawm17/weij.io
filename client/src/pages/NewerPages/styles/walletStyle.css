@@ -37,7 +37,6 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
-
 }
 
 #qrImg {
@@ -80,3 +79,27 @@
 .walletBtn:hover {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 630px) {
+    #walletLeft {
+        position: absolute;
+        left: 0;
+        height: 30%;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        border-bottom-left-radius: 0px;
+        background-color: rgb(1, 203, 255);
+        text-align: center;
+        color:white;
+        display: flex;
+        align-items: center;
+    }
+    #qrContainer {
+        width: 180px;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+ 
+  }

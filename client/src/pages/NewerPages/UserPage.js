@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Header from '../../components/components3/Header';
 import UserPost from "../../components/components3/UserPost";
+import PostModal from "../../components2/postModal";
 import videos from "../../videos.json";
 import "./styles/userPageStyle.css";
 
 export default function UserPage() {
     const [posts, setPosts] = useState([]);
+    const [creatingPost, setCreatingPost] = useState(false);
 
     useEffect(() => {
         setPosts(videos);
     });
 
+    function createAPost() {
+        setCreatingPost(true);
+    }
+
+    function doneCreating() {
+        setCreatingPost(false);
+    }
+
     return (
         <div>
             <Header page="profile" />
+            {creatingPost ?  <PostModal done={() => doneCreating()}/> : null}
             <div id="outerProfileBody">
                 <div id="profileBody">
                     <div id="profileInfo">
@@ -34,7 +45,7 @@ export default function UserPage() {
                                 </div>
                             </div>
                             <div id="profileButtons">
-                                <div className="profileButton">
+                                <div className="profileButton" onClick={() => setCreatingPost(true)}>
                                     create post
                                 </div>
                                 <div className="profileButton">
