@@ -22,8 +22,10 @@ export default function PostModal(props) {
     }
 
     function next() {
-        document.getElementById("modalSecond").style.display = "initial";
-        document.getElementById("whiteFirst").style.display = "none";
+        if(url) {
+            document.getElementById("modalSecond").style.display = "initial";
+            document.getElementById("whiteFirst").style.display = "none";
+        }
     }
 
     // on click select file handler

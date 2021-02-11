@@ -56,12 +56,9 @@ export default function UserPage() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div id="line">
-
                     </div>
-
                     <div id="grid">
                         {posts.map(post => {
                             if (!post.deleted) {
@@ -84,5 +81,4 @@ export default function UserPage() {
             </div>
         </div>
     );
-
 }
