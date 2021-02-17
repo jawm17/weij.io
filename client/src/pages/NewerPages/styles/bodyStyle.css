@@ -12,7 +12,7 @@
 
 #realCat {
     position: sticky;
-    top: 40px;
+    top: 35px;
     width: 400px;
     height: 200px;
 }
@@ -26,9 +26,12 @@
 }
 
 #catBox {
-    width: 360px;
-    height: 100px;
+    width: 356px;
+    height: 96px;
     margin-left: 50px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
     display: flex;
     align-items: center;
     background-color: white;
@@ -36,6 +39,11 @@
     font-family: 'Fredoka One', cursive;
     font-size: 20px;
     margin-bottom: 20px;
+}
+
+#catBox:hover {
+  cursor: pointer;
+  border-color: rgb(1, 203, 255);
 }
 
 #signOut {

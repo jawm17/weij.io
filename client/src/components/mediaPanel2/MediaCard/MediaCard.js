@@ -14,7 +14,7 @@ export default function MediaCard(props) {
             {/* <div className="buttons">
                 <img src="https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/chat.png?alt=media&token=68d8b05a-1058-4db8-b587-294c51bc051b" className="commentIcon"></img>
             </div> */}
-            <video className="mediaPlayer" id={props.descript + "vid"} controls disablePictureInPicture controlsList="nodownload" loop>
+            <video className="mediaPlayer" id={props.descript + "vid"} controls disablePictureInPicture controlsList="nodownload" loop muted>
                 <source src="https://firebasestorage.googleapis.com/v0/b/weij-c2efd.appspot.com/o/v09044990000bvtm4ip7447iuta7gud0.mov?alt=media&token=43e93a32-8000-49ad-ab07-22f0ada95c2d" type="video/mp4" />
                         Your browser does not support the video tag.
             </video>

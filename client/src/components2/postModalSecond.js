@@ -121,7 +121,7 @@ export default function PostModalSecond(props) {
                         </div>
                         <div id="priceInputFlex">
                             <div id="textAreaPrice">
-                                <textarea id="price" value={"$" + priceValue} onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                                <textarea id="price" value={priceValue} onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
                             </div>
                             <div id="cncyType">
                                 USD
