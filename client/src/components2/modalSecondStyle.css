@@ -93,7 +93,7 @@
 
 #textAreaPrice {
     width: 110px;
-    height: 50px;
+    height: 90px;
     margin-top: 20px;
     background-color: white;
     border-radius: 12px;
@@ -105,7 +105,7 @@
     margin-top: 14px;
     margin-left: 7px;
     width: 90px;
-    height: 20px;
+    height: 70px;
     font-size: 20px;
     font-family: sans-serif;
     resize: none;

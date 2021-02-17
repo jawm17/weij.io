@@ -106,7 +106,7 @@ export default function PostModalSecond(props) {
                 <div id="vidInfo">
                     <div className="enterTitle">
                         <div id="titleLabel">
-                            Enter a title
+                            Title
                         </div>
                         <div id="textAreaTitle">
                             <textarea id="title" onChange={(e) => titleChange(e)} onClick={() => document.getElementById("textAreaTitle").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaTitle").style.borderColor = "white"}></textarea>
@@ -114,14 +114,14 @@ export default function PostModalSecond(props) {
                     </div>
                     <div className="enterPrice">
                         <div id="priceLabel">
-                            Enter a price
+                            Price
                         </div>
                         <div id="priceLabelTag">
                             (optional)
                         </div>
                         <div id="priceInputFlex">
                             <div id="textAreaPrice">
-                                <textarea id="price" value={priceValue} onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
+                                <textarea id="price" value={"$" + priceValue} onChange={(e) => priceChange(e)} onClick={() => document.getElementById("textAreaPrice").style.borderColor = "#01ccff"} onBlur={() => document.getElementById("textAreaPrice").style.borderColor = "white"}></textarea>
                             </div>
                             <div id="cncyType">
                                 USD
