@@ -20,7 +20,7 @@ export default function PostModalSecond(props) {
     function post() {
         if (title) {
             document.getElementById("postComplete").style.display = "flex";
-            CreatePostService.newPost({ "src": props.url, "title": title, "price": price }).then(data => {
+            CreatePostService.newPost({ "src": props.url, "title": title, "price": price, "type": (imagePost ? "image" : "video") }).then(data => {
                 const { message } = data;
                 if (message.msgBody === "Unauthorized") {
                     authContext.setUser({ username: "" });

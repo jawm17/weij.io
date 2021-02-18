@@ -68,6 +68,7 @@ export default function UserPage() {
                                     key={post.description}
                                     descript={post.description}
                                     color={post.color}
+                                    src={"https://i.xtits.com/contents/videos_screenshots/23000/23736/preview.mp4.jpg"}
                                 // imgUrl={post.imgSrc}
                                 // price={post.price}
                                 // privileged={post.privileged}

@@ -59,7 +59,7 @@
 }
 
 #balance {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 18px;
 }
 
@@ -83,6 +83,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .walletBtn:hover {

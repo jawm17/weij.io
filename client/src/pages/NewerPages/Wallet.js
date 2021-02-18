@@ -100,6 +100,7 @@ export default function Wallet() {
                         <div id="balance">
                             Balance: {balance} ETH
                         </div>
+                        
                         <div id="btnContainer">
                             <div className="walletBtn">
                                 send

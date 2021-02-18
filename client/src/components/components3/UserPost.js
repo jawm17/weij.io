@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./styles/userPostStyle.css";
 
-export default function UserPost() {
+export default function UserPost(props) {
     const [postInfo, setPostInfo] = useState(false);
 
     return (
         <div className="userPost" onMouseEnter={() => setPostInfo(true)} onMouseLeave={() => setPostInfo(false)}>
+            <img className="userPostImage" src={props.src}></img>
             <div className="postInfo" style={postInfo ? { "display": "flex" } : { "display": "none" }}>
                 <div>
                 <div className="postInfoRow">
