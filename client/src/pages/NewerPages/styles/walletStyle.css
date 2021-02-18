@@ -31,6 +31,16 @@
     color:white;
 }
 
+#walletRight {
+    position: absolute;
+    left: 40%;
+    height: 100%;
+    width: 60%;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow-y: scroll;
+}
+
 #qrContainer {
     width: 100%;
     display: flex;
