@@ -14,7 +14,7 @@
     position: sticky;
     top: 35px;
     width: 400px;
-    height: 200px;
+    height: 80vh;
 }
 
 #catPhoto {
@@ -39,6 +39,7 @@
     font-family: 'Fredoka One', cursive;
     font-size: 20px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 #catBox:hover {
@@ -46,17 +47,17 @@
   border-color: rgb(1, 203, 255);
 }
 
-#signOut {
+.label {
+    position: absolute;
     font-weight: 2px;
-    float: right;
-    margin-left: 80px;
+    right: 30px;
     color:  rgb(1, 203, 255);
     font-size: 15px;
 }
 
 #suggestions {
     color: gray;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 55px;
 }
 
@@ -65,10 +66,19 @@
   font-family: 'Fredoka One', cursive;
   font-size: 15px;
   margin-top: 20px;
-  width: 360px;
-  height: 60px;
+  width: 356px;
+  height: 56px;
   display: flex;
   align-items: center;
+  border-radius: 12px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.suggest:hover {
+  cursor: pointer;
+  border-color: rgb(1, 203, 255);
 }
 
 .suggestPhoto {
@@ -76,6 +86,26 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 15px;
+  margin-left: 10px;
+}
+
+#links {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+  color: gray;
+  width: 340px;
+  height: 40px;
+  margin-top: 50px;
+  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #000;
 }
 
 @media only screen and (max-width: 970px) {
