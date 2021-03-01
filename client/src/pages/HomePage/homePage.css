@@ -2,6 +2,7 @@ html {
     scroll-behavior: smooth;
     font-size: 100%;
 }
+
 @font-face {
     font-family: Best-font;
     src: url('Monument\ Extended\ Regular\ 400.otf') format('opentype');
@@ -91,69 +92,85 @@ ul {
     display: flex;
     justify-content: center;
 }
+.info-content{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
 /* Desktop */
 .desktop-container{
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 85%;
-    height: 90vh;
-    margin-bottom:20px ;
-    margin-top: 20px;
+    width: 50%;
+    height: 80vh;
+    border-radius: 30px;
+    margin-right: 20px;
 
-}
-.outer-frame{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 90%;
-    border: solid rgb(234,234,234) 5px;
-    border-radius: 30px;
-}
-.inner-frame{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 90%;
-    border: solid rgb(234,234,234) 5px;
-    border-radius: 30px;
 }
 .desktop-content{
     width: 90%;
     height: 90%;
-    border: solid black 5px;
-    border-radius: 30px;
     overflow: scroll;
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
+    padding-bottom: 30px;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-.page
+.page1,.page2,.page3,.page4
 {
     scroll-snap-align: start;
     text-align: center;
     height: 100%;
+    margin-bottom: 20px;
+    border-radius: 30px;
+
+}
+.page1,.page2,.page3,.page4-h1
+{
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 20px;
+    background-repeat: no-repeat;
+}
+.page1{
+    background-size: cover;
+    background: url(https://c4.wallpaperflare.com/wallpaper/482/194/344/simple-background-wallpaper-preview.jpg);
+}
+.page2{
+    background-size: cover;
+    background: url(https://wallpapercave.com/wp/wp3574688.jpg);
+}
+.page3{
+    background-size: cover;
+    background: url(https://assets.website-files.com/5fcf9ac604d37418aa70a5ab/600028cbc95ff54c4975b6bd_stacks-meta-poster-00001.jpg);
+}
+.page4{
+    background-size: cover;
+    background: url(https://www.teahub.io/photos/full/43-439449_blank-wallpaper-iphone-data-src-apple-music-hd.jpg);
 }
 /* ===================================================================== */
 /* Supports */
 .supports-container{
-    height: 70vh;
-    width: 95%;
+    height: 80vh;
+    width: 50%;
+    border-radius: 30px;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom:20px ;
-    margin-top: 20px;
+    margin-left: 20px;
+    
 }
-.support-container{
-    height: 60vh;
-    width: 30%;
-    background: rgb(234,234,234);
-    border-radius: 30px;
+.support-container1,.support-container2,.support-container3{
+    width: 88%;
+    height: 91%;
+    border-radius:30px;
+    background-size: cover;
+    background:rgb(234,234,234);
+}
+.support-container2,.support-container3{
+    display: none;
 }
 .support-headers{
 font-size: 1rem;
@@ -163,18 +180,61 @@ padding-top: 20px;
 /* ===================================================================== */
 /* About */
 .about-container{
+    border-radius:30px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 90%;
-    height:100vh;
-    border: solid red 5px;
-    margin-bottom:20px ;
+    height:50vh;
     margin-top: 20px;
     color: black;
-}
-.about-header{
 
 }
+.about-words{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 55%;
+    border-radius:30px;
+    padding: 0px 50px 0 50px;
+    height:35vh;
+    background:rgb(234,234,234);
+}
+.about-words p{
+    width: 70%;
+    text-align: end;
+}
+
+/* ===================================================================== */
+/* About */
+.future-development{
+    border-radius:30px;
+    display: flex;
+    position: relative;
+    top: -200px;
+    width: 90%;
+    height:50vh;
+    margin-bottom:20px ;
+    color: black;
+    /* background:rgb(234,234,234); */
+
+}
+.future-words{
+    height:30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 55%;
+    padding: 50px;
+    border-radius:30px;
+    background:rgb(234,234,234);
+
+}
+.future-words p{
+    width: 70%;
+
+}
+
 /* ===================================================================== */
 /* Footer */
 #footer{
