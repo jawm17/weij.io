@@ -1,10 +1,12 @@
 const path = require("path");
 const router = require("express").Router();
 const userRouter = require("./User.js");
+const imageRouter = require("./image-upload");
 const mediaRouter = require("./Media.js");
 
 // API Routes
 router.use("/User", userRouter);
+router.use("/api", imageRouter);
 router.use("/media", mediaRouter);
 
 // If no API routes are hit, send the React app

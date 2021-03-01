@@ -1,0 +1,103 @@
+.profilePageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.profilePage {
+  margin-top: 80px;
+  color: white;
+  max-width: 540px;
+  width: 93vw;
+}
+
+.userDiv {
+  height: 150px;
+  margin-bottom: 40px;
+}
+
+.profileImg {
+  float: left;
+  border-radius: 50%;
+  width: 135px;
+  height: 135px;
+}
+
+.userInfo {
+  padding-top: 13px;
+  margin-left: 180px;
+}
+
+.username {
+  font-size: 30px;
+  margin: 0;
+  display: inline-block;
+}
+
+.followToggle {
+  margin-left: 10px;
+  float: right;
+}
+
+.directSend {
+  margin-left: 10px;
+  float: right;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.directSendImage {
+  width: 15px;
+  height: 15px;
+}
+
+.numPosts {
+  display: inline-block;
+  margin-top: 7px;
+}
+
+.numFollowers {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.bio {
+  margin: 0;
+  padding-top: 12px;
+}
+
+.postSection {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.userPosts {
+  margin-bottom: 80px;
+}
+
+.post{
+  max-width: 540px;
+  width: 97vw;
+  display: block;
+} 
+
+.post:hover{
+  cursor: pointer;
+} 
+
+@media only screen and (max-width: 600px) {
+  .profileImg {
+    float: left;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+  }
+  .userInfo {
+    padding-top: 13px;
+    margin-left: 140px;
+  }
+}

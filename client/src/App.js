@@ -1,16 +1,18 @@
 import React from 'react';
 import { Router, Route, Switch } from "react-router-dom";
+import Feed from "./pages/FeedPage/FeedPage";
 import SignIn from "./components/SignIn";
 import Profile from "./pages/NewPages/Profile";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
 import Wallet from "./pages/NewerPages/Wallet";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import NoMatchPage from "./pages/NoMatchPage/NoMatchPage.js";
 import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
 import Send from "./pages/NewerPages/Send";
-import Home from "./pages/HomePage/homePage";
 import Landing from "./pages/NewPages/Landing";
 import Media from "./components2/media";
 import NewProfile from "./pages/NewPages/NewProfile";
@@ -18,6 +20,8 @@ import Music from "./pages/NewPages/Music";
 import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
 import UserPage from "./pages/NewerPages/UserPage";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import Home from "./pages/HomePage/homePage";
 
 function App() {
   return (
@@ -26,10 +30,12 @@ function App() {
         <Switch>
           <UserRestrictedRoute exact path="/login" component={SignIn} />
           <UserRestrictedRoute exact path="/register" component={Register} />
-          <PrivateRoute path="/user/:user" component={NewProfile} />
+          <PrivateRoute path="/user/:user" component={ProfilePage} />
           <PrivateRoute path="/profile" component={NewProfile} />
+          <PrivateRoute exact path="/search" component={SearchPage} />
+          <PrivateRoute path="/user" component={ProfilePage} />
           <Route exact path={["/weij"]} component={Body} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path={["/home"]} component={Home} />
           <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
           <PrivateRoute path={["/send"]} component={Send} />
