@@ -21,6 +21,7 @@ import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
 import UserPage from "./pages/NewerPages/UserPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import Home from "./pages/HomePage/homePage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <PrivateRoute exact path="/search" component={SearchPage} />
           <PrivateRoute path="/user" component={ProfilePage} />
           <Route exact path={["/weij"]} component={Body} />
+          <Route exact path={["/home"]} component={Home} />
           <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
           <PrivateRoute path={["/send"]} component={Send} />
