@@ -1,7 +1,7 @@
 .media {
     width: 95vw;
     max-width: 540px;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 155px);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     background-color: white;
     margin-bottom: 40px;
@@ -15,7 +15,7 @@
     border-radius: 4px;
     width: 95vw;
     max-width: 540px;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 215px);
 }
 
 .buttons {
@@ -51,11 +51,23 @@
 
 .infoButtons {
    position: absolute;
-   right: 30px;
+   right: 20px;
    bottom: 11px;
 }
 
 .heart {
     width: 30px;
     height: 30px;
+}
+
+.comment {
+    width: 28px;
+    height: 28px;
+    margin-right: 30px;
+}
+
+.tip {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
 }

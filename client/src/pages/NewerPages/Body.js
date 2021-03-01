@@ -19,7 +19,7 @@ export default function Body(props) {
             let card = mediaCards[i];
             let vid = document.getElementById(card.id + "vid");
             if (card.getBoundingClientRect().top <= scroll && card.getBoundingClientRect().top + card.getBoundingClientRect().height > scroll) {
-                //  document.getElementById("body").className = card.getAttribute("color");
+                 document.getElementById("body").className = card.getAttribute("color");
                 vid.play();
             } else {
                 vid.pause();

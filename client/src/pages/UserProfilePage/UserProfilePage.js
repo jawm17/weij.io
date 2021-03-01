@@ -3,7 +3,7 @@ import UserService from '../../services/UserService';
 import { AuthContext } from '../../context/AuthContext';
 import "../ProfilePage/ProfilePageStyle.css";
 import Background from "../../components/Background";
-import PostModal from '../../components/PostModal';
+// import PostModal from '../../components/PostModal';
 import SettingsModal from "../../components/SettingsModal";
 import Nav from "../../components/Nav";
 import Header from "../../components/Header";
@@ -79,11 +79,11 @@ export default function UserProfilePage(props) {
                                     userImg={profileImg}
                                     username={username}
                                     refresh={() => (setSave(!save))} />
-                                <PostModal
+                                {/* <PostModal
                                     userImg={profileImg}
                                     username={username}
                                     refresh={() => (setSave(!save))}
-                                    color={color} />
+                                    color={color} /> */}
                             </div>
                         </div>
                     </div>

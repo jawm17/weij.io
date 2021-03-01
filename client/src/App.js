@@ -20,6 +20,7 @@ import Music from "./pages/NewPages/Music";
 import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
 import UserPage from "./pages/NewerPages/UserPage";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
 function App() {
   return (
@@ -29,11 +30,11 @@ function App() {
           <UserRestrictedRoute exact path="/login" component={SignIn} />
           <UserRestrictedRoute exact path="/register" component={Register} />
           <PrivateRoute path="/user/:user" component={ProfilePage} />
-          <PrivateRoute path="/profile" component={UserPage} />
+          <PrivateRoute path="/profile" component={NewProfile} />
           <PrivateRoute exact path="/search" component={SearchPage} />
           <PrivateRoute path="/user" component={ProfilePage} />
-          <Route exact path={["/", "/landing"]} component={Body} />
-          <Route exact path={["/", "/landingFirst"]} component={Landing} />
+          <Route exact path={["/weij"]} component={Body} />
+          <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
           <PrivateRoute path={["/send"]} component={Send} />
           <PrivateRoute exact path={["/wallet"]} component={Wallet} />

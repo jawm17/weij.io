@@ -32,17 +32,17 @@ export default function HeaderMain(props) {
             <div id="header">
                     <div className="logoTextBlock">
                         <div className="mainLogoA selectable" onClick={() => history.push("/landing")}>
-                            ethereal.media
+                            ethereal
                         </div>
-                        {/* <div id="mediaLogo" className="selectable" onClick={() => history.push("/landing")}>
-                            media
+                        <div id="mediaLogo" className="selectable" onClick={() => history.push("/landing")}>
+                            video
                         </div>
                         <div id="musicLogo" className="selectable" onClick={() => history.push("/music")}>
                             music
                         </div>
                         <div id="gamesLogo" className="selectable" onClick={() => history.push("/games")}>
                             games
-                        </div> */}
+                        </div>
                     </div>
 
                     {/* profile */}

@@ -45,7 +45,21 @@
     cursor: pointer;
 }
 
-.blue {
+#searchBar {
+    width: 420px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(1, 203, 255);
+    position: absolute;
+    left: 115px;
+    top: 2px;
+    border-radius: 6px;
+    /* display: none; */
+}
+
+.blueLine {
     position: absolute;
     width: 50px;
     border-bottom-width: 2px;
@@ -84,8 +98,8 @@
 }
 
 #homeIcon {
-    width: 27px;
-    height: 27 px;
+    width: 30px;
+    height: 30 px;
 }
 
 #notif {

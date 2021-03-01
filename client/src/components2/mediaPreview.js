@@ -18,7 +18,7 @@ export default function MediaPreview(props) {
                 width: 260,
                 height: 196,
                 objectFit: "cover",
-                borderRadius: 12,
+                borderRadius: 8,
                 zIndex: 4,
                 opacity: 0
         },
@@ -35,14 +35,14 @@ export default function MediaPreview(props) {
         flagBlock: {
             position: "absolute",
             zIndex: 10,
-            // backgroundColor: "#e9e9e9",
+            backgroundColor: "#e9e9e9",
             width: 260,
             height: 60,
             top: -60,
             left: 0
         },
         flag: {
-            display: "none",
+            display: flagDisplay,
             position: "absolute",
             zIndex: 2,
             width: 20,
@@ -76,6 +76,7 @@ export default function MediaPreview(props) {
                             setOpacity(0);
                         }
                     }, 150);
+                    
                     setTimeout(() => {
                         if (!exited) {
                             figure.currentTime = parseInt(duration / 4);
@@ -105,7 +106,6 @@ export default function MediaPreview(props) {
     function endPreview() {
         let figure = document.getElementById(props.id + "vid");
         figure.pause();
-  
         setOpacity(100);
         setFlagPos(-50);
         setInfoDisplay("none");
@@ -137,6 +137,9 @@ export default function MediaPreview(props) {
                        <div className="popUpName">
                        Jawm42
                        </div>
+                       <div className="popUpData">
+                            24k
+                       </div>
                     </div>
                    
                 </div>
@@ -145,7 +148,6 @@ export default function MediaPreview(props) {
                 </div>
             </div>
             {/* {open ? <Media id={props.id}></Media> : null} */}
-
         </div>
     );
 }

@@ -45,6 +45,9 @@ export default function UserPage() {
                                 </div>
                             </div>
                             <div id="profileButtons">
+                            <div className="profileButton">
+                                    message
+                                </div>
                                 <div className="profileButton" onClick={() => setCreatingPost(true)}>
                                     create post
                                 </div>
@@ -68,7 +71,7 @@ export default function UserPage() {
                                     key={post.description}
                                     descript={post.description}
                                     color={post.color}
-                                    src={"https://i.xtits.com/contents/videos_screenshots/23000/23736/preview.mp4.jpg"}
+                                    src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMa2FLeSBgRtblmcHrRewRGdnyiZCZemhGtQ&usqp=CAU"}
                                 // imgUrl={post.imgSrc}
                                 // price={post.price}
                                 // privileged={post.privileged}

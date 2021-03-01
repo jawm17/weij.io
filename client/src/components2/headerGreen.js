@@ -23,7 +23,7 @@ export default function HeaderBlue() {
                         ethereal
                         </div>
                     <div id="mediaLogo" className="selectable" onClick={() =>window.location.href = "/landing"}>
-                        media
+                        video
                         </div>
                     <div id="musicLogo" className="selectable" onClick={() => window.location.href = "/music"}>
                         music
