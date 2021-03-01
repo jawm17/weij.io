@@ -1,0 +1,187 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+@font-face {
+    font-family: Best-font;
+    src: url('Monument\ Extended\ Regular\ 400.otf') format('opentype');
+}
+ul {
+    list-style-type: none;
+}
+/* Nav */
+.nav-container{
+    color: black;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    font-family: Best-font;
+    display: flex;
+    justify-content: center;
+}
+.nav-container nav{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+#logo{
+    width: 50%;
+}
+#nav-links{
+    width: 50%;
+}
+#nav-links ul{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+#nav-links li{
+    width:fit-content;
+    padding-left: 20px;
+}
+/* Home Page */
+#home-body {
+    font-family: Best-font;
+    background:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+}
+/* ===================================================================== */
+/* Hero */
+.hero{
+    height: 100vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-container{
+    height: 80%;
+    width: 85%;
+    background-size: cover;
+    background-image: url(https://assets.website-files.com/5fcf9ac604d37418aa70a5ab/600028cbc95ff54c4975b6bd_stacks-meta-poster-00001.jpg);
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero-words{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero-container h1{
+    font-size: 4rem;
+    width: 60%;
+}
+.hero-container p{
+    font-size: 2.5rem;
+}
+/* ===================================================================== */
+/* Content */
+.home-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* Desktop */
+.desktop-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 90vh;
+    margin-bottom:20px ;
+    margin-top: 20px;
+
+}
+.outer-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    border: solid rgb(234,234,234) 5px;
+    border-radius: 30px;
+}
+.inner-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    border: solid rgb(234,234,234) 5px;
+    border-radius: 30px;
+}
+.desktop-content{
+    width: 90%;
+    height: 90%;
+    border: solid black 5px;
+    border-radius: 30px;
+    overflow: scroll;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.page
+{
+    scroll-snap-align: start;
+    text-align: center;
+    height: 100%;
+}
+/* ===================================================================== */
+/* Supports */
+.supports-container{
+    height: 70vh;
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom:20px ;
+    margin-top: 20px;
+}
+.support-container{
+    height: 60vh;
+    width: 30%;
+    background: rgb(234,234,234);
+    border-radius: 30px;
+}
+.support-headers{
+font-size: 1rem;
+text-align: center;
+padding-top: 20px;
+}
+/* ===================================================================== */
+/* About */
+.about-container{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height:100vh;
+    border: solid red 5px;
+    margin-bottom:20px ;
+    margin-top: 20px;
+    color: black;
+}
+.about-header{
+
+}
+/* ===================================================================== */
+/* Footer */
+#footer{
+    background:rgb(234,234,234) !important;
+    width: auto !important;
+}
+.footerElement {
+    margin-bottom: 34px;
+    color: black  !important;
+}

@@ -13,6 +13,7 @@ import PrivateRoute from './hocs/PrivateRoute';
 import UserRestrictedRoute from './hocs/UserRestrictedRoute';
 import history from './history';
 import Send from "./pages/NewerPages/Send";
+import Home from "./pages/HomePage/homePage";
 import Landing from "./pages/NewPages/Landing";
 import Media from "./components2/media";
 import NewProfile from "./pages/NewPages/NewProfile";
@@ -34,6 +35,7 @@ function App() {
           <PrivateRoute exact path="/search" component={SearchPage} />
           <PrivateRoute path="/user" component={ProfilePage} />
           <Route exact path={["/weij"]} component={Body} />
+          <Route exact path="/home" component={Home} />
           <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
           <PrivateRoute path={["/send"]} component={Send} />
