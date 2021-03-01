@@ -19,6 +19,7 @@ ul {
     font-family: Best-font;
     display: flex;
     justify-content: center;
+    z-index: 100;
 }
 .nav-container nav{
     height: 100px;
@@ -63,16 +64,32 @@ ul {
 .hero-container{
     height: 80%;
     width: 85%;
-    background-size: cover;
-    background-image: url(https://assets.website-files.com/5fcf9ac604d37418aa70a5ab/600028cbc95ff54c4975b6bd_stacks-meta-poster-00001.jpg);
+    /* background-size: cover;
+    background-image: url(https://assets.website-files.com/5fcf9ac604d37418aa70a5ab/600028cbc95ff54c4975b6bd_stacks-meta-poster-00001.jpg); */
     border-radius: 20px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+}
+#hero-vid {
+    /* video */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    display: initial;
+    /* video */
 }
 .hero-words{
+    /* video */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* video */
     display: flex;
     flex-direction: column;
     justify-content: center;
