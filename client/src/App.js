@@ -21,6 +21,8 @@ import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
 import UserPage from "./pages/NewerPages/UserPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import Home3 from "./pages/HomePage3/homePage";
+import Home2 from "./pages/HomePage2/homePage";
 import Home from "./pages/HomePage/homePage";
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
           <PrivateRoute exact path="/search" component={SearchPage} />
           <PrivateRoute path="/user" component={ProfilePage} />
           <Route exact path={["/weij"]} component={Body} />
+          <Route exact path={["/home3"]} component={Home3} />
+          <Route exact path={["/home2"]} component={Home2} />
           <Route exact path={["/home"]} component={Home} />
           <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
