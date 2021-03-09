@@ -24,6 +24,7 @@ import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 import Home3 from "./pages/HomePage3/homePage";
 import Home2 from "./pages/HomePage2/homePage";
 import Home from "./pages/HomePage/homePage";
+import Sections from "./pages/SectionsPage/sectionsPage";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route exact path={["/home3"]} component={Home3} />
           <Route exact path={["/home2"]} component={Home2} />
           <Route exact path={["/home"]} component={Home} />
+          <Route exact path={["/sections"]} component={Sections} />
           <Route exact path={["/", "/landing"]} component={Landing} />
           <PrivateRoute path={["/send/to/:user"]} component={Send} />
           <PrivateRoute path={["/send"]} component={Send} />
