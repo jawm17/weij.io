@@ -1,0 +1,42 @@
+#profilePage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+#profileHero {
+    width: 100vw;
+    height: 225px;
+    background-color: #efefef;
+    margin-top: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#profileInfo{
+    width: 100vw;
+    height: 200px;
+    background-color: #efefef;
+}
+
+#centerArea {
+    width: 100vw;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#profilePhoto {
+    margin-top: -80px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+#username {
+    font-size: 20px;
+    margin-top: 10px;
+}

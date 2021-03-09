@@ -6,7 +6,7 @@ import Profile from "./pages/NewPages/Profile";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import TreasureHunt from "./pages/TreasureHunt/TreasureHunt";
 import Register from './components/Register';
-import Wallet from "./pages/NewerPages/Wallet";
+import Wallet from "./pages/NewPages/Wallet";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import NoMatchPage from "./pages/NoMatchPage/NoMatchPage.js";
 import PrivateRoute from './hocs/PrivateRoute';
@@ -19,8 +19,7 @@ import NewProfile from "./pages/NewPages/NewProfile";
 import Music from "./pages/NewPages/Music";
 import Games from "./pages/NewPages/Games";
 import Body from "./pages/NewerPages/Body";
-import UserPage from "./pages/NewerPages/UserPage";
-import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import FinalProfile from "./pages/NewPages/FinalProfile";
 import Home3 from "./pages/HomePage3/homePage";
 import Home2 from "./pages/HomePage2/homePage";
 import Home from "./pages/HomePage/homePage";
@@ -33,7 +32,7 @@ function App() {
           <UserRestrictedRoute exact path="/login" component={SignIn} />
           <UserRestrictedRoute exact path="/register" component={Register} />
           <PrivateRoute path="/user/:user" component={ProfilePage} />
-          <PrivateRoute path="/profile" component={NewProfile} />
+          <PrivateRoute path="/profile" component={FinalProfile} />
           <PrivateRoute exact path="/search" component={SearchPage} />
           <PrivateRoute path="/user" component={ProfilePage} />
           <Route exact path={["/weij"]} component={Body} />

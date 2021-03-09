@@ -1,7 +1,8 @@
 #image {
+    /* thumbnail */
     width: 196px;
     height: 260px;
-    background-color: gray;
+    background-color: white;
     border-radius: 8px;
 }
 

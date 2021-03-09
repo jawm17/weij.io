@@ -26,13 +26,17 @@ export default function HeaderMain(props) {
         document.getElementById("walletText").textContent = "Wallet";
     }
 
+    function profileMenu() {
+        
+    }
+
 
     return (
         <div>
             <div id="header">
                     <div className="logoTextBlock">
                         <div className="mainLogoA selectable" onClick={() => history.push("/landing")}>
-                            ethereal
+                            etherplay
                         </div>
                         <div id="mediaLogo" className="selectable" onClick={() => history.push("/landing")}>
                             video
