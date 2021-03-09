@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Player from "./player";
+import HeaderAccessed from "./headerAccessed";
 import history from '../history';
 import "./mediaStyle.css";
 

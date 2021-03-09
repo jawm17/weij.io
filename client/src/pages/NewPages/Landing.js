@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import HeaderDefault from "../../components2/headerDefault";
 import HeaderAccessed from "../../components2/headerAccessed";
 import Row from "../../components2/row";
-import "./LandingStyle.css";
+import "./styles/LandingStyle.css";
 
 export default function Landing() {
     const [posts, setPosts] = useState([]);
@@ -41,7 +41,7 @@ export default function Landing() {
             <HeaderAccessed secured={access}/>
             <div id="landingBg"></div>
             <div className="contentContainer">
-                
+                <div></div>
                 <Row posts={posts}/>
                 <Row posts={posts}/>
                 <Row posts={posts}/>
