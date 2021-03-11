@@ -1,9 +1,10 @@
 .rowTitle {
     position: absolute;
     margin-left: 83px;
-    margin-top: 35px;
+    margin-top: 40px;
     color: gray;
     z-index: 11;
+    font-size: 20px;
 }
 
 .rowTitle:hover {

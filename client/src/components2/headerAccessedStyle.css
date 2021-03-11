@@ -5,9 +5,8 @@
     width: 100vw;
     background-color: white;
     z-index: 100;
-    /* border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px; */
-    overflow-x: scroll;
+    /* border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -68,6 +67,7 @@
     justify-content: center;
     align-items: center;
     color: #8A62E2;
+    background-color: white;
 }
 
 #walletA {

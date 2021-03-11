@@ -10,6 +10,27 @@ html {
     z-index: -1;
 }
 
+#sortTab {
+    position: fixed;
+    width: 80px;
+    height: 22px;
+    background-color: #8A62E2;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    top: 100px;
+    right: 40px;
+    z-index: 1000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sortTab:hover {
+    cursor: pointer;
+}
+
+
 .contentContainer {
     padding-top: 83px;
 }

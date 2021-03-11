@@ -13,12 +13,15 @@
     margin-top: 100px;
     background-repeat: no-repeat;
     background-size: cover;
+    /* border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px; */
 }
 
 #profileInfo{
     width: 100vw;
-    height: 200px;
     background-color: #efefef;
+    font-family: Best-font;
+
 }
 
 #centerArea {
@@ -36,6 +39,7 @@
     height: 120px;
     border-style: solid;
     border-color: #8A62E2;
+    border-width: 2px;
 }
 
 #username {
@@ -52,4 +56,42 @@
 
 #space {
     width: 20px;
+}
+
+#ethEarnedLabel {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#mediaSwitcher {
+    margin-left: 90px;
+    width: 100vw;
+    max-width: 450px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.notSelectedTab {
+   font-size: 20px;
+   border-bottom-style: solid;
+   border-bottom-width: 2px;
+   border-bottom-color: transparent;
+   color: gray;
+}
+
+.selectedTab {
+    font-size: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+} 
+
+.notSelectedTab:hover {
+    cursor: pointer;
+}
+
+.selectedTab:hover {
+    cursor: pointer;
 }

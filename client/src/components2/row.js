@@ -30,7 +30,7 @@ export default function Row(props) {
 
     return (
         <div className="row" id={rowId} onScroll={() => scrollChecker()}>
-                    <h2 className="rowTitle">Popular Content</h2>
+                    <div className="rowTitle">Popular Content</div>
                     <div className="scrollLeft" id={rowId + "Button"} onClick={() => scrollLeft()}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
                     </div>
