@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import MediaPreview from "../components2/mediaPreview";
+import PreviewComponent from "../components2/previewComponent";
 import media from "../videos.json";
 import "./rowStyle.css";
 
@@ -30,7 +31,7 @@ export default function Row(props) {
 
     return (
         <div className="row" id={rowId} onScroll={() => scrollChecker()}>
-                    <h2 className="rowTitle">Popular Content</h2>
+                    <div className="rowTitle">Popular Content</div>
                     <div className="scrollLeft" id={rowId + "Button"} onClick={() => scrollLeft()}>
                         <img src="https://i.ibb.co/G98bbcz/arrow-Right.png" alt="scroll arrow right" className="arrowImgLeft"></img>
                     </div>
@@ -40,7 +41,7 @@ export default function Row(props) {
                     <div className="group">
                         {media.map(video => {
                             if (!video.deleted) {
-                                return <MediaPreview
+                                return <PreviewComponent
                                     key={video.thumb}
                                     id={video.thumb}
                                     imgUrl={video.sources}

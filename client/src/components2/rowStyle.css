@@ -1,22 +1,19 @@
 .rowTitle {
     position: absolute;
     margin-left: 83px;
-    margin-top: 35px;
-    color: gray;
+    margin-top: 40px;
+    color: black;
     z-index: 11;
-}
-
-.rowTitle:hover {
-    cursor: pointer;
-    color: #8A62E2;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .row {
     width: 100vw;
-    height: 290px;
+    /* height: 290px; */
+    height: 350px;
     overflow: auto;
     white-space: nowrap;
-    margin-top: 20px;
     scroll-behavior: smooth;
 }
 

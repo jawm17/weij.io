@@ -41,7 +41,9 @@ export default function Landing() {
             <HeaderAccessed secured={access}/>
             <div id="landingBg"></div>
             <div className="contentContainer">
-                <div></div>
+                <div id="sortTab">
+                    sort
+                </div>
                 <Row posts={posts}/>
                 <Row posts={posts}/>
                 <Row posts={posts}/>
