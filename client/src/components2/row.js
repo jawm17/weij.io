@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import MediaPreview from "../components2/mediaPreview";
+import PreviewComponent from "../components2/previewComponent";
 import media from "../videos.json";
 import "./rowStyle.css";
 
@@ -40,7 +41,7 @@ export default function Row(props) {
                     <div className="group">
                         {media.map(video => {
                             if (!video.deleted) {
-                                return <MediaPreview
+                                return <PreviewComponent
                                     key={video.thumb}
                                     id={video.thumb}
                                     imgUrl={video.sources}

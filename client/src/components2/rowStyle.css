@@ -2,22 +2,18 @@
     position: absolute;
     margin-left: 83px;
     margin-top: 40px;
-    color: gray;
+    color: black;
     z-index: 11;
     font-size: 20px;
-}
-
-.rowTitle:hover {
-    cursor: pointer;
-    color: #8A62E2;
+    font-weight: bold;
 }
 
 .row {
     width: 100vw;
-    height: 290px;
+    /* height: 290px; */
+    height: 350px;
     overflow: auto;
     white-space: nowrap;
-    margin-top: 20px;
     scroll-behavior: smooth;
 }
 
