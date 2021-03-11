@@ -1,0 +1,203 @@
+@font-face {
+    font-family: Best-font;
+    src: url('Monument\ Extended\ Regular\ 400.otf') format('opentype');
+}
+/* padding:10px 5px 15px 20px;
+top padding is 10px
+right padding is 5px
+bottom padding is 15px
+left padding is 20px */
+.new-new-HomeConatiner{
+    font-family: Best-font;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    position: relative;
+}
+#new-logo{
+    position: absolute;
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+.new-new-login-container{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    padding: 40px 0 0 40px;
+}
+.new-new-nav-container{
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    padding: 40px 40px 0 0;
+
+}
+.new-new-developmentInfo-container{
+    position: absolute;
+    width: 10%;
+    height: 10%;    
+    left: 0;
+    bottom: 0;
+    padding: 0 0 40px 40px;
+
+}
+.new-new-contactUs{
+    position: absolute;
+    width: 15%;
+    height: 10%;
+    bottom:7%;
+    right: 5%;
+    padding: 0 0 40px 40px;
+
+}
+/* Music */
+.new-new-MusicConatiner{
+    font-family: Best-font;
+    height: 100vh;
+    background: rgba(198, 76, 255, 0.274);
+    position: relative;
+    color: white;
+}
+.new-hero-MusicContainer{
+    height: 60%;
+    width: 65%;
+    background-size: cover;
+    background-image: url(./gradiant.gif);
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    z-index: 2;
+}
+.new-hero-words{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:10%;
+}
+.new-hero-words p{
+    padding-top: 50px;
+    font-size: 2rem;
+}
+.new-imgContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+.new-img{
+    position: relative;
+    margin: 30px;
+}
+.new-img h1{
+    position: absolute;
+    left: -50px;
+    color: white;
+
+}
+.new-img p{
+    position: absolute;
+    border-radius: 20%;
+    padding: 5px;
+    color: black;
+}
+.new-imgContainer img{
+    width: 250px;
+    border-radius: 25px;
+}
+/* Video */
+.new-new-VideoConatiner{
+    font-family: Best-font;
+    height: 100vh;
+    background:rgba(255, 0, 0, 0.274);
+    position: relative;
+    color: white;
+}
+.new-hero-VideoConatiner{
+    height: 60%;
+    width: 65%;
+    background-size: cover;
+    background-image: url(./video-gradient.gif);
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    z-index: 2;
+}
+/* Games */
+.new-new-GamesConatiner{
+    font-family: Best-font;
+    height: 100vh;
+    background: rgb(29, 29, 29);
+    position: relative;
+    color: white;
+}
+.new-hero-GamesConatiner{
+    height: 60%;
+    width: 65%;
+    background-size: cover;
+    background-image: url(./games.gif);
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    z-index: 2;
+}
+/* About */
+.new-new-AboutContainer{
+    font-family: Best-font;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    position: relative;
+    color: white;
+}
+.new-hero-AboutContainer{
+    height: 60%;
+    width: 65%;
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    z-index: 2;
+}
+/* Main */
+.new-hero{
+    height: 100vh;
+    background-color: transparent;
+    position: relative;
+}
+.new-hero-container{
+    height: 60%;
+    width: 65%;
+    background-size: cover;
+    background-image: url(./main.gif);
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    z-index: 2;
+}
+.hero-words{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero-container h1{
+    font-size: 4rem;
+    width: 60%;
+}
+.hero-container p{
+    font-size: 2.5rem;
+}

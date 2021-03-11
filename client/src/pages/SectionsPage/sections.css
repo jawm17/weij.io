@@ -9,16 +9,21 @@ ul {
 /* ===================================================================== */
 /* Content Container */
 .Content-container {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  font-family: Best-font;
   height: fit-content;
-  width: 100vw;
-  background: black;
+  width: 88%;
+  background: transparent;
   font-family: Best-font;
 }
 /* ===================================================================== */
 /* Music Container */
 .music-container {
-  height: 100vh;
+  height: 80vh;
+  margin-bottom: 100px;
   background: rgb(67, 2, 151);
+  border-radius: 50px;
 }
 .music-content {
   padding: 40px;
@@ -31,7 +36,7 @@ ul {
 .header-container {
   width: 50%;
   font-size: 5rem;
-  height: 30vh;
+  height: 17vh;
   color: rgb(43, 9, 75);
   letter-spacing: 20px;
   display: flex;
@@ -53,6 +58,7 @@ ul {
 .artist-container {
   height: 40%;
   width: 100%;
+
 }
 .artist {
     width: 100%;
@@ -94,6 +100,8 @@ ul {
 .video-container {
   height: 100vh;
   background: rgb(255, 66, 66);
+  margin-bottom: 100px;
+  border-radius: 50px;
 }
 .video-content {
   padding: 40px;
@@ -137,6 +145,8 @@ ul {
 .game-container {
   height: 100vh;
   background: rgb(0, 0, 0);
+  margin-bottom: 100px;
+  border-radius: 50px;
 }
 .game-content {
   padding: 40px;
@@ -169,4 +179,72 @@ ul {
   .game-header-container h1 {
     -webkit-text-stroke: 1px rgb(0, 0, 0);
   }
+}
+
+/* Carousel stufffff f=ff -=-=====-=-=-==-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-==-=-=--=-=-=-= */
+#carouselContainer {
+  width: 940px;
+  height: 200px;
+  position: relative;
+}
+
+.carousel {
+  overflow: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.carouselItem {
+  width: 300px;
+  height: 180px;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-left: 100px;
+  background:white;
+  display: inline-block;
+  background-image: url(./asap.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.carouselItem1{
+  position: relative;
+}
+.carouselItem-name{
+  position: absolute;
+  left: -20px;
+  color: white;
+}
+.carouselItem-description-container{
+  position: relative;
+  width: 100px;
+  background:blue;
+}
+.carouselItem-description{
+  position: absolute;
+  height: 100px;
+  color: white;
+}
+#backwardArrow {
+  position: absolute;
+  z-index: 10;
+  top: 60px;
+  left: 0px;
+  transform: rotate(180deg);
+  height: 40px;
+  width: 40px;
+}
+
+#forwardArrow {
+  position: absolute;
+  z-index: 10;
+  top: 60px;
+  right: 0px;
+  height: 40px;
+  width: 40px;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }

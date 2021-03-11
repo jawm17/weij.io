@@ -31,6 +31,7 @@
     "firebase": "^8.1.2",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "lottie-web": "^5.7.6",
     "mongodb": "^3.5.8",
     "mongoose": "^5.9.15",
     "multer": "^1.4.2",
@@ -38,6 +39,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "react-bodymovin": "^2.0.0",
     "react-icons": "^4.2.0",
     "web3": "^1.2.8"
   }

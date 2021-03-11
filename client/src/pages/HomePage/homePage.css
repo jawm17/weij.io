@@ -86,70 +86,12 @@ ul {
     font-size: 2.5rem;
 }
 /* ===================================================================== */
-/* Content */
-.home-content {
+/* Sections Content */
+.sections-container{
+    display: flex;
+    justify-content: center;
     width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.info-content{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-}
-/* Desktop */
-.desktop-container{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    height: 80vh;
-    border-radius: 30px;
-    margin-right: 20px;
-
-}
-.desktop-content{
-    width: 90%;
-    height: 90%;
-    overflow: scroll;
-    scroll-snap-type: mandatory;
-    scroll-snap-type: y mandatory;
-    padding-bottom: 30px;
-}
-::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
-.page1,.page2,.page3,.page4
-{
-    scroll-snap-align: start;
-    text-align: center;
-    height: 100%;
-    margin-bottom: 20px;
-    border-radius: 30px;
-
-}
-.page1,.page2,.page3,.page4-h1
-{
-    font-size: 1rem;
-    text-align: center;
-    padding-top: 20px;
-    background-repeat: no-repeat;
-}
-.page1{
-    background-size: cover;
-    background: url(https://c4.wallpaperflare.com/wallpaper/482/194/344/simple-background-wallpaper-preview.jpg);
-}
-.page2{
-    background-size: cover;
-    background: url(https://wallpapercave.com/wp/wp3574688.jpg);
-}
-.page3{
-    background-size: cover;
-    background: url(https://assets.website-files.com/5fcf9ac604d37418aa70a5ab/600028cbc95ff54c4975b6bd_stacks-meta-poster-00001.jpg);
-}
-.page4{
-    background-size: cover;
-    background: url(https://www.teahub.io/photos/full/43-439449_blank-wallpaper-iphone-data-src-apple-music-hd.jpg);
+    padding: 100px;
 }
 /* ===================================================================== */
 /* Supports */

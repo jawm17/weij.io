@@ -3,7 +3,7 @@ import "./styles/profileStyle.css";
 import HeaderAccessed from "../../components2/headerAccessed";
 
 export default function FinalProfile() {
-    const [hero, setHero] = useState("https://images-na.ssl-images-amazon.com/images/I/51y6dy0T8sL._AC_SL1000_.jpg");
+    const [hero, setHero] = useState("https://i.ytimg.com/vi/h67BfDOz2EE/maxresdefault.jpg");
 
     // useEffect(() => {
     //    setHero("");
@@ -29,6 +29,17 @@ export default function FinalProfile() {
                         <img id="profilePhoto" src="https://avatars3.githubusercontent.com/u/56066513?s=460&u=2724432d8929c333aea5ea6751128b6db55c747e&v=4" alt="profile avatar"></img>
                         <div id="username">
                             jawm42
+                        </div>
+                        <div id="profileStats">
+                            <div id="followerStats">
+                                200 followers    
+                            </div>
+                            <div id="space">
+
+                            </div>
+                            <div>
+                                3.304 eth earned
+                            </div>
                         </div>
                     </div>
                 </div>

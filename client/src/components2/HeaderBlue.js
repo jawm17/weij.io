@@ -20,7 +20,7 @@ export default function HeaderBlue() {
             <div id="header">
                 <div className="logoTextBlock">
                     <div id="mainLogo" className="mainLogoA selectable" onClick={() => window.location.href = "/landing"}>
-                        etherplay
+                        ethereal
                         </div>
                     <div id="mediaLogo" className="selectable" onClick={() =>window.location.href = "/landing"}>
                         video
